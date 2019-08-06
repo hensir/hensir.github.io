@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="generator" content="Hexo 3.9.0">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.3.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.3.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.3.0">
+  <link rel="mask-icon" href="/images/logo.svg?v=7.3.0" color="#222">
+
+<link rel="stylesheet" href="/css/main.css?v=7.3.0">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.3.0',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    save_scroll: false,
+    copycode: {"enable":false,"show_result":false,"style":null},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: '',
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    }
+  };
+</script>
+
+  <meta name="description" content="本文章为《C Primer Plus第六版》第七章编程练习的答案 第一题1.编写一个程序读取输入，读到#字符停止，然后报告读取的空格数、 换行符数和所有其他字符的数量。 #include &amp;lt;stdio.h&amp;gt; #include &amp;lt;stdlib.h&amp;gt; #include &amp;lt;ctype.h&amp;gt; int main(void) {     char ch;     int n">
+<meta name="keywords" content="C语言,答案">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C-Primer-Puls第七章编程练习答案">
+<meta property="og:url" content="http://yoursite.com/2019/05/19/C-Primer-Puls第七章编程练习答案/index.html">
+<meta property="og:site_name" content="hensir的博客">
+<meta property="og:description" content="本文章为《C Primer Plus第六版》第七章编程练习的答案 第一题1.编写一个程序读取输入，读到#字符停止，然后报告读取的空格数、 换行符数和所有其他字符的数量。 #include &amp;lt;stdio.h&amp;gt; #include &amp;lt;stdlib.h&amp;gt; #include &amp;lt;ctype.h&amp;gt; int main(void) {     char ch;     int n">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-06-05T10:17:57.336Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="C-Primer-Puls第七章编程练习答案">
+<meta name="twitter:description" content="本文章为《C Primer Plus第六版》第七章编程练习的答案 第一题1.编写一个程序读取输入，读到#字符停止，然后报告读取的空格数、 换行符数和所有其他字符的数量。 #include &amp;lt;stdio.h&amp;gt; #include &amp;lt;stdlib.h&amp;gt; #include &amp;lt;ctype.h&amp;gt; int main(void) {     char ch;     int n">
+  <link rel="canonical" href="http://yoursite.com/2019/05/19/C-Primer-Puls第七章编程练习答案/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>C-Primer-Puls第七章编程练习答案 | hensir的博客</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  <div class="container sidebar-position-left">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">hensir的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+      
+      
+      
+        
+        <li class="menu-item menu-item-home">
+      
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-archives">
+      
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+            
+
+          <div id="content" class="content page-post-detail">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/19/C-Primer-Puls第七章编程练习答案/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="hensir">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="hensir的博客">
+    </span>
+      <header class="post-header">
+
+        
+          <h1 class="post-title" itemprop="name headline">C-Primer-Puls第七章编程练习答案
+
+            
+          </h1>
+        
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2019-05-19 20:07:00" itemprop="dateCreated datePublished" datetime="2019-05-19T20:07:00+08:00">2019-05-19</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-06-05 18:17:57" itemprop="dateModified" datetime="2019-06-05T18:17:57+08:00">2019-06-05</time>
+              </span>
+            
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>本文章为《C Primer Plus第六版》第七章编程练习的答案</p>
+<h2 id="第一题"><a href="#第一题" class="headerlink" title="第一题"></a>第一题</h2><p>1.编写一个程序读取输入，读到#字符停止，然后报告读取的空格数、 换行符数和所有其他字符的数量。</p>
+<pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;ctype.h&gt;
+int main(void)
+{
+    char ch;
+    int n_word = 0;
+    int n_space = 0;                        
+    int n_hh = 1;
+    while ((ch  = getchar()) != &apos;#&apos;)        
+    {
+        n_word += 1;
+        if (ch == &apos; &apos;)                        
+        {
+            n_space += 1;
+            continue;                        
+        }                
+        else if (ch == &apos;\n&apos;)
+        {
+            n_hh += 1;
+            continue;
+        }
+    }
+    printf(&quot;这段字符串中有%d个空格，%d个换行符，总共%d个字符&quot;, n_space, n_hh, n_word);
+    return 0;
+}</code></pre><a id="more"></a>
+
+<h2 id="第二题"><a href="#第二题" class="headerlink" title="第二题"></a>第二题</h2><p>2.编写一个程序读取输入，读到#字符停止。程序要打印每个输入的字符以及对应的ASCII码（十进制）。<br>一行打印8个字符。建议 : 使用字符计数 和求模运算符（%）在每8个循环周期时打印一个换行符。</p>
+<pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+int main(void)    
+{
+        char c;            
+        int i = 0;        
+        while ((c = getchar()) != &apos;#&apos;)                    
+        {                                                
+            if (c == &apos;\n&apos;)                                
+                continue;    
+            i++;
+                printf(&quot;%c-%d &quot;, c, c);                    
+            if (i % 8 == 0)
+                printf(&quot;\n&quot;);
+        }
+    return 0;
+}</code></pre><h2 id="第三题"><a href="#第三题" class="headerlink" title="第三题"></a>第三题</h2><p>3.编写一个程序，读取整数直到用户输入0。<br>输入结束后，程序应报告 用户输入的偶数（不包括 0）个数、这些偶数的平均值、输入的奇数个数及 其奇数的平均值。</p>
+<pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#define zero 0
+int main(void)
+{
+    int      num = 0;    //接收指定值
+    int   n_even = 0;    //偶数的个数
+    int even_num = 0;    //偶数的总和
+    int    n_odd = 0;    //奇数的个数
+    int  odd_num = 0;    //奇数的总和
+    //while ((num = getchar()) != &apos;o&apos;)            //不能用getchar 因为它一次只会吃一个字符
+    while (scanf(&quot;%d&quot;, &amp;num), num != zero)
+    {
+        if (num == &apos;\n&apos;)
+            continue;
+        if (num % 2 == 0)
+        {
+            n_even++;            
+            even_num += num;
+            continue;            //提升程序运行速度
+        }
+        else
+        {
+            n_odd++;
+            odd_num += num;
+        }    
+    }
+    //如果没有奇/偶数及数值 那就另作提示
+    if (n_even != 0)
+        printf(&quot;偶数有%3d个 偶数的平均数为%3d\n&quot;, n_even, even_num / n_even);
+    else
+        printf(&quot;没有偶数\n&quot;);
+    if (n_odd != 0)
+        printf(&quot;奇数有%3d个 奇数的平均数为%3d\n&quot;, n_odd, odd_num / n_odd);
+    else
+        printf(&quot;没有奇数\n&quot;);
+    return 0;
+}</code></pre><h2 id="第四题"><a href="#第四题" class="headerlink" title="第四题"></a>第四题</h2><p>4.使用if else语句编写一个程序读取输入，读到#停止。<br>用感叹号替换句 号，用两个感叹号替换原来的感叹号，最后报告进行了多少次替换。</p>
+<pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+int main(void)
+{
+    char ch;
+    int once = 0;
+    while ((ch = getchar()) != &apos;#&apos;)
+    {
+        if (ch == &apos;.&apos;)        
+        {
+            putchar(&apos;!&apos;);
+            once++;
+            continue;
+        }
+        else if (ch == &apos;!&apos;)    
+        {
+            putchar(&apos;!&apos;);
+            putchar(&apos;!&apos;);     
+            once++;
+            continue;
+        }
+        putchar(ch);        
+    }
+    printf(&quot;替换了%d次&quot;, once);
+    return 0;
+}</code></pre><h2 id="第五题"><a href="#第五题" class="headerlink" title="第五题"></a>第五题</h2><p>5.使用switch重写练习4。</p>
+<pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+int main(void)
+{
+    char ch;
+    int one = 0;
+    int two = 0;
+    while ((ch = getchar()) != &apos;#&apos;)
+    {
+        switch (ch)
+        {
+            case &apos;.&apos;:        
+        {
+            putchar(&apos;!&apos;);
+            one++;
+            break;
+        }
+            case &apos;!&apos;:        
+        {
+            putchar(&apos;!&apos;);
+            putchar(&apos;!&apos;);        
+            two++;
+            break;
+        }
+            default:
+            putchar(ch);        
+        }
+    }
+    int once = one + two;
+    printf(&quot;总共替换了%d次\n&quot;, once);
+    printf(&quot;其中 . 符号替换了%d次 ！ 符号替换了%d次\n&quot;,one, two);
+    return 0;
+}</code></pre><h2 id="第六题"><a href="#第六题" class="headerlink" title="第六题"></a>第六题</h2><p>6.编写程序读取输入，读到#停止，报告ei出现的次数。<br>注意该程序要记录前一个字符和当前字符。用“Receive your eieio award”这样的输入来测试</p>
+<pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+int main(void)
+{
+    char ch;
+    char ar;                //ar就是上一个值的载体
+    int fre = 0;
+    while ((ch = getchar()) != &apos;#&apos;)
+    {
+        if (ch == &apos;i&apos; &amp;&amp; ar == &apos;e&apos;)
+            fre++;
+            ar = ch;                //ar不能被立即（覆）赋值 否则它根本无法保存上一个值
+    }
+    printf(&quot;%d&quot;, fre);
+    return 0;
+}</code></pre>
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+        
+        <div class="post-tags">
+            <a href="/tags/C语言/" rel="tag"># C语言</a>
+          
+            <a href="/tags/答案/" rel="tag"># 答案</a>
+          
+        </div>
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+              <a href="/2019/05/18/C-Primer-Puls第六章编程练习答案/" rel="next" title="C-Primer-Puls第六章编程练习答案">
+                <i class="fa fa-chevron-left"></i> C-Primer-Puls第六章编程练习答案
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+              <a href="/2019/08/05/hello-world/" rel="prev" title="Hello World">
+                Hello World <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+  </div>
+
+
+          </div>
+          
+
+
+        </div>
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">hensir</p>
+  <div class="site-description motion-element" itemprop="description"></div>
+</div>
+  <nav class="site-state motion-element">
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">4</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+        
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">标签</span>
+        
+      </div>
+    
+  </nav>
+
+
+
+        </div>
+      </div>
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#第一题"><span class="nav-number">1.</span> <span class="nav-text">第一题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第二题"><span class="nav-number">2.</span> <span class="nav-text">第二题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第三题"><span class="nav-number">3.</span> <span class="nav-text">第三题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第四题"><span class="nav-number">4.</span> <span class="nav-text">第四题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第五题"><span class="nav-number">5.</span> <span class="nav-text">第五题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第六题"><span class="nav-number">6.</span> <span class="nav-text">第六题</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">hensir</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0</div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.3.0</div>
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+      </div>
+
+    
+
+  </div>
+
+  
+  <script src="/lib/jquery/index.js?v=3.4.1"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+<script src="/js/utils.js?v=7.3.0"></script>
+  <script src="/js/motion.js?v=7.3.0"></script>
+
+
+  <script src="/js/affix.js?v=7.3.0"></script>
+  <script src="/js/schemes/pisces.js?v=7.3.0"></script>
+
+
+
+<script src="/js/next-boot.js?v=7.3.0"></script>
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+
+  
+  <script src="/js/scrollspy.js?v=7.3.0"></script>
+<script src="/js/post-details.js?v=7.3.0"></script>
+
+
+</body>
+</html>
