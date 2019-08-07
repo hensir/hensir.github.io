@@ -7,7 +7,7 @@ categories: 代码
 
 
 
-本文章为《C Primer Plus第六版》第七章编程练习的答案
+本章内容为《C Primer Plus第六版》第七章编程练习的答案
 
 
 ## 第一题
