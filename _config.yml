@@ -91,4 +91,3 @@ search:
   field: post
   format: html
   limit: 10000
-  content: false
