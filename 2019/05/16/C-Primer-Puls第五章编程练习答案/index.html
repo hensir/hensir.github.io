@@ -20,6 +20,7 @@
 
 
 <link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+  <link rel="stylesheet" href="/lib/needsharebutton/needsharebutton.css">
   <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
   <link rel="stylesheet" href="/lib/pace/pace-theme-mac-osx.min.css?v=1.0.2">
 
@@ -33,7 +34,7 @@
     sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
     back2top: {"enable":true,"sidebar":true,"scrollpercent":true},
     save_scroll: false,
-    copycode: {"enable":true,"show_result":true,"style":"default"},
+    copycode: {"enable":true,"show_result":true,"style":"flat"},
     fancybox: false,
     mediumzoom: false,
     lazyload: false,
@@ -46,7 +47,7 @@
       labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
     },
     localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true},
-    path: '',
+    path: 'search.xml',
     tabs: false,
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     translation: {
@@ -57,19 +58,19 @@
   };
 </script>
 
-  <meta name="description" content="本文章为《C Primer Plus第六版》第五章编程练习的答案 第一题1.编写一个程序，把用分钟表示的时间转换成用小时和分钟表示的时间。使用#define或const创建一个表示60的符号常量或const变量。通过while 循环让用户重复输入值，直到用户输入小于或等于0的值才停止循环。 #include &amp;lt;stdio.h&amp;gt; #include &amp;lt;stdlib.h&amp;gt; #de">
+  <meta name="description" content="本文章为《C Primer Plus第六版》第五章编程练习的答案 第一题1.编写一个程序，把用分钟表示的时间转换成用小时和分钟表示的时间。使用#define或const创建一个表示60的符号常量或const变量。通过while 循环让用户重复输入值，直到用户输入小于或等于0的值才停止循环。 123456789101112131415#include &amp;lt;stdio.h&amp;gt;#include">
 <meta name="keywords" content="C语言,答案">
 <meta property="og:type" content="article">
 <meta property="og:title" content="C-Primer-Puls第五章编程练习答案">
-<meta property="og:url" content="http://yoursite.com/2019/05/16/C-Primer-Puls第五章编程练习答案/index.html">
+<meta property="og:url" content="https://hensir.top/2019/05/16/C-Primer-Puls第五章编程练习答案/index.html">
 <meta property="og:site_name" content="hensir的博客">
-<meta property="og:description" content="本文章为《C Primer Plus第六版》第五章编程练习的答案 第一题1.编写一个程序，把用分钟表示的时间转换成用小时和分钟表示的时间。使用#define或const创建一个表示60的符号常量或const变量。通过while 循环让用户重复输入值，直到用户输入小于或等于0的值才停止循环。 #include &amp;lt;stdio.h&amp;gt; #include &amp;lt;stdlib.h&amp;gt; #de">
+<meta property="og:description" content="本文章为《C Primer Plus第六版》第五章编程练习的答案 第一题1.编写一个程序，把用分钟表示的时间转换成用小时和分钟表示的时间。使用#define或const创建一个表示60的符号常量或const变量。通过while 循环让用户重复输入值，直到用户输入小于或等于0的值才停止循环。 123456789101112131415#include &amp;lt;stdio.h&amp;gt;#include">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-06-05T10:18:13.197Z">
+<meta property="og:updated_time" content="2019-08-06T13:16:53.766Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="C-Primer-Puls第五章编程练习答案">
-<meta name="twitter:description" content="本文章为《C Primer Plus第六版》第五章编程练习的答案 第一题1.编写一个程序，把用分钟表示的时间转换成用小时和分钟表示的时间。使用#define或const创建一个表示60的符号常量或const变量。通过while 循环让用户重复输入值，直到用户输入小于或等于0的值才停止循环。 #include &amp;lt;stdio.h&amp;gt; #include &amp;lt;stdlib.h&amp;gt; #de">
-  <link rel="canonical" href="http://yoursite.com/2019/05/16/C-Primer-Puls第五章编程练习答案/">
+<meta name="twitter:description" content="本文章为《C Primer Plus第六版》第五章编程练习的答案 第一题1.编写一个程序，把用分钟表示的时间转换成用小时和分钟表示的时间。使用#define或const创建一个表示60的符号常量或const变量。通过while 循环让用户重复输入值，直到用户输入小于或等于0的值才停止循环。 123456789101112131415#include &amp;lt;stdio.h&amp;gt;#include">
+  <link rel="canonical" href="https://hensir.top/2019/05/16/C-Primer-Puls第五章编程练习答案/">
 
 
 <script id="page-configurations">
@@ -166,6 +167,17 @@
       
       
         
+        <li class="menu-item menu-item-tags">
+      
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+      
+      
+      
+        
         <li class="menu-item menu-item-archives">
       
     
@@ -226,11 +238,11 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/16/C-Primer-Puls第五章编程练习答案/">
+    <link itemprop="mainEntityOfPage" href="https://hensir.top/2019/05/16/C-Primer-Puls第五章编程练习答案/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="hensir">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content="Too young,Too simple.<br>Some times naive.">
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
@@ -268,7 +280,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-06-05 18:18:13" itemprop="dateModified" datetime="2019-06-05T18:18:13+08:00">2019-06-05</time>
+                <time title="修改时间：2019-08-06 21:16:53" itemprop="dateModified" datetime="2019-08-06T21:16:53+08:00">2019-08-06</time>
               </span>
             
           
@@ -286,160 +298,35 @@
       
         <p>本文章为《C Primer Plus第六版》第五章编程练习的答案</p>
 <h2 id="第一题"><a href="#第一题" class="headerlink" title="第一题"></a>第一题</h2><p>1.编写一个程序，把用分钟表示的时间转换成用小时和分钟表示的时间。<br>使用#define或const创建一个表示60的符号常量或const变量。<br>通过while 循环让用户重复输入值，直到用户输入小于或等于0的值才停止循环。</p>
-<pre><code>#include &lt;stdio.h&gt;
-#include &lt;stdlib.h&gt;
-#define hour 60
-int main(void)
-{
-    int time;
-    printf(&quot;请输入时间（单位：分钟）&quot;);
-    scanf(&quot;%d&quot;, &amp;time);     
-    while (time &gt; 0)        
-    {
-        printf(&quot;当前时间为%d小时%d分钟\n&quot;, time / hour, time % hour);
-        scanf(&quot;%d&quot;, &amp;time);
-    }
-    return 0;
-}</code></pre><a id="more"></a>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> hour 60</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> time;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"请输入时间（单位：分钟）"</span>);</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;time);     </span><br><span class="line">    <span class="keyword">while</span> (time &gt; <span class="number">0</span>)		</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"当前时间为%d小时%d分钟\n"</span>, time / hour, time % hour);</span><br><span class="line">	    <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;time);</span><br><span class="line">    &#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<a id="more"></a>
 
 <h2 id="第二题"><a href="#第二题" class="headerlink" title="第二题"></a>第二题</h2><p>2.编写一个程序，提示用户输入一个整数，然后打印从该数到比该数大 10的所有整数（例如，用户输入5，则打印5～15的所有整数，包括5和 15）。<br>要求打印的各值之间用一个空格、制表符或换行符分开。</p>
-<pre><code>#include &lt;stdlib.h&gt;
-#include &lt;stdio.h&gt;
-int main(void)
-{
-    int num;
-    printf(&quot;请输入一个整数&quot;);
-    scanf(&quot;%d&quot;, &amp;num);
-    int index = num + 10;
-    while (num &lt;= index)
-    {
-        printf(&quot;%d  &quot;, num);
-        num++;
-    }
-    return 0;
-}</code></pre><h2 id="第三题"><a href="#第三题" class="headerlink" title="第三题"></a>第三题</h2><p>3.编写一个程序，提示用户输入天数，然后将其转换成周数和天数。<br>例如，用户输入18，则转换成2周4天。<br>以下面的格式显示结果：18 days are 2 weeks, 4 days.<br>通过while循环让用户重复输入天数，当用户输入一个非正值时（如0 或 - 20），循环结束。</p>
-<pre><code>#include &lt;stdio.h&gt;
-#include &lt;stdlib.h&gt;
-#define week 7
-int main(void)
-{
-    int days;
-    printf(&quot;请输入天数&quot;);
-    scanf(&quot;%d&quot;, &amp;days);
-    while (days &gt; 0)
-    {
-        printf(&quot;%d转换为%d周%d天&quot;,days, days / week, days % week);
-        scanf(&quot;%d&quot;, &amp;days);
-    }
-    return 0;
-}</code></pre><h2 id="第四题"><a href="#第四题" class="headerlink" title="第四题"></a>第四题</h2><p>4.编写一个程序，提示用户输入一个身高（单位：厘米），并分别以厘米和英寸为单位显示该值，允许有小数部分。<br>程序应该能让用户重复输入身 高，直到用户输入一个非正值。<br>其输出示例如下：<br>    Enter　a　height　in　centimeters : 182<br>    182.0　cm　 = 5　feet, 11.7　inches<br>    Enter　a　height　in　centimeters　(&lt;= 0　to　quit) : 168.7<br>    168.0　cm　 = 5　feet, 6.4　inches<br>    Enter　a　height　in　centimeters　(&lt;= 0　to　quit) : 0<br>    bye</p>
-<pre><code>#include &lt;stdio.h&gt;
-#include &lt;stdlib.h&gt;
-int main(void)                    
-{
-    double cm, inches;
-    int feet;
-    printf(&quot;请输入一个您的身高：\n&quot;);
-    scanf(&quot;%lf&quot;, &amp;cm);
-    while (cm)                                                    
-    {                                                            
-        feet = (int)(cm * 0.0328084);                            
-        printf(&quot;厘米为%.lf\n英寸为%d\n英尺为%.1f\n&quot;, cm, feet, (cm * 0.3937008) - (feet * 12));    
-        printf(&quot;请输入您的身高（&lt; 0 to quit）&quot;);
-        scanf(&quot;%lf&quot;, &amp;cm);
-    }
-    printf(&quot;Byebye!\n&quot;);
-    return 0;
-} </code></pre><h2 id="第五题"><a href="#第五题" class="headerlink" title="第五题"></a>第五题</h2><p>5.修改程序addemup.c（程序清单5.13），你可以认为addemup.c是计算20天里赚多少钱的程序<br>（假设第1天赚$1、第2天赚$2、第3天赚$3，以此类 推）。<br>修改程序，使其可以与用户交互，根据用户输入的数进行计算（即， 用读入的一个变量来代替20）。</p>
-<pre><code>#include &lt;stdio.h&gt;
-#include &lt;stdlib.h&gt;
-int main(void)
-{
-    int count, d20;
-    printf(&quot;请输入第一天所得钱数&quot;);
-    scanf(&quot;%d&quot;, &amp;count);
-    d20 = count + 20;
-    while (count &lt; d20)
-    {
-        printf(&quot;count = %d\n&quot;, count);
-        count++;
-    }
-    printf(&quot;count = %d\n&quot;, count);    
-    return 0;
-}</code></pre><h2 id="第六题"><a href="#第六题" class="headerlink" title="第六题"></a>第六题</h2><p>6.修改编程练习5的程序，使其能计算整数的平方和<br>（可以认为第1天赚 $1、第2天赚$4、第3天赚$9，以此类推，这看起来很不错）。<br>C没有平方函数，但是可以用n * n来表示n的平方。</p>
-<pre><code>#include &lt;stdio.h&gt;
-#include &lt;stdlib.h&gt;
-int main(void)
-{
-    int count, d20;
-    printf(&quot;请输入第一天所得钱数&quot;);
-    scanf(&quot;%d&quot;, &amp;count);
-    d20 = count + 20;
-    while (count &lt; d20)
-    {
-        printf(&quot;count = %d\n&quot;, count * count);  只改了一个参数 就是n * n
-        count++;
-    }
-    printf(&quot;count = %d\n&quot;, count);    
-    return 0;
-}</code></pre><h2 id="第七题"><a href="#第七题" class="headerlink" title="第七题"></a>第七题</h2><p>7.编写一个程序，提示用户输入一个double类型的数，并打印该数的立方值。<br>自己设计一个函数计算并打印立方值。main()函数要把用户输入的值传递给该函数。</p>
-<pre><code>#include &lt;stdio.h&gt;
-#include &lt;stdlib.h&gt;
-int process(double db);
-int main(void)
-{
-    double dl;
-    printf(&quot;请输入一个数值:\n&quot;);
-    scanf(&quot;%lf&quot;, &amp;dl);
-    process(dl);    返回值划不来
-    system(&quot;pause&quot;);
-    return 0;
-}
-int process(double db)
-{
-    printf(&quot;%f\n&quot;, db * db * db);
-    return 0;
-}</code></pre><h2 id="第八题"><a href="#第八题" class="headerlink" title="第八题"></a>第八题</h2><p>8.编写一个程序，显示求模运算的结果。<br>把用户输入的第1个整数作为 求模运算符的第2个运算对象，该数在运算过程中保持不变。<br>用户后面输入的数是第1个运算对象。当用户输入一个非正值时，程序结束。其输出示例 如下：<br> This　program　computes　moduli.<br> Enter　an　integer　to　serve　as　the　second　operand:　256<br> Now　enter　the　first　operand : 438<br> 438 % 256　is　182<br> Enter　next　number　for　first　operand　(&lt;= 0　to　quit) : 1234567<br> 1234567 % 256　is　135<br> Enter　next　number　for　first　operand　(&lt;= 0　to　quit) : 0<br> Done</p>
-<pre><code>#include &lt;stdio.h&gt;
-#include &lt;stdlib.h&gt;
-int main(void)
-{
-    int one, two;
-    printf(&quot;This program computer moduli.\n&quot;);
-    printf(&quot;Enter an integer to serve as the second operand: &quot;);
-    scanf(&quot;%d&quot;, &amp;two);
-    printf(&quot;Now enter the first operand : &quot;);
-    scanf(&quot;%d&quot;, &amp;one);
-    while (one &gt; 0)
-    {
-        printf(&quot;%d %% %d is %d\n&quot;, one, two, one % two);
-        printf(&quot;Enter next number for first operand (&lt;= 0 to quit) : &quot;);
-        scanf(&quot;%d&quot;, &amp;one);
-    }
-    printf(&quot;Done\n&quot;);
-    return 0;
-}</code></pre><h2 id="第九题"><a href="#第九题" class="headerlink" title="第九题"></a>第九题</h2><p>9.编写一个程序，要求用户输入一个华氏温度。<br>程序应读取double类型 的值作为温度值，并把该值作为参数传递给一个用户自定义的函数Temperatures()。<br>该函数计算摄氏温度和开氏温度，并以小数点后面两位数字 的精度显示3种温度。<br>要使用不同的温标来表示这3个温度值。下面是华氏温 度转摄氏温度的公式：<br>摄氏温度 = 5.0 / 9.0 * (华氏温度 - 32.0)<br>开氏温标常用于科学研究，0表示绝对零，代表最低的温度。下面是摄 氏温度转开氏温度的公式：<br>开氏温度 = 摄氏温度 + 273.16<br>Temperatures()函数中用const创建温度转换中使用的变量。<br>在main()函数 中使用一个循环让用户重复输入温度，当用户输入 q 或其他非数字时，循环 结束。<br>scanf()函数返回读取数据的数量，所以如果读取数字则返回1，如果 读取q则不返回1。<br>可以使用 == 运算符将scanf()的返回值和1作比较，测试两值是否相等。</p>
-<pre><code>#include &lt;stdio.h&gt;
-#include &lt;stdlib.h&gt;
-int main9(void)
-{
-    double HS;
-    printf(&quot;请输入一个华氏温度值&quot;);
-    while (scanf(&quot;%lf&quot;, &amp;HS) == 1)            
-    {
-        Temperatures(HS);
-        printf(&quot;请输入一个华氏温度值&quot;);    
-    }                                    
-    printf(&quot;Byebye!\n&quot;);
-    return 0;
-}
-int Temperatures(double HS)    
-{
-    const double SS = 5.0 / 9.0 * (HS - 32.0);
-    const double KS = SS + 273.16;
-    printf(&quot;华氏温度为：%.2lf\n摄氏温度为：%.2lf\n开式温度为：%.2lf\n&quot;,HS,SS,KS);
-    return 0;
-}</code></pre>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> num;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"请输入一个整数"</span>);</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;num);</span><br><span class="line">    <span class="keyword">int</span> index = num + <span class="number">10</span>;</span><br><span class="line">    <span class="keyword">while</span> (num &lt;= index)</span><br><span class="line">	&#123;</span><br><span class="line">	    <span class="built_in">printf</span>(<span class="string">"%d  "</span>, num);</span><br><span class="line">	    num++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="第三题"><a href="#第三题" class="headerlink" title="第三题"></a>第三题</h2><p>3.编写一个程序，提示用户输入天数，然后将其转换成周数和天数。<br>例如，用户输入18，则转换成2周4天。<br>以下面的格式显示结果：18 days are 2 weeks, 4 days.<br>通过while循环让用户重复输入天数，当用户输入一个非正值时（如0 或 - 20），循环结束。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> week 7</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> days;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"请输入天数"</span>);</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;days);</span><br><span class="line">    <span class="keyword">while</span> (days &gt; <span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">	    <span class="built_in">printf</span>(<span class="string">"%d转换为%d周%d天"</span>,days, days / week, days % week);</span><br><span class="line">	    <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;days);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="第四题"><a href="#第四题" class="headerlink" title="第四题"></a>第四题</h2><p>4.编写一个程序，提示用户输入一个身高（单位：厘米），并分别以厘米和英寸为单位显示该值，允许有小数部分。<br>程序应该能让用户重复输入身 高，直到用户输入一个非正值。<br>其输出示例如下：<br>    Enter　a　height　in　centimeters : 182<br>    182.0　cm　 = 5　feet, 11.7　inches<br>    Enter　a　height　in　centimeters　(&lt;= 0　to　quit) : 168.7<br>    168.0　cm　 = 5　feet, 6.4　inches<br>    Enter　a　height　in　centimeters　(&lt;= 0　to　quit) : 0<br>    bye</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span>					</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">double</span> cm, inches;</span><br><span class="line">    <span class="keyword">int</span> feet;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"请输入一个您的身高：\n"</span>);</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%lf"</span>, &amp;cm);</span><br><span class="line">    <span class="keyword">while</span> (cm)													</span><br><span class="line">    &#123;															</span><br><span class="line">        feet = (<span class="keyword">int</span>)(cm * <span class="number">0.0328084</span>);							</span><br><span class="line">	    <span class="built_in">printf</span>(<span class="string">"厘米为%.lf\n英寸为%d\n英尺为%.1f\n"</span>, cm, feet, (cm * <span class="number">0.3937008</span>) - (feet * <span class="number">12</span>));	</span><br><span class="line">	    <span class="built_in">printf</span>(<span class="string">"请输入您的身高（&lt; 0 to quit）"</span>);</span><br><span class="line">	    <span class="built_in">scanf</span>(<span class="string">"%lf"</span>, &amp;cm);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"Byebye!\n"</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="第五题"><a href="#第五题" class="headerlink" title="第五题"></a>第五题</h2><p>5.修改程序addemup.c（程序清单5.13），你可以认为addemup.c是计算20天里赚多少钱的程序<br>（假设第1天赚$1、第2天赚$2、第3天赚$3，以此类 推）。<br>修改程序，使其可以与用户交互，根据用户输入的数进行计算（即， 用读入的一个变量来代替20）。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> count, d20;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"请输入第一天所得钱数"</span>);</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;count);</span><br><span class="line">    d20 = count + <span class="number">20</span>;</span><br><span class="line">    <span class="keyword">while</span> (count &lt; d20)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"count = %d\n"</span>, count);</span><br><span class="line">        count++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"count = %d\n"</span>, count);	</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="第六题"><a href="#第六题" class="headerlink" title="第六题"></a>第六题</h2><p>6.修改编程练习5的程序，使其能计算整数的平方和<br>（可以认为第1天赚 $1、第2天赚$4、第3天赚$9，以此类推，这看起来很不错）。<br>C没有平方函数，但是可以用n * n来表示n的平方。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> count, d20;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"请输入第一天所得钱数"</span>);</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;count);</span><br><span class="line">    d20 = count + <span class="number">20</span>;</span><br><span class="line">    <span class="keyword">while</span> (count &lt; d20)</span><br><span class="line">    &#123;</span><br><span class="line">	    <span class="built_in">printf</span>(<span class="string">"count = %d\n"</span>, count * count);  只改了一个参数 就是n * n</span><br><span class="line">	    count++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"count = %d\n"</span>, count);	</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="第七题"><a href="#第七题" class="headerlink" title="第七题"></a>第七题</h2><p>7.编写一个程序，提示用户输入一个double类型的数，并打印该数的立方值。<br>自己设计一个函数计算并打印立方值。main()函数要把用户输入的值传递给该函数。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">process</span><span class="params">(<span class="keyword">double</span> db)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">double</span> dl;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"请输入一个数值:\n"</span>);</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%lf"</span>, &amp;dl);</span><br><span class="line">    process(dl);    返回值划不来</span><br><span class="line">    system(<span class="string">"pause"</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">process</span><span class="params">(<span class="keyword">double</span> db)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%f\n"</span>, db * db * db);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="第八题"><a href="#第八题" class="headerlink" title="第八题"></a>第八题</h2><p>8.编写一个程序，显示求模运算的结果。<br>把用户输入的第1个整数作为 求模运算符的第2个运算对象，该数在运算过程中保持不变。<br>用户后面输入的数是第1个运算对象。当用户输入一个非正值时，程序结束。其输出示例 如下：<br> This　program　computes　moduli.<br> Enter　an　integer　to　serve　as　the　second　operand:　256<br> Now　enter　the　first　operand : 438<br> 438 % 256　is　182<br> Enter　next　number　for　first　operand　(&lt;= 0　to　quit) : 1234567<br> 1234567 % 256　is　135<br> Enter　next　number　for　first　operand　(&lt;= 0　to　quit) : 0<br> Done</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> one, two;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"This program computer moduli.\n"</span>);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"Enter an integer to serve as the second operand: "</span>);</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;two);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"Now enter the first operand : "</span>);</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;one);</span><br><span class="line">    <span class="keyword">while</span> (one &gt; <span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d %% %d is %d\n"</span>, one, two, one % two);</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"Enter next number for first operand (&lt;= 0 to quit) : "</span>);</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;one);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"Done\n"</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="第九题"><a href="#第九题" class="headerlink" title="第九题"></a>第九题</h2><p>9.编写一个程序，要求用户输入一个华氏温度。<br>程序应读取double类型 的值作为温度值，并把该值作为参数传递给一个用户自定义的函数Temperatures()。<br>该函数计算摄氏温度和开氏温度，并以小数点后面两位数字 的精度显示3种温度。<br>要使用不同的温标来表示这3个温度值。下面是华氏温 度转摄氏温度的公式：<br>摄氏温度 = 5.0 / 9.0 * (华氏温度 - 32.0)<br>开氏温标常用于科学研究，0表示绝对零，代表最低的温度。下面是摄 氏温度转开氏温度的公式：<br>开氏温度 = 摄氏温度 + 273.16<br>Temperatures()函数中用const创建温度转换中使用的变量。<br>在main()函数 中使用一个循环让用户重复输入温度，当用户输入 q 或其他非数字时，循环 结束。<br>scanf()函数返回读取数据的数量，所以如果读取数字则返回1，如果 读取q则不返回1。<br>可以使用 == 运算符将scanf()的返回值和1作比较，测试两值是否相等。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main9</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">double</span> HS;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"请输入一个华氏温度值"</span>);</span><br><span class="line">    <span class="keyword">while</span> (<span class="built_in">scanf</span>(<span class="string">"%lf"</span>, &amp;HS) == <span class="number">1</span>)			</span><br><span class="line">    &#123;</span><br><span class="line">	    Temperatures(HS);</span><br><span class="line">	    <span class="built_in">printf</span>(<span class="string">"请输入一个华氏温度值"</span>);	</span><br><span class="line">    &#125;									</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"Byebye!\n"</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">Temperatures</span><span class="params">(<span class="keyword">double</span> HS)</span>	</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">const</span> <span class="keyword">double</span> SS = <span class="number">5.0</span> / <span class="number">9.0</span> * (HS - <span class="number">32.0</span>);</span><br><span class="line">    <span class="keyword">const</span> <span class="keyword">double</span> KS = SS + <span class="number">273.16</span>;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"华氏温度为：%.2lf\n摄氏温度为：%.2lf\n开式温度为：%.2lf\n"</span>,HS,SS,KS);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
     </div>
 
     
@@ -472,7 +359,7 @@ int Temperatures(double HS)
     <strong>本文作者： </strong>hensir</li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://yoursite.com/2019/05/16/C-Primer-Puls第五章编程练习答案/" title="C-Primer-Puls第五章编程练习答案">http://yoursite.com/2019/05/16/C-Primer-Puls第五章编程练习答案/</a>
+    <a href="https://hensir.top/2019/05/16/C-Primer-Puls第五章编程练习答案/" title="C-Primer-Puls第五章编程练习答案">https://hensir.top/2019/05/16/C-Primer-Puls第五章编程练习答案/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li>
@@ -547,7 +434,7 @@ int Temperatures(double HS)
       src="/images/avatar.gif"
       alt="hensir">
   <p class="site-author-name" itemprop="name">hensir</p>
-  <div class="site-description motion-element" itemprop="description"></div>
+  <div class="site-description motion-element" itemprop="description">Too young,Too simple.<br>Some times naive.</div>
 </div>
   <nav class="site-state motion-element">
       <div class="site-state-item site-state-posts">
@@ -668,6 +555,11 @@ int Temperatures(double HS)
     </footer>
 
     
+  
+<script src="/lib/needsharebutton/needsharebutton.js"></script>
+<script>
+</script>
+
 
   </div>
 
@@ -675,7 +567,7 @@ int Temperatures(double HS)
     
     
   
-  <script color='0,0,255' opacity='0.5' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script color='0,0,255' opacity='0.5' zIndex='-1' count='150' src="/lib/canvas-nest/canvas-nest.min.js"></script>
   <script src="/lib/jquery/index.js?v=3.4.1"></script>
   <script src="/lib/reading_progress/reading_progress.js"></script>
   <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
@@ -698,6 +590,15 @@ int Temperatures(double HS)
 
 
   
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
 
 
 

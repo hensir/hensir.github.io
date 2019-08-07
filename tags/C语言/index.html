@@ -20,6 +20,7 @@
 
 
 <link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+  <link rel="stylesheet" href="/lib/needsharebutton/needsharebutton.css">
   <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
   <link rel="stylesheet" href="/lib/pace/pace-theme-mac-osx.min.css?v=1.0.2">
 
@@ -33,7 +34,7 @@
     sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
     back2top: {"enable":true,"sidebar":true,"scrollpercent":true},
     save_scroll: false,
-    copycode: {"enable":true,"show_result":true,"style":"default"},
+    copycode: {"enable":true,"show_result":true,"style":"flat"},
     fancybox: false,
     mediumzoom: false,
     lazyload: false,
@@ -46,7 +47,7 @@
       labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
     },
     localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true},
-    path: '',
+    path: 'search.xml',
     tabs: false,
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     translation: {
@@ -57,14 +58,17 @@
   };
 </script>
 
-  <meta property="og:type" content="website">
+  <meta name="description" content="Too young,Too simple.Some times naive.">
+<meta property="og:type" content="website">
 <meta property="og:title" content="hensir的博客">
-<meta property="og:url" content="http://yoursite.com/tags/C语言/index.html">
+<meta property="og:url" content="https://hensir.top/tags/C语言/index.html">
 <meta property="og:site_name" content="hensir的博客">
+<meta property="og:description" content="Too young,Too simple.Some times naive.">
 <meta property="og:locale" content="zh-CN">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="hensir的博客">
-  <link rel="canonical" href="http://yoursite.com/tags/C语言/">
+<meta name="twitter:description" content="Too young,Too simple.Some times naive.">
+  <link rel="canonical" href="https://hensir.top/tags/C语言/">
 
 
 <script id="page-configurations">
@@ -161,6 +165,17 @@
       
       
         
+        <li class="menu-item menu-item-tags">
+      
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+      
+      
+      
+        
         <li class="menu-item menu-item-archives">
       
     
@@ -210,6 +225,9 @@
             
 
     
+    
+      
+      
     
       
       
@@ -377,7 +395,7 @@
       src="/images/avatar.gif"
       alt="hensir">
   <p class="site-author-name" itemprop="name">hensir</p>
-  <div class="site-description motion-element" itemprop="description"></div>
+  <div class="site-description motion-element" itemprop="description">Too young,Too simple.<br>Some times naive.</div>
 </div>
   <nav class="site-state motion-element">
       <div class="site-state-item site-state-posts">
@@ -481,6 +499,11 @@
     </footer>
 
     
+  
+<script src="/lib/needsharebutton/needsharebutton.js"></script>
+<script>
+</script>
+
 
   </div>
 
@@ -488,7 +511,7 @@
     
     
   
-  <script color='0,0,255' opacity='0.5' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script color='0,0,255' opacity='0.5' zIndex='-1' count='150' src="/lib/canvas-nest/canvas-nest.min.js"></script>
   <script src="/lib/jquery/index.js?v=3.4.1"></script>
   <script src="/lib/reading_progress/reading_progress.js"></script>
   <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
@@ -511,6 +534,15 @@
 
 
   
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
 
 
 
