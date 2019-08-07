@@ -136,7 +136,7 @@ yandex_site_verification:
 baidu_site_verification:
 
 # Enable baidu push so that the blog will push the url to baidu automatically which is very helpful for SEO.
-baidu_push: false
+baidu_push: true
 
 
 # ---------------------------------------------------------------
@@ -152,7 +152,7 @@ baidu_push: false
 menu:
   home: / || home
   #about: /about/ || user
-  #tags: /tags/ || tags
+  tags: /tags/ || tags
   #categories: /categories/ || th
   archives: /archives/ || archive
   #schedule: /schedule/ || calendar
@@ -368,7 +368,7 @@ post_edit:
 # ---------------------------------------------------------------
 
 # Enable "cheers" for archive page.
-cheers: true
+cheers: false
 
 # TagCloud settings for tags page.
 tagcloud:
@@ -433,7 +433,7 @@ codeblock:
     # Show text copy result.
     show_result: true
     # Available values: default | flat | mac
-    style: default
+    style: flat
 
 # `Follow me on GitHub` banner in the top-right corner.
 github_banner:
@@ -713,13 +713,13 @@ likely:
 # Weibo | Wechat | Douban | QQZone | Twitter | Facebook | Linkedin | Mailto | Reddit | Delicious | StumbleUpon | Pinterest
 # GooglePlus | Tumblr | GoogleBookmarks | Newsvine | Evernote | Friendfeed | Vkontakte | Odnoklassniki | Mailru
 needmoreshare2:
-  enable: false
+  enable: true
   postbottom:
     enable: false
     options:
       iconStyle: box
-      boxForm: horizontal
-      position: bottomCenter
+      boxForm: vertical
+      position: middle
       networks: Weibo,Wechat,Douban,QQZone,Twitter,Facebook
   float:
     enable: false
@@ -987,7 +987,7 @@ canvas_nest:
   color: "0,0,255" # RGB values, use `,` to separate
   opacity: 0.5 # the opacity of line: 0~1
   zIndex: -1 # z-index property of the background
-  count: 99 # the number of lines
+  count: 150 # the number of lines
 
 # Canvas-ribbon
 # Dependencies: https://github.com/theme-next/theme-next-canvas-ribbon

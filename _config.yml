@@ -4,8 +4,8 @@
 
 # Site
 title: hensir的博客
-subtitle:
-description:
+subtitle: 
+description: Too young,Too simple.<br>Some times naive.
 keywords:
 author: hensir
 language: zh-CN
@@ -13,7 +13,7 @@ timezone:
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://yoursite.com
+url: https://hensir.top
 root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:
@@ -81,3 +81,14 @@ deploy:
   type: git
   repo: git@github.com:hensir/hensir.github.io.git
   branch: master
+
+
+# Local search
+## https://github.com/theme-next/hexo-generator-searchdb
+## 这东西依赖本地的一个node组件 但是在“移植”时这个组件并不会被上传
+search:
+  path: search.xml
+  field: post
+  format: html
+  limit: 10000
+  content: false
