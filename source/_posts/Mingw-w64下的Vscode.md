@@ -20,6 +20,8 @@ categories: 教程
 
 ----------
 
+<!--more-->
+
 # Mingw-w64
 
 ## 安装Mingw-w64
@@ -70,7 +72,7 @@ categories: 教程
 ----------
 
 ### 在.vscode文件夹里创建一个名为[launch.json](https://github.com/microsoft/vscode-cpptools/blob/master/launch.md)的文件
- 然后输入以下代码
+ 然后输入以下代码(以下配置皆为VSCode默认生成的模板)
  ```
 {
     // 使用 IntelliSense 了解相关属性。 
@@ -109,7 +111,7 @@ categories: 教程
 
 
 ### 接着还是.vscode文件夹里创建一个名为[tasks.json](https://code.visualstudio.com/docs/editor/tasks#vscode)的文件 
-然后输入以下代码
+然后输入以下代码(以下配置皆为VSCode默认生成的模板)
 ```
 {
 // 有关 tasks.json 格式的文档，请参见
@@ -164,8 +166,14 @@ int main(void)
 ![调试示图](https://s2.ax1x.com/2019/08/07/eo974S.png)
 调试
 
+我把我的工作区压缩包和Mingw-w64压缩包放到了下面这个链接
+
+https://www.lanzous.com/b859892
 
 ----------
+
+
+
 
 
 # 至此，教程结束！
