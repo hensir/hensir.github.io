@@ -17,19 +17,19 @@ categories: 代码
 
 ``` c
 #include <stdio.h>
-#include <stdlib.h>
 #define hour 60
 int main(void)
 {
-    int time;
-    printf("请输入时间（单位：分钟）");
-    scanf("%d", &time);     
-    while (time > 0)		
+    int min;
+    printf("min = (<= 0 to quit)\n");
+    scanf("%d", &min);
+    while (min > 0)
     {
-        printf("当前时间为%d小时%d分钟\n", time / hour, time % hour);
-	    scanf("%d", &time);
+        printf("min = %dh%dmin\n", min / hour, min % hour); //%求余运算符
+        printf("min = (<= 0 to quit)\n");
+        scanf("%d", &min);
     }
-	return 0;
+    return 0;
 }
 ```
 
@@ -40,21 +40,22 @@ int main(void)
 要求打印的各值之间用一个空格、制表符或换行符分开。
 
 ``` c
-#include <stdlib.h>
+
 #include <stdio.h>
 int main(void)
 {
-    int num;
-    printf("请输入一个整数");
+    int num, bigger;
+    printf("number = ");
     scanf("%d", &num);
-    int index = num + 10;
-    while (num <= index)
-	{
-	    printf("%d  ", num);
-	    num++;
+    bigger = num + 10;
+    while (num <= bigger)
+    {
+        printf("%d  ", num);
+        num++;
     }
     return 0;
 }
+
 ```
 
 ## 第三题
@@ -65,52 +66,53 @@ int main(void)
 
 ``` c
 #include <stdio.h>
-#include <stdlib.h>
 #define week 7
 int main(void)
 {
     int days;
-	printf("请输入天数");
+    printf("天数 = (<= 0 to quit)\n");
     scanf("%d", &days);
     while (days > 0)
     {
-	    printf("%d转换为%d周%d天",days, days / week, days % week);
+	    printf("%d天 = %d周0%d天\n",days, days / week, days % week);
+	    printf("天数 = (<= 0 to quit)\n");
 	    scanf("%d", &days);
     }
     return 0;
 }
 ```
 
-    
+
 ## 第四题
 4.编写一个程序，提示用户输入一个身高（单位：厘米），并分别以厘米和英寸为单位显示该值，允许有小数部分。
 程序应该能让用户重复输入身 高，直到用户输入一个非正值。
 其输出示例如下：
-	Enter　a　height　in　centimeters : 182											
+	Enter　a　height　in　centimeters : 182
 	182.0　cm　 = 5　feet, 11.7　inches
 	Enter　a　height　in　centimeters　(<= 0　to　quit) : 168.7
-	168.0　cm　 = 5　feet, 6.4　inches
+	168.0　cm　 = 5　feet, 6.
+    4　inches
 	Enter　a　height　in　centimeters　(<= 0　to　quit) : 0
 	bye
 
 
 ``` c
-#include <stdio.h>
-#include <stdlib.h>
-int main(void)					
+#include <stdio.h>  //1英尺 = 12英寸  1厘米 = 0.0328084英尺  1厘米 = 0.393701英寸
+int main(void)
 {
     double cm, inches;
     int feet;
-    printf("请输入一个您的身高：\n");
+    printf("height = (cm)(<= 0 to quit)");
     scanf("%lf", &cm);
-    while (cm)													
-    {															
-        feet = (int)(cm * 0.0328084);							
-	    printf("厘米为%.lf\n英寸为%d\n英尺为%.1f\n", cm, feet, (cm * 0.3937008) - (feet * 12));	
-	    printf("请输入您的身高（< 0 to quit）");
-	    scanf("%lf", &cm);
+    while (cm)
+    {
+        feet = (int)(cm * 0.0328084);
+        inches = (cm * 0.3937008) - (feet * 12);
+        printf("%.lfcm = %dfeet%.1finches\n", cm, feet, inches);
+        printf("height = (cm)(<= 0 to quit)");
+        scanf("%lf", &cm);
     }
-    printf("Byebye!\n");
+    printf("Bye!\n");
     return 0;
 }
 ```
@@ -118,23 +120,20 @@ int main(void)
 ## 第五题
 5.修改程序addemup.c（程序清单5.13），你可以认为addemup.c是计算20天里赚多少钱的程序
 （假设第1天赚$1、第2天赚$2、第3天赚$3，以此类 推）。
-修改程序，使其可以与用户交互，根据用户输入的数进行计算（即， 用读入的一个变量来代替20）。
+修改程序，使其可以与用户交互，根据用户输入的数进行计算（即，用读入的一个变量来代替20）。
 
 ``` c
 #include <stdio.h>
-#include <stdlib.h>
 int main(void)
 {
-    int count, d20;
-    printf("请输入第一天所得钱数");
-    scanf("%d", &count);
-    d20 = count + 20;
-    while (count < d20)
-    {
-        printf("count = %d\n", count);
-        count++;
-    }
-    printf("count = %d\n", count);	
+    int count, sum, days;
+    count = 0;
+    sum = 0;
+    printf("days = ");
+    scanf("%d", &days);
+    while (count++ < days)
+        sum = sum + count;
+    printf("sum = %d\n", sum);
     return 0;
 }
 ```
@@ -147,19 +146,16 @@ C没有平方函数，但是可以用n * n来表示n的平方。
 
 ``` c
 #include <stdio.h>
-#include <stdlib.h>
 int main(void)
 {
-    int count, d20;
-    printf("请输入第一天所得钱数");
-    scanf("%d", &count);
-    d20 = count + 20;
-    while (count < d20)
-    {
-	    printf("count = %d\n", count * count);  只改了一个参数 就是n * n
-	    count++;
-    }
-    printf("count = %d\n", count);	
+    int count, sum, days;
+    count = 0;
+    sum = 0;
+    printf("days = ");
+    scanf("%d", &days);
+    while (count++ < days)
+        sum = (sum + count * count);
+    printf("sum = %d\n", sum);
     return 0;
 }
 ```
@@ -170,22 +166,21 @@ int main(void)
 
 ``` c
 #include <stdio.h>
-#include <stdlib.h>
-int process(double db);
+int cube(double num);   //声明函数原型
 int main(void)
 {
-    double dl;
-    printf("请输入一个数值:\n");
-    scanf("%lf", &dl);
-    process(dl);    返回值划不来
-    system("pause");
+    double num;
+    printf("number = ");
+    scanf("%lf", &num);
+    cube(num);           //函数调用
     return 0;
 }
-int process(double db)
+int cube(double num)    //该函数的参数为double型num变量
 {
-    printf("%f\n", db * db * db);
-    return 0;
-}
+    printf("%f\n", num * num * num);
+    return 0;           //读者在做到这题时可以试着让cube函数把结果返回给main函数 再由main函数输出
+}                       //当然函数详解在第九章
+
 ```
 
 ## 第八题
@@ -203,26 +198,24 @@ int process(double db)
 
 ``` c
 #include <stdio.h>
-#include <stdlib.h>
 int main(void)
 {
     int one, two;
-    printf("This program computer moduli.\n");
-    printf("Enter an integer to serve as the second operand: ");
+    printf("two = ");
     scanf("%d", &two);
-    printf("Now enter the first operand : ");
+    printf("one = ");
     scanf("%d", &one);
     while (one > 0)
-    {
-        printf("%d %% %d is %d\n", one, two, one % two);
-        printf("Enter next number for first operand (<= 0 to quit) : ");
+    {       //用两个百分号来输出百分号
+        printf("%d %% %d = %d\n", one, two, one % two);
+        printf("two = (<= 0 to quit)");
         scanf("%d", &one);
     }
     printf("Done\n");
     return 0;
 }
 ```
-    
+
 ## 第九题
 9.编写一个程序，要求用户输入一个华氏温度。
 程序应读取double类型 的值作为温度值，并把该值作为参数传递给一个用户自定义的函数Temperatures()。
@@ -238,24 +231,24 @@ scanf()函数返回读取数据的数量，所以如果读取数字则返回1，
 
 ``` c
 #include <stdio.h>
-#include <stdlib.h>
-int main9(void)
+int Temperatures(double Fahrenheit);        //声明函数原型
+int main(void)
 {
-    double HS;
-    printf("请输入一个华氏温度值");
-    while (scanf("%lf", &HS) == 1)			
-    {
-	    Temperatures(HS);
-	    printf("请输入一个华氏温度值");	
-    }									
-    printf("Byebye!\n");
+    double Fahrenheit;
+    printf("Fahrenheit = ");                //scanf的返回值与成功读取的项数成正比
+    while (scanf("%lf", &Fahrenheit) == 1)  //这句意思为：如果（scanf的返回值 == 1）这个表达式成立 则结果为1；
+    {                                       //while为真的具体条件是 紧跟while的关系表达式的结果为 除0以外的所有整数
+        Temperatures(Fahrenheit);
+        printf("Fahrenheit = ");
+    }
+    printf("Bye!\n");
     return 0;
 }
-int Temperatures(double HS)	
+int Temperatures(double Fahrenheit)
 {
-    const double SS = 5.0 / 9.0 * (HS - 32.0);
-    const double KS = SS + 273.16;
-    printf("华氏温度为：%.2lf\n摄氏温度为：%.2lf\n开式温度为：%.2lf\n",HS,SS,KS);
+    const double Celsius = 5.0 / 9.0 * (Fahrenheit - 32.0);
+    const double Kelvin = Celsius + 273.16;
+    printf("%.2lf°F = %.2lf℃ = %.2lfK\n",Fahrenheit,Celsius,Kelvin);
     return 0;
 }
 ```

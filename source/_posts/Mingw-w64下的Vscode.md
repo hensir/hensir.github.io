@@ -18,6 +18,11 @@ categories: 教程
 下载地址为：https://sourceforge.net/projects/mingw-w64/files/mingw-w64/mingw-w64-release/
 ![下载示图](https://s2.ax1x.com/2019/08/07/eIUlVI.png)
 
+我把我的工作区压缩包和Mingw-w64压缩包放到了下面这个链接
+
+https://www.lanzous.com/b859892
+
+
 ----------
 
 <!--more-->
@@ -67,7 +72,7 @@ categories: 教程
 
 ----------
 
-### 如图新建一个名为.vscode的文件夹就行了![创建示图](https://s2.ax1x.com/2019/08/07/eI7xJ0.png) 
+### 如图新建一个名为.vscode的文件夹就行了![创建示图](https://s2.ax1x.com/2019/08/07/eI7xJ0.png)
 
 ----------
 
@@ -75,7 +80,7 @@ categories: 教程
  然后输入以下代码(以下配置皆为VSCode默认生成的模板)
  ```
 {
-    // 使用 IntelliSense 了解相关属性。 
+    // 使用 IntelliSense 了解相关属性。
     // 悬停以查看现有属性的描述。
     // 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
@@ -110,7 +115,7 @@ categories: 教程
 ----------
 
 
-### 接着还是.vscode文件夹里创建一个名为[tasks.json](https://code.visualstudio.com/docs/editor/tasks#vscode)的文件 
+### 接着还是.vscode文件夹里创建一个名为[tasks.json](https://code.visualstudio.com/docs/editor/tasks#vscode)的文件
 然后输入以下代码(以下配置皆为VSCode默认生成的模板)
 ```
 {
@@ -146,7 +151,7 @@ categories: 教程
 ----------
 
 
-# 测试编译和调试功能 
+# 测试编译和调试功能
 新建一个.c文件并在里面输入一些代码 比如helloword
 ``` c
 #include <stdio.h>
@@ -160,15 +165,12 @@ int main(void)
     return 0;
 }
 ```
-
-![编译示图](https://s2.ax1x.com/2019/08/07/eo9oAf.png)
 编译
-![调试示图](https://s2.ax1x.com/2019/08/07/eo974S.png)
+![编译示图](https://s2.ax1x.com/2019/08/07/eo9oAf.png)
 调试
+![调试示图](https://s2.ax1x.com/2019/08/07/eo974S.png)
 
-我把我的工作区压缩包和Mingw-w64压缩包放到了下面这个链接
 
-https://www.lanzous.com/b859892
 
 ----------
 
@@ -177,4 +179,3 @@ https://www.lanzous.com/b859892
 
 
 # 至此，教程结束！
-
