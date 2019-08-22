@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="generator" content="Hexo 3.9.0">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.3.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.3.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.3.0">
+  <link rel="mask-icon" href="/images/logo.svg?v=7.3.0" color="#222">
+
+<link rel="stylesheet" href="/css/main.css?v=7.3.0">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+  <link rel="stylesheet" href="/lib/needsharebutton/needsharebutton.css">
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link rel="stylesheet" href="/lib/pace/pace-theme-mac-osx.min.css?v=1.0.2">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.3.0',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    back2top: {"enable":true,"sidebar":true,"scrollpercent":true},
+    save_scroll: false,
+    copycode: {"enable":true,"show_result":true,"style":"flat"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true},
+    path: 'search.xml',
+    tabs: false,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    }
+  };
+</script>
+
+  <meta name="description" content="本章内容为《C Primer Plus第六版》第二章复习题和编程练习题 复习题1. 指出下面各种数据使用的合适数据类型（有些可使用多种数据类型）：a.East Simpleton的人口b.DVD影碟的价格c.本章出现次数最多的字母d.本章出现次数最多的字母次数">
+<meta name="keywords" content="C语言,题目">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C-Primer-Puls第三章复习题及编程练习">
+<meta property="og:url" content="https://hensir.top/2019/08/22/C-Primer-Puls第三章复习题及编程练习/index.html">
+<meta property="og:site_name" content="hensir的博客">
+<meta property="og:description" content="本章内容为《C Primer Plus第六版》第二章复习题和编程练习题 复习题1. 指出下面各种数据使用的合适数据类型（有些可使用多种数据类型）：a.East Simpleton的人口b.DVD影碟的价格c.本章出现次数最多的字母d.本章出现次数最多的字母次数">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-08-22T06:38:43.953Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="C-Primer-Puls第三章复习题及编程练习">
+<meta name="twitter:description" content="本章内容为《C Primer Plus第六版》第二章复习题和编程练习题 复习题1. 指出下面各种数据使用的合适数据类型（有些可使用多种数据类型）：a.East Simpleton的人口b.DVD影碟的价格c.本章出现次数最多的字母d.本章出现次数最多的字母次数">
+  <link rel="canonical" href="https://hensir.top/2019/08/22/C-Primer-Puls第三章复习题及编程练习/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>C-Primer-Puls第三章复习题及编程练习 | hensir的博客</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  <div class="container sidebar-position-left">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">hensir的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+      
+      
+      
+        
+        <li class="menu-item menu-item-home">
+      
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a href="javascript:;" class="popup-trigger">
+        
+          <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+      </li>
+    
+  </ul>
+
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+    </div>
+</nav>
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+            
+
+          <div id="content" class="content page-post-detail">
+            
+
+  <div id="posts" class="posts-expand">
+    
+    <div class="reading-progress-bar"></div>
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://hensir.top/2019/08/22/C-Primer-Puls第三章复习题及编程练习/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="hensir">
+      <meta itemprop="description" content="Too young,Too simple.<br>Some times naive.">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="hensir的博客">
+    </span>
+      <header class="post-header">
+
+        
+          <h1 class="post-title" itemprop="name headline">C-Primer-Puls第三章复习题及编程练习
+
+            
+          </h1>
+        
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2019-08-22 14:00:00 / 修改时间：14:38:43" itemprop="dateCreated datePublished" datetime="2019-08-22T14:00:00+08:00">2019-08-22</time>
+            </span>
+          
+            
+
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/题目/" itemprop="url" rel="index"><span itemprop="name">题目</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>本章内容为《C Primer Plus第六版》第二章复习题和编程练习题</p>
+<h2 id="复习题"><a href="#复习题" class="headerlink" title="复习题"></a>复习题</h2><h3 id="1-指出下面各种数据使用的合适数据类型（有些可使用多种数据类型）："><a href="#1-指出下面各种数据使用的合适数据类型（有些可使用多种数据类型）：" class="headerlink" title="1. 指出下面各种数据使用的合适数据类型（有些可使用多种数据类型）："></a>1. 指出下面各种数据使用的合适数据类型（有些可使用多种数据类型）：</h3><p>a.East Simpleton的人口<br>b.DVD影碟的价格<br>c.本章出现次数最多的字母<br>d.本章出现次数最多的字母次数</p>
+<a id="more"></a>
+
+<hr>
+<h3 id="2-在什么情况下要用long类型的变量代替int类型的变量？"><a href="#2-在什么情况下要用long类型的变量代替int类型的变量？" class="headerlink" title="2. 在什么情况下要用long类型的变量代替int类型的变量？"></a>2. 在什么情况下要用long类型的变量代替int类型的变量？</h3><hr>
+<h3 id="3-使用哪些可移植的数据类型可以获得32位有符号整数？选择的理由是什么？"><a href="#3-使用哪些可移植的数据类型可以获得32位有符号整数？选择的理由是什么？" class="headerlink" title="3. 使用哪些可移植的数据类型可以获得32位有符号整数？选择的理由是什么？"></a>3. 使用哪些可移植的数据类型可以获得32位有符号整数？选择的理由是什么？</h3><hr>
+<h3 id="4-指出下列常量的类型和含义（如果有的话）："><a href="#4-指出下列常量的类型和含义（如果有的话）：" class="headerlink" title="4. 指出下列常量的类型和含义（如果有的话）："></a>4. 指出下列常量的类型和含义（如果有的话）：</h3><p>a.’\b’<br>b.1066<br>c.99.44<br>d.0XAA<br>e.2.0e30</p>
+<hr>
+<h3 id="5-Dottie-Cawm编写了一个程序，请找出程序中的错误。"><a href="#5-Dottie-Cawm编写了一个程序，请找出程序中的错误。" class="headerlink" title="5. Dottie Cawm编写了一个程序，请找出程序中的错误。"></a>5. Dottie Cawm编写了一个程序，请找出程序中的错误。</h3><pre><code>include &lt;stdio.h&gt;
+main (
+float g; h;
+floatg = e21;
+tax = rate*g;
+)</code></pre><hr>
+<h3 id="6-写出下列常量在声明中使用的数据类型和在printf-中对应的转换说明："><a href="#6-写出下列常量在声明中使用的数据类型和在printf-中对应的转换说明：" class="headerlink" title="6. 写出下列常量在声明中使用的数据类型和在printf()中对应的转换说明："></a>6. 写出下列常量在声明中使用的数据类型和在printf()中对应的转换说明：</h3><table>
+<thead>
+<tr>
+<th>常量</th>
+<th>类型</th>
+<th>转换说明（%转换字符）</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>12</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>0X3</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>‘c’</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>2.34E07</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>‘\040’</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>7.0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>6L</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>6.0f</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>0x5.b6p12</td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<hr>
+<h3 id="7-写出下列常量在声明中使用的数据类型和在printf-中对应的转换说明-（假设int为16位）："><a href="#7-写出下列常量在声明中使用的数据类型和在printf-中对应的转换说明-（假设int为16位）：" class="headerlink" title="7. 写出下列常量在声明中使用的数据类型和在printf()中对应的转换说明 （假设int为16位）："></a>7. 写出下列常量在声明中使用的数据类型和在printf()中对应的转换说明 （假设int为16位）：</h3><table>
+<thead>
+<tr>
+<th>常量</th>
+<th>类型</th>
+<th>转换说明（%转换字符）</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>012</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>2.9e05L</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>‘s’</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>100000</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>‘\n’</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>20.0f</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>0x44</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>-40</td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<hr>
+<h3 id="8-假设程序的开头有下列声明："><a href="#8-假设程序的开头有下列声明：" class="headerlink" title="8. 假设程序的开头有下列声明："></a>8. 假设程序的开头有下列声明：</h3><pre><code>int imate = 2;
+long shot = 53456;
+char grade = &apos;A&apos;;
+float log = 2.71828;</code></pre><p>把下面printf()语句中的转换字符补充完整：</p>
+<pre><code>printf(&quot;The odds against the %__ were %__ to 1.\n&quot;, imate, shot);
+printf(&quot;A score of %__ is not an %__ grade.\n&quot;, log, grade);</code></pre><hr>
+<h3 id="9-假设ch是char类型的变量。分别使用转义序列、十进制值、八进制字符常量和十六进制字符常量把回车字符赋给ch（假设使用ASCII编码值）。"><a href="#9-假设ch是char类型的变量。分别使用转义序列、十进制值、八进制字符常量和十六进制字符常量把回车字符赋给ch（假设使用ASCII编码值）。" class="headerlink" title="9. 假设ch是char类型的变量。分别使用转义序列、十进制值、八进制字符常量和十六进制字符常量把回车字符赋给ch（假设使用ASCII编码值）。"></a>9. 假设ch是char类型的变量。分别使用转义序列、十进制值、八进制字符常量和十六进制字符常量把回车字符赋给ch（假设使用ASCII编码值）。</h3><hr>
+<h3 id="10-修正下面的程序（在C中，-表示除以）。"><a href="#10-修正下面的程序（在C中，-表示除以）。" class="headerlink" title="10. 修正下面的程序（在C中，/表示除以）。"></a>10. 修正下面的程序（在C中，/表示除以）。</h3><pre><code>void main(int)  /this program is perfect /
+{
+cows, legs integer;
+printf(&quot;How many cow legs did you count?\n); scanf(&quot;%c&quot;,legs);
+cows = legs / 4; printf(&quot;That
+implies there are %f cows.\n&quot;, cows)
+}</code></pre><hr>
+<h3 id="11-指出下列转义序列的含义："><a href="#11-指出下列转义序列的含义：" class="headerlink" title="11. 指出下列转义序列的含义："></a>11. 指出下列转义序列的含义：</h3><pre><code>a.\n
+b.\\
+c.\&quot;
+d.\t</code></pre><hr>
+<h2 id="编程练习"><a href="#编程练习" class="headerlink" title="编程练习"></a>编程练习</h2><h3 id="1-通过试验（即编写带有此类问题的程序）观察系统如何处理整数上溢、浮点数上溢和浮点数下溢的情况。"><a href="#1-通过试验（即编写带有此类问题的程序）观察系统如何处理整数上溢、浮点数上溢和浮点数下溢的情况。" class="headerlink" title="1. 通过试验（即编写带有此类问题的程序）观察系统如何处理整数上溢、浮点数上溢和浮点数下溢的情况。"></a>1. 通过试验（即编写带有此类问题的程序）观察系统如何处理整数上溢、浮点数上溢和浮点数下溢的情况。</h3><hr>
+<h3 id="2-编写一个程序，要求提示输入一个ASCII码值（如，66），然后打印输入的字符。"><a href="#2-编写一个程序，要求提示输入一个ASCII码值（如，66），然后打印输入的字符。" class="headerlink" title="2. 编写一个程序，要求提示输入一个ASCII码值（如，66），然后打印输入的字符。"></a>2. 编写一个程序，要求提示输入一个ASCII码值（如，66），然后打印输入的字符。</h3><hr>
+<h3 id="3-编写一个程序，发出一声警报，然后打印下面的文本："><a href="#3-编写一个程序，发出一声警报，然后打印下面的文本：" class="headerlink" title="3. 编写一个程序，发出一声警报，然后打印下面的文本："></a>3. 编写一个程序，发出一声警报，然后打印下面的文本：</h3><pre><code>Startled by the sudden sound,
+Sally shouted, &quot;By the Great Pumpkin, what was that!&quot;</code></pre><hr>
+<h3 id="4-编写一个程序，读取一个浮点数，先打印成小数点形式，再打印成指数形式。然后，如果系统支持，再打印成p记数法（即十六进制记数法）。-按以下格式输出（实际显示的指数位数因系统而异）："><a href="#4-编写一个程序，读取一个浮点数，先打印成小数点形式，再打印成指数形式。然后，如果系统支持，再打印成p记数法（即十六进制记数法）。-按以下格式输出（实际显示的指数位数因系统而异）：" class="headerlink" title="4. 编写一个程序，读取一个浮点数，先打印成小数点形式，再打印成指数形式。然后，如果系统支持，再打印成p记数法（即十六进制记数法）。 按以下格式输出（实际显示的指数位数因系统而异）："></a>4. 编写一个程序，读取一个浮点数，先打印成小数点形式，再打印成指数形式。然后，如果系统支持，再打印成p记数法（即十六进制记数法）。 按以下格式输出（实际显示的指数位数因系统而异）：</h3><pre><code>Enter a floating-point value: 64.25
+fixed-point notation: 64.250000
+exponential notation: 6.425000e+01
+p notation: 0x1.01p+6</code></pre><hr>
+<h3 id="5-一年大约有3-156×107秒。编写一个程序，提示用户输入年龄，然后显示该年龄对应的秒数。"><a href="#5-一年大约有3-156×107秒。编写一个程序，提示用户输入年龄，然后显示该年龄对应的秒数。" class="headerlink" title="5. 一年大约有3.156×107秒。编写一个程序，提示用户输入年龄，然后显示该年龄对应的秒数。"></a>5. 一年大约有3.156×107秒。编写一个程序，提示用户输入年龄，然后显示该年龄对应的秒数。</h3><hr>
+<h3 id="6-1个水分子的质量约为3-0×10−23克。1夸脱水大约是950克。编写一个程序，提示用户输入水的夸脱数，并显示水分子的数量。"><a href="#6-1个水分子的质量约为3-0×10−23克。1夸脱水大约是950克。编写一个程序，提示用户输入水的夸脱数，并显示水分子的数量。" class="headerlink" title="6. 1个水分子的质量约为3.0×10−23克。1夸脱水大约是950克。编写一个程序，提示用户输入水的夸脱数，并显示水分子的数量。"></a>6. 1个水分子的质量约为3.0×10−23克。1夸脱水大约是950克。编写一个程序，提示用户输入水的夸脱数，并显示水分子的数量。</h3><hr>
+<h3 id="7-1英寸相当于2-54厘米。编写一个程序，提示用户输入身高（-英寸），然后以厘米为单位显示身高。"><a href="#7-1英寸相当于2-54厘米。编写一个程序，提示用户输入身高（-英寸），然后以厘米为单位显示身高。" class="headerlink" title="7. 1英寸相当于2.54厘米。编写一个程序，提示用户输入身高（/英寸），然后以厘米为单位显示身高。"></a>7. 1英寸相当于2.54厘米。编写一个程序，提示用户输入身高（/英寸），然后以厘米为单位显示身高。</h3><hr>
+<h3 id="8-在美国的体积测量系统中，1品脱等于2杯，1杯等于8盎司，1盎司等于2大汤勺，1大汤勺等于3茶勺。编写一个程序，提示用户输入杯数，并以品脱、盎司、汤勺、茶勺为单位显示等价容量。思考对于该程序，为何使用-浮点类型比整数类型更合适？"><a href="#8-在美国的体积测量系统中，1品脱等于2杯，1杯等于8盎司，1盎司等于2大汤勺，1大汤勺等于3茶勺。编写一个程序，提示用户输入杯数，并以品脱、盎司、汤勺、茶勺为单位显示等价容量。思考对于该程序，为何使用-浮点类型比整数类型更合适？" class="headerlink" title="8. 在美国的体积测量系统中，1品脱等于2杯，1杯等于8盎司，1盎司等于2大汤勺，1大汤勺等于3茶勺。编写一个程序，提示用户输入杯数，并以品脱、盎司、汤勺、茶勺为单位显示等价容量。思考对于该程序，为何使用 浮点类型比整数类型更合适？"></a>8. 在美国的体积测量系统中，1品脱等于2杯，1杯等于8盎司，1盎司等于2大汤勺，1大汤勺等于3茶勺。编写一个程序，提示用户输入杯数，并以品脱、盎司、汤勺、茶勺为单位显示等价容量。思考对于该程序，为何使用 浮点类型比整数类型更合适？</h3>
+    </div>
+
+    
+    
+    
+    
+      <div>
+        <div id="reward-container">
+  <div>祝您身体健康！！！</div>
+  <button id="reward-button" disable="enable" onclick="var qr = document.getElementById(&quot;qr&quot;); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+        
+      
+      <div style="display: inline-block">
+        <img src="/images/wechatpay.png" alt="hensir 微信支付">
+        <p>微信支付</p>
+      </div>
+
+  </div>
+</div>
+
+      </div>
+      <div>
+        
+
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>hensir</li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://hensir.top/2019/08/22/C-Primer-Puls第三章复习题及编程练习/" title="C-Primer-Puls第三章复习题及编程练习">https://hensir.top/2019/08/22/C-Primer-Puls第三章复习题及编程练习/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li>
+</ul>
+
+      </div>
+
+    <footer class="post-footer">
+          
+        
+        <div class="post-tags">
+            <a href="/tags/C语言/" rel="tag"># C语言</a>
+          
+            <a href="/tags/题目/" rel="tag"># 题目</a>
+          
+        </div>
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+              <a href="/2019/08/22/C-Primer-Puls第二章复习题及编程练习/" rel="next" title="C-Primer-Puls第二章复习题及编程练习">
+                <i class="fa fa-chevron-left"></i> C-Primer-Puls第二章复习题及编程练习
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+          </div>
+        </div>
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+  </div>
+
+
+          </div>
+          
+
+
+        </div>
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image"
+      src="/images/avatar.gif"
+      alt="hensir">
+  <p class="site-author-name" itemprop="name">hensir</p>
+  <div class="site-description motion-element" itemprop="description">Too young,Too simple.<br>Some times naive.</div>
+</div>
+  <nav class="site-state motion-element">
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives">
+        
+          <span class="site-state-item-count">6</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-categories">
+        
+          
+            <a href="/categories/">
+          
+        
+        
+        
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">分类</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+          
+            <a href="/tags/">
+          
+        
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">标签</span>
+        </a>
+      </div>
+    
+  </nav>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://github.com/hensir" title="GitHub &rarr; https://github.com/hensir" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="mailto:v34666@outlook.com" title="E-Mail &rarr; mailto:v34666@outlook.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+    
+  </div>
+  <div class="cc-license motion-element" itemprop="license">
+    
+  
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+
+        </div>
+      </div>
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#复习题"><span class="nav-number">1.</span> <span class="nav-text">复习题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-指出下面各种数据使用的合适数据类型（有些可使用多种数据类型）："><span class="nav-number">1.1.</span> <span class="nav-text">1. 指出下面各种数据使用的合适数据类型（有些可使用多种数据类型）：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-在什么情况下要用long类型的变量代替int类型的变量？"><span class="nav-number">1.2.</span> <span class="nav-text">2. 在什么情况下要用long类型的变量代替int类型的变量？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-使用哪些可移植的数据类型可以获得32位有符号整数？选择的理由是什么？"><span class="nav-number">1.3.</span> <span class="nav-text">3. 使用哪些可移植的数据类型可以获得32位有符号整数？选择的理由是什么？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-指出下列常量的类型和含义（如果有的话）："><span class="nav-number">1.4.</span> <span class="nav-text">4. 指出下列常量的类型和含义（如果有的话）：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-Dottie-Cawm编写了一个程序，请找出程序中的错误。"><span class="nav-number">1.5.</span> <span class="nav-text">5. Dottie Cawm编写了一个程序，请找出程序中的错误。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-写出下列常量在声明中使用的数据类型和在printf-中对应的转换说明："><span class="nav-number">1.6.</span> <span class="nav-text">6. 写出下列常量在声明中使用的数据类型和在printf()中对应的转换说明：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-写出下列常量在声明中使用的数据类型和在printf-中对应的转换说明-（假设int为16位）："><span class="nav-number">1.7.</span> <span class="nav-text">7. 写出下列常量在声明中使用的数据类型和在printf()中对应的转换说明 （假设int为16位）：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-假设程序的开头有下列声明："><span class="nav-number">1.8.</span> <span class="nav-text">8. 假设程序的开头有下列声明：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-假设ch是char类型的变量。分别使用转义序列、十进制值、八进制字符常量和十六进制字符常量把回车字符赋给ch（假设使用ASCII编码值）。"><span class="nav-number">1.9.</span> <span class="nav-text">9. 假设ch是char类型的变量。分别使用转义序列、十进制值、八进制字符常量和十六进制字符常量把回车字符赋给ch（假设使用ASCII编码值）。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#10-修正下面的程序（在C中，-表示除以）。"><span class="nav-number">1.10.</span> <span class="nav-text">10. 修正下面的程序（在C中，/表示除以）。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#11-指出下列转义序列的含义："><span class="nav-number">1.11.</span> <span class="nav-text">11. 指出下列转义序列的含义：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#编程练习"><span class="nav-number">2.</span> <span class="nav-text">编程练习</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-通过试验（即编写带有此类问题的程序）观察系统如何处理整数上溢、浮点数上溢和浮点数下溢的情况。"><span class="nav-number">2.1.</span> <span class="nav-text">1. 通过试验（即编写带有此类问题的程序）观察系统如何处理整数上溢、浮点数上溢和浮点数下溢的情况。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-编写一个程序，要求提示输入一个ASCII码值（如，66），然后打印输入的字符。"><span class="nav-number">2.2.</span> <span class="nav-text">2. 编写一个程序，要求提示输入一个ASCII码值（如，66），然后打印输入的字符。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-编写一个程序，发出一声警报，然后打印下面的文本："><span class="nav-number">2.3.</span> <span class="nav-text">3. 编写一个程序，发出一声警报，然后打印下面的文本：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-编写一个程序，读取一个浮点数，先打印成小数点形式，再打印成指数形式。然后，如果系统支持，再打印成p记数法（即十六进制记数法）。-按以下格式输出（实际显示的指数位数因系统而异）："><span class="nav-number">2.4.</span> <span class="nav-text">4. 编写一个程序，读取一个浮点数，先打印成小数点形式，再打印成指数形式。然后，如果系统支持，再打印成p记数法（即十六进制记数法）。 按以下格式输出（实际显示的指数位数因系统而异）：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-一年大约有3-156×107秒。编写一个程序，提示用户输入年龄，然后显示该年龄对应的秒数。"><span class="nav-number">2.5.</span> <span class="nav-text">5. 一年大约有3.156×107秒。编写一个程序，提示用户输入年龄，然后显示该年龄对应的秒数。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-1个水分子的质量约为3-0×10−23克。1夸脱水大约是950克。编写一个程序，提示用户输入水的夸脱数，并显示水分子的数量。"><span class="nav-number">2.6.</span> <span class="nav-text">6. 1个水分子的质量约为3.0×10−23克。1夸脱水大约是950克。编写一个程序，提示用户输入水的夸脱数，并显示水分子的数量。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-1英寸相当于2-54厘米。编写一个程序，提示用户输入身高（-英寸），然后以厘米为单位显示身高。"><span class="nav-number">2.7.</span> <span class="nav-text">7. 1英寸相当于2.54厘米。编写一个程序，提示用户输入身高（/英寸），然后以厘米为单位显示身高。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-在美国的体积测量系统中，1品脱等于2杯，1杯等于8盎司，1盎司等于2大汤勺，1大汤勺等于3茶勺。编写一个程序，提示用户输入杯数，并以品脱、盎司、汤勺、茶勺为单位显示等价容量。思考对于该程序，为何使用-浮点类型比整数类型更合适？"><span class="nav-number">2.8.</span> <span class="nav-text">8. 在美国的体积测量系统中，1品脱等于2杯，1杯等于8盎司，1盎司等于2大汤勺，1大汤勺等于3茶勺。编写一个程序，提示用户输入杯数，并以品脱、盎司、汤勺、茶勺为单位显示等价容量。思考对于该程序，为何使用 浮点类型比整数类型更合适？</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">hensir</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0</div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.3.0</div>
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+  
+<script src="/lib/needsharebutton/needsharebutton.js"></script>
+<script>
+</script>
+
+
+  </div>
+
+  
+    
+    
+  
+  <script color='0,0,255' opacity='0.5' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/jquery/index.js?v=3.4.1"></script>
+  <script src="/lib/reading_progress/reading_progress.js"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+<script src="/js/utils.js?v=7.3.0"></script>
+  <script src="/js/motion.js?v=7.3.0"></script>
+
+
+  <script src="/js/affix.js?v=7.3.0"></script>
+  <script src="/js/schemes/pisces.js?v=7.3.0"></script>
+
+
+
+<script src="/js/next-boot.js?v=7.3.0"></script>
+
+
+
+
+
+
+  
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <script src="/js/local-search.js?v=7.3.0"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+
+  
+  <script src="/js/scrollspy.js?v=7.3.0"></script>
+<script src="/js/post-details.js?v=7.3.0"></script>
+
+
+</body>
+</html>
