@@ -12,32 +12,25 @@ categories: 代码
 
 ## 第一题
 
-1.编写一个程序读取输入，读到#字符停止，然后报告读取的空格数、 换行符数和所有其他字符的数量。
+1.编写一个程序读取输入，读到#字符停止，然后报告读取的空格数、换行符数和所有其他字符的数量。
 
 ``` c
 #include <stdio.h>
-#include <ctype.h>
 int main(void)
 {
     char ch;
-    int n_word = 0;
-    int n_space = 0;
-    int n_hh = 1;
+    int word = 0;
+    int space = 0;
+    int LF = 1;
     while ((ch = getchar()) != '#')
     {
-        n_word += 1;
+        word += 1;
         if (ch == ' ')
-        {
-            n_space += 1;
-            continue;
-        }
+            space += 1;
         else if (ch == '\n')
-        {
-            n_hh += 1;
-            continue;
-        }
+            LF += 1;
     }
-    printf("这段字符串中有%d个空格，%d个换行符，总共%d个字符", n_space, n_hh, n_word);
+    printf("这段字符串中有%d个空格，%d个换行符，总共%d个字符", space, LF, word);
     return 0;
 }
 ```
