@@ -161,6 +161,28 @@
     <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
 
   </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-tags">
+      
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-categories">
+      
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
       <li class="menu-item menu-item-search">
         <a href="javascript:;" class="popup-trigger">
         
@@ -212,6 +234,226 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://hensir.top/2019/08/31/C-Primer-Puls第四章复习题及编程练习 /">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="hensir">
+      <meta itemprop="description" content="Too young,Too simple.<br>Some times naive.">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="hensir的博客">
+    </span>
+      <header class="post-header">
+
+        
+          <h1 class="post-title" itemprop="name headline">
+              
+              <a href="/2019/08/31/C-Primer-Puls第四章复习题及编程练习 /" class="post-title-link" itemprop="url">C-Primer-Puls第四章复习题及编程练习</a>
+            
+          </h1>
+        
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2019-08-31 11:00:00 / 修改时间：15:11:00" itemprop="dateCreated datePublished" datetime="2019-08-31T11:00:00+08:00">2019-08-31</time>
+            </span>
+          
+            
+
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/C语言/" itemprop="url" rel="index"><span itemprop="name">C语言</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>本章内容为《C Primer Plus第六版》第四章复习题和编程练习题</p>
+<h2 id="复习题"><a href="#复习题" class="headerlink" title="复习题"></a>复习题</h2><h3 id="第一题"><a href="#第一题" class="headerlink" title="第一题"></a>第一题</h3><ol>
+<li>再次运行程序清单 4.1，但是在要求输入名时，请输入名和姓（根据英文书写习惯，名和姓中间有一个空格），看看会发生什么情况？为什么？<br>程序清单4.1：<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt;     // 提供strlen()函数的原型</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> DENSITY 62.4    <span class="comment">// 人体密度（单位：磅/立方英尺）</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">float</span> weight, volume;</span><br><span class="line">    <span class="keyword">int</span> size, letters;</span><br><span class="line">    <span class="keyword">char</span> name[<span class="number">40</span>];      <span class="comment">// name是一个可容纳40个字符的数组</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"Hi! What's your first name?\n"</span>);</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%s"</span>, name);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%s, what's your weight in pounds?\n"</span>, name);</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%f"</span>, &amp;weight);</span><br><span class="line">    size = <span class="keyword">sizeof</span> name;</span><br><span class="line">    letters = <span class="built_in">strlen</span>(name);</span><br><span class="line">    volume = weight / DENSITY;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"Well, %s, your volume is %2.2f cubic feet.\n"</span>, name, volume);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"Also, your first name has %d letters,\n"</span>, letters);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"and we have %d bytes to store it.\n"</span>, size);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/08/31/C-Primer-Puls第四章复习题及编程练习 /#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+      
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://hensir.top/2019/08/24/C-Primer-Puls第九章复习题及编程练习/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="hensir">
+      <meta itemprop="description" content="Too young,Too simple.<br>Some times naive.">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="hensir的博客">
+    </span>
+      <header class="post-header">
+
+        
+          <h1 class="post-title" itemprop="name headline">
+              
+              <a href="/2019/08/24/C-Primer-Puls第九章复习题及编程练习/" class="post-title-link" itemprop="url">C-Primer-Puls第九章复习题及编程练习</a>
+            
+          </h1>
+        
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2019-08-24 13:50:00" itemprop="dateCreated datePublished" datetime="2019-08-24T13:50:00+08:00">2019-08-24</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-08-31 15:00:10" itemprop="dateModified" datetime="2019-08-31T15:00:10+08:00">2019-08-31</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/C语言/" itemprop="url" rel="index"><span itemprop="name">C语言</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>本章内容为《C Primer Plus第六版》第九章复习题和编程练习题</p>
+<h2 id="复习题"><a href="#复习题" class="headerlink" title="复习题"></a>复习题</h2><h3 id="第一题"><a href="#第一题" class="headerlink" title="第一题"></a>第一题</h3><ol>
+<li>实际参数和形式参数的区别是什么？</li>
+</ol>
+<hr>
+<h3 id="第二题"><a href="#第二题" class="headerlink" title="第二题"></a>第二题</h3><ol start="2">
+<li>根据下面各函数的描述，分别编写它们的ANSI C函数头。注意，只需写出函数头，不用写函数体。<br> a.donut()接受一个int类型的参数，打印若干（参数指定数目）个0<br> b.gear()接受两个int类型的参数，返回int类型的值<br> c.guess()不接受参数，返回一个int类型的值<br> d.stuff_it()接受一个double类型的值和double类型变量的地址，把第1个值储存在指定位置</li>
+</ol>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/08/24/C-Primer-Puls第九章复习题及编程练习/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+      
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://hensir.top/2019/08/22/C-Primer-Puls第三章复习题及编程练习/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -244,11 +486,19 @@
                 
               
 
-              <time title="创建时间：2019-08-22 14:00:00 / 修改时间：14:38:43" itemprop="dateCreated datePublished" datetime="2019-08-22T14:00:00+08:00">2019-08-22</time>
+              <time title="创建时间：2019-08-22 14:00:00" itemprop="dateCreated datePublished" datetime="2019-08-22T14:00:00+08:00">2019-08-22</time>
             </span>
           
             
 
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-08-31 15:14:00" itemprop="dateModified" datetime="2019-08-31T15:14:00+08:00">2019-08-31</time>
+              </span>
             
           
             <span class="post-meta-item">
@@ -257,7 +507,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/题目/" itemprop="url" rel="index"><span itemprop="name">题目</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/C语言/" itemprop="url" rel="index"><span itemprop="name">C语言</span></a></span>
 
                 
                 
@@ -276,8 +526,10 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>本章内容为《C Primer Plus第六版》第二章复习题和编程练习题</p>
-<h2 id="复习题"><a href="#复习题" class="headerlink" title="复习题"></a>复习题</h2><h3 id="1-指出下面各种数据使用的合适数据类型（有些可使用多种数据类型）："><a href="#1-指出下面各种数据使用的合适数据类型（有些可使用多种数据类型）：" class="headerlink" title="1. 指出下面各种数据使用的合适数据类型（有些可使用多种数据类型）："></a>1. 指出下面各种数据使用的合适数据类型（有些可使用多种数据类型）：</h3><p>a.East Simpleton的人口<br>b.DVD影碟的价格<br>c.本章出现次数最多的字母<br>d.本章出现次数最多的字母次数</p>
+          <p>本章内容为《C Primer Plus第六版》第三章复习题和编程练习题</p>
+<h2 id="复习题"><a href="#复习题" class="headerlink" title="复习题"></a>复习题</h2><h3 id="第一题"><a href="#第一题" class="headerlink" title="第一题"></a>第一题</h3><ol>
+<li>指出下面各种数据使用的合适数据类型（有些可使用多种数据类型）：<br>a.East Simpleton的人口<br>b.DVD影碟的价格<br>c.本章出现次数最多的字母<br>d.本章出现次数最多的字母次数</li>
+</ol>
           <!--noindex-->
           
             <div class="post-button text-center">
@@ -345,11 +597,19 @@
                 
               
 
-              <time title="创建时间：2019-08-22 13:00:00 / 修改时间：14:04:34" itemprop="dateCreated datePublished" datetime="2019-08-22T13:00:00+08:00">2019-08-22</time>
+              <time title="创建时间：2019-08-22 13:00:00" itemprop="dateCreated datePublished" datetime="2019-08-22T13:00:00+08:00">2019-08-22</time>
             </span>
           
             
 
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-08-31 15:17:26" itemprop="dateModified" datetime="2019-08-31T15:17:26+08:00">2019-08-31</time>
+              </span>
             
           
             <span class="post-meta-item">
@@ -358,7 +618,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/题目/" itemprop="url" rel="index"><span itemprop="name">题目</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/C语言/" itemprop="url" rel="index"><span itemprop="name">C语言</span></a></span>
 
                 
                 
@@ -378,9 +638,13 @@
 
       
           <p>本章内容为《C Primer Plus第六版》第二章复习题和编程练习题</p>
-<h2 id="复习题"><a href="#复习题" class="headerlink" title="复习题"></a>复习题</h2><h3 id="1-C语言的基本模块是什么？"><a href="#1-C语言的基本模块是什么？" class="headerlink" title="1. C语言的基本模块是什么？"></a>1. C语言的基本模块是什么？</h3><hr>
-<h3 id="2-什么是语法错误？写出一个英语例子和C语言例子。"><a href="#2-什么是语法错误？写出一个英语例子和C语言例子。" class="headerlink" title="2. 什么是语法错误？写出一个英语例子和C语言例子。"></a>2. 什么是语法错误？写出一个英语例子和C语言例子。</h3><hr>
-<h3 id="3-什么是语义错误？写出一个英语例子和C语言例子。"><a href="#3-什么是语义错误？写出一个英语例子和C语言例子。" class="headerlink" title="3. 什么是语义错误？写出一个英语例子和C语言例子。"></a>3. 什么是语义错误？写出一个英语例子和C语言例子。</h3>
+<h2 id="复习题"><a href="#复习题" class="headerlink" title="复习题"></a>复习题</h2><h3 id="第一题"><a href="#第一题" class="headerlink" title="第一题"></a>第一题</h3><ol>
+<li>C语言的基本模块是什么？</li>
+</ol>
+<hr>
+<h3 id="第二题"><a href="#第二题" class="headerlink" title="第二题"></a>第二题</h3><ol start="2">
+<li>什么是语法错误？写出一个英语例子和C语言例子。</li>
+</ol>
           <!--noindex-->
           
             <div class="post-button text-center">
@@ -543,7 +807,7 @@
         
           <h1 class="post-title" itemprop="name headline">
               
-              <a href="/2019/05/19/C-Primer-Puls第七章编程练习答案/" class="post-title-link" itemprop="url">C-Primer-Puls第七章编程练习答案</a>
+              <a href="/2019/05/19/C-Primer-Puls第七章编程练习答案/" class="post-title-link" itemprop="url">C-Primer-Puls第七章复习题目和编程练习题的答案</a>
             
           </h1>
         
@@ -570,7 +834,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-08-22 13:40:18" itemprop="dateModified" datetime="2019-08-22T13:40:18+08:00">2019-08-22</time>
+                <time title="修改时间：2019-08-31 14:45:12" itemprop="dateModified" datetime="2019-08-31T14:45:12+08:00">2019-08-31</time>
               </span>
             
           
@@ -580,7 +844,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/代码/" itemprop="url" rel="index"><span itemprop="name">代码</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/C语言/" itemprop="url" rel="index"><span itemprop="name">C语言</span></a></span>
 
                 
                 
@@ -599,9 +863,10 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>本章内容为《C Primer Plus第六版》第七章编程练习的答案</p>
-<h2 id="第一题"><a href="#第一题" class="headerlink" title="第一题"></a>第一题</h2><p>1.编写一个程序读取输入，读到#字符停止，然后报告读取的空格数、换行符数和所有其他字符的数量。</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">char</span> ch;</span><br><span class="line">    <span class="keyword">int</span> word = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> space = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> LF = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span> ((ch = getchar()) != <span class="string">'#'</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        word += <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">if</span> (ch == <span class="string">' '</span>)</span><br><span class="line">            space += <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (ch == <span class="string">'\n'</span>)</span><br><span class="line">            LF += <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"这段字符串中有%d个空格，%d个换行符，总共%d个字符"</span>, space, LF, word);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          <p>本章内容为《C Primer Plus第六版》第七章复习题目和编程练习题的答案</p>
+<h2 id="复习题"><a href="#复习题" class="headerlink" title="复习题"></a>复习题</h2><h3 id="第一题"><a href="#第一题" class="headerlink" title="第一题"></a>第一题</h3><ol>
+<li>判断下列表达式是true还是false。<br>a 100 &gt; 3 &amp;&amp; ‘a’&gt;’c’<br>b 100 &gt; 3 || ‘a’&gt;’c’<br>c !(100&gt;3)</li>
+</ol>
           <!--noindex-->
           
             <div class="post-button text-center">
@@ -653,7 +918,7 @@
         
           <h1 class="post-title" itemprop="name headline">
               
-              <a href="/2019/05/18/C-Primer-Puls第六章编程练习答案/" class="post-title-link" itemprop="url">C-Primer-Puls第六章编程练习答案</a>
+              <a href="/2019/05/18/C-Primer-Puls第六章编程练习答案/" class="post-title-link" itemprop="url">C-Primer-Puls第六章复习题目和编程练习题的答案</a>
             
           </h1>
         
@@ -680,7 +945,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-08-22 13:40:12" itemprop="dateModified" datetime="2019-08-22T13:40:12+08:00">2019-08-22</time>
+                <time title="修改时间：2019-08-31 14:50:52" itemprop="dateModified" datetime="2019-08-31T14:50:52+08:00">2019-08-31</time>
               </span>
             
           
@@ -690,7 +955,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/代码/" itemprop="url" rel="index"><span itemprop="name">代码</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/C语言/" itemprop="url" rel="index"><span itemprop="name">C语言</span></a></span>
 
                 
                 
@@ -709,9 +974,12 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>本章内容为《C Primer Plus第六版》第六章编程练习的答案</p>
-<h2 id="第一题"><a href="#第一题" class="headerlink" title="第一题"></a>第一题</h2><p>1.编写一个程序，创建一个包含26个元素的数组，并在其中储存26个小写字母。然后打印数组的所有内容。</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> index;</span><br><span class="line">    <span class="keyword">char</span> Letter;</span><br><span class="line">    <span class="keyword">char</span> <span class="built_in">array</span>[<span class="number">26</span>];</span><br><span class="line">    <span class="keyword">for</span> (index = <span class="number">0</span>,Letter = <span class="string">'a'</span>; index &lt; <span class="number">26</span>; index++,Letter++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">array</span>[index] = Letter;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">" %c"</span>, <span class="built_in">array</span>[index]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          <p>本章内容为《C Primer Plus第六版》第六章复习题目和编程练习题的答案</p>
+<h2 id="复习题"><a href="#复习题" class="headerlink" title="复习题"></a>复习题</h2><h3 id="第一题"><a href="#第一题" class="headerlink" title="第一题"></a>第一题</h3><ol>
+<li>写出执行完下列各行后quack的值是多少。后5行中使用的是第1行quack的值。<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> quack = <span class="number">2</span>;</span><br><span class="line">quack += <span class="number">5</span>;</span><br><span class="line">quack *= <span class="number">10</span>;</span><br><span class="line">quack -= <span class="number">6</span>;</span><br><span class="line">quack /= <span class="number">8</span>;</span><br><span class="line">quack %= <span class="number">3</span>;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
           <!--noindex-->
           
             <div class="post-button text-center">
@@ -763,7 +1031,7 @@
         
           <h1 class="post-title" itemprop="name headline">
               
-              <a href="/2019/05/16/C-Primer-Puls第五章编程练习答案/" class="post-title-link" itemprop="url">C-Primer-Puls第五章编程练习答案</a>
+              <a href="/2019/05/16/C-Primer-Puls第五章编程练习答案/" class="post-title-link" itemprop="url">C-Primer-Puls第五章复习题目和编程练习题的答案</a>
             
           </h1>
         
@@ -790,7 +1058,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-08-22 13:40:29" itemprop="dateModified" datetime="2019-08-22T13:40:29+08:00">2019-08-22</time>
+                <time title="修改时间：2019-08-31 14:45:02" itemprop="dateModified" datetime="2019-08-31T14:45:02+08:00">2019-08-31</time>
               </span>
             
           
@@ -800,7 +1068,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/代码/" itemprop="url" rel="index"><span itemprop="name">代码</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/C语言/" itemprop="url" rel="index"><span itemprop="name">C语言</span></a></span>
 
                 
                 
@@ -819,9 +1087,10 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>本章内容为《C Primer Plus第六版》第五章编程练习的答案</p>
-<h2 id="第一题"><a href="#第一题" class="headerlink" title="第一题"></a>第一题</h2><p>1.编写一个程序，把用分钟表示的时间转换成用小时和分钟表示的时间。<br>使用#define或const创建一个表示60的符号常量或const变量。<br>通过while 循环让用户重复输入值，直到用户输入小于或等于0的值才停止循环。</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> hour 60</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> min;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"min = (&lt;= 0 to quit)\n"</span>);</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;min);</span><br><span class="line">    <span class="keyword">while</span> (min &gt; <span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"min = %dh%dmin\n"</span>, min / hour, min % hour); <span class="comment">//%求余运算符</span></span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"min = (&lt;= 0 to quit)\n"</span>);</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;min);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          <p>本章内容为《C Primer Plus第六版》第五章复习题目和编程练习题的答案</p>
+<h2 id="复习题"><a href="#复习题" class="headerlink" title="复习题"></a>复习题</h2><h3 id="第一题"><a href="#第一题" class="headerlink" title="第一题"></a>第一题</h3><ol>
+<li>假设所有变量的类型都是int，下列各项变量的值是多少：<br>a.x = (2 + 3) * 6;<br>b.x = (12 + 6)/2<em>3;<br>c.y = x = (2 + 3)/4;<br>d.y = 3 + 2</em>(x = 7/2);</li>
+</ol>
           <!--noindex-->
           
             <div class="post-button text-center">
@@ -887,7 +1156,7 @@
         
           <a href="/archives">
         
-          <span class="site-state-item-count">6</span>
+          <span class="site-state-item-count">8</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -906,9 +1175,7 @@
         
           
         
-          
-        
-        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-count">2</span>
         <span class="site-state-item-name">分类</span>
         </a>
       </div>
@@ -931,9 +1198,7 @@
         
           
         
-          
-        
-        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-count">4</span>
         <span class="site-state-item-name">标签</span>
         </a>
       </div>
