@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="generator" content="Hexo 3.9.0">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.3.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.3.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.3.0">
+  <link rel="mask-icon" href="/images/logo.svg?v=7.3.0" color="#222">
+
+<link rel="stylesheet" href="/css/main.css?v=7.3.0">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+  <link rel="stylesheet" href="/lib/needsharebutton/needsharebutton.css">
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link rel="stylesheet" href="/lib/pace/pace-theme-mac-osx.min.css?v=1.0.2">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.3.0',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    back2top: {"enable":true,"sidebar":true,"scrollpercent":true},
+    save_scroll: false,
+    copycode: {"enable":true,"show_result":true,"style":"flat"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true},
+    path: 'search.xml',
+    tabs: false,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    }
+  };
+</script>
+
+  <meta name="description" content="本章内容为《C Primer Plus第六版》第四章复习题和编程练习题 复习题第一题 再次运行程序清单 4.1，但是在要求输入名时，请输入名和姓（根据英文书写习惯，名和姓中间有一个空格），看看会发生什么情况？为什么？程序清单4.1：1234567891011121314151617181920#include &amp;lt;stdio.h&amp;gt;#include &amp;lt;string.h&amp;gt;">
+<meta name="keywords" content="题目">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C-Primer-Puls第四章复习题目和编程练习题目">
+<meta property="og:url" content="https://hensir.top/2019/08/31/C-Primer-Puls第四章复习题目和编程练习题目/index.html">
+<meta property="og:site_name" content="hensir的博客">
+<meta property="og:description" content="本章内容为《C Primer Plus第六版》第四章复习题和编程练习题 复习题第一题 再次运行程序清单 4.1，但是在要求输入名时，请输入名和姓（根据英文书写习惯，名和姓中间有一个空格），看看会发生什么情况？为什么？程序清单4.1：1234567891011121314151617181920#include &amp;lt;stdio.h&amp;gt;#include &amp;lt;string.h&amp;gt;">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-09-01T03:03:08.430Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="C-Primer-Puls第四章复习题目和编程练习题目">
+<meta name="twitter:description" content="本章内容为《C Primer Plus第六版》第四章复习题和编程练习题 复习题第一题 再次运行程序清单 4.1，但是在要求输入名时，请输入名和姓（根据英文书写习惯，名和姓中间有一个空格），看看会发生什么情况？为什么？程序清单4.1：1234567891011121314151617181920#include &amp;lt;stdio.h&amp;gt;#include &amp;lt;string.h&amp;gt;">
+  <link rel="canonical" href="https://hensir.top/2019/08/31/C-Primer-Puls第四章复习题目和编程练习题目/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>C-Primer-Puls第四章复习题目和编程练习题目 | hensir的博客</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  <div class="container sidebar-position-left">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">hensir的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+      
+      
+      
+        
+        <li class="menu-item menu-item-home">
+      
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-tags">
+      
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-categories">
+      
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a href="javascript:;" class="popup-trigger">
+        
+          <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+      </li>
+    
+  </ul>
+
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+    </div>
+</nav>
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+            
+
+          <div id="content" class="content page-post-detail">
+            
+
+  <div id="posts" class="posts-expand">
+    
+    <div class="reading-progress-bar"></div>
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://hensir.top/2019/08/31/C-Primer-Puls第四章复习题目和编程练习题目/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="hensir">
+      <meta itemprop="description" content="Too young,Too simple.<br>Some times naive.">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="hensir的博客">
+    </span>
+      <header class="post-header">
+
+        
+          <h1 class="post-title" itemprop="name headline">C-Primer-Puls第四章复习题目和编程练习题目
+
+            
+          </h1>
+        
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2019-08-31 11:00:00" itemprop="dateCreated datePublished" datetime="2019-08-31T11:00:00+08:00">2019-08-31</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-09-01 11:03:08" itemprop="dateModified" datetime="2019-09-01T11:03:08+08:00">2019-09-01</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/C语言/" itemprop="url" rel="index"><span itemprop="name">C语言</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>本章内容为《C Primer Plus第六版》第四章复习题和编程练习题</p>
+<h2 id="复习题"><a href="#复习题" class="headerlink" title="复习题"></a>复习题</h2><h3 id="第一题"><a href="#第一题" class="headerlink" title="第一题"></a>第一题</h3><ol>
+<li>再次运行程序清单 4.1，但是在要求输入名时，请输入名和姓（根据英文书写习惯，名和姓中间有一个空格），看看会发生什么情况？为什么？<br>程序清单4.1：<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt;     // 提供strlen()函数的原型</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> DENSITY 62.4    <span class="comment">// 人体密度（单位：磅/立方英尺）</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">float</span> weight, volume;</span><br><span class="line">    <span class="keyword">int</span> size, letters;</span><br><span class="line">    <span class="keyword">char</span> name[<span class="number">40</span>];      <span class="comment">// name是一个可容纳40个字符的数组</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"Hi! What's your first name?\n"</span>);</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%s"</span>, name);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%s, what's your weight in pounds?\n"</span>, name);</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%f"</span>, &amp;weight);</span><br><span class="line">    size = <span class="keyword">sizeof</span> name;</span><br><span class="line">    letters = <span class="built_in">strlen</span>(name);</span><br><span class="line">    volume = weight / DENSITY;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"Well, %s, your volume is %2.2f cubic feet.\n"</span>, name, volume);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"Also, your first name has %d letters,\n"</span>, letters);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"and we have %d bytes to store it.\n"</span>, size);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<a id="more"></a>
+
+<hr>
+<h3 id="第二题"><a href="#第二题" class="headerlink" title="第二题"></a>第二题</h3><ol start="2">
+<li>假设下列示例都是完整程序中的一部分，它们打印的结果分别是什么？<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">a.<span class="built_in">printf</span>(<span class="string">"He sold the painting for $%2.2f.\n"</span>, <span class="number">2.345e2</span>);</span><br><span class="line">b.printf("%c%c%c\n", 'H', 105, '\41');</span><br><span class="line">c.<span class="meta">#<span class="meta-keyword">define</span> Q <span class="meta-string">"His Hamlet was funny without being vulgar."</span>printf(<span class="meta-string">"%s\nhas %dcharacters.\n"</span>, Q, strlen(Q));</span></span><br><span class="line">d.<span class="built_in">printf</span>(<span class="string">"Is %2.2e the same as %2.2f?\n"</span>, <span class="number">1201.0</span>, <span class="number">1201.0</span>);</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<hr>
+<h3 id="第三题"><a href="#第三题" class="headerlink" title="第三题"></a>第三题</h3><ol start="3">
+<li>在第2题的c中，要输出包含双引号的字符串Q，应如何修改？</li>
+</ol>
+<hr>
+<h3 id="第四题"><a href="#第四题" class="headerlink" title="第四题"></a>第四题</h3><ol start="4">
+<li>找出下面程序中的错误。<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">define B booboo</span><br><span class="line">define X <span class="number">10</span></span><br><span class="line">main(<span class="keyword">int</span>)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">int</span> age;</span><br><span class="line">    <span class="keyword">char</span> name;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"Please enter your first name."</span>);</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%s"</span>, name);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"All right, %c, what's your age?\n"</span>, name);</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%f"</span>, age);</span><br><span class="line">    xp = age + X;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"That's a %s! You must be at least %d.\n"</span>, B, xp);</span><br><span class="line">    rerun <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<hr>
+<h3 id="第五题"><a href="#第五题" class="headerlink" title="第五题"></a>第五题</h3><ol start="5">
+<li><p>假设一个程序的开头是这样：</p>
+<pre><code>#define BOOK &quot;War and Peace&quot;
+int main(void)
+{
+    float cost =12.99;
+    float percent = 80.0;</code></pre><p>请构造一个使用BOOK、cost和percent的printf()语句，打印以下内容：</p>
+<pre><code>This copy of &quot;War and Peace&quot; sells for $12.99.
+That is 80% of list.</code></pre></li>
+</ol>
+<hr>
+<h3 id="第六题"><a href="#第六题" class="headerlink" title="第六题"></a>第六题</h3><ol start="6">
+<li>打印下列各项内容要分别使用什么转换说明？<br>a.一个字段宽度与位数相同的十进制整数<br>b.一个形如8A、字段宽度为4的十六进制整数<br>c.一个形如232.346、字段宽度为10的浮点数<br>d.一个形如2.33e+002、字段宽度为12的浮点数<br>e.一个字段宽度为30、左对齐的字符串</li>
+</ol>
+<hr>
+<h3 id="第七题"><a href="#第七题" class="headerlink" title="第七题"></a>第七题</h3><ol start="7">
+<li>打印下面各项内容要分别使用什么转换说明？<br>a.字段宽度为15的unsigned long类型的整数<br>b.一个形如0x8a、字段宽度为4的十六进制整数<br>c.一个形如2.33E+02、字段宽度为12、左对齐的浮点数<br>d.一个形如+232.346、字段宽度为10的浮点数<br>e.一个字段宽度为8的字符串的前8个字符</li>
+</ol>
+<hr>
+<h3 id="第八题"><a href="#第八题" class="headerlink" title="第八题"></a>第八题</h3><ol start="8">
+<li>打印下面各项内容要分别使用什么转换说明？<br>a.一个字段宽度为6、最少有4位数字的十进制整数<br>b.一个在参数列表中给定字段宽度的八进制整数<br>c.一个字段宽度为2的字符<br>d.一个形如+3.13、字段宽度等于数字中字符数的浮点数<br>e.一个字段宽度为7、左对齐字符串中的前5个字符</li>
+</ol>
+<hr>
+<h3 id="第九题"><a href="#第九题" class="headerlink" title="第九题"></a>第九题</h3><ol start="9">
+<li>分别写出读取下列各输入行的scanf()语句，并声明语句中用到变量和数组。<br>a.101<br>b.22.32 8.34E−09<br>c.linguini<br>d.catch 22 e.catch 22 （但是跳过catch）</li>
+</ol>
+<hr>
+<h3 id="第十题"><a href="#第十题" class="headerlink" title="第十题"></a>第十题</h3><ol start="10">
+<li>什么是空白？</li>
+</ol>
+<hr>
+<h3 id="第十一题"><a href="#第十一题" class="headerlink" title="第十一题"></a>第十一题</h3><ol start="11">
+<li>下面的语句有什么问题？如何修正？<pre><code>printf(&quot;The double type is %z bytes..\n&quot;, sizeof(double));</code></pre></li>
+</ol>
+<hr>
+<h3 id="第十二题"><a href="#第十二题" class="headerlink" title="第十二题"></a>第十二题</h3><ol start="12">
+<li><p>假设要在程序中用圆括号代替花括号，以下方法是否可行？</p>
+<pre><code>#define ( {
+#define ) }</code></pre></li>
+</ol>
+<hr>
+<h2 id="编程练习"><a href="#编程练习" class="headerlink" title="编程练习"></a>编程练习</h2><h3 id="第一题-1"><a href="#第一题-1" class="headerlink" title="第一题"></a>第一题</h3><ol>
+<li>编写一个程序，提示用户输入名和姓，然后以“名,姓”的格式打印出来。</li>
+</ol>
+<hr>
+<h3 id="第二题-1"><a href="#第二题-1" class="headerlink" title="第二题"></a>第二题</h3><ol start="2">
+<li>编写一个程序，提示用户输入名和姓，并执行一下操作：<br>a.打印名和姓，包括双引号；<br>b.在宽度为20的字段右端打印名和姓，包括双引号；<br>c.在宽度为20的字段左端打印名和姓，包括双引号；<br>d.在比姓名宽度宽3的字段中打印名和姓。</li>
+</ol>
+<hr>
+<h3 id="第三题-1"><a href="#第三题-1" class="headerlink" title="第三题"></a>第三题</h3><ol start="3">
+<li>编写一个程序，读取一个浮点数，首先以小数点记数法打印，然后以指数记数法打印。用下面的格式进行输出（系统不同，指数记数法显示的位 数可能不同）：<br>a.输入21.3或2.1e+001；<br>b.输入+21.290或2.129E+001；</li>
+</ol>
+<hr>
+<h3 id="第四题-1"><a href="#第四题-1" class="headerlink" title="第四题"></a>第四题</h3><ol start="4">
+<li>编写一个程序，提示用户输入身高（单位：英寸）和姓名，然后以下面的格式显示用户刚输入的信息：<br>Dabney, you are 6.208 feet tall<br>使用float类型，并用/作为除号。如果你愿意，可以要求用户以厘米为单位输入身高，并以米为单位显示出来。</li>
+</ol>
+<hr>
+<h3 id="第五题-1"><a href="#第五题-1" class="headerlink" title="第五题"></a>第五题</h3><ol start="5">
+<li>编写一个程序，提示用户输入以兆位每秒（Mb/s）为单位的下载速度和以兆字节（MB）为单位的文件大小。程序中应计算文件的下载时间。注 意，这里1字节等于8位。使用float类型，并用/作为除号。该程序要以下面 的格式打印 3 个变量的值（下载速度、文件大小和下载时间），显示小数点后面两位数字： At 18.12 megabits per second, a file of 2.20 megabytes downloads in 0.97 seconds.</li>
+</ol>
+<hr>
+<h3 id="第六题-1"><a href="#第六题-1" class="headerlink" title="第六题"></a>第六题</h3><ol start="6">
+<li>编写一个程序，先提示用户输入名，然后提示用户输入姓。在一行打印用户输入的名和姓，下一行分别打印名和姓的字母数。字母数要与相应名和姓的结尾对齐，如下所示：<pre><code>Melissa  Honeybee
+      7         8</code></pre>接下来，再打印相同的信息，但是字母个数与相应名和姓的开头对齐，如下所示：<pre><code>Melissa  Honeybee
+7        8</code></pre></li>
+</ol>
+<hr>
+<h3 id="第七题-1"><a href="#第七题-1" class="headerlink" title="第七题"></a>第七题</h3><ol start="7">
+<li>编写一个程序，将一个double类型的变量设置为1.0/3.0，一个float类型的变量设置为1.0/3.0。分别显示两次计算的结果各3次：一次显示小数点 后面6位数字；一次显示小数点后面12位数字；一次显示小数点后面16位数 字。程序中要包含float.h头文件，并显示FLT_DIG和DBL_DIG的值。1.0/3.0 的值与这些值一致吗？</li>
+</ol>
+<hr>
+<h3 id="第八题-1"><a href="#第八题-1" class="headerlink" title="第八题"></a>第八题</h3><ol start="8">
+<li>编写一个程序，提示用户输入旅行的里程和消耗的汽油量。然后计算并显示消耗每加仑汽油行驶的英里数，显示小数点后面一位数字。接下来， 使用1加仑大约3.785升，1英里大约为1.609千米，把单位是英里/加仑的值转 换为升/100公里（欧洲通用的燃料消耗表示法），并显示结果，显示小数点 后面 1 位数字。注意，美国采用的方案测量消耗单位燃料的行程（值越大越 好），而欧洲则采用单位距离消耗的燃料测量方案（值越低越好）。使用 #define 创建符号常量或使用 const 限定符创建变量来表示两个转换系数。</li>
+</ol>
+
+    </div>
+
+    
+    
+    
+    
+      <div>
+        <div id="reward-container">
+  <div>祝您身体健康！！！</div>
+  <button id="reward-button" disable="enable" onclick="var qr = document.getElementById(&quot;qr&quot;); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+        
+      
+      <div style="display: inline-block">
+        <img src="/images/wechatpay.png" alt="hensir 微信支付">
+        <p>微信支付</p>
+      </div>
+
+  </div>
+</div>
+
+      </div>
+      <div>
+        
+
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>hensir</li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://hensir.top/2019/08/31/C-Primer-Puls第四章复习题目和编程练习题目/" title="C-Primer-Puls第四章复习题目和编程练习题目">https://hensir.top/2019/08/31/C-Primer-Puls第四章复习题目和编程练习题目/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li>
+</ul>
+
+      </div>
+
+    <footer class="post-footer">
+          
+        
+        <div class="post-tags">
+            <a href="/tags/题目/" rel="tag"># 题目</a>
+          
+        </div>
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+              <a href="/2019/08/24/C-Primer-Puls第九章复习题目和编程练习题的答案/" rel="next" title="C-Primer-Puls第九章复习题目和编程练习题的答案">
+                <i class="fa fa-chevron-left"></i> C-Primer-Puls第九章复习题目和编程练习题的答案
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+              <a href="/2019/09/03/C-Primer-Puls第八章复习题目和编程练习题的答案/" rel="prev" title="C-Primer-Puls第八章复习题和编程练习题的答案">
+                C-Primer-Puls第八章复习题和编程练习题的答案 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+  </div>
+
+
+          </div>
+          
+
+
+        </div>
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image"
+      src="/images/avatar.gif"
+      alt="hensir">
+  <p class="site-author-name" itemprop="name">hensir</p>
+  <div class="site-description motion-element" itemprop="description">Too young,Too simple.<br>Some times naive.</div>
+</div>
+  <nav class="site-state motion-element">
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives">
+        
+          <span class="site-state-item-count">9</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-categories">
+        
+          
+            <a href="/categories/">
+          
+        
+        
+        
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">分类</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+          
+            <a href="/tags/">
+          
+        
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">标签</span>
+        </a>
+      </div>
+    
+  </nav>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://github.com/hensir" title="GitHub &rarr; https://github.com/hensir" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="mailto:v34666@outlook.com" title="E-Mail &rarr; mailto:v34666@outlook.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+    
+  </div>
+  <div class="cc-license motion-element" itemprop="license">
+    
+  
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+
+        </div>
+      </div>
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#复习题"><span class="nav-number">1.</span> <span class="nav-text">复习题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#第一题"><span class="nav-number">1.1.</span> <span class="nav-text">第一题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第二题"><span class="nav-number">1.2.</span> <span class="nav-text">第二题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第三题"><span class="nav-number">1.3.</span> <span class="nav-text">第三题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第四题"><span class="nav-number">1.4.</span> <span class="nav-text">第四题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第五题"><span class="nav-number">1.5.</span> <span class="nav-text">第五题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第六题"><span class="nav-number">1.6.</span> <span class="nav-text">第六题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第七题"><span class="nav-number">1.7.</span> <span class="nav-text">第七题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第八题"><span class="nav-number">1.8.</span> <span class="nav-text">第八题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第九题"><span class="nav-number">1.9.</span> <span class="nav-text">第九题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第十题"><span class="nav-number">1.10.</span> <span class="nav-text">第十题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第十一题"><span class="nav-number">1.11.</span> <span class="nav-text">第十一题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第十二题"><span class="nav-number">1.12.</span> <span class="nav-text">第十二题</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#编程练习"><span class="nav-number">2.</span> <span class="nav-text">编程练习</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#第一题-1"><span class="nav-number">2.1.</span> <span class="nav-text">第一题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第二题-1"><span class="nav-number">2.2.</span> <span class="nav-text">第二题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第三题-1"><span class="nav-number">2.3.</span> <span class="nav-text">第三题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第四题-1"><span class="nav-number">2.4.</span> <span class="nav-text">第四题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第五题-1"><span class="nav-number">2.5.</span> <span class="nav-text">第五题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第六题-1"><span class="nav-number">2.6.</span> <span class="nav-text">第六题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第七题-1"><span class="nav-number">2.7.</span> <span class="nav-text">第七题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第八题-1"><span class="nav-number">2.8.</span> <span class="nav-text">第八题</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">hensir</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0</div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.3.0</div>
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+  
+<script src="/lib/needsharebutton/needsharebutton.js"></script>
+<script>
+</script>
+
+
+  </div>
+
+  
+    
+    
+  
+  <script color='0,0,255' opacity='0.5' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/jquery/index.js?v=3.4.1"></script>
+  <script src="/lib/reading_progress/reading_progress.js"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+<script src="/js/utils.js?v=7.3.0"></script>
+  <script src="/js/motion.js?v=7.3.0"></script>
+
+
+  <script src="/js/affix.js?v=7.3.0"></script>
+  <script src="/js/schemes/pisces.js?v=7.3.0"></script>
+
+
+
+<script src="/js/next-boot.js?v=7.3.0"></script>
+
+
+
+
+
+
+  
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <script src="/js/local-search.js?v=7.3.0"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+
+  
+  <script src="/js/scrollspy.js?v=7.3.0"></script>
+<script src="/js/post-details.js?v=7.3.0"></script>
+
+
+</body>
+</html>
