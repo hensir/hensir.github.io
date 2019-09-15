@@ -66,7 +66,7 @@
 <meta property="og:site_name" content="hensir的博客">
 <meta property="og:description" content="本章内容为《C Primer Plus第六版》第八章复习题和编程练习题 复习题第一题 putchar(getchar())是一个有效表达式，它实现什么功能?getchar(putchar())是否也是有效表达式？   第二题 下面的语句分别完成什么任务？a.putchar(&amp;apos;H&amp;apos;); b.putchar(&amp;apos;\007&amp;apos;); c.putchar(&amp;apos;\n">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-09-05T05:46:25.282Z">
+<meta property="og:updated_time" content="2019-09-15T04:45:12.103Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="C-Primer-Puls第八章复习题和编程练习题的答案">
 <meta name="twitter:description" content="本章内容为《C Primer Plus第六版》第八章复习题和编程练习题 复习题第一题 putchar(getchar())是一个有效表达式，它实现什么功能?getchar(putchar())是否也是有效表达式？   第二题 下面的语句分别完成什么任务？a.putchar(&amp;apos;H&amp;apos;); b.putchar(&amp;apos;\007&amp;apos;); c.putchar(&amp;apos;\n">
@@ -280,7 +280,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-09-05 13:46:25" itemprop="dateModified" datetime="2019-09-05T13:46:25+08:00">2019-09-05</time>
+                <time title="修改时间：2019-09-15 12:45:12" itemprop="dateModified" datetime="2019-09-15T12:45:12+08:00">2019-09-15</time>
               </span>
             
           
@@ -396,62 +396,8 @@ while ((ch = getchar()) != &apos;\n&apos;)
 </ol>
 <hr>
 <h3 id="第八题-1"><a href="#第八题-1" class="headerlink" title="第八题"></a>第八题</h3><ol start="8">
-<li><p>编写一个程序，显示一个提供加法、减法、乘法、除法的菜单。获得用户选择的选项后，程序提示用户输入两个数字，然后执行用户刚才选择的 操作。该程序只接受菜单提供的选项。程序使用float类型的变量储存用户输入的数字，如果用户输入失败，则允许再次输入。进行除法运算时，如果用 户输入0作为第2个数（除数），程序应提示用户重新输入一个新值。该程序的一个运行示例如下：<br>#include &lt;stdio.h&gt;<br>#include &lt;stdlib.h&gt;<br>float receive(void);<br>void space(void);<br>int main(void)<br>{<br> char ch;                        //运算成功<br> double answer = 0;<br> float num1 = 0;<br> float num2 = 0;<br> printf(“请输入运算符 + - * / （输入q以退出）”);<br> while ((ch = getchar()) != ‘q’)<br> {</p>
-<pre><code>while (getchar() != &apos;\n&apos;)
-    continue;
-switch (ch)
-{
-case &apos;+&apos;:
-    printf(&quot;请输入第一个数字&quot;);
-    num1 = receive();
-    printf(&quot;请输入第二个数字&quot;);
-    num2 = receive();
-    answer = num1 + num2;
-    printf(&quot;结果为%.2lf&quot;, answer);
-    space();
-    break;
-case &apos;-&apos;:
-    printf(&quot;请输入第一个数字&quot;);
-    num1 = receive();
-    printf(&quot;请输入第二个数字&quot;);
-    num2 = receive();
-    answer = num1 - num2;
-    printf(&quot;结果为%.2lf&quot;, answer);
-    space();
-    break;
-case &apos;*&apos;:
-    printf(&quot;请输入第一个数字&quot;);
-    num1 = receive();
-    printf(&quot;请输入第二个数字&quot;);
-    num2 = receive();
-    answer = num1 * num2;
-    printf(&quot;结果为%.2lf&quot;, answer);
-    space();
-    break;
-case &apos;/&apos;:
-    printf(&quot;请输入第一个数字&quot;);
-    num1 = receive();
-    printf(&quot;请输入第二个数字&quot;);
-
-    num2 = receive();
-    while (!(num2))
-    {
-    printf(&quot;0不能做除数 请重新输入&quot;);
-    num2 = receive();
-    }
-
-    answer = num1 / num2;
-    printf(&quot;结果为%.2lf&quot;, answer);
-    space();
-    break;
-default:
-    printf(&quot;输入错误\n请输入运算符 + - * / (输入q以退出)\n&quot;);
-    break;
-}</code></pre><p> }<br> system(“pause”);<br> return 0;<br>}</p>
-</li>
+<li>编写一个程序，显示一个提供加法、减法、乘法、除法的菜单。获得用户选择的选项后，程序提示用户输入两个数字，然后执行用户刚才选择的 操作。该程序只接受菜单提供的选项。程序使用float类型的变量储存用户输入的数字，如果用户输入失败，则允许再次输入。进行除法运算时，如果用 户输入0作为第2个数（除数），程序应提示用户重新输入一个新值。该程序的一个运行示例如下：<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">float</span> <span class="title">receive</span><span class="params">(<span class="keyword">void</span>)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">space</span><span class="params">(<span class="keyword">void</span>)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">char</span> ch;						<span class="comment">//运算成功</span></span><br><span class="line">	<span class="keyword">double</span> answer = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">float</span> num1 = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">float</span> num2 = <span class="number">0</span>;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"请输入运算符 + - * / （输入q以退出）"</span>);</span><br><span class="line">	<span class="keyword">while</span> ((ch = getchar()) != <span class="string">'q'</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">while</span> (getchar() != <span class="string">'\n'</span>)</span><br><span class="line">			<span class="keyword">continue</span>;</span><br><span class="line">		<span class="keyword">switch</span> (ch)</span><br><span class="line">		&#123;</span><br><span class="line">		<span class="keyword">case</span> <span class="string">'+'</span>:</span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">"请输入第一个数字"</span>);</span><br><span class="line">			num1 = receive();</span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">"请输入第二个数字"</span>);</span><br><span class="line">			num2 = receive();</span><br><span class="line">			answer = num1 + num2;</span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">"结果为%.2lf"</span>, answer);</span><br><span class="line">			space();</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		<span class="keyword">case</span> <span class="string">'-'</span>:</span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">"请输入第一个数字"</span>);</span><br><span class="line">			num1 = receive();</span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">"请输入第二个数字"</span>);</span><br><span class="line">			num2 = receive();</span><br><span class="line">			answer = num1 - num2;</span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">"结果为%.2lf"</span>, answer);</span><br><span class="line">			space();</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		<span class="keyword">case</span> <span class="string">'*'</span>:</span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">"请输入第一个数字"</span>);</span><br><span class="line">			num1 = receive();</span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">"请输入第二个数字"</span>);</span><br><span class="line">			num2 = receive();</span><br><span class="line">			answer = num1 * num2;</span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">"结果为%.2lf"</span>, answer);</span><br><span class="line">			space();</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		<span class="keyword">case</span> <span class="string">'/'</span>:</span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">"请输入第一个数字"</span>);</span><br><span class="line">			num1 = receive();</span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">"请输入第二个数字"</span>);</span><br><span class="line"></span><br><span class="line">			num2 = receive();</span><br><span class="line">			<span class="keyword">while</span> (!(num2))</span><br><span class="line">			&#123;</span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">"0不能做除数 请重新输入"</span>);</span><br><span class="line">			num2 = receive();</span><br><span class="line">			&#125;</span><br><span class="line"></span><br><span class="line">			answer = num1 / num2;</span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">"结果为%.2lf"</span>, answer);</span><br><span class="line">			space();</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		<span class="keyword">default</span>:</span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">"输入错误\n请输入运算符 + - * / (输入q以退出)\n"</span>);</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	system(<span class="string">"pause"</span>);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">float</span> <span class="title">receive</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">float</span> num;</span><br><span class="line">	<span class="keyword">while</span> (<span class="built_in">scanf</span>(<span class="string">"%f"</span>, &amp;num) != <span class="number">1</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">putchar</span>(getchar());</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"是错的，请重新输入"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> num;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">space</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"\n请输入运算符 + - * / (输入q以退出)"</span>);</span><br><span class="line">		<span class="keyword">while</span> (getchar() != <span class="string">'\n'</span>)</span><br><span class="line">			<span class="keyword">continue</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
 </ol>
-<p>float receive(void)<br>{<br>    float num;<br>    while (scanf(“%f”, &amp;num) != 1)<br>    {<br>        putchar(getchar());<br>        printf(“是错的，请重新输入”);<br>    }<br>    return num;<br>}</p>
-<p>void space(void)<br>{<br>    printf(“\n请输入运算符 + - * / (输入q以退出)”);<br>        while (getchar() != ‘\n’)<br>            continue;<br>}</p>
 
     </div>
 
