@@ -276,8 +276,7 @@ int main(void)
 int main(void)
 {
     int index;
-    char Letter;
-    char array[26];
+    char Letter, array[26];
     for (index = 0,Letter = 'a'; index < 26; index++,Letter++)
     {
         array[index] = Letter;
@@ -335,8 +334,7 @@ char lets[27] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 #include <stdio.h>
 int main(void)
 {
-    char outer = 'F';
-    char inner = 'F';
+    char outer = 'F', inner = 'F';
     for (outer = 'F'; outer >= 'A'; outer--)
     {
        for (inner = 'F'; inner >= outer; inner--)
@@ -589,9 +587,7 @@ int main(void)
 int main(void)
 {
     int j, index;
-    double i = 1;
-    double result1 = 0;
-    double result2 = 0;
+    double i = 1, result1 = 0, result2 = 0;
     scanf("%d", &j);
     for (index = 0; index < j; index++, i++)
     {
@@ -696,8 +692,7 @@ Deirdre以 5%的复合利息投资了 100 美元（也就是说，利息是当�
 #include <stdio.h>
 int main(void)
 {
-    double Daphne = 100;
-    double Deirdre = 100;
+    double Daphne = 100, Deirdre = 100;
     int years = 1;
     while (Deirdre <= Daphne)
     {

@@ -1,6 +1,6 @@
 ﻿---
 
-title: C-Primer-Puls第二章复习题及编程练习
+title: C-Primer-Puls第二章复习题目和编程练习题目
 date: 2019-08-22 13:00:00
 tags: [题目]
 categories: C语言
