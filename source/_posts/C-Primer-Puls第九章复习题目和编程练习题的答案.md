@@ -8,7 +8,7 @@ categories: C语言
 ---
 
 
-本章内容为《C Primer Plus第六版》第九章复习题和编程练习题
+本章内容为《C Primer Plus第六版》第九章复习题和编程练习题的答案
 
 ## 复习题
 ### 第一题
@@ -206,7 +206,26 @@ void chline(char ch, int i, int j)
 
 ### 第四题
 4. 两数的调和平均数这样计算：先得到两数的倒数，然后计算两个倒数的平均值，最后取计算结果的倒数。编写一个函数，接受两个double类型的参数，返回这两个参数的调和平均数。
-
+``` c
+#include <stdio.h>
+double average(double, double);
+int main(void)
+{
+    double num1, num2, result;
+    scanf("%lf %lf", &num1, &num2);
+    result = average(num1, num2);
+    printf("%lf", result);
+    return 0;
+}
+double average(double num1, double num2)
+{
+    num1 = 1 / num1;
+    num2 = 1 / num2;
+    double result = (num1 + num2) / 2;
+    result = 1 / result;
+    return result;
+}
+```
 ----------
 
 ### 第五题
@@ -294,23 +313,178 @@ void match(double * a, double * b, double * c)
 
 ### 第七题
 7. 编写一个函数，从标准输入中读取字符，直到遇到文件结尾。程序要报告每个字符是否是字母。如果是，还要报告该字母在字母表中的数值位置。例如，c和C在字母表中的位置都是3。合并一个函数，以一个字符作为参数，如果该字符是一个字母则返回一个数值位置，否则返回-1。
+``` c
+#include <stdio.h>
+#include <ctype.h>
+void character();
+int main(void)
+{
+	character();
+	return 0;
+}
+void character()
+{
+	char ch;
+	while ((ch = getchar()) != EOF)
+	{
+		if (islower(ch))
+			printf("%c在字母表中的位置是%d\n", ch, ch - 96);
+		else if (isupper(ch))
+			printf("%c在字母表中的位置是%d\n", ch, ch - 64);
+		else
+		return -1;
+	}
+}
+```
 
 ----------
 
 ### 第八题
-8. 第6章的程序清单6.20中，power()函数返回一个double类型数的正整数次幂。改进该函数，使其能正确计算负幂。另外，函数要处理0的任何次幂都为0，任何数的0次幂都为1（函数应报告0的0次幂未定义，因此把该值处 理为1）。要使用一个循环，并在程序中测试该函数。
-
+8. 第6章的程序清单6.20中，power()函数返回一个double类型数的正整数次幂。改进该函数，使其能正确计算负幂。另外，函数要处理0的任何次幂都为0，任何数的0次幂都为1（函数应报告0的0次幂未定义，因此把该值处理为1）。要使用一个循环，并在程序中测试该函数。
+``` c
+#include <stdio.h> //转为递归 9
+double power(double n, int p);
+int main(void)
+{
+    double x, xpow;
+    int exp;
+    printf("请输入底数和指数 输入‘q’以使程序退出\n");
+    while (scanf("%lf%d", &x, &exp) == 2)
+    {
+        xpow = power(x, exp);
+        printf("%.3g的%d次幂为%.5g\n", x, exp, xpow);
+        printf("请输入底数和指数 输入‘q’以使程序退出\n");
+    }
+    printf("bye!\n");
+    return 0;
+}
+double power(double n, int p)
+{
+    double pow = 1;
+    int i;
+    for (i = 1; i <= p; i++)
+        pow *= n;
+    if (n < 0)
+    {
+        if (pow > 0)
+            return -pow;
+    }
+    return pow;
+}
+```
 ----------
 
 ### 第九题
 9. 使用递归函数重写编程练习8。
+``` c
+#include <stdio.h>
+double power(double, int, int, double);
+int main(void)
+{
+    double x, xpow;
+    int exp;
+    printf("请输入底数和指数 输入‘q’以使程序退出\n");
+    while (scanf("%lf%d", &x, &exp) == 2)
+    {
+        double x_index = x;
+        xpow = power(x, exp, 1, x_index);
+        printf("%.3g的%d次幂为%.5g\n", x, exp, xpow);
+        printf("请输入底数和指数 输入‘q’以使程序退出\n");
+    }
+    printf("bye!\n");
+    return 0;
+}
+double power(double x, int exp, int n, double x_index)
+{
+    if (exp == 0)   //零次幂处理
+        return 1;
+    ++n;
+    if (n <= exp) //递归处理
+        x = power(x *= x_index, exp, n, x_index);
+    if (x_index < 0) //负数处理
+    {
+        if (x > 0)
+            return -x;
+    }
+    return x;
+}
+```
 
 ----------
 
 ### 第十题
 10. 为了让程序清单9.8中的to_binary()函数更通用，编写一个to_base_n()函数接受两个在2～10范围内的参数，然后以第2个参数中指定的进制打印第1个参数的数值。例如，to_base_n(129，8)显示的结果为201，也就是129的八进制数。在一个完整的程序中测试该函数。
+``` c
+#include <stdio.h>
+void to_base_n(int n, int jz);
+int main(void)
+{
+    int n, jz;
+    printf("请输入一个数字和这个数字将要转换的进制\n");
+    while (scanf("%d%d", &n, &jz) == 2)
+    {
+        printf("%d的%d进制为\n", n, jz);
+        to_base_n(n, jz);
+        putchar('\n');
+        printf("请输入一个数字和这个数字将要转换的进制\n");
+    }
+    printf("Done.\n");
+    return 0;
+}
+void to_base_n(int n, int jz)
+{
+    if (n >= jz)
+    {
+        to_base_n(n / jz, jz);
+        int ys = n % jz;
+        if (jz == 16) //十六进制优化 确定为十六进制才进行转换
+        {
+            if (ys > 9 && ys < 16) //确定余数为十六进制的10到15才进行转换
+            {
+                printf("%c", ys + ('A' - 10));
+                //printf("%c", ys + ('F' - 15));
+                return;
+            }
+        }
+        printf("%d", ys);
+    }
+    else
+        printf("%d", n);
+    return;
+}
+```
 
 ----------
 
 ### 第十一题
 11. 编写并测试Fibonacci()函数，该函数用循环代替递归计算斐波那契数。
+``` c
+#include <stdio.h>
+unsigned long Fibonacci(unsigned n);
+int main(void)
+{
+    int num = 0;
+    while (scanf("%d", &num))
+    {
+        unsigned long j = Fibonacci(num);
+        printf("%lu\n", j);
+    }
+    return 0;
+}
+unsigned long Fibonacci(unsigned n)
+{
+    unsigned long i = 1, j = 1, index;
+    for (index = 3; index <= n; index++)
+    {
+        i += j;      //本来想写成这样的 https://blog.csdn.net/qq_36324796/article/details/78993870
+        index++;
+        if (index > n)
+            break;
+        j += i;
+    }
+    if (n % 2 == 1)
+        return i; //质数返回
+    else
+        return j; //偶数返回
+}
+```

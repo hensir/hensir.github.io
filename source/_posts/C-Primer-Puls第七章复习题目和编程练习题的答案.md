@@ -445,7 +445,7 @@ double taxation(double m_all)
         Enter the number corresponding to the desired pay rate or action:
         1) $8.75/hr     2) $9.33/hr
         2) $10.00/hr    4) $11.20/hr
-        3) quit
+        5) quit
         *****************************************************************
 如果选择 1～4 其中的一个数字，程序应该询问用户工作的小时数。程序要通过循环运行，除非用户输入 5。如果输入 1～5 以外的数字，程序应 提醒用户输入正确的选项，然后再重复显示菜单提示用户输入。使用#define 创建符号常量表示各工资等级和税率。
 ``` c
@@ -590,7 +590,7 @@ void banner(void);
 int main(void)
 {
     char ch;
-    double T_target, M_target, tip;
+    double T_target, M_target;
     banner();
     while ((ch = getchar()) != '5')
     {
@@ -599,36 +599,28 @@ int main(void)
         case '1':
             T_target = SINTRT;
             M_target = SINTRM;
-            tip = 1;
-            result(T_target, M_target, tip);
-            banner();
+            result(T_target, M_target, 1);
             break;
         case '2':
             T_target = HOHTRT;
             M_target = HOHTRM;
-            tip = 2;
-            result(T_target, M_target, tip);
-            banner();
+            result(T_target, M_target, 2);
             break;
         case '3':
             T_target = MARTRT;
             M_target = MARTRM;
-            tip = 3;
-            result(T_target, M_target, tip);
-            banner();
+            result(T_target, M_target, 3);
             break;
         case '4':
             T_target = DIVTRT;
             M_target = DIVTRM;
-            tip = 4;
-            result(T_target, M_target, tip);
-            banner();
+            result(T_target, M_target, 4);
             break;
         default:
-            banner();
             printf("请重新输入");
             break;
         }
+        banner();
         while (getchar() != '\n')
             continue;
     }
@@ -653,9 +645,9 @@ void result(double T_target, double M_target, double tip)
 void banner(void)
 {
     printf("************************************************************\n"
-    "请输入一个对应的字符以使程序进入下一步\n"
-    "1)单身        2)户主\n3)已婚，共有  4)已婚，离异\n5)退出\n"
-    "************************************************************\n");
+           "请输入一个对应的字符以使程序进入下一步\n"
+           "1)单身        2)户主\n3)已婚，共有  4)已婚，离异\n5)退出\n"
+           "************************************************************\n");
 }
 ```
 ----------
@@ -665,23 +657,23 @@ void banner(void)
 11.  ABC 邮购杂货店出售的洋蓟售价为 2.05 美元/磅，甜菜售价为 1.15美元/磅，胡萝卜售价为 1.09美元/磅。在添加运费之前，100美元的订单有 5%的打折优惠。少于或等于5磅的订单收取6.5美元的运费和包装费，5磅～ 20磅的订单收取14美元的运费和包装费，超过20磅的订单在14美元的基础上 每续重1磅增加0.5美元。编写一个程序，在循环中用switch语句实现用户输入不同的字母时有不同的响应，即输入a的响应是让用户输入洋蓟的磅数，b 是甜菜的磅数，c是胡萝卜的磅数，q 是退出订购。程序要记录累计的重量。即，如果用户输入 4 磅的甜菜，然后输入 5磅的甜菜，程序应报告9磅的甜菜。然后，该程序要计算货物总价、折扣（如果有的话）、运费和包装费。随后，程序应显示所有的购买信息：物品售价、订购的重量（单位：磅）、订购的蔬菜费用、订单的总费用、折扣（如果有的话）、运费和包装费，以及所有的费用总额。
 ``` c
 #include <stdio.h>
-#define YJM 2.05     //洋蓟价格
-#define TCM 1.15     //甜菜价格
-#define HLBM 1.09    //胡萝卜价格
-#define DCS 0.05     //打折优惠
-#define PA 5         //一级磅数阈值
-#define PB 20        //二级磅数阈值
-#define PAM 6.5      //一级磅数单价
-#define PBM 14       //二级磅数单价
-#define OFPA PA *PAM //一级磅数总价
-#define OFPB PB *PBM //二级磅数总价
-#define OFP 0.5      //超过20磅每磅续加0.5美元
-void menu(void);     //菜单
-double add(char);    //统计所需蔬菜磅数
+#define YJM 2.05        //洋蓟价格
+#define TCM 1.15        //甜菜价格
+#define HLBM 1.09       //胡萝卜价格
+#define DCS 0.05        //打折优惠
+#define PA 5            //一级磅数阈值
+#define PB 20           //二级磅数阈值
+#define PAM 6.5         //一级磅数单价
+#define PBM 14          //二级磅数单价
+#define OFPA PA *PAM    //一级磅数总价
+#define OFPB PB *PBM    //二级磅数总价
+#define OFP 0.5         //超过20磅每磅续加0.5美元
+void menu(void);        //菜单
+double add(char);       //统计所需蔬菜磅数
 double freight(double); //包装费和运费
 int main(void)
 {
-    char target, tip;   //进入switch， 类别提示
+    char target;        //进入switch
     double yj, tc, hlb; //洋蓟， 甜菜， 胡萝卜
     int dft = 1;        //防止用户输入其他值程序报出总蔬菜磅数
     menu();
@@ -691,35 +683,29 @@ int main(void)
         {
         case 'a':
             dft = 1;
-            tip = 'a';
-            yj += add(tip);
-            menu();
+            yj += add('a');
             break;
         case 'b':
             dft = 1;
-            tip = 'b';
-            tc += add(tip);
-            menu();
+            tc += add('b');
             break;
         case 'c':
             dft = 1;
-            tip = 'c';
-            hlb += add(tip);
-            menu();
+            hlb += add('c');
             break;
         default:
             dft = 0;
-            menu();
             printf("请重新输入\n");
             break;
         }
+        menu();
         while (getchar() != '\n')
             continue;
         if (dft)
             printf("%5.2lf磅洋蓟 = %5.2lf美元\n%5.2lf磅甜菜 = %5.2lf美元\n%5.2lf磅胡萝卜 = %5.2lf美元\n", yj, yj * YJM, tc, tc * TCM, hlb, hlb * HLBM);
     }
     double Tp = (yj * YJM) + (tc * TCM) + (hlb * HLBM); //蔬菜总费用
-    double Tpk = 0; //折扣数
+    double Tpk = 0;                                     //折扣数
     if (Tp > 100)
         Tpk = Tp * DCS;
     double Pound = yj + tc + hlb;   //总磅数

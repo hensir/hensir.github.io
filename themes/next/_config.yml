@@ -44,7 +44,7 @@ favicon:
   medium: /images/favicon-32x32-next.png
   apple_touch_icon: /images/apple-touch-icon-next.png
   safari_pinned_tab: /images/logo.svg
-  #android_manifest: /images/manifest.json
+  android_manifest: /images/manifest.json
   #ms_browserconfig: /images/browserconfig.xml
 
 # hexo-generator-feed required for rss support. Leave rss as blank to use site's feed link.
@@ -153,7 +153,7 @@ menu:
   home: / || home
   #about: /about/ || user
   tags: /tags/ || tags
-  categories: /categories/ || th
+  #categories: /categories/ || th
   #archives: /archives/ || archive
   #schedule: /schedule/ || calendar
   #sitemap: /sitemap.xml || sitemap
@@ -220,9 +220,9 @@ avatar:
   # In theme directory (source/images): /images/avatar.gif
   # In site directory (source/uploads): /uploads/avatar.gif
   # You can also use other linking images.
-  url: /images/avatar.gif
+  #url: /images/avatar.gif
   # If true, the avatar would be dispalyed in circle.
-  rounded: true
+  rounded: false
   # If true, the avatar would be rotated with the cursor.
   rotated: false
 
@@ -332,7 +332,7 @@ wechat_subscriber:
 reward_settings:
   # If true, reward would be displayed in every article by default.
   # You can show or hide reward in a specific article throuth `reward: true | false` in Front-matter.
-  enable: true
+  enable: false
   animation: true
   comment: 祝您身体健康！！！
 
