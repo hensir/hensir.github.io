@@ -59,28 +59,33 @@
   };
 </script>
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Blog">
-<meta property="og:url" content="https://hensir.top/page/2/index.html">
+  <meta name="description" content="1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071727374#include &amp;lt;stdio.h&amp;gt;#include &amp;lt;stdlib.h&amp;gt;#include &amp;lt">
+<meta name="keywords" content="教程">
+<meta property="og:type" content="article">
+<meta property="og:title" content="自定义头文件库">
+<meta property="og:url" content="https://hensir.top/2020/01/27/自定义头文件库/index.html">
 <meta property="og:site_name" content="Blog">
+<meta property="og:description" content="1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071727374#include &amp;lt;stdio.h&amp;gt;#include &amp;lt;stdlib.h&amp;gt;#include &amp;lt">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2020-01-27T14:41:36.050Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Blog">
-  <link rel="canonical" href="https://hensir.top/page/2/">
+<meta name="twitter:title" content="自定义头文件库">
+<meta name="twitter:description" content="1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071727374#include &amp;lt;stdio.h&amp;gt;#include &amp;lt;stdlib.h&amp;gt;#include &amp;lt">
+  <link rel="canonical" href="https://hensir.top/2020/01/27/自定义头文件库/">
 
 
 <script id="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome: true,
-    isPost: false,
+    isHome: false,
+    isPost: true,
     isPage: false,
     isArchive: false
   };
 </script>
 
-  <title>Blog</title>
+  <title>自定义头文件库 | Blog</title>
   
 
 
@@ -211,17 +216,19 @@
         <div class="content-wrap">
             
 
-          <div id="content" class="content page-home">
+          <div id="content" class="content page-post-detail">
             
-  <section id="posts" class="posts-expand">
-      
+
+  <div id="posts" class="posts-expand">
+    
+    <div class="reading-progress-bar"></div>
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://hensir.top/2019/05/18/C-Primer-Puls第六章复习题目和编程练习题的答案/">
+    <link itemprop="mainEntityOfPage" href="https://hensir.top/2020/01/27/自定义头文件库/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="">
@@ -235,9 +242,8 @@
       <header class="post-header">
 
         
-          <h1 class="post-title" itemprop="name headline">
-              
-              <a href="/2019/05/18/C-Primer-Puls第六章复习题目和编程练习题的答案/" class="post-title-link" itemprop="url">C-Primer-Puls第六章复习题目和编程练习题的答案</a>
+          <h1 class="post-title" itemprop="name headline">自定义头文件库
+
             
           </h1>
         
@@ -253,19 +259,11 @@
                 
               
 
-              <time title="创建时间：2019-05-18 18:44:00" itemprop="dateCreated datePublished" datetime="2019-05-18T18:44:00+08:00">2019-05-18</time>
+              <time title="创建时间：2020-01-27 22:40:00 / 修改时间：22:41:36" itemprop="dateCreated datePublished" datetime="2020-01-27T22:40:00+08:00">2020-01-27</time>
             </span>
           
             
 
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-09-17 13:27:01" itemprop="dateModified" datetime="2019-09-17T13:27:01+08:00">2019-09-17</time>
-              </span>
             
           
             <span class="post-meta-item">
@@ -293,141 +291,48 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>本章内容为《C Primer Plus第六版》第六章复习题目和编程练习题的答案</p>
-<h2 id="复习题"><a href="#复习题" class="headerlink" title="复习题"></a>复习题</h2><h3 id="第一题"><a href="#第一题" class="headerlink" title="第一题"></a>第一题</h3><ol>
-<li>写出执行完下列各行后quack的值是多少。后5行中使用的是第1行quack的值。<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> quack = <span class="number">2</span>;</span><br><span class="line">quack += <span class="number">5</span>;</span><br><span class="line">quack *= <span class="number">10</span>;</span><br><span class="line">quack -= <span class="number">6</span>;</span><br><span class="line">quack /= <span class="number">8</span>;</span><br><span class="line">quack %= <span class="number">3</span>;</span><br></pre></td></tr></table></figure>
-
-</li>
-</ol>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/2019/05/18/C-Primer-Puls第六章复习题目和编程练习题的答案/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
+        <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">#include &lt;stdlib.h&gt;</span><br><span class="line">#include &lt;string.h&gt;</span><br><span class="line">#include &lt;Windows.h&gt;</span><br><span class="line">//本自定义头文件库包括以下函数</span><br><span class="line">void SetDataToClip(long, long); //设置指定数据到剪切板</span><br><span class="line">void SCPTC(void);               //SetCursorPosToClip    设置鼠标坐标到剪切板</span><br><span class="line">char *s_gets(char *, int);      //获取指定数量的字符 且将回车符替换为空字符</span><br><span class="line">void SCPTC(void)</span><br><span class="line">&#123;</span><br><span class="line">    LONG zx = -1;</span><br><span class="line">    LONG zy = -1;</span><br><span class="line">    POINT ptB = &#123;0, 0&#125;;</span><br><span class="line">    while (1)</span><br><span class="line">    &#123;</span><br><span class="line">        LPPOINT xy = &amp;ptB;                  //位置变量</span><br><span class="line">        GetCursorPos(xy);                   //获取鼠标当前位置</span><br><span class="line">        if ((zx != xy-&gt;x) || (zy != xy-&gt;y)) //如果鼠标移动，（即当前的坐标改变则打印出坐标）打印出做坐标。</span><br><span class="line">        &#123;</span><br><span class="line">            system(&quot;CLS&quot;); //不要一列输出 在鼠标移动后就进行一个清屏</span><br><span class="line">            printf(&quot;x=%d,y=%d\n&quot;, xy-&gt;x, xy-&gt;y);</span><br><span class="line">            zx = xy-&gt;x;</span><br><span class="line">            zy = xy-&gt;y; //检测鼠标左键的状态  如果鼠标左键被按下</span><br><span class="line">        &#125;</span><br><span class="line">        if (GetKeyState(0x20) &lt; 0 || GetKeyState(0x01) &lt; 0)</span><br><span class="line">            SetDataToClip(zx, zy);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">void SetDataToClip(long x, long y)</span><br><span class="line">&#123;</span><br><span class="line">    if (!OpenClipboard(NULL) || !EmptyClipboard()) // 打开剪贴板</span><br><span class="line">    &#123;</span><br><span class="line">        printf(&quot;打开或清空剪切板出错！/n&quot;);</span><br><span class="line">        return;</span><br><span class="line">    &#125;</span><br><span class="line">    HGLOBAL hMen;</span><br><span class="line">    char cz[20]; //直接使用sprintf()就能用了</span><br><span class="line">    sprintf(cz, &quot;%d, %d&quot;, x, y);</span><br><span class="line">    TCHAR strText[256]; //这一步用函数可能更稳一些</span><br><span class="line">    strcpy(strText, cz);</span><br><span class="line">    hMen = GlobalAlloc(GMEM_MOVEABLE, ((strlen(strText) + 1) * sizeof(TCHAR))); // 分配全局内存</span><br><span class="line">    if (!hMen)</span><br><span class="line">    &#123;</span><br><span class="line">        printf(&quot;分配全局内存出错！/n&quot;);</span><br><span class="line">        CloseClipboard(); // 关闭剪切板</span><br><span class="line">        return;</span><br><span class="line">    &#125;</span><br><span class="line">    // 把数据拷贝考全局内存中</span><br><span class="line">    LPSTR lpStr = (LPSTR)GlobalLock(hMen);                       // 锁住内存区</span><br><span class="line">    memcpy(lpStr, strText, ((strlen(strText)) * sizeof(TCHAR))); // 内存复制</span><br><span class="line">    lpStr[strlen(strText)] = (TCHAR)0;                           // 字符结束符</span><br><span class="line">    GlobalUnlock(hMen);                                          // 释放锁</span><br><span class="line">    SetClipboardData(CF_TEXT, hMen);                             // 把内存中的数据放到剪切板上</span><br><span class="line">    CloseClipboard();</span><br><span class="line">    return;</span><br><span class="line">&#125;</span><br><span class="line">char *s_gets(char *st, int n)       //每一维数组只能存储81个字符串</span><br><span class="line">&#123;</span><br><span class="line">    char *ret_val;</span><br><span class="line">    int i = 0;</span><br><span class="line">    ret_val = fgets(st, n, stdin);  //使用fgets()函数来接收值</span><br><span class="line">    if (ret_val)</span><br><span class="line">    &#123;</span><br><span class="line">        while (st[i] != &apos;\n&apos; &amp;&amp; st[i] != &apos;\0&apos;)  //函数的目的就是把换行变成空字符</span><br><span class="line">            i++;</span><br><span class="line">        if (st[i] == &apos;\n&apos;)                      //上面的字符串为换行 把它换成空字符</span><br><span class="line">            st[i] = &apos;\0&apos;;</span><br><span class="line">        else                                    //如果不是换行则只有空字符</span><br><span class="line">            while (getchar() != &apos;\n&apos;)           //把缓冲区其他的字符串清除掉</span><br><span class="line">                continue;</span><br><span class="line">    &#125;</span><br><span class="line">    return ret_val;</span><br><span class="line">&#125;</span><br><span class="line">//输出二维数组的函数</span><br></pre></td></tr></table></figure>
     </div>
 
     
     
     
+      <div>
+        
+
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong></li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://hensir.top/2020/01/27/自定义头文件库/" title="自定义头文件库">https://hensir.top/2020/01/27/自定义头文件库/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li>
+</ul>
+
+      </div>
 
     <footer class="post-footer">
-        <div class="post-eof"></div>
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-    
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://hensir.top/2019/05/16/C-Primer-Puls第五章复习题目和编程练习题的答案/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Blog">
-    </span>
-      <header class="post-header">
-
+          
         
-          <h1 class="post-title" itemprop="name headline">
-              
-              <a href="/2019/05/16/C-Primer-Puls第五章复习题目和编程练习题的答案/" class="post-title-link" itemprop="url">C-Primer-Puls第五章复习题目和编程练习题的答案</a>
-            
-          </h1>
-        
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              
-                
-              
-
-              <time title="创建时间：2019-05-16 15:25:51" itemprop="dateCreated datePublished" datetime="2019-05-16T15:25:51+08:00">2019-05-16</time>
-            </span>
+        <div class="post-tags">
+            <a href="/tags/教程/" rel="tag"><i class="fa fa-tag"></i> 教程</a>
           
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-09-01 11:00:05" itemprop="dateModified" datetime="2019-09-01T11:00:05+08:00">2019-09-01</time>
-              </span>
-            
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/C语言/" itemprop="url" rel="index"><span itemprop="name">C语言</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-
         </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>本章内容为《C Primer Plus第六版》第五章复习题目和编程练习题的答案</p>
-<h2 id="复习题"><a href="#复习题" class="headerlink" title="复习题"></a>复习题</h2><h3 id="第一题"><a href="#第一题" class="headerlink" title="第一题"></a>第一题</h3><ol>
-<li>假设所有变量的类型都是int，下列各项变量的值是多少：<br>a.x = (2 + 3) * 6;<br>b.x = (12 + 6)/2<em>3;<br>c.y = x = (2 + 3)/4;<br>d.y = 3 + 2</em>(x = 7/2);</li>
-</ol>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/2019/05/16/C-Primer-Puls第五章复习题目和编程练习题的答案/#more" rel="contents">
-                阅读全文 &raquo;
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+              <a href="/2020/01/02/C语言指针和数组/" rel="next" title="C语言中指针和数组关系统计">
+                <i class="fa fa-chevron-left"></i> C语言中指针和数组关系统计
               </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
+            
+          </div>
 
-    
-    
-    
+          <span class="post-nav-divider"></span>
 
-    <footer class="post-footer">
-        <div class="post-eof"></div>
+          <div class="post-nav-prev post-nav-item">
+          </div>
+        </div>
     </footer>
   </div>
   
@@ -435,17 +340,12 @@
   
   </article>
 
-    
-  </section>
-
-  
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
-  </nav>
+  </div>
 
 
           </div>
           
+
 
         </div>
           
@@ -675,5 +575,9 @@
 
 
   
+  <script src="/js/scrollspy.js?v=7.3.0"></script>
+<script src="/js/post-details.js?v=7.3.0"></script>
+
+
 </body>
 </html>
