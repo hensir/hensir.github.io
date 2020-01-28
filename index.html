@@ -221,7 +221,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://hensir.top/2020/01/27/自定义头文件库/">
+    <link itemprop="mainEntityOfPage" href="https://hensir.top/2020/01/28/C-Primer-Puls第十一章复习题目和编程练习题的答案/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="">
@@ -237,7 +237,7 @@
         
           <h1 class="post-title" itemprop="name headline">
               
-              <a href="/2020/01/27/自定义头文件库/" class="post-title-link" itemprop="url">自定义头文件库</a>
+              <a href="/2020/01/28/C-Primer-Puls第十一章复习题目和编程练习题的答案/" class="post-title-link" itemprop="url">C-Primer-Puls第十一章复习题目和编程练习题的答案</a>
             
           </h1>
         
@@ -253,7 +253,7 @@
                 
               
 
-              <time title="创建时间：2020-01-27 22:40:00 / 修改时间：22:41:36" itemprop="dateCreated datePublished" datetime="2020-01-27T22:40:00+08:00">2020-01-27</time>
+              <time title="创建时间：2020-01-28 07:24:00 / 修改时间：09:48:09" itemprop="dateCreated datePublished" datetime="2020-01-28T07:24:00+08:00">2020-01-28</time>
             </span>
           
             
@@ -286,8 +286,259 @@
 
       
           
-            <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">#include &lt;stdlib.h&gt;</span><br><span class="line">#include &lt;string.h&gt;</span><br><span class="line">#include &lt;Windows.h&gt;</span><br><span class="line">//本自定义头文件库包括以下函数</span><br><span class="line">void SetDataToClip(long, long); //设置指定数据到剪切板</span><br><span class="line">void SCPTC(void);               //SetCursorPosToClip    设置鼠标坐标到剪切板</span><br><span class="line">char *s_gets(char *, int);      //获取指定数量的字符 且将回车符替换为空字符</span><br><span class="line">void SCPTC(void)</span><br><span class="line">&#123;</span><br><span class="line">    LONG zx = -1;</span><br><span class="line">    LONG zy = -1;</span><br><span class="line">    POINT ptB = &#123;0, 0&#125;;</span><br><span class="line">    while (1)</span><br><span class="line">    &#123;</span><br><span class="line">        LPPOINT xy = &amp;ptB;                  //位置变量</span><br><span class="line">        GetCursorPos(xy);                   //获取鼠标当前位置</span><br><span class="line">        if ((zx != xy-&gt;x) || (zy != xy-&gt;y)) //如果鼠标移动，（即当前的坐标改变则打印出坐标）打印出做坐标。</span><br><span class="line">        &#123;</span><br><span class="line">            system(&quot;CLS&quot;); //不要一列输出 在鼠标移动后就进行一个清屏</span><br><span class="line">            printf(&quot;x=%d,y=%d\n&quot;, xy-&gt;x, xy-&gt;y);</span><br><span class="line">            zx = xy-&gt;x;</span><br><span class="line">            zy = xy-&gt;y; //检测鼠标左键的状态  如果鼠标左键被按下</span><br><span class="line">        &#125;</span><br><span class="line">        if (GetKeyState(0x20) &lt; 0 || GetKeyState(0x01) &lt; 0)</span><br><span class="line">            SetDataToClip(zx, zy);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">void SetDataToClip(long x, long y)</span><br><span class="line">&#123;</span><br><span class="line">    if (!OpenClipboard(NULL) || !EmptyClipboard()) // 打开剪贴板</span><br><span class="line">    &#123;</span><br><span class="line">        printf(&quot;打开或清空剪切板出错！/n&quot;);</span><br><span class="line">        return;</span><br><span class="line">    &#125;</span><br><span class="line">    HGLOBAL hMen;</span><br><span class="line">    char cz[20]; //直接使用sprintf()就能用了</span><br><span class="line">    sprintf(cz, &quot;%d, %d&quot;, x, y);</span><br><span class="line">    TCHAR strText[256]; //这一步用函数可能更稳一些</span><br><span class="line">    strcpy(strText, cz);</span><br><span class="line">    hMen = GlobalAlloc(GMEM_MOVEABLE, ((strlen(strText) + 1) * sizeof(TCHAR))); // 分配全局内存</span><br><span class="line">    if (!hMen)</span><br><span class="line">    &#123;</span><br><span class="line">        printf(&quot;分配全局内存出错！/n&quot;);</span><br><span class="line">        CloseClipboard(); // 关闭剪切板</span><br><span class="line">        return;</span><br><span class="line">    &#125;</span><br><span class="line">    // 把数据拷贝考全局内存中</span><br><span class="line">    LPSTR lpStr = (LPSTR)GlobalLock(hMen);                       // 锁住内存区</span><br><span class="line">    memcpy(lpStr, strText, ((strlen(strText)) * sizeof(TCHAR))); // 内存复制</span><br><span class="line">    lpStr[strlen(strText)] = (TCHAR)0;                           // 字符结束符</span><br><span class="line">    GlobalUnlock(hMen);                                          // 释放锁</span><br><span class="line">    SetClipboardData(CF_TEXT, hMen);                             // 把内存中的数据放到剪切板上</span><br><span class="line">    CloseClipboard();</span><br><span class="line">    return;</span><br><span class="line">&#125;</span><br><span class="line">char *s_gets(char *st, int n)       //每一维数组只能存储81个字符串</span><br><span class="line">&#123;</span><br><span class="line">    char *ret_val;</span><br><span class="line">    int i = 0;</span><br><span class="line">    ret_val = fgets(st, n, stdin);  //使用fgets()函数来接收值</span><br><span class="line">    if (ret_val)</span><br><span class="line">    &#123;</span><br><span class="line">        while (st[i] != &apos;\n&apos; &amp;&amp; st[i] != &apos;\0&apos;)  //函数的目的就是把换行变成空字符</span><br><span class="line">            i++;</span><br><span class="line">        if (st[i] == &apos;\n&apos;)                      //上面的字符串为换行 把它换成空字符</span><br><span class="line">            st[i] = &apos;\0&apos;;</span><br><span class="line">        else                                    //如果不是换行则只有空字符</span><br><span class="line">            while (getchar() != &apos;\n&apos;)           //把缓冲区其他的字符串清除掉</span><br><span class="line">                continue;</span><br><span class="line">    &#125;</span><br><span class="line">    return ret_val;</span><br><span class="line">&#125;</span><br><span class="line">//输出二维数组的函数</span><br></pre></td></tr></table></figure>
+            <p>本章内容为《C Primer Plus第六版》第十一章复习题和编程练习题的答案</p>
+<h2 id="复习题"><a href="#复习题" class="headerlink" title="复习题"></a>复习题</h2><h3 id="第一题"><a href="#第一题" class="headerlink" title="第一题"></a>第一题</h3><ol>
+<li>下面字符串的声明有什么问题？<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">char</span> name[] = &#123;<span class="string">'F'</span>, <span class="string">'e'</span>, <span class="string">'s'</span>,<span class="string">'s'</span> &#125;;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<hr>
+<h3 id="第二题"><a href="#第二题" class="headerlink" title="第二题"></a>第二题</h3><ol start="2">
+<li>下面的程序会打印什么？<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">char</span> note[] = <span class="string">"See you at the snack bar."</span>;</span><br><span class="line">    <span class="keyword">char</span> *ptr;</span><br><span class="line">    ptr = note;</span><br><span class="line">    <span class="built_in">puts</span>(ptr);</span><br><span class="line">    <span class="built_in">puts</span>(++ptr);</span><br><span class="line">    note[<span class="number">7</span>] = <span class="string">'\0'</span>;</span><br><span class="line">    <span class="built_in">puts</span>(note);</span><br><span class="line">    <span class="built_in">puts</span>(++ptr);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<hr>
+<h3 id="第三题"><a href="#第三题" class="headerlink" title="第三题"></a>第三题</h3><ol start="3">
+<li>下面的程序会打印什么？<pre><code>#include&lt;stdio.h&gt;
+#include&lt;string.h&gt;
+int main(void)
+{
+    char food[] = &quot;Yummy&quot;;
+    char *ptr;
+    ptr = food + strlen(food);
+    while (--ptr &gt;= food)
+        puts(ptr);
+    return 0;
+}</code></pre></li>
+</ol>
+<hr>
+<h3 id="第四题"><a href="#第四题" class="headerlink" title="第四题"></a>第四题</h3><ol start="4">
+<li>下面的程序会打印什么？<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">char</span> goldwyn[<span class="number">40</span>] = <span class="string">"art of it all "</span>;</span><br><span class="line">    <span class="keyword">char</span> samuel[<span class="number">40</span>] = <span class="string">"I read p"</span>;</span><br><span class="line">    <span class="keyword">const</span> <span class="keyword">char</span> *quote = <span class="string">"the way through."</span>;</span><br><span class="line">    <span class="built_in">strcat</span>(goldwyn, quote);</span><br><span class="line">    <span class="built_in">strcat</span>(samuel, goldwyn);</span><br><span class="line">    <span class="built_in">puts</span>(samuel);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<hr>
+<h3 id="第五题"><a href="#第五题" class="headerlink" title="第五题"></a>第五题</h3><ol start="5">
+<li><p>下面的练习涉及字符串、循环、指针和递增指针。首先，假设定义了下面的函数：</p>
+<pre><code>#include &lt;stdio.h&gt;
+    char *
+    pr(char *str)
+{
+    char *pc;
+    pc = str;
+    while (*pc)
+        putchar(*pc++);
+    do
+    {
+        putchar(*--pc);
+    } while (pc - str);
+    return (pc);
+}</code></pre><p>考虑下面的函数调用： x = pr(“Ho Ho Ho!”);<br>a.将打印什么？<br>b.x是什么类型？<br>c.x的值是什么？<br>d.表达式<em>–pc是什么意思？与–*pc有何不同？<br>e.如果用</em>–pc替换–*pc，会打印什么？<br>f.两个while循环用来测试什么？<br>g.如果pr()函数的参数是空字符串，会怎样？<br>h.必须在主调函数中做什么，才能让pr()函数正常运行？</p>
+</li>
+</ol>
+<hr>
+<h3 id="第六题"><a href="#第六题" class="headerlink" title="第六题"></a>第六题</h3><ol start="6">
+<li>假设有如下声明：<br>char sign = ‘$’;<br>sign占用多少字节的内存？’$’占用多少字节的内存？”$”占用多少字节的内存？</li>
+</ol>
+<hr>
+<h3 id="第七题"><a href="#第七题" class="headerlink" title="第七题"></a>第七题</h3><ol start="7">
+<li>下面的程序会打印出什么？<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> M1 <span class="meta-string">"How are ya, sweetie? "</span></span></span><br><span class="line"><span class="keyword">char</span> M2[<span class="number">40</span>] = <span class="string">"Beatthe clock."</span>;</span><br><span class="line"><span class="keyword">char</span> *M3 = <span class="string">"chat"</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">char</span> words[<span class="number">80</span>];</span><br><span class="line">    <span class="built_in">printf</span>(M1);</span><br><span class="line">    <span class="built_in">puts</span>(M1);</span><br><span class="line">    <span class="built_in">puts</span>(M2);</span><br><span class="line">    <span class="built_in">puts</span>(M2 + <span class="number">1</span>);</span><br><span class="line">    <span class="built_in">strcpy</span>(words, M2);</span><br><span class="line">    <span class="built_in">strcat</span>(words, <span class="string">" Win a toy."</span>);</span><br><span class="line">    <span class="built_in">puts</span>(words);</span><br><span class="line">    words[<span class="number">4</span>] = <span class="string">'\0'</span>;</span><br><span class="line">    <span class="built_in">puts</span>(words);</span><br><span class="line">    <span class="keyword">while</span> (*M3)</span><br><span class="line">        <span class="built_in">puts</span>(M3++);</span><br><span class="line">    <span class="built_in">puts</span>(--M3);</span><br><span class="line">    <span class="built_in">puts</span>(--M3);</span><br><span class="line">    M3 = M1;</span><br><span class="line">    <span class="built_in">puts</span>(M3);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<hr>
+<h3 id="第八题"><a href="#第八题" class="headerlink" title="第八题"></a>第八题</h3><ol start="8">
+<li>下面的程序会打印出什么？<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">char</span> str1[] = <span class="string">"gawsie"</span>;</span><br><span class="line">    <span class="keyword">char</span> str2[] = <span class="string">"bletonism"</span>;</span><br><span class="line">    <span class="keyword">char</span> *ps;</span><br><span class="line">    <span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (ps = str1; *ps != <span class="string">'\0'</span>; ps++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (*ps == <span class="string">'a'</span> || *ps == <span class="string">'e'</span>)</span><br><span class="line">            <span class="built_in">putchar</span>(*ps);</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            (*ps)--;</span><br><span class="line">        <span class="built_in">putchar</span>(*ps);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">putchar</span>(<span class="string">'\n'</span>);</span><br><span class="line">    <span class="keyword">while</span> (str2[i] != <span class="string">'\0'</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%c"</span>, i % <span class="number">3</span> ? str2[i] : <span class="string">'*'</span>);</span><br><span class="line">        ++i;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<hr>
+<h3 id="第九题"><a href="#第九题" class="headerlink" title="第九题"></a>第九题</h3><ol start="9">
+<li>本章定义的s_gets()函数，用指针表示法代替数组表示法便可减少一个变量i。请改写该函数。</li>
+</ol>
+<hr>
+<h3 id="第十题"><a href="#第十题" class="headerlink" title="第十题"></a>第十题</h3><ol start="10">
+<li>strlen()函数接受一个指向字符串的指针作为参数，并返回该字符串的长度。请编写一个这样的函数。</li>
+</ol>
+<hr>
+<h3 id="第十一题"><a href="#第十一题" class="headerlink" title="第十一题"></a>第十一题</h3><ol start="11">
+<li>本章定义的s_gets()函数，可以用strchr()函数代替其中的while循环来查找换行符。请改写该函数。</li>
+</ol>
+<hr>
+<h3 id="第十二题"><a href="#第十二题" class="headerlink" title="第十二题"></a>第十二题</h3><ol start="12">
+<li>设计一个函数，接受一个指向字符串的指针，返回指向该字符串第1个空格字符的指针，或如果未找到空格字符，则返回空指针。</li>
+</ol>
+<hr>
+<h3 id="第十三题"><a href="#第十三题" class="headerlink" title="第十三题"></a>第十三题</h3><ol start="13">
+<li>重写程序清单11.21，使用ctype.h头文件中的函数，以便无论用户选择大写还是小写，该程序都能正确识别答案。</li>
+</ol>
+<hr>
+<h2 id="编程练习"><a href="#编程练习" class="headerlink" title="编程练习"></a>编程练习</h2><h3 id="第一题-1"><a href="#第一题-1" class="headerlink" title="第一题"></a>第一题</h3><ol>
+<li>设计并测试一个函数，从输入中获取下n个字符（包括空白、制表符、换行符），把结果储存在一个数组里，它的地址被传递作为一个参数。</li>
+</ol>
+<hr>
+<h3 id="第二题-1"><a href="#第二题-1" class="headerlink" title="第二题"></a>第二题</h3><ol start="2">
+<li>修改并编程练习1的函数，在n个字符后停止，或在读到第1个空白、制表符或换行符时停止，哪个先遇到哪个停止。不能只使用scanf()。</li>
+</ol>
+<hr>
+<h3 id="第三题-1"><a href="#第三题-1" class="headerlink" title="第三题"></a>第三题</h3><ol start="3">
+<li>设计并测试一个函数，从一行输入中把一个单词读入一个数组中，并丢弃输入行中的其余字符。该函数应该跳过第1个非空白字符前面的所有空白。将一个单词定义为没有空白、制表符或换行符的字符序列。</li>
+</ol>
+<hr>
+<h3 id="第四题-1"><a href="#第四题-1" class="headerlink" title="第四题"></a>第四题</h3><ol start="4">
+<li>设计并测试一个函数，它类似编程练习3的描述，只不过它接受第2个参数指明可读取的最大字符数。</li>
+</ol>
+<hr>
+<h3 id="第五题-1"><a href="#第五题-1" class="headerlink" title="第五题"></a>第五题</h3><ol start="5">
+<li>设计并测试一个函数，搜索第1个函数形参指定的字符串，在其中查找第2个函数形参指定的字符首次出现的位置。如果成功，该函数返指向该 字符的指针，如果在字符串中未找到指定字符，则返回空指针（该函数的功 能与 strchr()函数相同）。在一个完整的程序中测试该函数，使用一个循环 给函数提供输入值。</li>
+</ol>
+<hr>
+<h3 id="第六题-1"><a href="#第六题-1" class="headerlink" title="第六题"></a>第六题</h3><ol start="6">
+<li>编写一个名为is_within()的函数，接受一个字符和一个指向字符串的指针作为两个函数形参。如果指定字符在字符串中，该函数返回一个非零值 （即为真）。否则，返回0（即为假）。在一个完整的程序中测试该函数， 使用一个循环给函数提供输入值。</li>
+</ol>
+<hr>
+<h3 id="第七题-1"><a href="#第七题-1" class="headerlink" title="第七题"></a>第七题</h3><ol start="7">
+<li>strncpy(s1, s2, n)函数把s2中的n个字符拷贝至s1中，截断s2，或者有必 要的话在末尾添加空字符。如果s2的长度是n或多于n，目标字符串不能以空字符结尾。该函数返回s1。自己编写一个这样的函数，名为mystrncpy()。在一个完整的程序中测试该函数，使用一个循环给函数提供输入值。</li>
+</ol>
+<hr>
+<h3 id="第八题-1"><a href="#第八题-1" class="headerlink" title="第八题"></a>第八题</h3><ol start="8">
+<li>编写一个名为string_in()的函数，接受两个指向字符串的指针作为参数。如果第2个字符串中包含第1个字符串，该函数将返回第1个字符串开始的地址。例如，string_in(“hats”, “at”)将返回hats中a的地址。否则，该函数返 回空指针。在一个完整的程序中测试该函数，使用一个循环给函数提供输入值。</li>
+</ol>
+<hr>
+<h3 id="第九题-1"><a href="#第九题-1" class="headerlink" title="第九题"></a>第九题</h3><ol start="9">
+<li>编写一个函数，把字符串中的内容用其反序字符串代替。在一个完整的程序中测试该函数，使用一个循环给函数提供输入值。</li>
+</ol>
+<hr>
+<h3 id="第十题-1"><a href="#第十题-1" class="headerlink" title="第十题"></a>第十题</h3><ol start="10">
+<li>编写一个函数接受一个字符串作为参数，并删除字符串中的空格。在一个程序中测试该函数，使用循环读取输入行，直到用户输入一行空行。 该程序应该应用该函数只每个输入的字符串，并显示处理后的字符串。</li>
+</ol>
+<hr>
+<h3 id="第十一题-1"><a href="#第十一题-1" class="headerlink" title="第十一题"></a>第十一题</h3><ol start="11">
+<li>编写一个函数，读入10个字符串或者读到EOF时停止。该程序为用户提供一个有5个选项的菜单：打印源字符串列表、以ASCII中的顺序打印字 符串、按长度递增顺序打印字符串、按字符串中第1个单词的长度打印字符串、退出。菜单可以循环显示，除非用户选择退出选项。当然，该程序要能真正完成菜单中各选项的功能。</li>
+</ol>
+<hr>
+<h3 id="第十二题-1"><a href="#第十二题-1" class="headerlink" title="第十二题"></a>第十二题</h3><ol start="12">
+<li>编写一个程序，读取输入，直至读到 EOF，报告读入的单词数、大写字母数、小写字母数、标点符号数和数字字符数。使用ctype.h头文件中的函数。</li>
+</ol>
+<hr>
+<h3 id="第十三题-1"><a href="#第十三题-1" class="headerlink" title="第十三题"></a>第十三题</h3><ol start="13">
+<li>编写一个程序，反序显示命令行参数的单词。例如，命令行参数是see you later，该程序应打印later you see。</li>
+</ol>
+<hr>
+<h3 id="第十四题"><a href="#第十四题" class="headerlink" title="第十四题"></a>第十四题</h3><ol start="14">
+<li>编写一个通过命令行运行的程序计算幂。第1个命令行参数是double类型的数，作为幂的底数，第2个参数是整数，作为幂的指数。</li>
+</ol>
+<hr>
+<h3 id="第十五题"><a href="#第十五题" class="headerlink" title="第十五题"></a>第十五题</h3><ol start="15">
+<li>使用字符分类函数实现atoi()函数。如果输入的字符串不是纯数字，该函数返回0。</li>
+</ol>
+<hr>
+<h3 id="第十六题"><a href="#第十六题" class="headerlink" title="第十六题"></a>第十六题</h3><ol start="16">
+<li>编写一个程序读取输入，直至读到文件结尾，然后把字符串打印出来。该程序识别和实现下面的命令行参数：<br>-p  按原样打印<br>-u  把输入全部转换成大写<br>-l  把输入全部转换成小写<br>如果没有命令行参数，则让程序像是使用了-p参数那样运行。</li>
+</ol>
+<hr>
+
           
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+      
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://hensir.top/2020/01/27/自定义头文件库/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Blog">
+    </span>
+      <header class="post-header">
+
+        
+          <h1 class="post-title" itemprop="name headline">
+              
+              <a href="/2020/01/27/自定义头文件库/" class="post-title-link" itemprop="url">自定义头文件库</a>
+            
+          </h1>
+        
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2020-01-27 22:40:00 / 修改时间：22:45:15" itemprop="dateCreated datePublished" datetime="2020-01-27T22:40:00+08:00">2020-01-27</time>
+            </span>
+          
+            
+
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/C语言/" itemprop="url" rel="index"><span itemprop="name">C语言</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;Windows.h&gt;</span></span></span><br><span class="line"><span class="comment">//本自定义头文件库包括以下函数</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">SetDataToClip</span><span class="params">(<span class="keyword">long</span>, <span class="keyword">long</span>)</span></span>; <span class="comment">//设置指定数据到剪切板</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">SCPTC</span><span class="params">(<span class="keyword">void</span>)</span></span>;               <span class="comment">//SetCursorPosToClip    设置鼠标坐标到剪切板</span></span><br><span class="line"><span class="function"><span class="keyword">char</span> *<span class="title">s_gets</span><span class="params">(<span class="keyword">char</span> *, <span class="keyword">int</span>)</span></span>;      <span class="comment">//获取指定数量的字符 且将回车符替换为空字符</span></span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2020/01/27/自定义头文件库/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>
@@ -466,7 +717,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-12-17 18:06:43" itemprop="dateModified" datetime="2019-12-17T18:06:43+08:00">2019-12-17</time>
+                <time title="修改时间：2020-01-27 22:46:07" itemprop="dateModified" datetime="2020-01-27T22:46:07+08:00">2020-01-27</time>
               </span>
             
           
@@ -497,17 +748,9 @@
       
           <p>本章内容为《C Primer Plus第六版》第十章复习题和编程练习题的答案</p>
 <h2 id="复习题"><a href="#复习题" class="headerlink" title="复习题"></a>复习题</h2><h3 id="第一题"><a href="#第一题" class="headerlink" title="第一题"></a>第一题</h3><ol>
-<li><p>下面的程序将打印什么内容？</p>
-<pre><code>#include &lt;stdio.h&gt;
-int main(void)
-{
-    int ref[] = {8, 4, 0, 2};
-    int *ptr;
-    int index;
-    for (index = 0, ptr = ref; index &lt; 4; index++, ptr++)
-        printf(&quot;%d %d\n&quot;, ref[index], *ptr);
-    return 0;
-}</code></pre></li>
+<li>下面的程序将打印什么内容？<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> ref[] = &#123;<span class="number">8</span>, <span class="number">4</span>, <span class="number">0</span>, <span class="number">2</span>&#125;;</span><br><span class="line">    <span class="keyword">int</span> *ptr;</span><br><span class="line">    <span class="keyword">int</span> index;</span><br><span class="line">    <span class="keyword">for</span> (index = <span class="number">0</span>, ptr = ref; index &lt; <span class="number">4</span>; index++, ptr++)</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d %d\n"</span>, ref[index], *ptr);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
 </ol>
 <hr>
 <h3 id="第二题"><a href="#第二题" class="headerlink" title="第二题"></a>第二题</h3><ol start="2">
@@ -1217,116 +1460,6 @@ d.putchar(&apos;\b&apos;);</code></pre></li>
   </article>
 
     
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://hensir.top/2019/05/19/C-Primer-Puls第七章复习题目和编程练习题的答案/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Blog">
-    </span>
-      <header class="post-header">
-
-        
-          <h1 class="post-title" itemprop="name headline">
-              
-              <a href="/2019/05/19/C-Primer-Puls第七章复习题目和编程练习题的答案/" class="post-title-link" itemprop="url">C-Primer-Puls第七章复习题目和编程练习题的答案</a>
-            
-          </h1>
-        
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              
-                
-              
-
-              <time title="创建时间：2019-05-19 20:07:00" itemprop="dateCreated datePublished" datetime="2019-05-19T20:07:00+08:00">2019-05-19</time>
-            </span>
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-09-21 16:16:28" itemprop="dateModified" datetime="2019-09-21T16:16:28+08:00">2019-09-21</time>
-              </span>
-            
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/C语言/" itemprop="url" rel="index"><span itemprop="name">C语言</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>本章内容为《C Primer Plus第六版》第七章复习题目和编程练习题的答案</p>
-<h2 id="复习题"><a href="#复习题" class="headerlink" title="复习题"></a>复习题</h2><h3 id="第一题"><a href="#第一题" class="headerlink" title="第一题"></a>第一题</h3><ol>
-<li>判断下列表达式是true还是false。<br>a 100 &gt; 3 &amp;&amp; ‘a’&gt;’c’<br>b 100 &gt; 3 || ‘a’&gt;’c’<br>c !(100&gt;3)</li>
-</ol>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/2019/05/19/C-Primer-Puls第七章复习题目和编程练习题的答案/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-    
   </section>
 
   
@@ -1364,7 +1497,7 @@ d.putchar(&apos;\b&apos;);</code></pre></li>
         
           <a href="/archives">
         
-          <span class="site-state-item-count">12</span>
+          <span class="site-state-item-count">13</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>

@@ -59,18 +59,18 @@
   };
 </script>
 
-  <meta name="description" content="本章内容为《C Primer Plus第六版》第十章复习题和编程练习题的答案 复习题第一题 下面的程序将打印什么内容？ #include &amp;lt;stdio.h&amp;gt; int main(void) {     int ref[] = {8, 4, 0, 2};     int *ptr;     int index;     for (index = 0, ptr = ref; index &amp;l">
+  <meta name="description" content="本章内容为《C Primer Plus第六版》第十章复习题和编程练习题的答案 复习题第一题 下面的程序将打印什么内容？12345678910#include &amp;lt;stdio.h&amp;gt;int main(void)&amp;#123;    int ref[] = &amp;#123;8, 4, 0, 2&amp;#125;;    int *ptr;    int index;    for (index = 0,">
 <meta name="keywords" content="题目,答案">
 <meta property="og:type" content="article">
 <meta property="og:title" content="C-Primer-Puls第十章复习题目和编程练习题的答案">
 <meta property="og:url" content="https://hensir.top/2019/10/03/C-Primer-Puls第十章复习题目和编程练习题的答案/index.html">
 <meta property="og:site_name" content="Blog">
-<meta property="og:description" content="本章内容为《C Primer Plus第六版》第十章复习题和编程练习题的答案 复习题第一题 下面的程序将打印什么内容？ #include &amp;lt;stdio.h&amp;gt; int main(void) {     int ref[] = {8, 4, 0, 2};     int *ptr;     int index;     for (index = 0, ptr = ref; index &amp;l">
+<meta property="og:description" content="本章内容为《C Primer Plus第六版》第十章复习题和编程练习题的答案 复习题第一题 下面的程序将打印什么内容？12345678910#include &amp;lt;stdio.h&amp;gt;int main(void)&amp;#123;    int ref[] = &amp;#123;8, 4, 0, 2&amp;#125;;    int *ptr;    int index;    for (index = 0,">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-12-17T10:06:43.393Z">
+<meta property="og:updated_time" content="2020-01-27T14:46:07.933Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="C-Primer-Puls第十章复习题目和编程练习题的答案">
-<meta name="twitter:description" content="本章内容为《C Primer Plus第六版》第十章复习题和编程练习题的答案 复习题第一题 下面的程序将打印什么内容？ #include &amp;lt;stdio.h&amp;gt; int main(void) {     int ref[] = {8, 4, 0, 2};     int *ptr;     int index;     for (index = 0, ptr = ref; index &amp;l">
+<meta name="twitter:description" content="本章内容为《C Primer Plus第六版》第十章复习题和编程练习题的答案 复习题第一题 下面的程序将打印什么内容？12345678910#include &amp;lt;stdio.h&amp;gt;int main(void)&amp;#123;    int ref[] = &amp;#123;8, 4, 0, 2&amp;#125;;    int *ptr;    int index;    for (index = 0,">
   <link rel="canonical" href="https://hensir.top/2019/10/03/C-Primer-Puls第十章复习题目和编程练习题的答案/">
 
 
@@ -270,7 +270,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-12-17 18:06:43" itemprop="dateModified" datetime="2019-12-17T18:06:43+08:00">2019-12-17</time>
+                <time title="修改时间：2020-01-27 22:46:07" itemprop="dateModified" datetime="2020-01-27T22:46:07+08:00">2020-01-27</time>
               </span>
             
           
@@ -301,17 +301,9 @@
       
         <p>本章内容为《C Primer Plus第六版》第十章复习题和编程练习题的答案</p>
 <h2 id="复习题"><a href="#复习题" class="headerlink" title="复习题"></a>复习题</h2><h3 id="第一题"><a href="#第一题" class="headerlink" title="第一题"></a>第一题</h3><ol>
-<li><p>下面的程序将打印什么内容？</p>
-<pre><code>#include &lt;stdio.h&gt;
-int main(void)
-{
-    int ref[] = {8, 4, 0, 2};
-    int *ptr;
-    int index;
-    for (index = 0, ptr = ref; index &lt; 4; index++, ptr++)
-        printf(&quot;%d %d\n&quot;, ref[index], *ptr);
-    return 0;
-}</code></pre></li>
+<li>下面的程序将打印什么内容？<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> ref[] = &#123;<span class="number">8</span>, <span class="number">4</span>, <span class="number">0</span>, <span class="number">2</span>&#125;;</span><br><span class="line">    <span class="keyword">int</span> *ptr;</span><br><span class="line">    <span class="keyword">int</span> index;</span><br><span class="line">    <span class="keyword">for</span> (index = <span class="number">0</span>, ptr = ref; index &lt; <span class="number">4</span>; index++, ptr++)</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d %d\n"</span>, ref[index], *ptr);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
 </ol>
 <hr>
 <h3 id="第二题"><a href="#第二题" class="headerlink" title="第二题"></a>第二题</h3><ol start="2">
@@ -591,7 +583,7 @@ copy_ptrs(target3,source, source + 5);</code></pre><figure class="highlight c"><
         
           <a href="/archives">
         
-          <span class="site-state-item-count">12</span>
+          <span class="site-state-item-count">13</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
