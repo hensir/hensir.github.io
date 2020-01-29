@@ -1,9 +1,9 @@
 ﻿---
 
-title: C-Primer-Puls第八章复习题和编程练习题的答案
+title: C-Primer-Puls第八章复习题目和编程练习题的答案
 date: 2019-09-03 14:31:00
-tags: [题目,C语言,答案]
-categories: 题目
+tags: [题目,答案]
+categories: C语言
 
 ---
 

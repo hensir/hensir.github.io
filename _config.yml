@@ -91,3 +91,8 @@ search:
   field: post
   format: html
   limit: 10000
+# 解决端口占用
+# server:
+#   port: 4001
+#   compress: true
+#   header: true
