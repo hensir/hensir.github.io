@@ -823,7 +823,7 @@ busuanzi_count:
   post_views_icon: eye
 
 # Tencent analytics
-tencent_analytics: # <app_id>
+tencent_analytics: <script type="text/javascript" src="http://tajs.qq.com/stats?sId=undefined" charset="UTF-8"></script>
 
 # Tencent MTA
 tencent_mta: # <app_id>

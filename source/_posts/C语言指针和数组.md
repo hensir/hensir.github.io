@@ -118,15 +118,25 @@ categories: C语言
 
 ## 指向指针的指针
 ```c
-    int a =100;
+#include <stdio.h>  //http://c.biancheng.net/view/2016.html
+int main(void)
+{
+    int a = 100;
     int *p1 = &a;
     int **p2 = &p1;
-    printf("%d\n", a);
-    printf("%d\n", *p1);
-    printf("%d\n", **p2);
-    //为什么需要加两个解引用符号是因为
-    int *pt = &p1;
-    printf("%d\n", *pt);    //这样给的是个地址 且不能再次解引用
+    int ***p3 = &p2;
+
+    printf("%d, %d, %d, %d\n", a, *p1, **p2, ***p3);    //如何得到a的值
+    // 100, 100, 100, 100
+    printf(" &a = %#X, p1 = %#X, *p2 = %#X, **p3 = %#X\n", &a, p1, *p2, **p3);  //如何得到a的地址
+    //&a = 0X28FF44, p1 = 0X28FF44, *p2 = 0X28FF44, **p3 = 0X28FF44
+    printf("&p2 = %#X, p3 = %#X\n", &p2, p3);           //如何得到二级p2的地址
+    // &p2 = 0X28FF3C, p3 = 0X28FF3C
+    printf("&p1 = %#X, p2 = %#X, *p3 = %#X\n", &p1, p2, *p3);   //如何得到指针p1的地址
+    // &p1 = 0X28FF40, p2 = 0X28FF40, *p3 = 0X28FF40
+    return 0;
+}
+
 ```
 
 
