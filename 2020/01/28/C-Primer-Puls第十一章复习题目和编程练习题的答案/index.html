@@ -67,7 +67,7 @@
 <meta property="og:site_name" content="Blog">
 <meta property="og:description" content="本章内容为《C Primer Plus第六版》第十一章复习题和编程练习题的答案从第十一章开始所有的c语言编程练习题答案代码格式化格式都将为C/C++ for Visual Studio Code扩展提供的Visual Studio格式方式扩展仓库地址：https://github.com/microsoft/vscode-cpptools 复习题第一题 下面字符串的声明有什么问题？12345int">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-02-15T03:16:07.881Z">
+<meta property="og:updated_time" content="2020-02-16T00:55:54.790Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="C-Primer-Puls第十一章复习题目和编程练习题的答案">
 <meta name="twitter:description" content="本章内容为《C Primer Plus第六版》第十一章复习题和编程练习题的答案从第十一章开始所有的c语言编程练习题答案代码格式化格式都将为C/C++ for Visual Studio Code扩展提供的Visual Studio格式方式扩展仓库地址：https://github.com/microsoft/vscode-cpptools 复习题第一题 下面字符串的声明有什么问题？12345int">
@@ -270,7 +270,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-02-15 11:16:07" itemprop="dateModified" datetime="2020-02-15T11:16:07+08:00">2020-02-15</time>
+                <time title="修改时间：2020-02-16 08:55:54" itemprop="dateModified" datetime="2020-02-16T08:55:54+08:00">2020-02-16</time>
               </span>
             
           
@@ -415,7 +415,7 @@ int main(void)
 </ol>
 <hr>
 <h3 id="第五题-1"><a href="#第五题-1" class="headerlink" title="第五题"></a>第五题</h3><ol start="5">
-<li>设计并测试一个函数，搜索第1个函数形参指定的字符串，在其中查找第2个函数形参指定的字符首次出现的位置。如果成功，该函数返指向该字符的指针，如果在字符串中未找到指定字符，则返回空指针（该函数的功能与 strchr()函数相同）。在一个完整的程序中测试该函数，使用一个循环给函数提供输入值。<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">char</span> *<span class="title">findchr</span><span class="params">(<span class="keyword">char</span> *, <span class="keyword">char</span>)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span> <span class="comment">//假设用户是正常人</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">char</span> str[<span class="number">20</span>];</span><br><span class="line">    <span class="keyword">char</span> ch;</span><br><span class="line">    <span class="keyword">while</span> (<span class="built_in">scanf</span>(<span class="string">"%s %c"</span>, str, &amp;ch) == <span class="number">2</span>) <span class="comment">//tips: 如果写成两个scanf那就需要清除缓冲区</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">char</span> *pt = findchr(str, ch); <span class="comment">//会残留换行符</span></span><br><span class="line">        <span class="built_in">putchar</span>(*pt);                <span class="comment">//pt 指向的字符</span></span><br><span class="line">        <span class="built_in">putchar</span>(<span class="string">'\n'</span>);</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%p"</span>, pt);            <span class="comment">//pt 指向的字符的地址</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">char</span> *<span class="title">findchr</span><span class="params">(<span class="keyword">char</span> *str, <span class="keyword">char</span> ch)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">while</span> (*str != <span class="string">'\0'</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (*str == ch)</span><br><span class="line">            <span class="keyword">return</span> str;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            str++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">NULL</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<li>设计并测试一个函数，搜索第1个函数形参指定的字符串，在其中查找第2个函数形参指定的字符首次出现的位置。如果成功，该函数返指向该字符的指针，如果在字符串中未找到指定字符，则返回空指针（该函数的功能与 strchr()函数相同）。在一个完整的程序中测试该函数，使用一个循环给函数提供输入值。<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">char</span> *<span class="title">findchr</span><span class="params">(<span class="keyword">char</span> *, <span class="keyword">char</span>)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span> <span class="comment">//假设用户是正常人</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">char</span> str[<span class="number">20</span>];</span><br><span class="line">    <span class="keyword">char</span> ch;</span><br><span class="line">    <span class="keyword">while</span> (<span class="built_in">scanf</span>(<span class="string">"%s %c"</span>, str, &amp;ch) == <span class="number">2</span>) <span class="comment">//tips: 如果写成两个scanf那就需要清除缓冲区</span></span><br><span class="line">    &#123;                                     <span class="comment">//会残留换行符</span></span><br><span class="line">        <span class="keyword">char</span> *pt = findchr(str, ch);</span><br><span class="line">        <span class="built_in">putchar</span>(*pt);                <span class="comment">//pt 指向的字符</span></span><br><span class="line">        <span class="built_in">putchar</span>(<span class="string">'\n'</span>);</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%p"</span>, pt);            <span class="comment">//pt 指向的字符的地址</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">char</span> *<span class="title">findchr</span><span class="params">(<span class="keyword">char</span> *str, <span class="keyword">char</span> ch)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">while</span> (*str != <span class="string">'\0'</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (*str == ch)</span><br><span class="line">            <span class="keyword">return</span> str;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            str++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">NULL</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 </li>
 </ol>
@@ -528,6 +528,10 @@ int main(void)
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+              <a href="/2020/02/26/C-Primer-Puls第十二章复习题目和编程练习题的答案/" rel="prev" title="C-Primer-Puls第十二章复习题目和编程练习题的答案">
+                C-Primer-Puls第十二章复习题目和编程练习题的答案 <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
     </footer>
@@ -579,7 +583,7 @@ int main(void)
         
           <a href="/archives">
         
-          <span class="site-state-item-count">13</span>
+          <span class="site-state-item-count">14</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -711,6 +715,14 @@ int main(void)
 
 
 
+  <script>
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//tajs.qq.com/stats?sId=66519903";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
 
 
 
