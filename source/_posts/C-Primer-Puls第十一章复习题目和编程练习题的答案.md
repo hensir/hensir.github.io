@@ -404,8 +404,8 @@ int main(void) //假设用户是正常人
 {
     char str[20];
     char ch;
-    while (scanf("%s %c", str, &ch) == 2) //tips: 如果写成两个scanf那就需要清除缓冲区
-    {                                     //会残留换行符
+    while (scanf("%s %c", str, &ch) == 2)
+    {
         char *pt = findchr(str, ch);
         putchar(*pt);                //pt 指向的字符
         putchar('\n');
@@ -482,7 +482,7 @@ char *s_gets(char *st, int n)
 7. strncpy(s1, s2, n)函数把s2中的n个字符拷贝至s1中，截断s2，或者有必要的话在末尾添加空字符。如果s2的长度是n或多于n，目标字符串不能以空字符结尾。该函数返回s1。自己编写一个这样的函数，名为mystrncpy()。在一个完整的程序中测试该函数，使用一个循环给函数提供输入值。
 ``` c
 #include <stdio.h>  //如果按照作者第二句来做会出一些混乱的错误
-#include <string.h> //且第二句好像并不符合原strncpy()函数的作用
+#include <string.h> //且题目第二句好像并不符合原strncpy()函数的作用
 #define SIZE 20
 char *mystrncpy(char *, char *, int);
 char *s_gets(char *st, int n); //获取指定数量的字符 不带换行符
@@ -532,7 +532,7 @@ char *s_gets(char *st, int n)
 
 
 ### 第八题
-8. 编写一个名为string_in()的函数，接受两个指向字符串的指针作为参数。如果第2个字符串中包含第1个字符串，该函数将返回第1个字符串开始的地址。例如，string_in("hats", "at")将返回hats中a的地址。否则，该函数返 回空指针。在一个完整的程序中测试该函数，使用一个循环给函数提供输入值。
+8. 编写一个名为string_in()的函数，接受两个指向字符串的指针作为参数。如果第2个字符串中包含第1个字符串，该函数将返回第1个字符串开始的地址。例如，string_in("hats", "at")将返回hats中a的地址。否则，该函数返回空指针。在一个完整的程序中测试该函数，使用一个循环给函数提供输入值。
 ``` c
 #include <stdio.h>
 #include <string.h>
@@ -700,7 +700,7 @@ void oba(const char *str)
     strncpy(pt, str, 10);           //做了一个副本
     for (i = 0; pt[i]; i++)         //cpp做过一个示例  和它一样的流程
     {
-        for (j = 0; pt[j]; j++)
+        for (j = 0; pt[j] && j < i; j++)
         {
             if (pt[i] < pt[j])
             {
