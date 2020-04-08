@@ -69,7 +69,7 @@ int main(int argc, char *argv[])
 ----------
 
 ### 第四题
-4. 编写一个程序，不接受任何命令行参数或接受一个命令行参数。如果有一个参数，将其解释为文件名；如果没有参数，使用标准输入（stdin）作 为输入。假设输入完全是浮点数。该程序要计算和报告输入数字的算术平均值。
+4. 编写一个程序，不接受任何命令行参数或接受一个命令行参数。如果有一个参数，将其解释为文件名；如果没有参数，使用标准输入（stdin）作为输入。假设输入完全是浮点数。该程序要计算和报告输入数字的算术平均值。
 
 ----------
 
@@ -108,70 +108,843 @@ fprintf(stderr, "Hello, %s\n", name);
 ## 编程练习
 ### 第一题
 1. 修改程序清单13.1中的程序，要求提示用户输入文件名，并读取用户输入的信息，不使用命令行参数。
-
+``` c
+#include <stdio.h>
+#include <stdlib.h> // 提供 exit()的原型
+#include <string.h> // strchr()要用
+char *s_gets(char *, int);
+int main(void)
+{
+    int ch;   // 读取文件时，储存每个字符的地方
+    FILE *fp; // “文件指针”
+    unsigned long count = 0;
+    char filename[50] = {0}; // 文件名限定50
+    s_gets(filename, 50);
+    if ((fp = fopen(filename, "r")) == NULL)
+    {
+        printf("Can't open %s\n", filename);
+        exit(EXIT_FAILURE);
+    }
+    while ((ch = getc(fp)) != EOF)
+    {
+        putc(ch, stdout); // 与 putchar(ch); 相同
+        count++;
+    }
+    fclose(fp);
+    printf("\nFile %s has %lu characters\n", filename, count);
+    return 0;
+}
+char *s_gets(char *st, int n)
+{
+    char *ret_val;
+    char *find;
+    ret_val = fgets(st, n, stdin);
+    if (ret_val)
+    {
+        find = strchr(st, '\n'); // 查找换行符
+        if (find)                // 如果地址不是NULL，
+            *find = '\0';        // 在此处放置一个空字符
+        else
+            while (getchar() != '\n')
+                continue;
+    }
+    return ret_val;
+}
+```
 ----------
 
 ### 第二题
 2. 编写一个文件拷贝程序，该程序通过命令行获取原始文件名和拷贝文件名。尽量使用标准I/O和二进制模式。
-
+``` c
+#include <stdio.h>
+#include <stdlib.h>
+int main(int argc, char *argv[])
+{
+    FILE *fpr, *fpa;
+    int ch;
+    char str[100];
+    if (argc == 3)
+    {
+        if ((fpr = fopen(argv[1], "r")) == NULL)
+        {
+            printf("Can't open %s file.\n", argv[1]);
+            exit(EXIT_FAILURE);
+        }
+        if ((fpa = fopen(argv[2], "a+")) == NULL)
+        {
+            printf("Can't open %s file.\n", argv[2]);
+            exit(EXIT_FAILURE);
+        }
+        while ((ch = getc(fpr)) != EOF)
+            putc(ch, fpa);
+        rewind(fpa);
+        while ((fscanf(fpa, "%s", str)) == 1) // 从头开始读取文件
+            fprintf(stdout, "%s", str);
+        fclose(fpr);
+        fclose(fpa);
+    }
+    else
+        exit(0);
+    return 0;
+}
+```
+``` c
+// 二进制模式
+#include <stdio.h>
+#include <stdlib.h>
+#define N 100
+int main(int argc, char *argv[])
+{
+    FILE *fpr, *fpa;
+    char str[N];
+    if (argc == 3)
+    {
+        if ((fpr = fopen(argv[1], "rb")) == NULL)
+        {
+            printf("Can't open %s file.\n", argv[1]);
+            exit(EXIT_FAILURE);
+        }
+        if ((fpa = fopen(argv[2], "ab+")) == NULL) // 因为后期要读一下 所以就给了个 +
+        {
+            printf("Can't open %s file.\n", argv[2]);
+            exit(EXIT_FAILURE);
+        }
+        while ((fgets(str, N, fpr)) != EOF)
+            fwrite(str, sizeof(char), N, fpa);
+        rewind(fpa);
+        while ((fread(str, sizeof(char), N, fpa)) != 0)
+            puts(str);
+        fclose(fpr);
+        fclose(fpa);
+    }
+    else
+        exit(0); // tips略
+    return 0;
+}
+```
 ----------
 
 ### 第三题
-3. 编写一个文件拷贝程序，提示用户输入文本文件名，并以该文件名作为原始文件名和输出文件名。该程序要使用 ctype.h 中的 toupper()函数，在 写入到输出文件时把所有文本转换成大写。使用标准I/O和文本模式。
-
+3. 编写一个文件拷贝程序，提示用户输入文本文件名，并以该文件名作为原始文件名和输出文件名。该程序要使用 ctype.h 中的 toupper()函数，在写入到输出文件时把所有文本转换成大写。使用标准I/O和文本模式。
+``` c
+#include <stdio.h>
+#include <ctype.h>
+#include <stdlib.h>
+#define FLEN 50 // 文件名最大长度
+#define LEN 100 // 每循环要处理的字节数
+char *s_gets(char *, int);
+int main(void)
+{
+    char fn[FLEN] = {0}, name[FLEN] = {0}; // 存储文件名
+    FILE *f1, *f2;
+    char str[LEN] = {0};        //
+    int i = 0;
+    s_gets(fn, FLEN);                   // 抄的cpp
+    strncpy(name, fn, FLEN - 5);        // 这一步为了确保能添加.red字符和一个空字符 总共是5个空间
+    name[FLEN - 5] = '\0';              // 这一步确保name的阈值
+    strcat(name, ".upp");               // strcat会检测第一个空字符 如果元素一很短 那么程序很正常
+    if ((f1 = fopen(fn, "r")) == NULL)  // 的结束，如果元素一很长那么会有15行的空字符来修复
+    {
+        fprintf(stderr, "Can open the file \"%s\"\n", fn);
+        exit(EXIT_FAILURE);
+    }
+    if ((f2 = fopen(name, "w")) == NULL)
+    {
+        fprintf(stderr, "Can open the file \"%s\"\n", name);
+        exit(EXIT_FAILURE);
+    }
+    while ((fgets(str, LEN, f1)) != NULL)
+    {
+        for (i = 0; i < LEN && str[i] != '\0'; i++)
+            str[i] = toupper(str[i]);
+        fputs(str, f2);
+    }
+    fclose(f1);
+    fclose(f2);
+        return 0;
+}
+char *s_gets(char *st, int n)
+{
+    char *ret_val;
+    char *find;
+    ret_val = fgets(st, n, stdin);
+    if (ret_val)
+    {
+        find = strchr(st, '\n'); // 查找换行符
+        if (find)                // 如果地址不是NULL，
+            *find = '\0';        // 在此处放置一个空字符
+        else
+            while (getchar() != '\n')
+                continue;
+    }
+    return ret_val;
+}
+```
 ----------
 
 ### 第四题
 4. 编写一个程序，按顺序在屏幕上显示命令行中列出的所有文件。使用argc控制循环。
-
+``` c
+#include <stdio.h>
+#include <stdlib.h>
+#define SLEN 100
+int main(int argc, char *argv[])
+{
+    if (argc >= 2)
+    {
+        FILE *fp;
+        char str[SLEN];
+        for (int i = 1; i < argc; i++)
+        {
+            if ((fp = fopen(argv[i], "r")) == NULL)
+            {
+                fprintf(stderr, "Can't open the file \"%s\"\n", argv[i]);
+                exit(EXIT_FAILURE);
+            }
+            while ((fgets(str, 100, fp)) != NULL)
+                fputs(str, stdout);
+        }
+    }
+    fclose(fp);
+    return 0;
+}
+```
 ----------
 
 ### 第五题
 5. 修改程序清单13.5中的程序，用命令行界面代替交互式界面。
-
+``` c
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#define BUFSIZE 4096
+#define SLEN 81
+void append(FILE *source, FILE *dest);
+char *s_gets(char *st, int n);
+int main(int argc, char *argv[])
+{
+    if (argc >= 3)
+    {
+        FILE *fa, *fs;       // fa 指向目标文件，fs 指向源文件
+        int files = 0;       // 附加的文件数量
+        int ch;
+        if ((fa = fopen(argv[1], "a+")) == NULL) // 打开目标文件
+        {
+            fprintf(stderr, "Can't open %s\n", argv[1]);
+            exit(EXIT_FAILURE);
+        }
+        if (setvbuf(fa, NULL, _IOFBF, BUFSIZE) != 0) // 创建大小为4096个字节的输出缓冲区
+        {
+            fputs("Can't create output buffer\n", stderr);
+            exit(EXIT_FAILURE);
+        }
+        for (int i = 2; i < argc; i++)
+        {
+            if (strcmp(argv[i], argv[1]) == 0) // 防止目标文件追加本身
+                fputs("Can't append file to itself\n", stderr);
+            else if ((fs = fopen(argv[i], "r")) == NULL) // 打开源文件
+                fprintf(stderr, "Can't open %s\n", argv[i]);
+            else
+            {
+                if (setvbuf(fs, NULL, _IOFBF, BUFSIZE) != 0) // 创建大小为4096个字节的输出缓冲区
+                {
+                    fputs("Can't create input buffer\n", stderr);
+                    continue;
+                }
+                append(fs, fa); // 调用函数
+                if (ferror(fs) != 0)
+                    fprintf(stderr, "Error in reading file %s.\n", argv[i]);
+                if (ferror(fa) != 0)
+                    fprintf(stderr, "Error in writing file %s.\n", argv[1]);
+                fclose(fs);
+                files++;
+                printf("File %s appended.\n", argv[i]);
+            }
+        }
+        printf("Done appending.%d files appended.\n", files);
+        rewind(fa); // 返回到文件的开始处
+        printf("%s contents:\n", argv[1]);
+        while ((ch = getc(fa)) != EOF)
+            putchar(ch);
+        puts("\nDone displaying.");
+        fclose(fa);
+        return 0;
+    }
+}
+void append(FILE *source, FILE *dest)
+{
+    size_t bytes;              // 是用typedef定义的类型 一般为无符号整型 unsigned int
+    static char temp[BUFSIZE]; // 只分配一次
+    while ((bytes = fread(temp, sizeof(char), BUFSIZE, source)) > 0)
+        fwrite(temp, sizeof(char), bytes, dest);
+}
+char *s_gets(char *st, int n)
+{
+    char *ret_val;
+    char *find;
+    ret_val = fgets(st, n, stdin);
+    if (ret_val)
+    {
+        find = strchr(st, '\n'); // 查找换行符
+        if (find)                // 如果地址不是NULL，
+            *find = '\0';        // 在此处放置一个空字符
+        else
+            while (getchar() != '\n')
+                continue;
+    }
+    return ret_val;
+}
+```
 ----------
 
 ### 第六题
 6. 使用命令行参数的程序依赖于用户的内存如何正确地使用它们。重写程序清单 13.2 中的程序，不使用命令行参数，而是提示用户输入所需信息。
-
+``` c
+#include <stdio.h>
+#include <stdlib.h> // 提供 exit()的原型
+#include <string.h> // 提供 strcpy()、strcat()的原型
+#define LEN 40
+char *s_gets(char *, int);
+int main()
+{
+    FILE *in, *out; // 声明两个指向 FILE 的指针
+    int ch;
+    char sou[LEN], name[LEN]; // 储存源文件名和输出文件名
+    int count = 0;
+    s_gets(sou, LEN);   // 接收源文件名 再把几个argv[1]改成sou就行了
+    if ((in = fopen(sou, "r")) == NULL) // 设置输入
+    {
+        fprintf(stderr, "I couldn't open the file \"%s\"\n", sou);
+        exit(EXIT_FAILURE);
+    }
+    strncpy(name, sou, LEN - 5);      // 拷贝文件名          // 这一步为了确保能添加.red字符和一个空字符 总共是5个空间
+    name[LEN - 5] = '\0';                 //                    // 这一步确保name的阈值
+    strcat(name, ".red");                 // 在文件名后添加.red  // strcat会检测第一个空字符 如果元素一很短 那么程序很正常
+    if ((out = fopen(name, "w")) == NULL) // 设置输出            // 的结束，如果元素一很长那么会有25行的空字符来修复
+    {                                     // 以写模式打开文件
+        fprintf(stderr, "Can't create output file.\n");
+        exit(3);
+    }
+    while ((ch = getc(in)) != EOF) // 拷贝数据
+        if (count++ % 3 == 0)
+            putc(ch, out);                   // 打印3个字符中的第1个字符
+    if (fclose(in) != 0 || fclose(out) != 0) // 收尾工作
+        fprintf(stderr, "Error in closing files\n");
+    return 0;
+}
+char *s_gets(char *st, int n)
+{
+    char *ret_val;
+    char *find;
+    ret_val = fgets(st, n, stdin);
+    if (ret_val)
+    {
+        find = strchr(st, '\n'); // 查找换行符
+        if (find)                // 如果地址不是NULL，
+            *find = '\0';        // 在此处放置一个空字符
+        else
+            while (getchar() != '\n')
+                continue;
+    }
+    return ret_val;
+}
+```
 ----------
 
 ### 第七题
 7. 编写一个程序打开两个文件。可以使用命令行参数或提示用户输入文件名。
-a.该程序以这样的顺序打印：打印第1个文件的第1行，第2个文件的第1行，第1个文件的第2行，第2个文件的第2行，以此类推，打印到行数较多文 件的最后一行。
+a.该程序以这样的顺序打印：打印第1个文件的第1行，第2个文件的第1行，第1个文件的第2行，第2个文件的第2行，以此类推，打印到行数较多文件的最后一行。
 b.修改该程序，把行号相同的行打印成一行。
-
+``` c
+#include <stdio.h>  // a
+#include <stdlib.h>
+char *s_gets(char *st, int n);
+#define SLEN 100
+int main(int argc, char *argv[])
+{
+    FILE *fp1, *fp2;
+    char *fpt1, *fpt2;
+    char str[SLEN] = {0};
+    if (argc == 3)
+    {
+        if ((fp1 = fopen(argv[1], "r")) == NULL)
+        {
+            fprintf(stderr, "Can't open the file \"%s\"\n", argv[1]);
+            exit(EXIT_FAILURE);
+        }
+        if ((fp2 = fopen(argv[2], "r")) == NULL)
+        {
+            fprintf(stderr, "Can't open the file \"%s\"\n", argv[2]);
+            exit(EXIT_FAILURE);
+        }
+    }
+    else
+    {
+        char f1[50], f2[50];
+        puts("请输入第一个文件的名字，且再回车后输入第二个文件的名字");
+        s_gets(f1, 50);
+        s_gets(f2, 50);
+        if ((fp1 = fopen(f1, "r")) == NULL)
+        {
+            fprintf(stderr, "Can't open the file \"%s\"\n", f1);
+            exit(EXIT_FAILURE);
+        }
+        if ((fp2 = fopen(f2, "r")) == NULL)
+        {
+            fprintf(stderr, "Can't open the file \"%s\"\n", f1);
+            exit(EXIT_FAILURE);
+        }
+    }
+    do
+    {
+        if ((fpt1 = fgets(str, SLEN, fp1)) != NULL)
+            fputs(str, stdout);
+        if ((fpt2 = fgets(str, SLEN, fp2)) != NULL)
+            fputs(str, stdout);
+    } while (fpt1 != NULL || fpt2 != NULL);
+    fclose(fp1);
+    fclose(fp2);
+    return 0;
+}
+char *s_gets(char *st, int n)
+{
+    char *ret_val;
+    char *find;
+    ret_val = fgets(st, n, stdin);
+    if (ret_val)
+    {
+        find = strchr(st, '\n'); // 查找换行符
+        if (find)                // 如果地址不是NULL，
+            *find = '\0';        // 在此处放置一个空字符
+        else
+            while (getchar() != '\n')
+                continue;
+    }
+    return ret_val;
+}
+```
+``` c
+#include <stdio.h>  // b
+#include <stdlib.h>
+#include <string.h>
+char *s_gets(char *st, int n);
+#define SLEN 100
+int main(int argc, char *argv[]) // 还差个b选项
+{
+    FILE *fp1, *fp2;
+    char *fpt1, *fpt2;
+    char str1[SLEN] = {0};
+    char str2[SLEN] = {0};
+    int state = 0;
+    if (argc == 3)
+    {
+        if ((fp1 = fopen(argv[1], "r")) == NULL)
+        {
+            fprintf(stderr, "Can't open the file \"%s\"\n", argv[1]);
+            exit(EXIT_FAILURE);
+        }
+        if ((fp2 = fopen(argv[2], "r")) == NULL)
+        {
+            fprintf(stderr, "Can't open the file \"%s\"\n", argv[2]);
+            exit(EXIT_FAILURE);
+        }
+    }
+    else
+    {
+        char f1[50], f2[50];
+        puts("请输入第一个文件的名字，且再回车后输入第二个文件的名字");
+        s_gets(f1, 50);
+        s_gets(f2, 50);
+        if ((fp1 = fopen(f1, "r")) == NULL)
+        {
+            fprintf(stderr, "Can't open the file \"%s\"\n", f1);
+            exit(EXIT_FAILURE);
+        }
+        if ((fp2 = fopen(f2, "r")) == NULL)
+        {
+            fprintf(stderr, "Can't open the file \"%s\"\n", f1);
+            exit(EXIT_FAILURE);
+        }
+    }
+    do
+    {
+        fpt1 = fgets(str1, SLEN, fp1);
+        fpt2 = fgets(str2, SLEN, fp2);
+        if (fpt1 && fpt2)
+        {
+            char *find;                // 删除换行符
+            find = strchr(str1, '\n'); // 换行符处理的不是很好
+            if (find)                  // 不然需要考虑到每种情况
+                *find = '\0';          //
+            fputs(str1, stdout);       // 不连续的及连续的fpt1 != NULL && fpt2 != NULL
+            fputs(str2, stdout);       // 不连续的及连续的fpt1 != NULL
+            continue;                  // 不连续的及连续的fpt2 != NULL
+        }
+        else if (fpt1 != NULL)
+        {
+            putchar('\n');
+            fputs(str1, stdout);
+        }
+        else if (fpt2 != NULL)
+        {
+            putchar('\n');
+            fputs(str2, stdout);
+        }
+    } while (fpt1 != NULL || fpt2 != NULL);
+    fclose(fp1);
+    fclose(fp2);
+    return 0;
+}
+char *s_gets(char *st, int n)
+{
+    char *ret_val;
+    char *find;
+    ret_val = fgets(st, n, stdin);
+    if (ret_val)
+    {
+        find = strchr(st, '\n'); // 查找换行符
+        if (find)                // 如果地址不是NULL，
+            *find = '\0';        // 在此处放置一个空字符
+        else
+            while (getchar() != '\n')
+                continue;
+    }
+    return ret_val;
+}
+```
 ----------
 
 ### 第八题
-8. 编写一个程序，以一个字符和任意文件名作为命令行参数。如果字符后面没有参数，该程序读取标准输入；否则，程序依次打开每个文件并报告 每个文件中该字符出现的次数。文件名和字符本身也要一同报告。程序应包 含错误检查，以确定参数数量是否正确和是否能打开文件。如果无法打开文件，程序应报告这一情况，然后继续处理下一个文件。
+8. 编写一个程序，以一个字符和任意文件名作为命令行参数。如果字符后面没有参数，该程序读取标准输入；否则，程序依次打开每个文件并报告每个文件中该字符出现的次数。文件名和字符本身也要一同报告。程序应包含错误检查，以确定参数数量是否正确和是否能打开文件。如果无法打开文件，程序应报告这一情况，然后继续处理下一个文件。
+``` c
+#include <stdio.h>
+#include <string.h> // s_gets()函数要用
+char *s_gets(char *st, int n);
+void chinstr(char, FILE *, char *);
+int main(int argc, char *argv[])
+{
+    char ch;
+    FILE *fp;
+    char fn[50];
+    if (argc == 2)
+    {
+        ch = argv[1][0];
+        printf("请输入文件名(空字符结束)\n");
+        while (s_gets(fn, 50) != NULL && (fn[0] != '\0'))
+        {
+            if ((fp = fopen(fn, "r")) == NULL)
+            {
+                fprintf(stderr, "Can't open the file \"%s\"\n", fn);
+                printf("请输入文件名(空字符结束)\n");
+                continue;
+            }
+            else
+            {
+                chinstr(ch, fp, fn);
+                printf("请输入文件名(空字符结束)\n");
+            }
+        }
+    }
+    else if (argc > 2)
+    {
+        ch = argv[1][0];
+        for (int i = 2; i < argc; i++)
+        {
+            if ((fp = fopen(argv[i], "r")) == NULL)
+            {
+                fprintf(stderr, "Can't open the file \"%s\"\n", argv[i]);
+                continue;
+            }
+            else
+                chinstr(ch, fp, argv[i]);
+        }
+    }
+    else
+    {
+        printf("用法1: %s 字符 文件名\n", argv[0]);
+        printf("用法2: %s 字符\n", argv[0]);
+    }
+    fclose(fp);
+    return 0;
+}
+void chinstr(char ch, FILE *fp, char fn[])
+{
+    char str[100] = {0};
+    int i = 0;
+    char *pt;
+    while ((pt = fgets(str, 100, fp)) != NULL)
+    {
+        while (*pt != '\0')
+        {
+            if (*pt == ch)
+                i++;
+            pt++;
+        }
+    }
+    printf("字符 %c 在%s文件中出现%d次\n", ch, fn, i);
+}
+char *s_gets(char *st, int n)
+{
+    char *ret_val;
+    char *find;
+    ret_val = fgets(st, n, stdin);
+    if (ret_val)
+    {
+        find = strchr(st, '\n'); // 查找换行符
+        if (find)                // 如果地址不是NULL，
+            *find = '\0';        // 在此处放置一个空字符
+        else
+            while (getchar() != '\n')
+                continue;
+    }
+    return ret_val;
+}
+```
 
 ----------
 
 ### 第九题
 9. 修改程序清单 13.3 中的程序，从 1 开始，根据加入列表的顺序为每个单词编号。当程序下次运行时，确保新的单词编号接着上次的编号开始。
-
+``` c
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#define MAX 41
+int main(void)
+{
+    FILE *fp;
+    char words[MAX];
+    char str[MAX];
+    int num = 0;
+    if ((fp = fopen("wordy", "a+")) == NULL)
+    {
+        fprintf(stdout, "Can't open \"wordy\" file.\n");
+        exit(EXIT_FAILURE);
+    }
+    while (fscanf(fp, "%d %s\n", &num, str) != EOF)         //
+        ;
+    puts("Enter words to add to the file; press the #");
+    puts("key at the beginning of a line to terminate.");
+    while ((fscanf(stdin, "%40s", words) == 1) && (words[0] != '#'))
+        fprintf(fp, "%d %s\n", ++num, words);
+    puts("File contents:");
+    rewind(fp);
+    while (fgets(words, MAX, fp) != NULL)
+        fputs(words, stdout);
+    puts("Done!");
+    if (fclose(fp) != 0)
+        fprintf(stderr, "Error closing file\n");
+    fclose(fp);
+    return 0;
+}
+```
 ----------
 
 ### 第十题
-10. 编写一个程序打开一个文本文件，通过交互方式获得文件名。通过一个循环，提示用户输入一个文件位置。然后该程序打印从该位置开始到下 一个换行符之前的内容。用户输入负数或非数值字符可以结束输入循环。
-
+10. 编写一个程序打开一个文本文件，通过交互方式获得文件名。通过一个循环，提示用户输入一个文件位置。然后该程序打印从该位置开始到下一个换行符之前的内容。用户输入负数或非数值字符可以结束输入循环。
+``` c
+#include <stdio.h>
+#include <stdlib.h>
+char *s_gets(char *, int);
+int main(void)
+{
+    char fn[50];
+    FILE *fp;
+    long offset, origin;
+    char ch;
+    printf("请输入一个文件名\n");
+    s_gets(fn, 50);
+    if ((fp = fopen(fn, "r")) == NULL)
+    {
+        fprintf(stderr, "Can't open the file \"%s\"\n", fn);
+        exit(EXIT_FAILURE);
+    }
+    printf("请输入要从文件的哪个位置移动\n(0表示文件开头 1表示文件当前位置 2表示文件末尾 非数值字符退出)\n");
+    while (scanf("%ld", &origin) != 0)
+    {
+        printf("请输入要移动到的位置(正数向前移动 0保持不动 负数向后移动)\n请规范操作");
+        scanf("%ld", &offset);
+        fseek(fp, offset, origin);
+        while ((ch = getc(fp)) && (ch != '\n'))
+            putc(ch, stdout);
+        printf("\n请输入要从文件的哪个位置移动\n(0表示文件开头 1表示文件当前位置 2表示文件末尾 非数值字符退出)\n");
+    }
+    fclose(fp);
+    return 0;
+}
+char *s_gets(char *st, int n)
+{
+    char *ret_val;
+    char *find;
+    ret_val = fgets(st, n, stdin);
+    if (ret_val)
+    {
+        find = strchr(st, '\n'); // 查找换行符
+        if (find)                // 如果地址不是NULL，
+            *find = '\0';        // 在此处放置一个空字符
+        else
+            while (getchar() != '\n')
+                continue;
+    }
+    return ret_val;
+}
+```
 ----------
 
 ### 第十一题
-11. 编写一个程序，接受两个命令行参数。第1个参数是一个字符串，第2个参数是一个文件名。然后该程序查找该文件，打印文件中包含该字符串的所有行。因为该任务是面向行而不是面向字符的，所以要使用fgets()而不 是getc()。使用标准C库函数strstr()（11.5.7节简要介绍过）在每一行中查找 指定字符串。假设文件中的所有行都不超过255个字符。
-
+11. 编写一个程序，接受两个命令行参数。第1个参数是一个字符串，第2个参数是一个文件名。然后该程序查找该文件，打印文件中包含该字符串的所有行。因为该任务是面向行而不是面向字符的，所以要使用fgets()而不是getc()。使用标准C库函数strstr()（11.5.7节简要介绍过）在每一行中查找指定字符串。假设文件中的所有行都不超过255个字符。
+``` c
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#define SLEN 255
+int main(int argc, char *argv[])
+{
+    FILE *fp;
+    char str[SLEN] = {0};
+    if (argc != 3)
+    {
+        printf("参数错误");
+        exit(EXIT_FAILURE);
+    }
+    if ((fp = fopen(argv[2], "r")) == NULL)
+    {
+        fprintf(stderr, "Can't open the file \"%s\"\n", argv[2]);
+        exit(EXIT_FAILURE);
+    }
+    while ((fgets(str, SLEN, fp)) != NULL)
+    {
+        if (strstr(str, argv[1]) != NULL)
+            fputs(str, stdout);
+    }
+    fclose(fp);
+    return 0;
+}
+```
 ----------
 
 ### 第十二题
-12. 创建一个文本文件，内含20行，每行30个整数。这些整数都在0～9之间，用空格分开。该文件是用数字表示一张图片，0～9表示逐渐增加的灰 度。编写一个程序，把文件中的内容读入一个20×30的int数组中。一种把这 些数字转换为图片的粗略方法是：该程序使用数组中的值初始化一个20×31 的字符数组，用值0 对应空格字符，1 对应点字符，以此类推。数字越大表示字符所占的空间越大。例如，用#表示9。每行的最后一个字符（第31个） 是空字符，这样该数组包含了20个字符串。最后，程序显示最终的图片 （即，打印所有的字符串），并将结果储存在文本文件中。例如，下面是开始的数据：
-
+12. 创建一个文本文件，内含20行，每行30个整数。这些整数都在0～9之间，用空格分开。该文件是用数字表示一张图片，0～9表示逐渐增加的灰度。编写一个程序，把文件中的内容读入一个20×30的int数组中。一种把这些数字转换为图片的粗略方法是：该程序使用数组中的值初始化一个20×31 的字符数组，用值0 对应空格字符，1 对应点字符，以此类推。数字越大表示字符所占的空间越大。例如，用#表示9。每行的最后一个字符（第31个） 是空字符，这样该数组包含了20个字符串。最后，程序显示最终的图片 （即，打印所有的字符串），并将结果储存在文本文件中。例如，下面是开始的数据：
+``` c
+0 0 9 0 0 0 0 0 0 0 0 0 5 8 9 9 8 5 2 0 0 0 0 0 0 0 0 0 0 0 // test1.txt 排版好的矩阵 可以使用
+0 0 0 0 9 0 0 0 0 0 0 0 5 8 9 9 8 5 5 2 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 5 8 1 9 8 5 4 5 2 0 0 0 0 0 0 0 0 0
+0 0 0 0 9 0 0 0 0 0 0 0 5 8 9 9 8 5 0 4 5 2 0 0 0 0 0 0 0 0
+0 0 9 0 0 0 0 0 0 0 0 0 5 8 9 9 8 5 0 0 4 5 2 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 5 8 9 1 8 5 0 0 0 4 5 2 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 5 8 9 9 8 5 0 0 0 0 4 5 2 0 0 0 0 0
+5 5 5 5 5 5 5 5 5 5 5 5 5 8 9 9 8 5 5 5 5 5 5 5 5 5 5 5 5 5
+8 8 8 8 8 8 8 8 8 8 8 8 5 8 9 9 8 5 8 8 8 8 8 8 8 8 8 8 8 8
+9 9 9 9 0 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 3 9 9 9 9 9 9 9
+8 8 8 8 8 8 8 8 8 8 8 8 5 8 9 9 8 5 8 8 8 8 8 8 8 8 8 8 8 8
+5 5 5 5 5 5 5 5 5 5 5 5 5 8 9 9 8 5 5 5 5 5 5 5 5 5 5 5 5 5
+0 0 0 0 0 0 0 0 0 0 0 0 5 8 9 9 8 5 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 5 8 9 9 8 5 0 0 0 0 6 6 0 0 0 0 0 0
+0 0 0 0 2 2 0 0 0 0 0 0 5 8 9 9 8 5 0 0 5 6 0 0 6 5 0 0 0 0
+0 0 0 0 3 3 0 0 0 0 0 0 5 8 9 9 8 5 0 5 6 1 1 1 1 6 5 0 0 0
+0 0 0 0 4 4 0 0 0 0 0 0 5 8 9 9 8 5 0 0 5 6 0 0 6 5 0 0 0 0
+0 0 0 0 5 5 0 0 0 0 0 0 5 8 9 9 8 5 0 0 0 0 6 6 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 5 8 9 9 8 5 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 5 8 9 9 8 5 0 0 0 0 0 0 0 0 0 0 0 0
+```
+``` c
+#include <stdio.h>
+#include <stdlib.h>
+#define FNAME "test1.txt"
+#define FARGS "test2.txt"
+int main(void)
+{
+    FILE *fp, *ft;
+    int ar[20][30];
+    char st[20][31];
+    char ch[10] = {" .':~*=&%#"};
+    if (!(fp = fopen(FNAME, "r")))
+    {
+        fprintf(stderr, "Can't open file %s.\n", FNAME);
+        exit(EXIT_FAILURE);
+    }
+    if (!(ft = fopen(FARGS, "w")))
+    {
+        fprintf(stderr, "Can't open file %s.\n", FARGS);
+        exit(EXIT_FAILURE);
+    }
+    for (int i = 0; i < 20; i++)
+        for (int j = 0; j < 30; j++)
+            while (fscanf(fp, "%d", &ar[i][j]) != 1)
+                fscanf(fp, "%*c");
+    for (int j, i = 0; i < 20; i++)
+    {
+        for (j = 0; j < 30; j++)
+            st[i][j] = ch[ar[i][j]];
+        st[i][j] = '\0';
+        fprintf(ft, "%s\n", st[i]);
+    }
+    if (fclose(fp) || fclose(ft))
+    {
+        fprintf(stderr, "Clossing error .\n");
+        exit(EXIT_FAILURE);
+    }
+    return 0;
+}
+```
 ----------
 
 ### 第十三题
 13. 用变长数组（VLA）代替标准数组，完成编程练习12。
-
+``` c
+#include <stdio.h>
+#include <stdlib.h>
+#define FNAME "test1.txt"
+#define FARGS "test2.txt"
+#define ROWS 20
+#define COLS 30
+void initialize_ar(FILE *, int, int, int ar[*][*]);
+void set_st(int, int, char st[*][*], int ar[*][*]);
+int main(void)
+{
+    FILE *fp, *ft;
+    int ar[20][30];
+    char st[20][31];
+    if (!(fp = fopen(FNAME, "r")))
+    {
+        fprintf(stderr, "Can't open file %s.\n", FNAME);
+        exit(EXIT_FAILURE);
+    }
+    if (!(ft = fopen(FARGS, "w")))
+    {
+        fprintf(stderr, "Can't open file %s.\n", FARGS);
+        exit(EXIT_FAILURE);
+    }
+    initialize_ar(fp, ROWS, COLS, ar);
+    set_st(ROWS, COLS, st, ar);
+    for (int i = 0; i < ROWS; i++)
+        fprintf(ft, "%s\n", st[i]);
+    if (fclose(fp) || fclose(ft))
+    {
+        fprintf(stderr, "Clossing error .\n");
+        exit(EXIT_FAILURE);
+    }
+    return 0;
+}
+void initialize_ar(FILE *fp, int n, int m, int ar[n][m])
+{
+    for (int i = 0; i < 20; i++)
+        for (int j = 0; j < 30; j++)
+            while (fscanf(fp, "%d", &ar[i][j]) != 1)
+                fscanf(fp, "%*c");
+}
+void set_st(int n, int m, char st[n][m + 1], int ar[n][m])
+{
+    char ch[10] = {" .':~*=&%#"};
+    for (int j, i = 0; i < 20; i++)
+    {
+        for (j = 0; j < 30; j++)
+            st[i][j] = ch[ar[i][j]];
+        st[i][j] = '\0';
+    }
+}
+```
 ----------
 
 ### 第十四题
-14. 数字图像，尤其是从宇宙飞船发回的数字图像，可能会包含一些失真。为编程练习12添加消除失真的函数。该函数把每个值与它上下左右相邻的值作比较，如果该值与其周围相邻值的差都大于1，则用所有相邻值的平 均值（四舍五入为整数）代替该值。注意，与边界上的点相邻的点少于4 个，所以做特殊处理。
+14. 数字图像，尤其是从宇宙飞船发回的数字图像，可能会包含一些失真。为编程练习12添加消除失真的函数。该函数把每个值与它上下左右相邻的值作比较，如果该值与其周围相邻值的差都大于1，则用所有相邻值的平均值（四舍五入为整数）代替该值。注意，与边界上的点相邻的点少于4个，所以做特殊处理。
