@@ -3,6 +3,7 @@ title: C-Primer-Puls第六章复习题目和编程练习题的答案
 date: 2019-05-18 18:44:00
 tags: [答案,题目]
 categories: C语言
+cover: /img/c.png
 ---
 
 

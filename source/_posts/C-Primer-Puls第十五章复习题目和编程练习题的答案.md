@@ -4,7 +4,7 @@ title: C-Primer-Puls第十五章复习题目和编程练习题的答案
 date: 2020-04-08 11:42:00
 tags: [答案,题目]
 categories: C语言
-
+cover: /img/c.png
 ---
 
 本章内容为《C Primer Plus第六版》第十五章复习题和编程练习题的答案

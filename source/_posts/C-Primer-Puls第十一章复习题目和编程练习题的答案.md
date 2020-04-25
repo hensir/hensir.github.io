@@ -4,7 +4,7 @@ title: C-Primer-Puls第十一章复习题目和编程练习题的答案
 date: 2020-01-28 07:24:00
 tags: [答案,题目]
 categories: C语言
-
+cover: /img/c.png
 ---
 
 
