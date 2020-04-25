@@ -1,0 +1,1004 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>ASCII、C语言常用字符和字符串处理函数整理 | Blog</title><meta name="description" content="控制字符   二进制 十进制 十六进制 缩写 脱出字符表示法 名称 / 意义    0000 0000 0 00 NUL ^@ 空字符(Null)   0000 0001 1 01 SOH ^A 标题开始   0000 0010 2 02 STX ^B 本文开始   0000 0011 3 03 ETX ^C 本文结束   0000 0100 4 04 EOT ^D 传输结束   0000 010"><meta name="author" content="tran5iti0n"><meta name="copyright" content="tran5iti0n"><meta name="format-detection" content="telephone=no"><link rel="shortcut icon" href="/img/favicon.ico"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="http://ta.qq.com"/><link rel="preconnect" href="https://fonts.googleapis.com" crossorigin="crossorigin"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta name="twitter:card" content="summary"><meta name="twitter:title" content="ASCII、C语言常用字符和字符串处理函数整理"><meta name="twitter:description" content="控制字符   二进制 十进制 十六进制 缩写 脱出字符表示法 名称 / 意义    0000 0000 0 00 NUL ^@ 空字符(Null)   0000 0001 1 01 SOH ^A 标题开始   0000 0010 2 02 STX ^B 本文开始   0000 0011 3 03 ETX ^C 本文结束   0000 0100 4 04 EOT ^D 传输结束   0000 010"><meta name="twitter:image" content="http://hensir.top/img/de_bg1.jpg"><meta property="og:type" content="article"><meta property="og:title" content="ASCII、C语言常用字符和字符串处理函数整理"><meta property="og:url" content="http://hensir.top/2020/04/25/%E5%87%BD%E6%95%B0%E5%92%8C%E5%AD%97%E7%AC%A6/"><meta property="og:site_name" content="Blog"><meta property="og:description" content="控制字符   二进制 十进制 十六进制 缩写 脱出字符表示法 名称 / 意义    0000 0000 0 00 NUL ^@ 空字符(Null)   0000 0001 1 01 SOH ^A 标题开始   0000 0010 2 02 STX ^B 本文开始   0000 0011 3 03 ETX ^C 本文结束   0000 0100 4 04 EOT ^D 传输结束   0000 010"><meta property="og:image" content="http://hensir.top/img/de_bg1.jpg"><meta property="article:published_time" content="2020-04-25T14:23:00.000Z"><meta property="article:modified_time" content="2020-04-25T14:31:32.664Z"><script src="https://cdn.jsdelivr.net/npm/js-cookie/dist/js.cookie.min.js"></script><script>var autoChangeMode = '2'
+var t = Cookies.get("theme")
+if (autoChangeMode == '1'){
+  var isDarkMode = window.matchMedia("(prefers-color-scheme: dark)").matches
+  var isLightMode = window.matchMedia("(prefers-color-scheme: light)").matches
+  var isNotSpecified = window.matchMedia("(prefers-color-scheme: no-preference)").matches
+  var hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+  if (t === undefined){
+    if (isLightMode) activateLightMode()
+    else if (isDarkMode) activateDarkMode()
+    else if (isNotSpecified || hasNoSupport){
+      console.log('You specified no preference for a color scheme or your browser does not support it. I Schedule dark mode during night time.')
+      var now = new Date()
+      var hour = now.getHours()
+      var isNight = hour < 6 || hour >= 18
+      isNight ? activateDarkMode() : activateLightMode()
+  }
+  } else if (t == 'light') activateLightMode()
+  else activateDarkMode()
+
+} else if (autoChangeMode == '2'){
+  now = new Date();
+  hour = now.getHours();
+  isNight = hour < 6 || hour >= 18
+  if(t === undefined) isNight? activateDarkMode() : activateLightMode()
+  else if (t === 'light') activateLightMode()
+  else activateDarkMode() 
+} else {
+  if ( t == 'dark' ) activateDarkMode()
+  else if ( t == 'light') activateLightMode()
+}
+
+function activateDarkMode(){
+  document.documentElement.setAttribute('data-theme', 'dark')
+  if (document.querySelector('meta[name="theme-color"]') !== null){
+    document.querySelector('meta[name="theme-color"]').setAttribute('content','#000')
+  }
+}
+function activateLightMode(){
+  document.documentElement.setAttribute('data-theme', 'light')
+  if (document.querySelector('meta[name="theme-color"]') !== null){
+  document.querySelector('meta[name="theme-color"]').setAttribute('content','#fff')
+  }
+}</script><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@latest/css/font-awesome.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css"><link rel="canonical" href="http://hensir.top/2020/04/25/%E5%87%BD%E6%95%B0%E5%92%8C%E5%AD%97%E7%AC%A6/"><link rel="next" title="C-Primer-Puls第十五章复习题目和编程练习题的答案" href="http://hensir.top/2020/04/08/C-Primer-Puls%E7%AC%AC%E5%8D%81%E4%BA%94%E7%AB%A0%E5%A4%8D%E4%B9%A0%E9%A2%98%E7%9B%AE%E5%92%8C%E7%BC%96%E7%A8%8B%E7%BB%83%E4%B9%A0%E9%A2%98%E7%9A%84%E7%AD%94%E6%A1%88/"><script src="https://tajs.qq.com/stats?sId=66519903" charset="UTF-8"></script><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容:${query}"}},
+  translate: undefined,
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  bookmark: {
+    message_prev: '按',
+    message_next: '键将本页加入书签'
+  },
+  runtime_unit: '天',
+  runtime: true,
+  copyright: undefined,
+  ClickShowText: {"text":"break,case,char,extern,float,for,goto,short,signed,sizeof,stativ,while,_Alignas,_Alignof,_Atomic,const,continue,default,do,double,else,enum,if,inline,int,long,register,restrict,return,struct,switch,typedef,union,unsigned,void,volatile,_Bool,_Complex,_Generic,_Imaginary,_Noreturn,_Static_assert,_Thread_local","fontSize":"15px"},
+  medium_zoom: false,
+  fancybox: true,
+  Snackbar: {"bookmark":{"message_prev":"按","message_next":"键将本页加入书签"},"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#2d3035","position":"bottom-left"},
+  baiduPush: false,
+  highlightCopy: true,
+  highlightLang: true,
+  highlightShrink: 'false',
+  isFontAwesomeV5: false,
+  isPhotoFigcaption: false
+  
+}</script><script>var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isSidebar: true  
+  }</script><noscript><style>
+#page-header {
+  opacity: 1
+}
+.justified-gallery img{
+  opacity: 1
+}
+</style></noscript><meta name="generator" content="Hexo 4.2.0"></head><body><div id="mobile-sidebar"><div id="menu_mask"></div><div id="mobile-sidebar-menus"><div class="mobile_author_icon"><img class="avatar-img" src="/img/avatar.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="mobile_post_data"><div class="mobile_data_item is-center"><div class="mobile_data_link"><a href="/archives/"><div class="headline">文章</div><div class="length_num">16</div></a></div></div><div class="mobile_data_item is-center">      <div class="mobile_data_link"><a href="/tags/"><div class="headline">标签</div><div class="length_num">3</div></a></div></div><div class="mobile_data_item is-center">     <div class="mobile_data_link"><a href="/categories/"><div class="headline">分类</div><div class="length_num">1</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> 分类</span></a></div></div></div></div><i class="fa fa-arrow-right on" id="toggle-sidebar" aria-hidden="true">     </i><div id="sidebar"><div class="sidebar-toc"><div class="sidebar-toc__title">目录</div><div class="sidebar-toc__progress"><span class="progress-notice">你已经读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar">     </div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#控制字符"><span class="toc-number">1.</span> <span class="toc-text">控制字符</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#可显示字符"><span class="toc-number">2.</span> <span class="toc-text">可显示字符</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#五种存储类别"><span class="toc-number">3.</span> <span class="toc-text">五种存储类别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#常用字符处理函数-ctype-h"><span class="toc-number">4.</span> <span class="toc-text">常用字符处理函数 (ctype.h)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#常用字符串操作函数-string-h"><span class="toc-number">5.</span> <span class="toc-text">常用字符串操作函数 (string.h)</span></a></li></ol></div></div></div><div id="body-wrap"><div id="web_bg" data-type="photo"></div><div class="post-bg" id="nav" style="background-image: url(/img/de_bg1.jpg)"><div id="page-header"><span class="pull_left" id="blog_name"><a class="blog_title" id="site-name" href="/">Blog</a></span><span class="pull_right menus"><div id="search_button"><a class="site-page social-icon search"><i class="fa fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> 分类</span></a></div></div><span class="toggle-menu close"><a class="site-page"><i class="fa fa-bars fa-fw" aria-hidden="true"></i></a></span></span></div><div id="post-info"><div id="post-title"><div class="posttitle">ASCII、C语言常用字符和字符串处理函数整理</div></div><div id="post-meta"><div class="meta-firstline"><time class="post-meta__date"><span class="post-meta__date-created" title="发表于 2020-04-25 22:23:00"><i class="fa fa-calendar" aria-hidden="true"></i> 发表于 2020-04-25</span><span class="post-meta__separator">|</span><span class="post-meta__date-updated" title="更新于 2020-04-25 22:31:32"><i class="fa fa-history" aria-hidden="true"></i> 更新于 2020-04-25</span></time><span class="post-meta__categories"><span class="post-meta__separator">|</span><i class="fa fa-inbox post-meta__icon" aria-hidden="true"></i><a class="post-meta__categories" href="/categories/C%E8%AF%AD%E8%A8%80/">C语言</a></span></div><div class="meta-secondline"> <span class="post-meta-wordcount"><i class="post-meta__icon fa fa-file-word-o" aria-hidden="true"></i><span>字数总计:</span><span class="word-count">1.7k</span><span class="post-meta__separator">|</span><i class="post-meta__icon fa fa-clock-o" aria-hidden="true"></i><span>阅读时长: 7 分钟</span></span></div><div class="meta-thirdline"><span class="post-meta-pv-cv"><span class="post-meta__separator">|</span><i class="fa fa-eye post-meta__icon" aria-hidden="true"> </i><span>阅读量:</span><span id="busuanzi_value_page_pv"></span></span><span class="post-meta-commentcount"></span></div></div></div></div><main class="layout_post" id="content-inner"><article id="post"><div id="article-container"><h2 id="控制字符"><a href="#控制字符" class="headerlink" title="控制字符"></a>控制字符</h2><table>
+<thead>
+<tr>
+<th align="center">二进制</th>
+<th align="center">十进制</th>
+<th align="center">十六进制</th>
+<th align="center">缩写</th>
+<th align="center">脱出字符表示法</th>
+<th align="center">名称 / 意义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">0000 0000</td>
+<td align="center">0</td>
+<td align="center">00</td>
+<td align="center">NUL</td>
+<td align="center">^@</td>
+<td align="center">空字符(Null)</td>
+</tr>
+<tr>
+<td align="center">0000 0001</td>
+<td align="center">1</td>
+<td align="center">01</td>
+<td align="center">SOH</td>
+<td align="center">^A</td>
+<td align="center">标题开始</td>
+</tr>
+<tr>
+<td align="center">0000 0010</td>
+<td align="center">2</td>
+<td align="center">02</td>
+<td align="center">STX</td>
+<td align="center">^B</td>
+<td align="center">本文开始</td>
+</tr>
+<tr>
+<td align="center">0000 0011</td>
+<td align="center">3</td>
+<td align="center">03</td>
+<td align="center">ETX</td>
+<td align="center">^C</td>
+<td align="center">本文结束</td>
+</tr>
+<tr>
+<td align="center">0000 0100</td>
+<td align="center">4</td>
+<td align="center">04</td>
+<td align="center">EOT</td>
+<td align="center">^D</td>
+<td align="center">传输结束</td>
+</tr>
+<tr>
+<td align="center">0000 0101</td>
+<td align="center">5</td>
+<td align="center">05</td>
+<td align="center">ENQ</td>
+<td align="center">^E</td>
+<td align="center">请求</td>
+</tr>
+<tr>
+<td align="center">0000 0110</td>
+<td align="center">6</td>
+<td align="center">06</td>
+<td align="center">ACK</td>
+<td align="center">^F</td>
+<td align="center">确认回应</td>
+</tr>
+<tr>
+<td align="center">0000 0111</td>
+<td align="center">7</td>
+<td align="center">07</td>
+<td align="center">BEL</td>
+<td align="center">^G</td>
+<td align="center">响铃</td>
+</tr>
+<tr>
+<td align="center">0000 1000</td>
+<td align="center">8</td>
+<td align="center">08</td>
+<td align="center">BS</td>
+<td align="center">^H</td>
+<td align="center">退格</td>
+</tr>
+<tr>
+<td align="center">0000 1001</td>
+<td align="center">9</td>
+<td align="center">09</td>
+<td align="center">HT</td>
+<td align="center">^I</td>
+<td align="center">水平定位符号</td>
+</tr>
+<tr>
+<td align="center">0000 1010</td>
+<td align="center">10</td>
+<td align="center">0A</td>
+<td align="center">LF</td>
+<td align="center">^J</td>
+<td align="center">换行建</td>
+</tr>
+<tr>
+<td align="center">0000 1011</td>
+<td align="center">11</td>
+<td align="center">0B</td>
+<td align="center">VT</td>
+<td align="center">^k</td>
+<td align="center">垂直定位符号</td>
+</tr>
+<tr>
+<td align="center">0000 1100</td>
+<td align="center">12</td>
+<td align="center">0C</td>
+<td align="center">FF</td>
+<td align="center">^L</td>
+<td align="center">换页键</td>
+</tr>
+<tr>
+<td align="center">0000 1101</td>
+<td align="center">13</td>
+<td align="center">0D</td>
+<td align="center">CR</td>
+<td align="center">^M</td>
+<td align="center">CR(字符)</td>
+</tr>
+<tr>
+<td align="center">0000 1110</td>
+<td align="center">14</td>
+<td align="center">0E</td>
+<td align="center">SO</td>
+<td align="center">^N</td>
+<td align="center">取消变化 (Shift out)</td>
+</tr>
+<tr>
+<td align="center">0000 1111</td>
+<td align="center">15</td>
+<td align="center">0F</td>
+<td align="center">SI</td>
+<td align="center">^O</td>
+<td align="center">启用变换 (Shift in)</td>
+</tr>
+<tr>
+<td align="center">0001 0000</td>
+<td align="center">16</td>
+<td align="center">10</td>
+<td align="center">DLE</td>
+<td align="center">^P</td>
+<td align="center">跳出数据通讯</td>
+</tr>
+<tr>
+<td align="center">0001 0001</td>
+<td align="center">17</td>
+<td align="center">11</td>
+<td align="center">DC1</td>
+<td align="center">^Q</td>
+<td align="center">设备控制一 (XON 激活软件速度控制)</td>
+</tr>
+<tr>
+<td align="center">0001 0010</td>
+<td align="center">18</td>
+<td align="center">12</td>
+<td align="center">DC2</td>
+<td align="center">^R</td>
+<td align="center">设备控制二</td>
+</tr>
+<tr>
+<td align="center">0001 0011</td>
+<td align="center">19</td>
+<td align="center">13</td>
+<td align="center">DC3</td>
+<td align="center">^S</td>
+<td align="center">设备控制三 (XOFF 停用软件速度控制)</td>
+</tr>
+<tr>
+<td align="center">0001 0100</td>
+<td align="center">20</td>
+<td align="center">14</td>
+<td align="center">DC4</td>
+<td align="center">^T</td>
+<td align="center">设备控制四</td>
+</tr>
+<tr>
+<td align="center">0001 0101</td>
+<td align="center">21</td>
+<td align="center">15</td>
+<td align="center">NAK</td>
+<td align="center">^U</td>
+<td align="center">确认失败回应</td>
+</tr>
+<tr>
+<td align="center">0001 0110</td>
+<td align="center">22</td>
+<td align="center">18</td>
+<td align="center">SYN</td>
+<td align="center">^V</td>
+<td align="center">同步用暂停</td>
+</tr>
+<tr>
+<td align="center">0001 0111</td>
+<td align="center">23</td>
+<td align="center">19</td>
+<td align="center">ETB</td>
+<td align="center">^W</td>
+<td align="center">区块传输结束</td>
+</tr>
+<tr>
+<td align="center">0001 1000</td>
+<td align="center">24</td>
+<td align="center">18</td>
+<td align="center">CAN</td>
+<td align="center">^X</td>
+<td align="center">取消</td>
+</tr>
+<tr>
+<td align="center">0001 1001</td>
+<td align="center">25</td>
+<td align="center">19</td>
+<td align="center">EM</td>
+<td align="center">^Y</td>
+<td align="center">连线介质中断</td>
+</tr>
+<tr>
+<td align="center">0001 1010</td>
+<td align="center">26</td>
+<td align="center">1A</td>
+<td align="center">SUB</td>
+<td align="center">^Z</td>
+<td align="center">替换</td>
+</tr>
+<tr>
+<td align="center">0001 1011</td>
+<td align="center">27</td>
+<td align="center">1B</td>
+<td align="center">ESC</td>
+<td align="center">^[</td>
+<td align="center">退出键</td>
+</tr>
+<tr>
+<td align="center">0001 1100</td>
+<td align="center">28</td>
+<td align="center">1C</td>
+<td align="center">FS</td>
+<td align="center">^\</td>
+<td align="center">文件分割符</td>
+</tr>
+<tr>
+<td align="center">0001 1101</td>
+<td align="center">29</td>
+<td align="center">1D</td>
+<td align="center">GS</td>
+<td align="center">^]</td>
+<td align="center">组群分隔符</td>
+</tr>
+<tr>
+<td align="center">0001 1110</td>
+<td align="center">30</td>
+<td align="center">1E</td>
+<td align="center">RS</td>
+<td align="center">^^</td>
+<td align="center">记录分隔符</td>
+</tr>
+<tr>
+<td align="center">0001 1111</td>
+<td align="center">31</td>
+<td align="center">1F</td>
+<td align="center">US</td>
+<td align="center">^_</td>
+<td align="center">单元分隔符</td>
+</tr>
+<tr>
+<td align="center">0111 1111</td>
+<td align="center">127</td>
+<td align="center">7F</td>
+<td align="center">DEL</td>
+<td align="center">^?</td>
+<td align="center">Delete字符</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="可显示字符"><a href="#可显示字符" class="headerlink" title="可显示字符"></a>可显示字符</h2><table>
+<thead>
+<tr>
+<th align="center">二进制</th>
+<th align="center">十进制</th>
+<th align="center">十六进制</th>
+<th align="center">图形</th>
+<th></th>
+<th align="center">二进制</th>
+<th align="center">十进制</th>
+<th align="center">十六进制</th>
+<th align="center">图形</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">0010 0000</td>
+<td align="center">32</td>
+<td align="center">20</td>
+<td align="center">(space)</td>
+<td></td>
+<td align="center">0101 0000</td>
+<td align="center">80</td>
+<td align="center">50</td>
+<td align="center">P</td>
+</tr>
+<tr>
+<td align="center">0010 0001</td>
+<td align="center">33</td>
+<td align="center">21</td>
+<td align="center">!</td>
+<td></td>
+<td align="center">0101 0001</td>
+<td align="center">81</td>
+<td align="center">51</td>
+<td align="center">Q</td>
+</tr>
+<tr>
+<td align="center">0010 0010</td>
+<td align="center">34</td>
+<td align="center">22</td>
+<td align="center">“</td>
+<td></td>
+<td align="center">0101 0010</td>
+<td align="center">82</td>
+<td align="center">52</td>
+<td align="center">R</td>
+</tr>
+<tr>
+<td align="center">0010 0011</td>
+<td align="center">35</td>
+<td align="center">23</td>
+<td align="center">#</td>
+<td></td>
+<td align="center">0101 0011</td>
+<td align="center">83</td>
+<td align="center">53</td>
+<td align="center">S</td>
+</tr>
+<tr>
+<td align="center">0010 0100</td>
+<td align="center">36</td>
+<td align="center">24</td>
+<td align="center">$</td>
+<td></td>
+<td align="center">0101 0100</td>
+<td align="center">84</td>
+<td align="center">54</td>
+<td align="center">T</td>
+</tr>
+<tr>
+<td align="center">0010 0101</td>
+<td align="center">37</td>
+<td align="center">25</td>
+<td align="center">%</td>
+<td></td>
+<td align="center">0101 0101</td>
+<td align="center">85</td>
+<td align="center">55</td>
+<td align="center">U</td>
+</tr>
+<tr>
+<td align="center">0010 0110</td>
+<td align="center">38</td>
+<td align="center">26</td>
+<td align="center">&amp;</td>
+<td></td>
+<td align="center">0101 0110</td>
+<td align="center">86</td>
+<td align="center">56</td>
+<td align="center">V</td>
+</tr>
+<tr>
+<td align="center">0010 0111</td>
+<td align="center">39</td>
+<td align="center">27</td>
+<td align="center">‘</td>
+<td></td>
+<td align="center">0101 0111</td>
+<td align="center">87</td>
+<td align="center">57</td>
+<td align="center">W</td>
+</tr>
+<tr>
+<td align="center">0010 1000</td>
+<td align="center">40</td>
+<td align="center">28</td>
+<td align="center">(</td>
+<td></td>
+<td align="center">0101 1000</td>
+<td align="center">88</td>
+<td align="center">58</td>
+<td align="center">X</td>
+</tr>
+<tr>
+<td align="center">0010 1001</td>
+<td align="center">41</td>
+<td align="center">29</td>
+<td align="center">)</td>
+<td></td>
+<td align="center">0101 1001</td>
+<td align="center">89</td>
+<td align="center">59</td>
+<td align="center">Y</td>
+</tr>
+<tr>
+<td align="center">0010 1010</td>
+<td align="center">42</td>
+<td align="center">2A</td>
+<td align="center">*</td>
+<td></td>
+<td align="center">0101 1010</td>
+<td align="center">90</td>
+<td align="center">5A</td>
+<td align="center">Z</td>
+</tr>
+<tr>
+<td align="center">0010 1011</td>
+<td align="center">43</td>
+<td align="center">2B</td>
+<td align="center">+</td>
+<td></td>
+<td align="center">0101 1011</td>
+<td align="center">91</td>
+<td align="center">5B</td>
+<td align="center">[</td>
+</tr>
+<tr>
+<td align="center">0010 1100</td>
+<td align="center">44</td>
+<td align="center">2C</td>
+<td align="center">,</td>
+<td></td>
+<td align="center">0101 1100</td>
+<td align="center">92</td>
+<td align="center">5C</td>
+<td align="center">\</td>
+</tr>
+<tr>
+<td align="center">0010 1101</td>
+<td align="center">45</td>
+<td align="center">2D</td>
+<td align="center">-</td>
+<td></td>
+<td align="center">0101 1101</td>
+<td align="center">93</td>
+<td align="center">5D</td>
+<td align="center">]</td>
+</tr>
+<tr>
+<td align="center">0010 1110</td>
+<td align="center">46</td>
+<td align="center">2E</td>
+<td align="center">.</td>
+<td></td>
+<td align="center">0101 1110</td>
+<td align="center">94</td>
+<td align="center">5E</td>
+<td align="center">^</td>
+</tr>
+<tr>
+<td align="center">0010 1111</td>
+<td align="center">47</td>
+<td align="center">2F</td>
+<td align="center">/</td>
+<td></td>
+<td align="center">0101 1111</td>
+<td align="center">95</td>
+<td align="center">5F</td>
+<td align="center">_</td>
+</tr>
+<tr>
+<td align="center">0011 0000</td>
+<td align="center">48</td>
+<td align="center">30</td>
+<td align="center">0</td>
+<td></td>
+<td align="center">0110 0000</td>
+<td align="center">96</td>
+<td align="center">60</td>
+<td align="center">`</td>
+</tr>
+<tr>
+<td align="center">0011 0001</td>
+<td align="center">49</td>
+<td align="center">31</td>
+<td align="center">1</td>
+<td></td>
+<td align="center">0110 0001</td>
+<td align="center">97</td>
+<td align="center">61</td>
+<td align="center">a</td>
+</tr>
+<tr>
+<td align="center">0011 0010</td>
+<td align="center">50</td>
+<td align="center">32</td>
+<td align="center">2</td>
+<td></td>
+<td align="center">0110 0010</td>
+<td align="center">98</td>
+<td align="center">62</td>
+<td align="center">b</td>
+</tr>
+<tr>
+<td align="center">0011 0011</td>
+<td align="center">51</td>
+<td align="center">33</td>
+<td align="center">3</td>
+<td></td>
+<td align="center">0110 0011</td>
+<td align="center">99</td>
+<td align="center">63</td>
+<td align="center">c</td>
+</tr>
+<tr>
+<td align="center">0011 0100</td>
+<td align="center">52</td>
+<td align="center">34</td>
+<td align="center">4</td>
+<td></td>
+<td align="center">0110 0100</td>
+<td align="center">100</td>
+<td align="center">64</td>
+<td align="center">d</td>
+</tr>
+<tr>
+<td align="center">0011 0101</td>
+<td align="center">53</td>
+<td align="center">35</td>
+<td align="center">5</td>
+<td></td>
+<td align="center">0110 0101</td>
+<td align="center">101</td>
+<td align="center">65</td>
+<td align="center">e</td>
+</tr>
+<tr>
+<td align="center">0011 0110</td>
+<td align="center">54</td>
+<td align="center">36</td>
+<td align="center">6</td>
+<td></td>
+<td align="center">0110 0110</td>
+<td align="center">102</td>
+<td align="center">66</td>
+<td align="center">f</td>
+</tr>
+<tr>
+<td align="center">0011 0111</td>
+<td align="center">55</td>
+<td align="center">37</td>
+<td align="center">7</td>
+<td></td>
+<td align="center">0110 0111</td>
+<td align="center">103</td>
+<td align="center">67</td>
+<td align="center">g</td>
+</tr>
+<tr>
+<td align="center">0011 1000</td>
+<td align="center">56</td>
+<td align="center">38</td>
+<td align="center">8</td>
+<td></td>
+<td align="center">0110 1000</td>
+<td align="center">104</td>
+<td align="center">68</td>
+<td align="center">h</td>
+</tr>
+<tr>
+<td align="center">0011 1001</td>
+<td align="center">57</td>
+<td align="center">39</td>
+<td align="center">9</td>
+<td></td>
+<td align="center">0110 1001</td>
+<td align="center">105</td>
+<td align="center">69</td>
+<td align="center">i</td>
+</tr>
+<tr>
+<td align="center">0011 1010</td>
+<td align="center">58</td>
+<td align="center">3A</td>
+<td align="center">:</td>
+<td></td>
+<td align="center">0110 1010</td>
+<td align="center">106</td>
+<td align="center">6A</td>
+<td align="center">j</td>
+</tr>
+<tr>
+<td align="center">0011 1011</td>
+<td align="center">59</td>
+<td align="center">3B</td>
+<td align="center">;</td>
+<td></td>
+<td align="center">0110 1011</td>
+<td align="center">107</td>
+<td align="center">6B</td>
+<td align="center">k</td>
+</tr>
+<tr>
+<td align="center">0011 1100</td>
+<td align="center">60</td>
+<td align="center">3C</td>
+<td align="center">&lt;</td>
+<td></td>
+<td align="center">0110 1100</td>
+<td align="center">108</td>
+<td align="center">6C</td>
+<td align="center">l</td>
+</tr>
+<tr>
+<td align="center">0011 1101</td>
+<td align="center">61</td>
+<td align="center">3D</td>
+<td align="center">=</td>
+<td></td>
+<td align="center">0110 1101</td>
+<td align="center">109</td>
+<td align="center">6D</td>
+<td align="center">m</td>
+</tr>
+<tr>
+<td align="center">0011 1110</td>
+<td align="center">62</td>
+<td align="center">3E</td>
+<td align="center">&gt;</td>
+<td></td>
+<td align="center">0110 1110</td>
+<td align="center">110</td>
+<td align="center">6E</td>
+<td align="center">n</td>
+</tr>
+<tr>
+<td align="center">0011 1111</td>
+<td align="center">63</td>
+<td align="center">3F</td>
+<td align="center">?</td>
+<td></td>
+<td align="center">0110 1111</td>
+<td align="center">111</td>
+<td align="center">6F</td>
+<td align="center">o</td>
+</tr>
+<tr>
+<td align="center">0100 0000</td>
+<td align="center">64</td>
+<td align="center">40</td>
+<td align="center">@</td>
+<td></td>
+<td align="center">0111 0000</td>
+<td align="center">112</td>
+<td align="center">70</td>
+<td align="center">p</td>
+</tr>
+<tr>
+<td align="center">0100 0001</td>
+<td align="center">65</td>
+<td align="center">41</td>
+<td align="center">A</td>
+<td></td>
+<td align="center">0111 0001</td>
+<td align="center">113</td>
+<td align="center">71</td>
+<td align="center">q</td>
+</tr>
+<tr>
+<td align="center">0100 0010</td>
+<td align="center">66</td>
+<td align="center">42</td>
+<td align="center">B</td>
+<td></td>
+<td align="center">0111 0010</td>
+<td align="center">114</td>
+<td align="center">72</td>
+<td align="center">r</td>
+</tr>
+<tr>
+<td align="center">0100 0011</td>
+<td align="center">67</td>
+<td align="center">43</td>
+<td align="center">C</td>
+<td></td>
+<td align="center">0111 0011</td>
+<td align="center">115</td>
+<td align="center">73</td>
+<td align="center">s</td>
+</tr>
+<tr>
+<td align="center">0100 0100</td>
+<td align="center">68</td>
+<td align="center">44</td>
+<td align="center">D</td>
+<td></td>
+<td align="center">0111 0100</td>
+<td align="center">116</td>
+<td align="center">74</td>
+<td align="center">t</td>
+</tr>
+<tr>
+<td align="center">0100 0101</td>
+<td align="center">69</td>
+<td align="center">45</td>
+<td align="center">E</td>
+<td></td>
+<td align="center">0111 0101</td>
+<td align="center">117</td>
+<td align="center">75</td>
+<td align="center">u</td>
+</tr>
+<tr>
+<td align="center">0100 0110</td>
+<td align="center">70</td>
+<td align="center">46</td>
+<td align="center">F</td>
+<td></td>
+<td align="center">0111 0110</td>
+<td align="center">118</td>
+<td align="center">76</td>
+<td align="center">v</td>
+</tr>
+<tr>
+<td align="center">0100 0111</td>
+<td align="center">71</td>
+<td align="center">47</td>
+<td align="center">G</td>
+<td></td>
+<td align="center">0111 0111</td>
+<td align="center">119</td>
+<td align="center">77</td>
+<td align="center">w</td>
+</tr>
+<tr>
+<td align="center">0100 1000</td>
+<td align="center">72</td>
+<td align="center">48</td>
+<td align="center">H</td>
+<td></td>
+<td align="center">0111 1000</td>
+<td align="center">120</td>
+<td align="center">78</td>
+<td align="center">x</td>
+</tr>
+<tr>
+<td align="center">0100 1001</td>
+<td align="center">73</td>
+<td align="center">49</td>
+<td align="center">I</td>
+<td></td>
+<td align="center">0111 1001</td>
+<td align="center">121</td>
+<td align="center">79</td>
+<td align="center">y</td>
+</tr>
+<tr>
+<td align="center">0100 1010</td>
+<td align="center">74</td>
+<td align="center">4A</td>
+<td align="center">J</td>
+<td></td>
+<td align="center">0111 1010</td>
+<td align="center">122</td>
+<td align="center">7A</td>
+<td align="center">z</td>
+</tr>
+<tr>
+<td align="center">0100 1011</td>
+<td align="center">75</td>
+<td align="center">4B</td>
+<td align="center">K</td>
+<td></td>
+<td align="center">0111 1011</td>
+<td align="center">123</td>
+<td align="center">7B</td>
+<td align="center">{</td>
+</tr>
+<tr>
+<td align="center">0100 1100</td>
+<td align="center">76</td>
+<td align="center">4C</td>
+<td align="center">L</td>
+<td></td>
+<td align="center">0111 1100</td>
+<td align="center">124</td>
+<td align="center">7C</td>
+<td align="center">|</td>
+</tr>
+<tr>
+<td align="center">0100 1101</td>
+<td align="center">77</td>
+<td align="center">4D</td>
+<td align="center">M</td>
+<td></td>
+<td align="center">0111 1101</td>
+<td align="center">125</td>
+<td align="center">7D</td>
+<td align="center">}</td>
+</tr>
+<tr>
+<td align="center">0100 1110</td>
+<td align="center">78</td>
+<td align="center">4E</td>
+<td align="center">N</td>
+<td></td>
+<td align="center">0111 1110</td>
+<td align="center">126</td>
+<td align="center">7E</td>
+<td align="center">~</td>
+</tr>
+<tr>
+<td align="center">0100 1111</td>
+<td align="center">79</td>
+<td align="center">4F</td>
+<td align="center">O</td>
+<td></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="五种存储类别"><a href="#五种存储类别" class="headerlink" title="五种存储类别"></a>五种存储类别</h2><table>
+<thead>
+<tr>
+<th align="center">存储类别</th>
+<th>存储器</th>
+<th align="center">作用域</th>
+<th align="center">链接</th>
+<th align="center">声明方式</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">自动</td>
+<td>自动</td>
+<td align="center">块</td>
+<td align="center">无</td>
+<td align="center">块内</td>
+</tr>
+<tr>
+<td align="center">寄存器</td>
+<td>自动</td>
+<td align="center">块</td>
+<td align="center">无</td>
+<td align="center">块内，使用关键字 register</td>
+</tr>
+<tr>
+<td align="center">静态无链接</td>
+<td>静态</td>
+<td align="center">块</td>
+<td align="center">无</td>
+<td align="center">块内，使用关键字 static</td>
+</tr>
+<tr>
+<td align="center">静态外部链接</td>
+<td>静态</td>
+<td align="center">文件</td>
+<td align="center">外部</td>
+<td align="center">所有函数外</td>
+</tr>
+<tr>
+<td align="center">静态内部链接</td>
+<td>静态</td>
+<td align="center">文件</td>
+<td align="center">内部</td>
+<td align="center">所有函数外，使用关键字 static</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="常用字符处理函数-ctype-h"><a href="#常用字符处理函数-ctype-h" class="headerlink" title="常用字符处理函数 (ctype.h)"></a>常用字符处理函数 (ctype.h)</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">isalnum</span><span class="params">(<span class="keyword">int</span> c)</span></span>;</span><br></pre></td></tr></table></figure>
+<p>检查字符是否为数字或字母; (0<del>9, a</del>z, A~Z)</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">isalpha</span><span class="params">(<span class="keyword">int</span> c)</span></span>;</span><br></pre></td></tr></table></figure>
+<p>检查字符是否为字母; （a<del>z, A</del>Z)</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">iscntrl</span><span class="params">(<span class="keyword">int</span> c)</span></span>;</span><br></pre></td></tr></table></figure>
+<p>检查字符是否为控制字符; (八进制000~037以及177的字符)</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">isdigit</span><span class="params">(<span class="keyword">int</span> c)</span></span>;</span><br></pre></td></tr></table></figure>
+<p>检查字符是否为十进制数字; (0~9)</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">isgraph</span><span class="params">(<span class="keyword">int</span> c)</span></span>;</span><br></pre></td></tr></table></figure>
+<p>检查字符是否为图形表示，依赖于使用语言的环境; (0<del>9, a</del>z, A~Z, 以及标点符号)</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">islower</span><span class="params">(<span class="keyword">int</span> c)</span></span>;</span><br></pre></td></tr></table></figure>
+<p>检查字符是否为小写的字符; (a~z)</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">isprint</span><span class="params">(<span class="keyword">int</span> c)</span></span>;</span><br></pre></td></tr></table></figure>
+<p>检查字符是否为可打印的; (数字、字母、标点符号、空白字符)</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">ispunct</span><span class="params">(<span class="keyword">int</span> c)</span></span>;</span><br></pre></td></tr></table></figure>
+<p>检查字符是否为标点符号; (! “ # $ % &amp; ‘ ( ) * + , - . / : ; &lt; = &gt; ? @ [ ] ^ _ ` { | } ~ 等)</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">isspace</span><span class="params">(<span class="keyword">int</span> c)</span></span>;</span><br></pre></td></tr></table></figure>
+<p>检查字符是否为空白字符; (TAB、换行、垂直TAB、换页、回车、空格)</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">isupper</span><span class="params">(<span class="keyword">int</span> c)</span></span>;</span><br></pre></td></tr></table></figure>
+<p>检查字符是否为大写字母; (A~Z)</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">isxdigit</span><span class="params">(<span class="keyword">int</span> c)</span></span>;</span><br></pre></td></tr></table></figure>
+<p>检查字符是否为十六进制数字; (0 1 2 3 4 5 6 7 8 9 A B C D E F a b c d e f)</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">tolower</span><span class="params">(<span class="keyword">int</span> c)</span></span>;</span><br></pre></td></tr></table></figure>
+<p>转换字符为小写字母，并返回该字符;</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">toupper</span><span class="params">(<span class="keyword">int</span> c)</span></span>;</span><br></pre></td></tr></table></figure>
+<p>转换字符为大写字母，并返回该字符;</p>
+<hr>
+<h2 id="常用字符串操作函数-string-h"><a href="#常用字符串操作函数-string-h" class="headerlink" title="常用字符串操作函数 (string.h)"></a>常用字符串操作函数 (string.h)</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">size_t</span> <span class="title">strlen</span><span class="params">(<span class="keyword">const</span> <span class="keyword">char</span> *str)</span></span>;</span><br></pre></td></tr></table></figure>
+<p>计算字符串 str 的长度，直到空结束字符’’，不包括空结束字符。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">char</span> *<span class="title">strcpy</span><span class="params">(<span class="keyword">char</span> *dest, <span class="keyword">const</span> <span class="keyword">char</span> *src)</span></span>;</span><br></pre></td></tr></table></figure>
+<p>把 src 所指向的字符串复制到 dest。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">char</span> *<span class="title">strncpy</span><span class="params">(<span class="keyword">char</span> *dest, <span class="keyword">const</span> <span class="keyword">char</span> *src, <span class="keyword">size_t</span> n)</span></span>;</span><br></pre></td></tr></table></figure>
+<p>同上，把 src 所指向的字符串的前n个字符复制到 dest。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">char</span> *<span class="title">strcat</span><span class="params">(<span class="keyword">char</span> *dest,<span class="keyword">const</span> <span class="keyword">char</span> *src)</span></span>;</span><br></pre></td></tr></table></figure>
+<p>把 src 所指向的字符串追加到 dest 所指向的字符串结尾，实现字符串的连接。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">char</span> *<span class="title">strncat</span><span class="params">(<span class="keyword">char</span> *dest, <span class="keyword">const</span> <span class="keyword">char</span> *src, <span class="keyword">size_t</span> n)</span></span>;</span><br></pre></td></tr></table></figure>
+<p>同上，把 src 所指字符串的前n个字符添加到 dest 所指字符串的结尾处，并覆盖 dest 所指字符串结尾的’’，实现字符串的连接。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">char</span> *<span class="title">strchr</span><span class="params">(<span class="keyword">const</span> <span class="keyword">char</span> *str, <span class="keyword">int</span> c)</span></span>;</span><br></pre></td></tr></table></figure>
+<p>在参数 str 所指向的字符串中搜索第一次出现字符 c (无符号字符) 的位置，如果 str 中没有c，则返回NULL。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">char</span> *<span class="title">strrchr</span><span class="params">(<span class="keyword">const</span> <span class="keyword">char</span> *str, <span class="keyword">int</span> c)</span></span>;</span><br></pre></td></tr></table></figure>
+<p>在参数 str 所指向的字符串中搜索最后一次出现字符 c (无符号字符) 的位置，如果 str 中没有c，则返回NULL。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">char</span> *<span class="title">strstr</span><span class="params">(<span class="keyword">const</span> <span class="keyword">char</span> *str1, <span class="keyword">const</span> <span class="keyword">char</span> *str2)</span></span>;</span><br></pre></td></tr></table></figure>
+<p>若 str2 是 str1 的子串，则返回 str2 在 str1 的首次出现的地址；如果str2不是str1的子串，则返回NULL。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">strcmp</span><span class="params">(<span class="keyword">const</span> <span class="keyword">char</span> *str1, <span class="keyword">const</span> <span class="keyword">char</span> *str2)</span></span>;</span><br></pre></td></tr></table></figure>
+<p>把 str 所指向的字符串和 str2 所指向的字符串进行比较，当str1&lt;str2时，返回一个负数；当str1==str2时，返回零；当str1&gt;str2时，返回一个正数。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">strncmp</span><span class="params">(<span class="keyword">const</span> <span class="keyword">char</span> *str1, <span class="keyword">const</span> <span class="keyword">char</span> *str2, <span class="keyword">size_t</span> n)</span></span>;</span><br></pre></td></tr></table></figure>
+<p>同上，把 str1 所指字符串的前n个字符和 str2 进行比较</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">atoi</span><span class="params">(<span class="keyword">const</span> <span class="keyword">char</span> *nptr)</span></span>;</span><br></pre></td></tr></table></figure>
+<p>字符串转int整型变量</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">char</span> *<span class="title">itoa</span><span class="params">(<span class="keyword">int</span> value, <span class="keyword">char</span> *str, <span class="keyword">int</span> base)</span></span>;</span><br></pre></td></tr></table></figure>
+<p>整数数值转字符串</p>
+</div><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">tran5iti0n</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://hensir.top/2020/04/25/%E5%87%BD%E6%95%B0%E5%92%8C%E5%AD%97%E7%AC%A6/">http://hensir.top/2020/04/25/%E5%87%BD%E6%95%B0%E5%92%8C%E5%AD%97%E7%AC%A6/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://hensir.top" target="_blank">Blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"></div></div><nav class="pagination_post" id="pagination"><div class="next-post pull-full"><a href="/2020/04/08/C-Primer-Puls%E7%AC%AC%E5%8D%81%E4%BA%94%E7%AB%A0%E5%A4%8D%E4%B9%A0%E9%A2%98%E7%9B%AE%E5%92%8C%E7%BC%96%E7%A8%8B%E7%BB%83%E4%B9%A0%E9%A2%98%E7%9A%84%E7%AD%94%E6%A1%88/"><img class="next_cover lazyload" data-src="/img/c.png" onerror="onerror=null;src='/img/404.jpg'"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">C-Primer-Puls第十五章复习题目和编程练习题的答案</div></div></a></div></nav></article></main><footer id="footer" style="background-image: url(/img/de_bg1.jpg)" data-type="photo"><div id="footer-wrap"><div class="copyright">&copy;2019 - 2020 By tran5iti0n</div><div class="framework-info"><span>驱动 </span><a href="https://hexo.io" target="_blank" rel="noopener"><span>Hexo</span></a><span class="footer-separator">|</span><span>主题 </span><a href="https://github.com/jerryc127/hexo-theme-butterfly" target="_blank" rel="noopener"><span>Butterfly</span></a></div></div></footer></div><section class="rightside" id="rightside"><div id="rightside-config-hide"><i class="fa fa-book" id="readmode" title="阅读模式"></i><i class="fa fa-plus" id="font_plus" title="放大字体"></i><i class="fa fa-minus" id="font_minus" title="缩小字体"></i><i class="darkmode fa fa-moon-o" id="darkmode" title="夜间模式"></i></div><div id="rightside-config-show"><div id="rightside_config" title="设置"><i class="fa fa-cog" aria-hidden="true"></i></div><i class="fa fa-list-ul close" id="mobile-toc-button" title="目录" aria-hidden="true"></i><i class="fa fa-arrow-up" id="go-up" title="回到顶部" aria-hidden="true"></i></div></section><div class="search-dialog" id="local-search"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"><div id="local-hits"></div><div id="local-stats"><div class="local-search-stats__hr" id="hr"><span>由</span> <a href="https://github.com/wzpan/hexo-generator-search" target="_blank" rel="noopener" style="color:#49B1F5;">hexo-generator-search</a>
+ <span>提供支持</span></div></div></div><span class="search-close-button"><i class="fa fa-times"></i></span></div><div class="search-mask"></div><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page@latest/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/lazysizes@latest/lazysizes.min.js" async=""></script><script src="/js/third-party/ClickShowText.js"></script><script src="/js/search/local-search.js"></script></body></html>
