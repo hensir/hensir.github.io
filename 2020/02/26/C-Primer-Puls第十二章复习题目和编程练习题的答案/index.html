@@ -1,305 +1,87 @@
-<!DOCTYPE html>
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>C-Primer-Puls第十二章复习题目和编程练习题的答案 | Blog</title><meta name="description" content="本章内容为《C Primer Plus第六版》第十二章复习题和编程练习题的答案 复习题第一题 哪些类别的变量可以成为它所在函数的局部变量？   第二题 哪些类别的变量在它所在程序的运行期一直存在？    第三题 哪些类别的变量可以被多个文件使用？哪些类别的变量仅限于在一个文件中使用？   第四题 块作用域变量具有什么链接属性？   第五题 extern关键字有什么用途？   第六题 考虑下面两行代"><meta name="keywords" content="题目,答案"><meta name="author" content="tran5iti0n"><meta name="copyright" content="tran5iti0n"><meta name="format-detection" content="telephone=no"><link rel="shortcut icon" href="/img/favicon.ico"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="http://ta.qq.com"/><link rel="preconnect" href="https://fonts.googleapis.com" crossorigin="crossorigin"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta name="twitter:card" content="summary"><meta name="twitter:title" content="C-Primer-Puls第十二章复习题目和编程练习题的答案"><meta name="twitter:description" content="本章内容为《C Primer Plus第六版》第十二章复习题和编程练习题的答案 复习题第一题 哪些类别的变量可以成为它所在函数的局部变量？   第二题 哪些类别的变量在它所在程序的运行期一直存在？    第三题 哪些类别的变量可以被多个文件使用？哪些类别的变量仅限于在一个文件中使用？   第四题 块作用域变量具有什么链接属性？   第五题 extern关键字有什么用途？   第六题 考虑下面两行代"><meta name="twitter:image" content="http://hensir.top/img/c.png"><meta property="og:type" content="article"><meta property="og:title" content="C-Primer-Puls第十二章复习题目和编程练习题的答案"><meta property="og:url" content="http://hensir.top/2020/02/26/C-Primer-Puls%E7%AC%AC%E5%8D%81%E4%BA%8C%E7%AB%A0%E5%A4%8D%E4%B9%A0%E9%A2%98%E7%9B%AE%E5%92%8C%E7%BC%96%E7%A8%8B%E7%BB%83%E4%B9%A0%E9%A2%98%E7%9A%84%E7%AD%94%E6%A1%88/"><meta property="og:site_name" content="Blog"><meta property="og:description" content="本章内容为《C Primer Plus第六版》第十二章复习题和编程练习题的答案 复习题第一题 哪些类别的变量可以成为它所在函数的局部变量？   第二题 哪些类别的变量在它所在程序的运行期一直存在？    第三题 哪些类别的变量可以被多个文件使用？哪些类别的变量仅限于在一个文件中使用？   第四题 块作用域变量具有什么链接属性？   第五题 extern关键字有什么用途？   第六题 考虑下面两行代"><meta property="og:image" content="http://hensir.top/img/c.png"><meta property="article:published_time" content="2020-02-26T05:41:00.000Z"><meta property="article:modified_time" content="2020-04-25T12:19:05.749Z"><script src="https://cdn.jsdelivr.net/npm/js-cookie/dist/js.cookie.min.js"></script><script>var autoChangeMode = '2'
+var t = Cookies.get("theme")
+if (autoChangeMode == '1'){
+  var isDarkMode = window.matchMedia("(prefers-color-scheme: dark)").matches
+  var isLightMode = window.matchMedia("(prefers-color-scheme: light)").matches
+  var isNotSpecified = window.matchMedia("(prefers-color-scheme: no-preference)").matches
+  var hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
 
-
-
-
-
-<html class="theme-next gemini use-motion" lang="zh-CN">
-<head>
-  <meta charset="UTF-8">
-<meta name="generator" content="Hexo 3.9.0">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
-<meta name="theme-color" content="#222">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.3.0">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.3.0">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.3.0">
-  <link rel="mask-icon" href="/images/logo.svg?v=7.3.0" color="#222">
-  <link rel="manifest" href="/images/manifest.json">
-
-<link rel="stylesheet" href="/css/main.css?v=7.3.0">
-
-
-<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
-  <link rel="stylesheet" href="/lib/needsharebutton/needsharebutton.css">
-  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
-  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2">
-
-
-<script id="hexo-configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    root: '/',
-    scheme: 'Gemini',
-    version: '7.3.0',
-    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
-    back2top: {"enable":true,"sidebar":true,"scrollpercent":true},
-    save_scroll: false,
-    copycode: {"enable":true,"show_result":true,"style":"flat"},
-    fancybox: false,
-    mediumzoom: false,
-    lazyload: false,
-    pangu: false,
-    algolia: {
-      applicationID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    },
-    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true},
-    path: 'search.xml',
-    tabs: false,
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
-    translation: {
-      copy_button: '复制',
-      copy_success: '复制成功',
-      copy_failure: '复制失败'
-    }
-  };
-</script>
-
-  <meta name="description" content="本章内容为《C Primer Plus第六版》第十二章复习题和编程练习题的答案 复习题第一题 哪些类别的变量可以成为它所在函数的局部变量？   第二题 哪些类别的变量在它所在程序的运行期一直存在？">
-<meta name="keywords" content="题目,答案">
-<meta property="og:type" content="article">
-<meta property="og:title" content="C-Primer-Puls第十二章复习题目和编程练习题的答案">
-<meta property="og:url" content="https://hensir.top/2020/02/26/C-Primer-Puls第十二章复习题目和编程练习题的答案/index.html">
-<meta property="og:site_name" content="Blog">
-<meta property="og:description" content="本章内容为《C Primer Plus第六版》第十二章复习题和编程练习题的答案 复习题第一题 哪些类别的变量可以成为它所在函数的局部变量？   第二题 哪些类别的变量在它所在程序的运行期一直存在？">
-<meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-03-09T00:35:49.577Z">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="C-Primer-Puls第十二章复习题目和编程练习题的答案">
-<meta name="twitter:description" content="本章内容为《C Primer Plus第六版》第十二章复习题和编程练习题的答案 复习题第一题 哪些类别的变量可以成为它所在函数的局部变量？   第二题 哪些类别的变量在它所在程序的运行期一直存在？">
-  <link rel="canonical" href="https://hensir.top/2020/02/26/C-Primer-Puls第十二章复习题目和编程练习题的答案/">
-
-
-<script id="page-configurations">
-  // https://hexo.io/docs/variables.html
-  CONFIG.page = {
-    sidebar: "",
-    isHome: false,
-    isPost: true,
-    isPage: false,
-    isArchive: false
-  };
-</script>
-
-  <title>C-Primer-Puls第十二章复习题目和编程练习题的答案 | Blog</title>
-  
-
-
-
-
-
-
-
-
-  <noscript>
-  <style>
-  .use-motion .motion-element,
-  .use-motion .brand,
-  .use-motion .menu-item,
-  .sidebar-inner,
-  .use-motion .post-block,
-  .use-motion .pagination,
-  .use-motion .comments,
-  .use-motion .post-header,
-  .use-motion .post-body,
-  .use-motion .collection-title { opacity: initial; }
-
-  .use-motion .logo,
-  .use-motion .site-title,
-  .use-motion .site-subtitle {
-    opacity: initial;
-    top: initial;
+  if (t === undefined){
+    if (isLightMode) activateLightMode()
+    else if (isDarkMode) activateDarkMode()
+    else if (isNotSpecified || hasNoSupport){
+      console.log('You specified no preference for a color scheme or your browser does not support it. I Schedule dark mode during night time.')
+      var now = new Date()
+      var hour = now.getHours()
+      var isNight = hour < 6 || hour >= 18
+      isNight ? activateDarkMode() : activateLightMode()
   }
+  } else if (t == 'light') activateLightMode()
+  else activateDarkMode()
 
-  .use-motion .logo-line-before i { left: initial; }
-  .use-motion .logo-line-after i { right: initial; }
-  </style>
-</noscript>
+} else if (autoChangeMode == '2'){
+  now = new Date();
+  hour = now.getHours();
+  isNight = hour < 6 || hour >= 18
+  if(t === undefined) isNight? activateDarkMode() : activateLightMode()
+  else if (t === 'light') activateLightMode()
+  else activateDarkMode() 
+} else {
+  if ( t == 'dark' ) activateDarkMode()
+  else if ( t == 'light') activateLightMode()
+}
 
-</head>
-
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
-
-  <div class="container sidebar-position-left">
-    <div class="headband"></div>
-
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-wrapper">
-  <div class="site-meta">
-
-    <div class="custom-logo-site-title">
-      <a href="/" class="brand" rel="start">
-        <span class="logo-line-before"><i></i></span>
-        <span class="site-title">Blog</span>
-        <span class="logo-line-after"><i></i></span>
-      </a>
-    </div>
-  </div>
-
-  <div class="site-nav-toggle">
-    <button aria-label="切换导航栏">
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-    </button>
-  </div>
-</div>
-
-
-<nav class="site-nav">
+function activateDarkMode(){
+  document.documentElement.setAttribute('data-theme', 'dark')
+  if (document.querySelector('meta[name="theme-color"]') !== null){
+    document.querySelector('meta[name="theme-color"]').setAttribute('content','#000')
+  }
+}
+function activateLightMode(){
+  document.documentElement.setAttribute('data-theme', 'light')
+  if (document.querySelector('meta[name="theme-color"]') !== null){
+  document.querySelector('meta[name="theme-color"]').setAttribute('content','#fff')
+  }
+}</script><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@latest/css/font-awesome.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css"><link rel="canonical" href="http://hensir.top/2020/02/26/C-Primer-Puls%E7%AC%AC%E5%8D%81%E4%BA%8C%E7%AB%A0%E5%A4%8D%E4%B9%A0%E9%A2%98%E7%9B%AE%E5%92%8C%E7%BC%96%E7%A8%8B%E7%BB%83%E4%B9%A0%E9%A2%98%E7%9A%84%E7%AD%94%E6%A1%88/"><link rel="prev" title="C-Primer-Puls第十三章复习题目和编程练习题的答案" href="http://hensir.top/2020/03/09/C-Primer-Puls%E7%AC%AC%E5%8D%81%E4%B8%89%E7%AB%A0%E5%A4%8D%E4%B9%A0%E9%A2%98%E7%9B%AE%E5%92%8C%E7%BC%96%E7%A8%8B%E7%BB%83%E4%B9%A0%E9%A2%98%E7%9A%84%E7%AD%94%E6%A1%88/"><link rel="next" title="C-Primer-Puls第十一章复习题目和编程练习题的答案" href="http://hensir.top/2020/01/28/C-Primer-Puls%E7%AC%AC%E5%8D%81%E4%B8%80%E7%AB%A0%E5%A4%8D%E4%B9%A0%E9%A2%98%E7%9B%AE%E5%92%8C%E7%BC%96%E7%A8%8B%E7%BB%83%E4%B9%A0%E9%A2%98%E7%9A%84%E7%AD%94%E6%A1%88/"><script src="https://tajs.qq.com/stats?sId=66519903" charset="UTF-8"></script><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容:${query}"}},
+  translate: undefined,
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  bookmark: {
+    message_prev: '按',
+    message_next: '键将本页加入书签'
+  },
+  runtime_unit: '天',
+  runtime: true,
+  copyright: undefined,
+  ClickShowText: {"text":"break,case,char,extern,float,for,goto,short,signed,sizeof,stativ,while,_Alignas,_Alignof,_Atomic,const,continue,default,do,double,else,enum,if,inline,int,long,register,restrict,return,struct,switch,typedef,union,unsigned,void,volatile,_Bool,_Complex,_Generic,_Imaginary,_Noreturn,_Static_assert,_Thread_local","fontSize":"15px"},
+  medium_zoom: false,
+  fancybox: true,
+  Snackbar: {"bookmark":{"message_prev":"按","message_next":"键将本页加入书签"},"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#2d3035","position":"bottom-left"},
+  baiduPush: false,
+  highlightCopy: true,
+  highlightLang: true,
+  highlightShrink: 'false',
+  isFontAwesomeV5: false,
+  isPhotoFigcaption: false
   
-  <ul id="menu" class="menu">
-      
-      
-      
-        
-        <li class="menu-item menu-item-home">
-      
-    
-
-    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
-
-  </li>
-      
-      
-      
-        
-        <li class="menu-item menu-item-tags">
-      
-    
-
-    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
-
-  </li>
-      <li class="menu-item menu-item-search">
-        <a href="javascript:;" class="popup-trigger">
-        
-          <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
-      </li>
-    
-  </ul>
-
-    <div class="site-search">
-      
-  <div class="popup search-popup local-search-popup">
-  <div class="local-search-header clearfix">
-    <span class="search-icon">
-      <i class="fa fa-search"></i>
-    </span>
-    <span class="popup-btn-close">
-      <i class="fa fa-times-circle"></i>
-    </span>
-    <div class="local-search-input-wrapper">
-      <input autocomplete="off"
-             placeholder="搜索..." spellcheck="false"
-             type="text" id="local-search-input">
-    </div>
-  </div>
-  <div id="local-search-result"></div>
-</div>
-
-
-    </div>
-</nav>
-</div>
-    </header>
-
-    
-
-
-    <main id="main" class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-            
-
-          <div id="content" class="content page-post-detail">
-            
-
-  <div id="posts" class="posts-expand">
-    
-    <div class="reading-progress-bar"></div>
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://hensir.top/2020/02/26/C-Primer-Puls第十二章复习题目和编程练习题的答案/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Blog">
-    </span>
-      <header class="post-header">
-
-        
-          <h1 class="post-title" itemprop="name headline">C-Primer-Puls第十二章复习题目和编程练习题的答案
-
-            
-          </h1>
-        
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              
-                
-              
-
-              <time title="创建时间：2020-02-26 13:41:00" itemprop="dateCreated datePublished" datetime="2020-02-26T13:41:00+08:00">2020-02-26</time>
-            </span>
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-03-09 08:35:49" itemprop="dateModified" datetime="2020-03-09T08:35:49+08:00">2020-03-09</time>
-              </span>
-            
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/C语言/" itemprop="url" rel="index"><span itemprop="name">C语言</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-        <p>本章内容为《C Primer Plus第六版》第十二章复习题和编程练习题的答案</p>
+}</script><script>var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isSidebar: true  
+  }</script><noscript><style>
+#page-header {
+  opacity: 1
+}
+.justified-gallery img{
+  opacity: 1
+}
+</style></noscript><meta name="generator" content="Hexo 4.2.0"></head><body><div id="mobile-sidebar"><div id="menu_mask"></div><div id="mobile-sidebar-menus"><div class="mobile_author_icon"><img class="avatar-img" src="/img/avatar.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="mobile_post_data"><div class="mobile_data_item is-center"><div class="mobile_data_link"><a href="/archives/"><div class="headline">文章</div><div class="length_num">15</div></a></div></div><div class="mobile_data_item is-center">      <div class="mobile_data_link"><a href="/tags/"><div class="headline">标签</div><div class="length_num">3</div></a></div></div><div class="mobile_data_item is-center">     <div class="mobile_data_link"><a href="/categories/"><div class="headline">分类</div><div class="length_num">1</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> 分类</span></a></div></div></div></div><i class="fa fa-arrow-right on" id="toggle-sidebar" aria-hidden="true">     </i><div id="sidebar"><div class="sidebar-toc"><div class="sidebar-toc__title">目录</div><div class="sidebar-toc__progress"><span class="progress-notice">你已经读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar">     </div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#复习题"><span class="toc-number">1.</span> <span class="toc-text">复习题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#第一题"><span class="toc-number">1.1.</span> <span class="toc-text">第一题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#第二题"><span class="toc-number">1.2.</span> <span class="toc-text">第二题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#第三题"><span class="toc-number">1.3.</span> <span class="toc-text">第三题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#第四题"><span class="toc-number">1.4.</span> <span class="toc-text">第四题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#第五题"><span class="toc-number">1.5.</span> <span class="toc-text">第五题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#第六题"><span class="toc-number">1.6.</span> <span class="toc-text">第六题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#第七题"><span class="toc-number">1.7.</span> <span class="toc-text">第七题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#第八题"><span class="toc-number">1.8.</span> <span class="toc-text">第八题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#第九题"><span class="toc-number">1.9.</span> <span class="toc-text">第九题</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#编程练习"><span class="toc-number">2.</span> <span class="toc-text">编程练习</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#第一题-1"><span class="toc-number">2.1.</span> <span class="toc-text">第一题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#第二题-1"><span class="toc-number">2.2.</span> <span class="toc-text">第二题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#第三题-1"><span class="toc-number">2.3.</span> <span class="toc-text">第三题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#第四题-1"><span class="toc-number">2.4.</span> <span class="toc-text">第四题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#第五题-1"><span class="toc-number">2.5.</span> <span class="toc-text">第五题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#第六题-1"><span class="toc-number">2.6.</span> <span class="toc-text">第六题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#第七题-1"><span class="toc-number">2.7.</span> <span class="toc-text">第七题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#第八题-1"><span class="toc-number">2.8.</span> <span class="toc-text">第八题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#第九题-1"><span class="toc-number">2.9.</span> <span class="toc-text">第九题</span></a></li></ol></li></ol></div></div></div><div id="body-wrap"><div id="web_bg" data-type="photo"></div><div class="post-bg" id="nav" style="background-image: url(/img/c.png)"><div id="page-header"><span class="pull_left" id="blog_name"><a class="blog_title" id="site-name" href="/">Blog</a></span><span class="pull_right menus"><div id="search_button"><a class="site-page social-icon search"><i class="fa fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> 分类</span></a></div></div><span class="toggle-menu close"><a class="site-page"><i class="fa fa-bars fa-fw" aria-hidden="true"></i></a></span></span></div><div id="post-info"><div id="post-title"><div class="posttitle">C-Primer-Puls第十二章复习题目和编程练习题的答案</div></div><div id="post-meta"><div class="meta-firstline"><time class="post-meta__date"><span class="post-meta__date-created" title="发表于 2020-02-26 13:41:00"><i class="fa fa-calendar" aria-hidden="true"></i> 发表于 2020-02-26</span><span class="post-meta__separator">|</span><span class="post-meta__date-updated" title="更新于 2020-04-25 20:19:05"><i class="fa fa-history" aria-hidden="true"></i> 更新于 2020-04-25</span></time><span class="post-meta__categories"><span class="post-meta__separator">|</span><i class="fa fa-inbox post-meta__icon" aria-hidden="true"></i><a class="post-meta__categories" href="/categories/C%E8%AF%AD%E8%A8%80/">C语言</a></span></div><div class="meta-secondline"> <span class="post-meta-wordcount"><i class="post-meta__icon fa fa-file-word-o" aria-hidden="true"></i><span>字数总计:</span><span class="word-count">3.5k</span><span class="post-meta__separator">|</span><i class="post-meta__icon fa fa-clock-o" aria-hidden="true"></i><span>阅读时长: 16 分钟</span></span></div><div class="meta-thirdline"><span class="post-meta-pv-cv"><span class="post-meta__separator">|</span><i class="fa fa-eye post-meta__icon" aria-hidden="true"> </i><span>阅读量:</span><span id="busuanzi_value_page_pv"></span></span><span class="post-meta-commentcount"></span></div></div></div></div><main class="layout_post" id="content-inner"><article id="post"><div id="article-container"><p>本章内容为《C Primer Plus第六版》第十二章复习题和编程练习题的答案</p>
 <h2 id="复习题"><a href="#复习题" class="headerlink" title="复习题"></a>复习题</h2><h3 id="第一题"><a href="#第一题" class="headerlink" title="第一题"></a>第一题</h3><ol>
 <li>哪些类别的变量可以成为它所在函数的局部变量？</li>
 </ol>
@@ -328,7 +110,6 @@ int * p1 = (int *)calloc(100, sizeof(int));</code></pre></li>
 <hr>
 <h3 id="第七题"><a href="#第七题" class="headerlink" title="第七题"></a>第七题</h3><ol start="7">
 <li>下面的变量对哪些函数可见？程序是否有误？<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 文件 1 */</span></span><br><span class="line"><span class="keyword">int</span> daisy;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> lily;</span><br><span class="line">    ...;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">petal</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">extern</span> <span class="keyword">int</span> daisy, lily;</span><br><span class="line">    ...;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/* 文件 2 */</span></span><br><span class="line"><span class="keyword">extern</span> <span class="keyword">int</span> daisy;</span><br><span class="line"><span class="keyword">static</span> <span class="keyword">int</span> lily;</span><br><span class="line"><span class="keyword">int</span> rose;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">stem</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> rose;</span><br><span class="line">    ...;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">root</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    ...;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 </li>
 </ol>
 <hr>
@@ -345,14 +126,12 @@ int value_ct(const int arr[], int value, int n);</code></pre>a.以上声明表�
 <hr>
 <h2 id="编程练习"><a href="#编程练习" class="headerlink" title="编程练习"></a>编程练习</h2><h3 id="第一题-1"><a href="#第一题-1" class="headerlink" title="第一题"></a>第一题</h3><ol>
 <li>不使用全局变量，重写程序清单12.4。<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> units = <span class="number">0</span>;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"How many pounds to a firkin of butter?\n"</span>);</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;units);</span><br><span class="line">    <span class="keyword">while</span> (units != <span class="number">56</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"No luck, my friend. Try again.\n"</span>);</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;units);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"You must have looked it up!\n"</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 </li>
 </ol>
 <hr>
 <h3 id="第二题-1"><a href="#第二题-1" class="headerlink" title="第二题"></a>第二题</h3><ol start="2">
 <li><p>在美国，通常以英里/加仑来计算油耗；在欧洲，以升/100公里来计算。下面是程序的一部分，提示用户选择计算模式（美制或公制），然后接收数据并计算油耗。</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// pe12-2b.c // 与 pe12-2a.c 一起编译</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"pe12-2a.h"</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> mode;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"Enter 0 for metric mode, 1 for US mode: "</span>);</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;mode);</span><br><span class="line">    <span class="keyword">while</span> (mode &gt;= <span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        set_mode(mode);</span><br><span class="line">        get_info();</span><br><span class="line">        show_info();</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"Enter 0 for metric mode, 1 for US mode"</span>);</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">" (-1 to quit): "</span>);</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;mode);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"Done.\n"</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <p>下面是一些输出示例：</p>
 <pre><code>Enter 0 for metric mode, 1 for US mode: 0
 Enter distance traveled in kilometers: 600
@@ -370,39 +149,30 @@ Fuel consumption is 25.4 miles per gallon.
 Enter 0 for metric mode, 1 for US mode (-1 to quit): -1
 Done.</code></pre><p>如果用户输入了不正确的模式，程序向用户给出提示消息并使用上一次输入的正确模式。请提供pe12-2a.h头文件和pe12-2a.c源文件。源代码文件应定义3个具有文件作用域、内部链接的变量。一个表示模式、一个表示距离、一个表示消耗的燃料。get_info()函数根据用户输入的模式提示用户输入相应数据，并将其储存到文件作用域变量中。show_info()函数根据设置的模式计算并显示油耗。可以假设用户输入的都是数值数据。</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// pe12-2b.c</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"pe12-2a.h"</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> mode;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"Enter 0 for metric mode, 1 for US mode: "</span>);</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;mode);</span><br><span class="line">    <span class="keyword">while</span> (mode &gt;= <span class="number">0</span>)           <span class="comment">//输入零或正整数   -1退出</span></span><br><span class="line">    &#123;</span><br><span class="line">        set_mode(mode);</span><br><span class="line">        get_info();</span><br><span class="line">        show_info();</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"Enter 0 for metric mode, 1 for US mode"</span>);</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">" (-1 to quit): "</span>);</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;mode);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"Done.\n"</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// pe12-2a.c</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"pe12-2a.h"</span></span></span><br><span class="line"><span class="keyword">static</span> <span class="keyword">int</span> pattern = <span class="number">0</span>;         <span class="comment">//模式</span></span><br><span class="line"><span class="keyword">static</span> <span class="keyword">int</span> last_pattern = <span class="number">1</span>;    <span class="comment">//默认上一次输入的正确模式为 0</span></span><br><span class="line"><span class="keyword">static</span> <span class="keyword">double</span> distance = <span class="number">0</span>;     <span class="comment">//行驶距离</span></span><br><span class="line"><span class="keyword">static</span> <span class="keyword">double</span> fuelconsumed = <span class="number">0</span>; <span class="comment">//消耗的燃料</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">set_mode</span><span class="params">(<span class="keyword">int</span> mode)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">extern</span> <span class="keyword">int</span> pattern;</span><br><span class="line">    pattern = mode;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">get_info</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">extern</span> <span class="keyword">int</span> pattern;</span><br><span class="line">    <span class="keyword">extern</span> <span class="keyword">double</span> distance;</span><br><span class="line">    <span class="keyword">extern</span> <span class="keyword">double</span> fuelconsumed;</span><br><span class="line">    <span class="keyword">if</span> (pattern != <span class="number">0</span> &amp;&amp; pattern != <span class="number">1</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        pattern = last_pattern;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"Invalid mode specified. Mode %d used.\n"</span>, last_pattern);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (pattern) <span class="comment">//如果模式为 1</span></span><br><span class="line">    &#123;</span><br><span class="line">        last_pattern = pattern;     <span class="comment">//如果当前模式正确则</span></span><br><span class="line">        <span class="built_in">puts</span>(<span class="string">"Enter distance traveled in miles:"</span>);</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%lf"</span>, &amp;distance);</span><br><span class="line">        <span class="built_in">puts</span>(<span class="string">"Enter fuel consumed in gallons:"</span>);</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%lf"</span>, &amp;fuelconsumed);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (!(pattern)) <span class="comment">//如果模式为 0</span></span><br><span class="line">    &#123;</span><br><span class="line">        last_pattern = pattern;</span><br><span class="line">        <span class="built_in">puts</span>(<span class="string">"Enter distance traveled in kilometers:"</span>); <span class="comment">//换行</span></span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%lf"</span>, &amp;distance);</span><br><span class="line">        <span class="built_in">puts</span>(<span class="string">"Enter fuel consumed in liters:"</span>);</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%lf"</span>, &amp;fuelconsumed);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">show_info</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">extern</span> <span class="keyword">int</span> pattern;</span><br><span class="line">    <span class="keyword">extern</span> <span class="keyword">double</span> distance;</span><br><span class="line">    <span class="keyword">extern</span> <span class="keyword">double</span> fuelconsumed; <span class="comment">//要确保到si函数时  模式必须为 1 or 0</span></span><br><span class="line">    <span class="keyword">if</span> (pattern)</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"Fuel consumption is %.1lf miles per gallon.\n"</span>, distance / fuelconsumed);</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"Fuel consumption is %.2lf liters per 100 km.\n"</span>, fuelconsumed / distance * <span class="number">100</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// pe12-2a.h</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">set_mode</span><span class="params">(<span class="keyword">int</span>)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">get_info</span><span class="params">()</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">show_info</span><span class="params">()</span></span>;</span><br></pre></td></tr></table></figure>
-
 </li>
 </ol>
 <hr>
 <h3 id="第三题-1"><a href="#第三题-1" class="headerlink" title="第三题"></a>第三题</h3><ol start="3">
 <li>重新设计编程练习2，要求只使用自动变量。该程序提供的用户界面不变，即提示用户输入模式等。但是，函数调用要作相应变化。<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// pe12-2b.c</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"pe12-2a.h"</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> mode;</span><br><span class="line">    <span class="keyword">int</span> last_mode = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">double</span> distance = <span class="number">0</span>;     <span class="comment">//行驶距离</span></span><br><span class="line">    <span class="keyword">double</span> fuelconsumed = <span class="number">0</span>; <span class="comment">//消耗的燃料</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"Enter 0 for metric mode, 1 for US mode: "</span>);</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;mode);</span><br><span class="line">    <span class="keyword">while</span> (mode &gt;= <span class="number">0</span>) <span class="comment">//输入零或正整数   -1退出</span></span><br><span class="line">    &#123;</span><br><span class="line">        get_info(mode, &amp;last_mode, &amp;distance, &amp;fuelconsumed);</span><br><span class="line">        show_info(mode, distance, fuelconsumed);</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"Enter 0 for metric mode, 1 for US mode"</span>);</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">" (-1 to quit): "</span>);</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;mode);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"Done.\n"</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// pe12-2a.c</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"pe12-2a.h"</span></span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">get_info</span><span class="params">(<span class="keyword">int</span> mode, <span class="keyword">int</span> *last_mode, <span class="keyword">double</span> *distance, <span class="keyword">double</span> *fuelconsumed)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (mode != <span class="number">0</span> &amp;&amp; mode != <span class="number">1</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        mode = *last_mode;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"Invalid mode specified. Mode %d used.\n"</span>, *last_mode);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (mode) <span class="comment">//如果模式为 1</span></span><br><span class="line">    &#123;</span><br><span class="line">        *last_mode = mode; <span class="comment">//如果当前模式正确则</span></span><br><span class="line">        <span class="built_in">puts</span>(<span class="string">"Enter distance traveled in miles:"</span>);</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%lf"</span>, distance);</span><br><span class="line">        <span class="built_in">puts</span>(<span class="string">"Enter fuel consumed in gallons:"</span>);</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%lf"</span>, fuelconsumed);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (!(mode)) <span class="comment">//如果模式为 0</span></span><br><span class="line">    &#123;</span><br><span class="line">        *last_mode = mode;</span><br><span class="line">        <span class="built_in">puts</span>(<span class="string">"Enter distance traveled in kilometers:"</span>);</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%lf"</span>, distance);</span><br><span class="line">        <span class="built_in">puts</span>(<span class="string">"Enter fuel consumed in liters:"</span>);</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%lf"</span>, fuelconsumed);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">show_info</span><span class="params">(<span class="keyword">int</span> mode, <span class="keyword">double</span> distance, <span class="keyword">double</span> fuelconsumed)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (mode)</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"Fuel consumption is %.1lf miles per gallon.\n"</span>, distance / fuelconsumed);</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"Fuel consumption is %.2lf liters per 100 km.\n"</span>, fuelconsumed / distance * <span class="number">100</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// pe12-2a.h</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">get_info</span><span class="params">(<span class="keyword">int</span>, <span class="keyword">int</span> *, <span class="keyword">double</span> *, <span class="keyword">double</span> *)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">show_info</span><span class="params">(<span class="keyword">int</span>, <span class="keyword">double</span>, <span class="keyword">double</span>)</span></span>;</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// pe12-2a.c</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"pe12-2a.h"</span></span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">get_info</span><span class="params">(<span class="keyword">int</span> mode, <span class="keyword">int</span> *last_mode, <span class="keyword">double</span> *distance, <span class="keyword">double</span> *fuelconsumed)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (mode != <span class="number">0</span> &amp;&amp; mode != <span class="number">1</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        mode = *last_mode;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"Invalid mode specified. Mode %d used.\n"</span>, *last_mode);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (mode) <span class="comment">//如果模式为 1</span></span><br><span class="line">    &#123;</span><br><span class="line">        *last_mode = mode; <span class="comment">//如果当前模式正确则</span></span><br><span class="line">        <span class="built_in">puts</span>(<span class="string">"Enter distance traveled in miles:"</span>);</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%lf"</span>, distance);</span><br><span class="line">        <span class="built_in">puts</span>(<span class="string">"Enter fuel consumed in gallons:"</span>);</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%lf"</span>, fuelconsumed);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (!(mode)) <span class="comment">//如果模式为 0</span></span><br><span class="line">    &#123;</span><br><span class="line">        *last_mode = mode;</span><br><span class="line">        <span class="built_in">puts</span>(<span class="string">"Enter distance traveled in kilometers:"</span>);</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%lf"</span>, distance);</span><br><span class="line">        <span class="built_in">puts</span>(<span class="string">"Enter fuel consumed in liters:"</span>);</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%lf"</span>, fuelconsumed);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">show_info</span><span class="params">(<span class="keyword">int</span> mode, <span class="keyword">double</span> distance, <span class="keyword">double</span> fuelconsumed)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (mode)</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"Fuel consumption is %.1lf miles per gallon.\n"</span>, distance / fuelconsumed);</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"Fuel consumption is %.2lf liters per 100 km.\n"</span>, fuelconsumed / distance * <span class="number">100</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// pe12-2a.h</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">get_info</span><span class="params">(<span class="keyword">int</span>, <span class="keyword">int</span> *, <span class="keyword">double</span> *, <span class="keyword">double</span> *)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">show_info</span><span class="params">(<span class="keyword">int</span>, <span class="keyword">double</span>, <span class="keyword">double</span>)</span></span>;</span><br></pre></td></tr></table></figure>
-
 <hr>
 <h3 id="第四题-1"><a href="#第四题-1" class="headerlink" title="第四题"></a>第四题</h3><ol start="4">
 <li>在一个循环中编写并测试一个函数，该函数返回它被调用的次数。<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="keyword">int</span> count = <span class="number">0</span>;      <span class="comment">//文件作用域的变量自动初始化为 0</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">fun</span><span class="params">(<span class="keyword">void</span>)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">char</span> ch;</span><br><span class="line">    <span class="keyword">while</span>((ch = getchar()) != <span class="string">'q'</span>)  <span class="comment">//字符串首字母不为q则</span></span><br><span class="line">    &#123;</span><br><span class="line">        fun();</span><br><span class="line">        <span class="keyword">while</span> (getchar() != <span class="string">'\n'</span>)</span><br><span class="line">            <span class="keyword">continue</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d"</span>, count);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">fun</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">extern</span> count;</span><br><span class="line">    count++;</span><br><span class="line">    <span class="keyword">return</span> count;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 </li>
 </ol>
 <hr>
 <h3 id="第五题-1"><a href="#第五题-1" class="headerlink" title="第五题"></a>第五题</h3><ol start="5">
-<li>编写一个程序，生成100个1～10范围内的随机数，并以降序排列（可以把第11章的排序算法稍加改动，便可用于整数排序，这里仅对整数排序）。<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> random[<span class="number">100</span>] = &#123;<span class="number">0</span>&#125;;</span><br><span class="line">    <span class="keyword">int</span> temp = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">100</span>; i++)</span><br><span class="line">        random[i] = (rand() % <span class="number">10</span> + <span class="number">1</span>);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">100</span>; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; i; j++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (random[i] &gt; random[j])</span><br><span class="line">            &#123;</span><br><span class="line">                temp = random[i];</span><br><span class="line">                random[i] = random[j];</span><br><span class="line">                random[j] = temp;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">100</span>; i++)</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d "</span>, random[i]);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+<li>编写一个程序，生成100个1～10范围内的随机数，并以降序排列（可以把第11章的排序算法稍加改动，便可用于整数排序，这里仅对整数排序）。<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> <span class="built_in">random</span>[<span class="number">100</span>] = &#123;<span class="number">0</span>&#125;;</span><br><span class="line">    <span class="keyword">int</span> temp = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">100</span>; i++)</span><br><span class="line">        <span class="built_in">random</span>[i] = (rand() % <span class="number">10</span> + <span class="number">1</span>);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">100</span>; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; i; j++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (<span class="built_in">random</span>[i] &gt; <span class="built_in">random</span>[j])</span><br><span class="line">            &#123;</span><br><span class="line">                temp = <span class="built_in">random</span>[i];</span><br><span class="line">                <span class="built_in">random</span>[i] = <span class="built_in">random</span>[j];</span><br><span class="line">                <span class="built_in">random</span>[j] = temp;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">100</span>; i++)</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d "</span>, <span class="built_in">random</span>[i]);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
 <hr>
 <h3 id="第六题-1"><a href="#第六题-1" class="headerlink" title="第六题"></a>第六题</h3><ol start="6">
 <li>编写一个程序，生成1000个1～10范围内的随机数。不用保存或打印这些数字，仅打印每个数出现的次数。用 10 个不同的种子值运行，生成的数字出现的次数是否相同？可以使用本章自定义的函数或ANSIC的rand()和 srand()函数，它们的格式相同。这是一个测试特定随机数生成器随机性的方法。<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span>      <span class="comment">//次数不相同   都是100左右</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> seed[<span class="number">10</span>] = &#123;<span class="number">0</span>&#125;;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> a1 = <span class="number">0</span>, a2 = <span class="number">0</span>, a3 = <span class="number">0</span>, a4 = <span class="number">0</span>, a5 = <span class="number">0</span>, a6 = <span class="number">0</span>, a7 = <span class="number">0</span>, a8 = <span class="number">0</span>, a9 = <span class="number">0</span>, a10 = <span class="number">0</span>;</span><br><span class="line">        seed[i] = rand();</span><br><span class="line">        srand(seed[i]);         <span class="comment">//以默认种子为 1 rand()生成10个种子以供使用</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; <span class="number">1000</span>; j++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">switch</span> (rand() % <span class="number">10</span> + <span class="number">1</span>)</span><br><span class="line">            &#123;</span><br><span class="line">            <span class="keyword">case</span> <span class="number">1</span>:</span><br><span class="line">                a1++;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">case</span> <span class="number">2</span>:</span><br><span class="line">                a2++;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">case</span> <span class="number">3</span>:</span><br><span class="line">                a3++;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">case</span> <span class="number">4</span>:</span><br><span class="line">                a4++;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">case</span> <span class="number">5</span>:</span><br><span class="line">                a5++;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">case</span> <span class="number">6</span>:</span><br><span class="line">                a6++;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">case</span> <span class="number">7</span>:</span><br><span class="line">                a7++;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">case</span> <span class="number">8</span>:</span><br><span class="line">                a8++;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">case</span> <span class="number">9</span>:</span><br><span class="line">                a9++;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">case</span> <span class="number">10</span>:</span><br><span class="line">                a10++;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"| 1:%3d | 2:%3d | 3:%3d | 4:%3d | 5:%3d | 6:%3d | 7:%3d | 8:%3d | 9:%3d | 10:%3d |\n"</span>, a1, a2, a3, a4, a5, a6, a7, a8, a9, a10);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 </li>
 </ol>
 <hr>
@@ -412,21 +182,14 @@ How many sides and how many dice? 6 3
 Here are 18 sets of 3 6-sided throws.
 12 10 6 9 8 14 8 15 9 14 12 17 11 7 10 13 8 14
 How many sets? Enter q to stop: q</code></pre><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* manydice.c -- 多次掷骰子的模拟程序 */</span></span><br><span class="line"><span class="comment">/* 与 diceroll.c 一起编译*/</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;   /* 为库函数 srand() 提供原型 */</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;time.h&gt;     /* 为 time() 提供原型 */</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"diceroll.h"</span> <span class="comment">/* 为roll_n_dice()提供原型，为roll_count变量提供声明 */</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span>          <span class="comment">//去除了那个外部变量</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> dice, roll, sides, status, num;</span><br><span class="line">    srand((<span class="keyword">unsigned</span> <span class="keyword">int</span>)time(<span class="number">0</span>)); <span class="comment">/* 随机种子 */</span></span><br><span class="line">    <span class="built_in">puts</span>(<span class="string">"Enter the number of sets; enter q to stop :"</span>);</span><br><span class="line">    <span class="keyword">while</span> (<span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;num))</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"How many sides and how many dice?\n"</span>);</span><br><span class="line">        <span class="keyword">while</span> ((status = (<span class="built_in">scanf</span>(<span class="string">"%d %d"</span>, &amp;sides, &amp;dice))) != <span class="number">2</span> &amp;&amp;sides == <span class="number">0</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"You should have entered an integer."</span>);</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">" Let's begin again.\n"</span>);</span><br><span class="line">            <span class="keyword">while</span> (getchar() != <span class="string">'\n'</span>)</span><br><span class="line">                <span class="keyword">continue</span>; <span class="comment">/* 处理错误的输入 */</span></span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"How many sides and how many dice?\n"</span>);</span><br><span class="line">            <span class="keyword">continue</span>; <span class="comment">/* 进入循环的下一轮迭代 */</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"Here are %d sets of %d %d-sided throws.\n"</span>, num, dice, sides);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; num; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            roll = roll_n_dice(dice, sides);</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"%d "</span>, roll);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"\nHow many sets? Enter q to stop: \n"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"GOOD FORTUNE TO YOU!\n"</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* diceroll.c -- 掷骰子模拟程序 */</span></span><br><span class="line"><span class="comment">/* 与 mandydice.c 一起编译 */</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"diceroll.h"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;          /* 提供库函数 rand()的原型 */</span></span></span><br><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">int</span> <span class="title">rollem</span><span class="params">(<span class="keyword">int</span> sides)</span> <span class="comment">/* 该函数属于该文件私有 */</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> roll;                       <span class="comment">//接收随机数的最大值    并记录总共筛了几次 且一个骰子筛一次</span></span><br><span class="line">    roll = rand() % sides + <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">return</span> roll;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">roll_n_dice</span><span class="params">(<span class="keyword">int</span> dice, <span class="keyword">int</span> sides)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> d;</span><br><span class="line">    <span class="keyword">int</span> total = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">if</span> (sides &lt; <span class="number">2</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"Need at least 2 sides.\n "</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-2</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (dice &lt; <span class="number">1</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"Need at least 1 die.\n"</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (d = <span class="number">0</span>; d &lt; dice; d++)      <span class="comment">//设两个骰子，每个骰子6个面 total值为两个骰子的所得总值</span></span><br><span class="line">        total += rollem(sides);</span><br><span class="line">    <span class="keyword">return</span> total;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// diceroll.h</span></span><br><span class="line"><span class="keyword">extern</span> <span class="keyword">int</span> roll_count;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">roll_n_dice</span><span class="params">(<span class="keyword">int</span> dice, <span class="keyword">int</span> sides)</span></span>;</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* diceroll.c -- 掷骰子模拟程序 */</span></span><br><span class="line"><span class="comment">/* 与 mandydice.c 一起编译 */</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"diceroll.h"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;          /* 提供库函数 rand()的原型 */</span></span></span><br><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">int</span> <span class="title">rollem</span><span class="params">(<span class="keyword">int</span> sides)</span> <span class="comment">/* 该函数属于该文件私有 */</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> roll;                       <span class="comment">//接收随机数的最大值    并记录总共筛了几次 且一个骰子筛一次</span></span><br><span class="line">    roll = rand() % sides + <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">return</span> roll;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">roll_n_dice</span><span class="params">(<span class="keyword">int</span> dice, <span class="keyword">int</span> sides)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> d;</span><br><span class="line">    <span class="keyword">int</span> total = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">if</span> (sides &lt; <span class="number">2</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"Need at least 2 sides.\n "</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-2</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (dice &lt; <span class="number">1</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"Need at least 1 die.\n"</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (d = <span class="number">0</span>; d &lt; dice; d++)      <span class="comment">//设两个骰子，每个骰子6个面 total值为两个骰子的所得总值</span></span><br><span class="line">        total += rollem(sides);</span><br><span class="line">    <span class="keyword">return</span> total;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// diceroll.h</span></span><br><span class="line"><span class="keyword">extern</span> <span class="keyword">int</span> roll_count;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">roll_n_dice</span><span class="params">(<span class="keyword">int</span> dice, <span class="keyword">int</span> sides)</span></span>;</span><br></pre></td></tr></table></figure>
-
 <hr>
 <h3 id="第八题-1"><a href="#第八题-1" class="headerlink" title="第八题"></a>第八题</h3><ol start="8">
-<li><p>下面是程序的一部分：</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// pe12-8.c</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> *<span class="title">make_array</span><span class="params">(<span class="keyword">int</span> elem, <span class="keyword">int</span> val)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">show_array</span><span class="params">(<span class="keyword">const</span> <span class="keyword">int</span> ar[], <span class="keyword">int</span> n)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> *pa;</span><br><span class="line">    <span class="keyword">int</span> size;</span><br><span class="line">    <span class="keyword">int</span> value;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"Enter the number of elements: "</span>);</span><br><span class="line">    <span class="keyword">while</span> (<span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;size) == <span class="number">1</span> &amp;&amp; size &gt; <span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"Enter the initialization value: "</span>);</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;value);</span><br><span class="line">        pa = make_array(size, value);</span><br><span class="line">        <span class="keyword">if</span> (pa)</span><br><span class="line">        &#123;</span><br><span class="line">            show_array(pa, size);</span><br><span class="line">            <span class="built_in">free</span>(pa);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"Enter the number of elements (&lt;1 to quit): "</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"Done.\n"</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>提供make_array()和show_array()函数的定义，完成该程序。make_array()函数接受两个参数，第1个参数是int类型数组的元素个数，第2个参数是要赋给每个元素的值。该函数调用malloc()创建一个大小合适的数组，将其每个元素设置为指定的值，并返回一个指向该数组的指针。show_array()函数显示数组的内容，一行显示8个数。</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> *<span class="title">make_array</span><span class="params">(<span class="keyword">int</span> elem, <span class="keyword">int</span> val)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">show_array</span><span class="params">(<span class="keyword">const</span> <span class="keyword">int</span> ar[], <span class="keyword">int</span> n)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> *pa;</span><br><span class="line">    <span class="keyword">int</span> size;</span><br><span class="line">    <span class="keyword">int</span> value;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"Enter the number of elements: "</span>);</span><br><span class="line">    <span class="keyword">while</span> (<span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;size) == <span class="number">1</span> &amp;&amp; size &gt; <span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"Enter the initialization value: "</span>);</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;value);</span><br><span class="line">        pa = make_array(size, value);</span><br><span class="line">        <span class="keyword">if</span> (pa)</span><br><span class="line">        &#123;</span><br><span class="line">            show_array(pa, size);</span><br><span class="line">            <span class="built_in">free</span>(pa);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"Enter the number of elements (&lt;1 to quit): "</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"Done.\n"</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> *<span class="title">make_array</span><span class="params">(<span class="keyword">int</span> elem, <span class="keyword">int</span> val)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> *pt = (<span class="keyword">int</span> *)<span class="built_in">malloc</span>(elem * <span class="keyword">sizeof</span>(<span class="keyword">int</span>));</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; elem; i++)</span><br><span class="line">        pt[i] = val;</span><br><span class="line">    <span class="keyword">return</span> (<span class="keyword">int</span> *)pt;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">show_array</span><span class="params">(<span class="keyword">const</span> <span class="keyword">int</span> ar[], <span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> j = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++, j++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d"</span>, ar[i]);</span><br><span class="line">        <span class="keyword">if</span> (j % <span class="number">8</span> == <span class="number">0</span>)</span><br><span class="line">            <span class="built_in">putchar</span>(<span class="string">'\n'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">            <span class="built_in">putchar</span>(<span class="string">'\n'</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+<li>下面是程序的一部分：<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// pe12-8.c</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> *<span class="title">make_array</span><span class="params">(<span class="keyword">int</span> elem, <span class="keyword">int</span> val)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">show_array</span><span class="params">(<span class="keyword">const</span> <span class="keyword">int</span> ar[], <span class="keyword">int</span> n)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> *pa;</span><br><span class="line">    <span class="keyword">int</span> <span class="built_in">size</span>;</span><br><span class="line">    <span class="keyword">int</span> value;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"Enter the number of elements: "</span>);</span><br><span class="line">    <span class="keyword">while</span> (<span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;<span class="built_in">size</span>) == <span class="number">1</span> &amp;&amp; <span class="built_in">size</span> &gt; <span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"Enter the initialization value: "</span>);</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;value);</span><br><span class="line">        pa = make_array(<span class="built_in">size</span>, value);</span><br><span class="line">        <span class="keyword">if</span> (pa)</span><br><span class="line">        &#123;</span><br><span class="line">            show_array(pa, <span class="built_in">size</span>);</span><br><span class="line">            <span class="built_in">free</span>(pa);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"Enter the number of elements (&lt;1 to quit): "</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"Done.\n"</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+提供make_array()和show_array()函数的定义，完成该程序。make_array()函数接受两个参数，第1个参数是int类型数组的元素个数，第2个参数是要赋给每个元素的值。该函数调用malloc()创建一个大小合适的数组，将其每个元素设置为指定的值，并返回一个指向该数组的指针。show_array()函数显示数组的内容，一行显示8个数。<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> *<span class="title">make_array</span><span class="params">(<span class="keyword">int</span> elem, <span class="keyword">int</span> val)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">show_array</span><span class="params">(<span class="keyword">const</span> <span class="keyword">int</span> ar[], <span class="keyword">int</span> n)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> *pa;</span><br><span class="line">    <span class="keyword">int</span> <span class="built_in">size</span>;</span><br><span class="line">    <span class="keyword">int</span> value;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"Enter the number of elements: "</span>);</span><br><span class="line">    <span class="keyword">while</span> (<span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;<span class="built_in">size</span>) == <span class="number">1</span> &amp;&amp; <span class="built_in">size</span> &gt; <span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"Enter the initialization value: "</span>);</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;value);</span><br><span class="line">        pa = make_array(<span class="built_in">size</span>, value);</span><br><span class="line">        <span class="keyword">if</span> (pa)</span><br><span class="line">        &#123;</span><br><span class="line">            show_array(pa, <span class="built_in">size</span>);</span><br><span class="line">            <span class="built_in">free</span>(pa);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"Enter the number of elements (&lt;1 to quit): "</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"Done.\n"</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> *<span class="title">make_array</span><span class="params">(<span class="keyword">int</span> elem, <span class="keyword">int</span> val)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> *pt = (<span class="keyword">int</span> *)<span class="built_in">malloc</span>(elem * <span class="keyword">sizeof</span>(<span class="keyword">int</span>));</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; elem; i++)</span><br><span class="line">        pt[i] = val;</span><br><span class="line">    <span class="keyword">return</span> (<span class="keyword">int</span> *)pt;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">show_array</span><span class="params">(<span class="keyword">const</span> <span class="keyword">int</span> ar[], <span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> j = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++, j++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d"</span>, ar[i]);</span><br><span class="line">        <span class="keyword">if</span> (j % <span class="number">8</span> == <span class="number">0</span>)</span><br><span class="line">            <span class="built_in">putchar</span>(<span class="string">'\n'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">            <span class="built_in">putchar</span>(<span class="string">'\n'</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
 <hr>
@@ -439,334 +202,9 @@ I
 enjoyed
 doing
 this
-exercise</code></pre><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt; //malloc 的原型</span></span></span><br><span class="line"><span class="function"><span class="keyword">char</span> *<span class="title">s_gets</span><span class="params">(<span class="keyword">char</span> *, <span class="keyword">int</span>)</span></span>;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> size 10</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> num; <span class="comment">//单词数量</span></span><br><span class="line">    <span class="keyword">char</span>(*pt)[size];</span><br><span class="line">    <span class="keyword">char</span> temp[<span class="number">100</span>] = &#123;<span class="number">0</span>&#125;;</span><br><span class="line">    <span class="built_in">puts</span>(<span class="string">"How many words do you wish to enter?"</span>);</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;num);</span><br><span class="line">    getchar();</span><br><span class="line">    pt = (<span class="keyword">int</span>(*)[size])<span class="built_in">malloc</span>(num * size * <span class="keyword">sizeof</span>(<span class="keyword">char</span>));</span><br><span class="line">    <span class="keyword">if</span> (pt == <span class="literal">NULL</span>) <span class="comment">//如果 malloc 申请内存失败</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">puts</span>(<span class="string">"Memory allocation failed. Goodbye."</span>);</span><br><span class="line">        <span class="built_in">exit</span>(EXIT_FAILURE);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"Enter %d words now:\n"</span>, num);</span><br><span class="line">    s_gets(temp, <span class="number">100</span>);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>, l = <span class="number">0</span>; i &lt; num; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> j;</span><br><span class="line">        <span class="keyword">for</span> (j = <span class="number">0</span>; j &lt; size; j++, l++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (temp[l] == <span class="string">' '</span> || temp[l] == <span class="string">'\0'</span>) <span class="comment">// l是用来统计 temp的总共走向的  i是一维   j是二维   l是字符走向</span></span><br><span class="line">            &#123;</span><br><span class="line">                l++;</span><br><span class="line">                pt[i][j] = <span class="string">'\0'</span>;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            pt[i][j] = temp[l];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (j == size)       <span class="comment">//如果用户输入的字符数量超过了9个</span></span><br><span class="line">        &#123;</span><br><span class="line">            l++;</span><br><span class="line">            pt[i][size - <span class="number">1</span>] = <span class="string">'\0'</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">puts</span>(<span class="string">"Here are your words:"</span>);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; pt[i] &amp;&amp; i &lt; num; i++)</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%s\n"</span>, pt[i]);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">char</span> *<span class="title">s_gets</span><span class="params">(<span class="keyword">char</span> *st, <span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">char</span> *ret_val;</span><br><span class="line">    <span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line">    ret_val = fgets(st, n, <span class="built_in">stdin</span>);</span><br><span class="line">    <span class="keyword">if</span> (ret_val)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">while</span> (st[i] != <span class="string">'\n'</span> &amp;&amp; st[i] != <span class="string">'\0'</span>)</span><br><span class="line">            i++;</span><br><span class="line">        <span class="keyword">if</span> (st[i] == <span class="string">'\n'</span>)</span><br><span class="line">            st[i] = <span class="string">'\0'</span>;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            <span class="keyword">while</span> (getchar() != <span class="string">'\n'</span>)</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ret_val;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+exercise</code></pre><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt; //malloc 的原型</span></span></span><br><span class="line"><span class="function"><span class="keyword">char</span> *<span class="title">s_gets</span><span class="params">(<span class="keyword">char</span> *, <span class="keyword">int</span>)</span></span>;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> size 10</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> num; <span class="comment">//单词数量</span></span><br><span class="line">    <span class="keyword">char</span>(*pt)[<span class="built_in">size</span>];</span><br><span class="line">    <span class="keyword">char</span> temp[<span class="number">100</span>] = &#123;<span class="number">0</span>&#125;;</span><br><span class="line">    <span class="built_in">puts</span>(<span class="string">"How many words do you wish to enter?"</span>);</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;num);</span><br><span class="line">    getchar();</span><br><span class="line">    pt = (<span class="keyword">int</span>(*)[<span class="built_in">size</span>])<span class="built_in">malloc</span>(num * <span class="built_in">size</span> * <span class="keyword">sizeof</span>(<span class="keyword">char</span>));</span><br><span class="line">    <span class="keyword">if</span> (pt == <span class="literal">NULL</span>) <span class="comment">//如果 malloc 申请内存失败</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">puts</span>(<span class="string">"Memory allocation failed. Goodbye."</span>);</span><br><span class="line">        <span class="built_in">exit</span>(EXIT_FAILURE);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"Enter %d words now:\n"</span>, num);</span><br><span class="line">    s_gets(temp, <span class="number">100</span>);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>, l = <span class="number">0</span>; i &lt; num; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> j;</span><br><span class="line">        <span class="keyword">for</span> (j = <span class="number">0</span>; j &lt; <span class="built_in">size</span>; j++, l++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (temp[l] == <span class="string">' '</span> || temp[l] == <span class="string">'\0'</span>) <span class="comment">// l是用来统计 temp的总共走向的  i是一维   j是二维   l是字符走向</span></span><br><span class="line">            &#123;</span><br><span class="line">                l++;</span><br><span class="line">                pt[i][j] = <span class="string">'\0'</span>;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            pt[i][j] = temp[l];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (j == <span class="built_in">size</span>)       <span class="comment">//如果用户输入的字符数量超过了9个</span></span><br><span class="line">        &#123;</span><br><span class="line">            l++;</span><br><span class="line">            pt[i][<span class="built_in">size</span> - <span class="number">1</span>] = <span class="string">'\0'</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">puts</span>(<span class="string">"Here are your words:"</span>);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; pt[i] &amp;&amp; i &lt; num; i++)</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%s\n"</span>, pt[i]);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">char</span> *<span class="title">s_gets</span><span class="params">(<span class="keyword">char</span> *st, <span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">char</span> *ret_val;</span><br><span class="line">    <span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line">    ret_val = fgets(st, n, <span class="built_in">stdin</span>);</span><br><span class="line">    <span class="keyword">if</span> (ret_val)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">while</span> (st[i] != <span class="string">'\n'</span> &amp;&amp; st[i] != <span class="string">'\0'</span>)</span><br><span class="line">            i++;</span><br><span class="line">        <span class="keyword">if</span> (st[i] == <span class="string">'\n'</span>)</span><br><span class="line">            st[i] = <span class="string">'\0'</span>;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            <span class="keyword">while</span> (getchar() != <span class="string">'\n'</span>)</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ret_val;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
 <hr>
-
-    </div>
-
-    
-    
-    
-      <div>
-        
-
-<ul class="post-copyright">
-  <li class="post-copyright-author">
-    <strong>本文作者： </strong></li>
-  <li class="post-copyright-link">
-    <strong>本文链接：</strong>
-    <a href="https://hensir.top/2020/02/26/C-Primer-Puls第十二章复习题目和编程练习题的答案/" title="C-Primer-Puls第十二章复习题目和编程练习题的答案">https://hensir.top/2020/02/26/C-Primer-Puls第十二章复习题目和编程练习题的答案/</a>
-  </li>
-  <li class="post-copyright-license">
-    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li>
-</ul>
-
-      </div>
-
-    <footer class="post-footer">
-          
-        
-        <div class="post-tags">
-            <a href="/tags/题目/" rel="tag"><i class="fa fa-tag"></i> 题目</a>
-          
-            <a href="/tags/答案/" rel="tag"><i class="fa fa-tag"></i> 答案</a>
-          
-        </div>
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-              <a href="/2020/01/28/C-Primer-Puls第十一章复习题目和编程练习题的答案/" rel="next" title="C-Primer-Puls第十一章复习题目和编程练习题的答案">
-                <i class="fa fa-chevron-left"></i> C-Primer-Puls第十一章复习题目和编程练习题的答案
-              </a>
-            
-          </div>
-
-          <span class="post-nav-divider"></span>
-
-          <div class="post-nav-prev post-nav-item">
-              <a href="/2020/03/09/C-Primer-Puls第十三章复习题目和编程练习题的答案/" rel="prev" title="C-Primer-Puls第十三章复习题目和编程练习题的答案">
-                C-Primer-Puls第十三章复习题目和编程练习题的答案 <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-  </div>
-
-
-          </div>
-          
-
-
-        </div>
-          
-  
-  <div class="sidebar-toggle">
-    <div class="sidebar-toggle-line-wrap">
-      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
-    </div>
-  </div>
-
-  <aside id="sidebar" class="sidebar">
-    <div class="sidebar-inner">
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
-
-      <div class="site-overview-wrap sidebar-panel">
-        <div class="site-overview">
-
-          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-  <p class="site-author-name" itemprop="name"></p>
-  <div class="site-description motion-element" itemprop="description"></div>
-</div>
-  <nav class="site-state motion-element">
-      <div class="site-state-item site-state-posts">
-        
-          <a href="/archives">
-        
-          <span class="site-state-item-count">15</span>
-          <span class="site-state-item-name">日志</span>
-        </a>
-      </div>
-    
-      
-      
-      <div class="site-state-item site-state-categories">
-        
-          
-            <a href="/categories/">
-          
-        
-        
-        
-          
-        
-        <span class="site-state-item-count">1</span>
-        <span class="site-state-item-name">分类</span>
-        </a>
-      </div>
-    
-      
-      
-      <div class="site-state-item site-state-tags">
-        
-          
-            <a href="/tags/">
-          
-        
-        
-        
-          
-        
-          
-        
-          
-        
-        <span class="site-state-item-count">3</span>
-        <span class="site-state-item-name">标签</span>
-        </a>
-      </div>
-    
-  </nav>
-  <div class="links-of-author motion-element">
-      <span class="links-of-author-item">
-      
-      
-        
-      
-      
-        
-      
-        <a href="https://github.com/hensir" title="GitHub &rarr; https://github.com/hensir" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
-      </span>
-    
-      <span class="links-of-author-item">
-      
-      
-        
-      
-      
-        
-      
-        <a href="mailto:v34666@outlook.com" title="E-Mail &rarr; mailto:v34666@outlook.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
-      </span>
-    
-  </div>
-  <div class="cc-license motion-element" itemprop="license">
-    
-  
-    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
-  </div>
-
-
-
-        </div>
-      </div>
-      <!--noindex-->
-        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-            
-            
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#复习题"><span class="nav-number">1.</span> <span class="nav-text">复习题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#第一题"><span class="nav-number">1.1.</span> <span class="nav-text">第一题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第二题"><span class="nav-number">1.2.</span> <span class="nav-text">第二题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第三题"><span class="nav-number">1.3.</span> <span class="nav-text">第三题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第四题"><span class="nav-number">1.4.</span> <span class="nav-text">第四题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第五题"><span class="nav-number">1.5.</span> <span class="nav-text">第五题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第六题"><span class="nav-number">1.6.</span> <span class="nav-text">第六题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第七题"><span class="nav-number">1.7.</span> <span class="nav-text">第七题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第八题"><span class="nav-number">1.8.</span> <span class="nav-text">第八题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第九题"><span class="nav-number">1.9.</span> <span class="nav-text">第九题</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#编程练习"><span class="nav-number">2.</span> <span class="nav-text">编程练习</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#第一题-1"><span class="nav-number">2.1.</span> <span class="nav-text">第一题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第二题-1"><span class="nav-number">2.2.</span> <span class="nav-text">第二题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第三题-1"><span class="nav-number">2.3.</span> <span class="nav-text">第三题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第四题-1"><span class="nav-number">2.4.</span> <span class="nav-text">第四题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第五题-1"><span class="nav-number">2.5.</span> <span class="nav-text">第五题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第六题-1"><span class="nav-number">2.6.</span> <span class="nav-text">第六题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第七题-1"><span class="nav-number">2.7.</span> <span class="nav-text">第七题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第八题-1"><span class="nav-number">2.8.</span> <span class="nav-text">第八题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第九题-1"><span class="nav-number">2.9.</span> <span class="nav-text">第九题</span></a></li></ol></li></ol></div>
-            
-
-          </div>
-        </div>
-      <!--/noindex-->
-      
-        <div class="back-to-top motion-element">
-          <i class="fa fa-arrow-up"></i>
-          
-            <span id="scrollpercent"><span>0</span>%</span>
-          
-        </div>
-      
-
-    </div>
-  </aside>
-  <div id="sidebar-dimmer"></div>
-
-
-      </div>
-    </main>
-
-    <footer id="footer" class="footer">
-      <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
-  <span class="with-love" id="animate">
-    <i class="fa fa-user"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder"></span>
-</div>
-  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0</div>
-  <span class="post-meta-divider">|</span>
-  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.3.0</div>
-
-        
-
-
-
-
-  <script>
-    (function() {
-      var hm = document.createElement("script");
-      hm.src = "//tajs.qq.com/stats?sId=<script type="text/javascript" src="http://tajs.qq.com/stats?sId=66519903" charset="UTF-8"></script>";
-      var s = document.getElementsByTagName("script")[0];
-      s.parentNode.insertBefore(hm, s);
-    })();
-  </script>
-
-
-
-
-        
-      </div>
-    </footer>
-
-    
-  
-<script src="/lib/needsharebutton/needsharebutton.js"></script>
-<script>
-</script>
-
-
-  </div>
-
-  
-  <script src="/lib/jquery/index.js?v=3.4.1"></script>
-  <script src="/lib/reading_progress/reading_progress.js"></script>
-  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-
-<script src="/js/utils.js?v=7.3.0"></script>
-  <script src="/js/motion.js?v=7.3.0"></script>
-
-
-  <script src="/js/affix.js?v=7.3.0"></script>
-  <script src="/js/schemes/pisces.js?v=7.3.0"></script>
-
-
-
-<script src="/js/next-boot.js?v=7.3.0"></script>
-
-
-
-
-
-
-  
-  <script>
-    (function(){
-      var bp = document.createElement('script');
-      var curProtocol = window.location.protocol.split(':')[0];
-      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
-      var s = document.getElementsByTagName("script")[0];
-      s.parentNode.insertBefore(bp, s);
-    })();
-  </script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  <script src="/js/local-search.js?v=7.3.0"></script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-  
-
-  
-
-
-  
-  <script src="/js/scrollspy.js?v=7.3.0"></script>
-<script src="/js/post-details.js?v=7.3.0"></script>
-
-
-</body>
-</html>
+</div><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">tran5iti0n</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://hensir.top/2020/02/26/C-Primer-Puls%E7%AC%AC%E5%8D%81%E4%BA%8C%E7%AB%A0%E5%A4%8D%E4%B9%A0%E9%A2%98%E7%9B%AE%E5%92%8C%E7%BC%96%E7%A8%8B%E7%BB%83%E4%B9%A0%E9%A2%98%E7%9A%84%E7%AD%94%E6%A1%88/">http://hensir.top/2020/02/26/C-Primer-Puls%E7%AC%AC%E5%8D%81%E4%BA%8C%E7%AB%A0%E5%A4%8D%E4%B9%A0%E9%A2%98%E7%9B%AE%E5%92%8C%E7%BC%96%E7%A8%8B%E7%BB%83%E4%B9%A0%E9%A2%98%E7%9A%84%E7%AD%94%E6%A1%88/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://hensir.top" target="_blank">Blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E9%A2%98%E7%9B%AE/">题目</a><a class="post-meta__tags" href="/tags/%E7%AD%94%E6%A1%88/">答案</a></div><div class="post_share"></div></div><nav class="pagination_post" id="pagination"><div class="prev-post pull_left"><a href="/2020/03/09/C-Primer-Puls%E7%AC%AC%E5%8D%81%E4%B8%89%E7%AB%A0%E5%A4%8D%E4%B9%A0%E9%A2%98%E7%9B%AE%E5%92%8C%E7%BC%96%E7%A8%8B%E7%BB%83%E4%B9%A0%E9%A2%98%E7%9A%84%E7%AD%94%E6%A1%88/"><img class="prev_cover lazyload" data-src="/img/c.png" onerror="onerror=null;src='/img/404.jpg'"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">C-Primer-Puls第十三章复习题目和编程练习题的答案</div></div></a></div><div class="next-post pull_right"><a href="/2020/01/28/C-Primer-Puls%E7%AC%AC%E5%8D%81%E4%B8%80%E7%AB%A0%E5%A4%8D%E4%B9%A0%E9%A2%98%E7%9B%AE%E5%92%8C%E7%BC%96%E7%A8%8B%E7%BB%83%E4%B9%A0%E9%A2%98%E7%9A%84%E7%AD%94%E6%A1%88/"><img class="next_cover lazyload" data-src="/img/c.png" onerror="onerror=null;src='/img/404.jpg'"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">C-Primer-Puls第十一章复习题目和编程练习题的答案</div></div></a></div></nav></article></main><footer id="footer" style="background-image: url(/img/c.png)" data-type="photo"><div id="footer-wrap"><div class="copyright">&copy;2019 - 2020 By tran5iti0n</div><div class="framework-info"><span>驱动 </span><a href="https://hexo.io" target="_blank" rel="noopener"><span>Hexo</span></a><span class="footer-separator">|</span><span>主题 </span><a href="https://github.com/jerryc127/hexo-theme-butterfly" target="_blank" rel="noopener"><span>Butterfly</span></a></div></div></footer></div><section class="rightside" id="rightside"><div id="rightside-config-hide"><i class="fa fa-book" id="readmode" title="阅读模式"></i><i class="fa fa-plus" id="font_plus" title="放大字体"></i><i class="fa fa-minus" id="font_minus" title="缩小字体"></i><i class="darkmode fa fa-moon-o" id="darkmode" title="夜间模式"></i></div><div id="rightside-config-show"><div id="rightside_config" title="设置"><i class="fa fa-cog" aria-hidden="true"></i></div><i class="fa fa-list-ul close" id="mobile-toc-button" title="目录" aria-hidden="true"></i><i class="fa fa-arrow-up" id="go-up" title="回到顶部" aria-hidden="true"></i></div></section><div class="search-dialog" id="local-search"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"><div id="local-hits"></div><div id="local-stats"><div class="local-search-stats__hr" id="hr"><span>由</span> <a href="https://github.com/wzpan/hexo-generator-search" target="_blank" rel="noopener" style="color:#49B1F5;">hexo-generator-search</a>
+ <span>提供支持</span></div></div></div><span class="search-close-button"><i class="fa fa-times"></i></span></div><div class="search-mask"></div><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page@latest/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/lazysizes@latest/lazysizes.min.js" async=""></script><script src="/js/third-party/ClickShowText.js"></script><script src="/js/search/local-search.js"></script></body></html>
