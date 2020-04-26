@@ -4,7 +4,7 @@ title: C-Primer-Puls第四章复习题目和编程练习题目
 date: 2019-08-31 11:00:00
 tags: [题目]
 categories: C语言
-cover: /img/c.png
+cover: https://s1.ax1x.com/2020/04/26/JcBGNQ.png
 ---
 
 
