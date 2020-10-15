@@ -1,87 +1,143 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Blog</title><meta name="description"><meta name="author" content="tran5iti0n"><meta name="copyright" content="tran5iti0n"><meta name="format-detection" content="telephone=no"><link rel="shortcut icon" href="/img/favicon.png"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="http://ta.qq.com"/><link rel="preconnect" href="https://fonts.googleapis.com" crossorigin="crossorigin"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta name="twitter:card" content="summary"><meta name="twitter:title" content="Blog"><meta name="twitter:description"><meta name="twitter:image" content="https://s1.ax1x.com/2020/04/26/Jc0O7F.png"><meta property="og:type" content="website"><meta property="og:title" content="Blog"><meta property="og:url" content="http://hensir.top/"><meta property="og:site_name" content="Blog"><meta property="og:description"><meta property="og:image" content="https://s1.ax1x.com/2020/04/26/Jc0O7F.png"><meta property="article:published_time" content="2020-06-23T03:19:40.098Z"><meta property="article:modified_time" content="2020-06-23T03:19:40.098Z"><script src="https://cdn.jsdelivr.net/npm/js-cookie/dist/js.cookie.min.js"></script><script>var autoChangeMode = '2'
-var t = Cookies.get("theme")
-if (autoChangeMode == '1'){
-  var isDarkMode = window.matchMedia("(prefers-color-scheme: dark)").matches
-  var isLightMode = window.matchMedia("(prefers-color-scheme: light)").matches
-  var isNotSpecified = window.matchMedia("(prefers-color-scheme: no-preference)").matches
-  var hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
-
-  if (t === undefined){
-    if (isLightMode) activateLightMode()
-    else if (isDarkMode) activateDarkMode()
-    else if (isNotSpecified || hasNoSupport){
-      console.log('You specified no preference for a color scheme or your browser does not support it. I Schedule dark mode during night time.')
-      var now = new Date()
-      var hour = now.getHours()
-      var isNight = hour < 6 || hour >= 18
-      isNight ? activateDarkMode() : activateLightMode()
-  }
-  } else if (t == 'light') activateLightMode()
-  else activateDarkMode()
-
-} else if (autoChangeMode == '2'){
-  now = new Date();
-  hour = now.getHours();
-  isNight = hour < 6 || hour >= 18
-  if(t === undefined) isNight? activateDarkMode() : activateLightMode()
-  else if (t === 'light') activateLightMode()
-  else activateDarkMode() 
-} else {
-  if ( t == 'dark' ) activateDarkMode()
-  else if ( t == 'light') activateLightMode()
-}
-
-function activateDarkMode(){
-  document.documentElement.setAttribute('data-theme', 'dark')
-  if (document.querySelector('meta[name="theme-color"]') !== null){
-    document.querySelector('meta[name="theme-color"]').setAttribute('content','#000')
-  }
-}
-function activateLightMode(){
-  document.documentElement.setAttribute('data-theme', 'light')
-  if (document.querySelector('meta[name="theme-color"]') !== null){
-  document.querySelector('meta[name="theme-color"]').setAttribute('content','#fff')
-  }
-}</script><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@latest/css/font-awesome.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css"><link rel="canonical" href="http://hensir.top/"><script src="https://tajs.qq.com/stats?sId=66519903" charset="UTF-8"></script><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web"><script>var GLOBAL_CONFIG = { 
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Blog</title><meta name="author" content="tran5iti0n"><meta name="copyright" content="tran5iti0n"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><meta property="og:type" content="website">
+<meta property="og:title" content="Blog">
+<meta property="og:url" content="http://recursion.vip/index.html">
+<meta property="og:site_name" content="Blog">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://s1.ax1x.com/2020/04/26/Jc0O7F.png">
+<meta property="article:author" content="tran5iti0n">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s1.ax1x.com/2020/04/26/Jc0O7F.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://recursion.vip/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css"><script>var GLOBAL_CONFIG = { 
   root: '/',
+  hexoversion: '5.2.0',
   algolia: undefined,
-  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容:${query}"}},
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
   translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true},
   copy: {
     success: '复制成功',
     error: '复制错误',
     noSupport: '浏览器不支持'
   },
-  bookmark: {
-    message_prev: '按',
-    message_next: '键将本页加入书签'
+  relativeDate: {
+    homepage: true,
+    post: false
   },
-  runtime_unit: '天',
-  runtime: true,
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
   copyright: undefined,
   ClickShowText: {"text":"break,case,char,extern,float,for,goto,short,signed,sizeof,stativ,while,_Alignas,_Alignof,_Atomic,const,continue,default,do,double,else,enum,if,inline,int,long,register,restrict,return,struct,switch,typedef,union,unsigned,void,volatile,_Bool,_Complex,_Generic,_Imaginary,_Noreturn,_Static_assert,_Thread_local","fontSize":"15px"},
-  medium_zoom: false,
-  fancybox: true,
-  Snackbar: {"bookmark":{"message_prev":"按","message_next":"键将本页加入书签"},"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#2d3035","position":"bottom-left"},
-  baiduPush: false,
-  highlightCopy: true,
-  highlightLang: true,
-  highlightShrink: 'false',
-  isFontAwesomeV5: false,
-  isPhotoFigcaption: false
-  
-}</script><script>var GLOBAL_CONFIG_SITE = { 
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#121212","position":"bottom-left"},
+  justifiedGallery: {
+    js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+    css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isanchor: false
+};
+
+var saveToLocal = {
+  set: function setWithExpiry(key, value, ttl) {
+    const now = new Date()
+    const expiryDay = ttl * 86400000
+    const item = {
+      value: value,
+      expiry: now.getTime() + expiryDay,
+    }
+    localStorage.setItem(key, JSON.stringify(item))
+  },
+
+  get: function getWithExpiry(key) {
+    const itemStr = localStorage.getItem(key)
+
+    if (!itemStr) {
+      return undefined
+    }
+    const item = JSON.parse(itemStr)
+    const now = new Date()
+
+    if (now.getTime() > item.expiry) {
+      localStorage.removeItem(key)
+      return undefined
+    }
+    return item.value
+  }
+}</script><script id="config_change">var GLOBAL_CONFIG_SITE = { 
   isPost: false,
   isHome: true,
-  isSidebar: false  
-  }</script><noscript><style>
-#page-header {
-  opacity: 1
-}
-.justified-gallery img{
-  opacity: 1
-}
-</style></noscript><meta name="generator" content="Hexo 4.2.0"></head><body><div id="mobile-sidebar"><div id="menu_mask"></div><div id="mobile-sidebar-menus"><div class="mobile_author_icon"><img class="avatar-img" src="https://s1.ax1x.com/2020/04/26/Jc0O7F.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="mobile_post_data"><div class="mobile_data_item is-center"><div class="mobile_data_link"><a href="/archives/"><div class="headline">文章</div><div class="length_num">18</div></a></div></div><div class="mobile_data_item is-center">      <div class="mobile_data_link"><a href="/tags/"><div class="headline">标签</div><div class="length_num">3</div></a></div></div><div class="mobile_data_item is-center">     <div class="mobile_data_link"><a href="/categories/"><div class="headline">分类</div><div class="length_num">1</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> 分类</span></a></div></div></div></div><div id="body-wrap"><div id="web_bg" data-type="photo"></div><div class="full_page" id="nav" style="background-image: url(https://s1.ax1x.com/2020/04/26/JcdinS.jpg)"><div id="page-header"><span class="pull_left" id="blog_name"><a class="blog_title" id="site-name" href="/">Blog</a></span><span class="pull_right menus"><div id="search_button"><a class="site-page social-icon search"><i class="fa fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> 分类</span></a></div></div><span class="toggle-menu close"><a class="site-page"><i class="fa fa-bars fa-fw" aria-hidden="true"></i></a></span></span></div><div id="site-info"><h1 id="site_title">Blog</h1><div id="site_subtitle"><span id="subtitle"></span></div><div id="site_social_icons"><a class="social-icon" href="https://github.com/hensir" target="_blank" title="Github"><i class="fa fa-github" aria-hidden="true"></i></a><a class="social-icon" href="v34666@outlook.com" target="_blank" title="Email"><i class="fa fa-envelope" aria-hidden="true"></i></a></div></div><div id="scroll_down"><i class="fa fa-angle-down scroll-down-effects"></i></div></div><main class="layout_page" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/fced4b64.html" title="参考册">参考册</a><div class="article-meta-wrap"><span class="article-meta"><i class="fa fa-thumb-tack article-meta__icon sticky"></i><span class="sticky">置顶</span><span class="article-meta__separator">|</span></span><time class="post-meta__date"><span class="post-meta__date-created" title="发表于 2020-04-25 22:23:00"><i class="fa fa-calendar" aria-hidden="true"></i>2020-04-25</span><span class="article-meta__separator">|</span><span class="post-meta__date-updated" title="更新于 2020-06-23 11:18:43"><i class="fa fa-history" aria-hidden="true"></i>2020-06-23</span></time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/C%E8%AF%AD%E8%A8%80/">C语言</a></span></div><div class="content">控制字符
+  isHighlightShrink: false,
+  isSidebar: false,
+  postUpdate: '2020-10-15 18:03:01'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(function () {
+  window.activateDarkMode = function () {
+    document.documentElement.setAttribute('data-theme', 'dark')
+    if (document.querySelector('meta[name="theme-color"]') !== null) {
+      document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+    }
+  }
+  window.activateLightMode = function () {
+    document.documentElement.setAttribute('data-theme', 'light')
+    if (document.querySelector('meta[name="theme-color"]') !== null) {
+      document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+    }
+  }
+
+  const autoChangeMode = 'false'
+  const t = saveToLocal.get('theme')
+  if (autoChangeMode === '1') {
+    const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+    const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+    const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+    const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+    if (t === undefined) {
+      if (isLightMode) activateLightMode()
+      else if (isDarkMode) activateDarkMode()
+      else if (isNotSpecified || hasNoSupport) {
+        const now = new Date()
+        const hour = now.getHours()
+        const isNight = hour <= 6 || hour >= 18
+        isNight ? activateDarkMode() : activateLightMode()
+      }
+      window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
+        if (saveToLocal.get('theme') === undefined) {
+          e.matches ? activateDarkMode() : activateLightMode()
+        }
+      })
+    } else if (t === 'light') activateLightMode()
+    else activateDarkMode()
+  } else if (autoChangeMode === '2') {
+    const now = new Date()
+    const hour = now.getHours()
+    const isNight = hour <= 6 || hour >= 18
+    if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
+    else if (t === 'light') activateLightMode()
+    else activateDarkMode()
+  } else {
+    if (t === 'dark') activateDarkMode()
+    else if (t === 'light') activateLightMode()
+  }
+})()</script><meta name="generator" content="Hexo 5.2.0"></head><body><div id="mobile-sidebar"><div id="menu_mask"></div><div id="mobile-sidebar-menus"><div class="mobile_author_icon"><img class="avatar-img" data-lazy-src="https://s1.ax1x.com/2020/04/26/Jc0O7F.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="mobile_post_data"><div class="mobile_data_item is-center"><div class="mobile_data_link"><a href="/archives/"><div class="headline">文章</div><div class="length_num">18</div></a></div></div><div class="mobile_data_item is-center">      <div class="mobile_data_link"><a href="/tags/"><div class="headline">标签</div><div class="length_num">2</div></a></div></div><div class="mobile_data_item is-center">     <div class="mobile_data_link"><a href="/categories/"><div class="headline">分类</div><div class="length_num">2</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div></div></div></div><div id="body-wrap"><div id="web_bg"></div><header class="full_page" id="page-header" style="background-image: url(https://s1.ax1x.com/2020/04/26/JcdinS.jpg)"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Blog</a></span><span id="menus"><div id="search_button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div></div><span class="close" id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></span></span></nav><div id="site-info"><h1 id="site-title">Blog</h1><div id="site-subtitle"><span id="subtitle"></span></div><div id="site_social_icons"><a class="social-icon" href="mailto:v34666@outlook.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout_page" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/fced4b64.html" title="参考册">参考册</a><div class="article-meta-wrap"><span class="article-meta"><i class="fas fa-thumbtack article-meta__icon sticky"></i><span class="sticky">置顶</span><span class="article-meta__separator">|</span></span><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time class="post-meta-date-created" datetime="2020-04-25T14:23:00.000Z" title="发表于 2020-04-25 22:23:00">2020-04-25</time><span class="article-meta__separator">|</span><i class="fas fa-history"></i><span class="article-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2020-04-25T14:23:00.000Z" title="更新于 2020-04-25 22:23:00">2020-04-25</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/%E6%89%8B%E5%86%8C/">手册</a></span></div><div class="content">控制字符
 
 
 二进制
@@ -120,16 +176,131 @@ STX
 0000 0011
 3
 03
-E ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/c5b196d.html" title="C-Primer-Puls第十七章复习题目和编程练习题的答案">C-Primer-Puls第十七章复习题目和编程练习题的答案</a><div class="article-meta-wrap"><time class="post-meta__date"><span class="post-meta__date-created" title="发表于 2020-06-23 10:44:00"><i class="fa fa-calendar" aria-hidden="true"></i>2020-06-23</span><span class="article-meta__separator">|</span><span class="post-meta__date-updated" title="更新于 2020-06-23 11:14:42"><i class="fa fa-history" aria-hidden="true"></i>2020-06-23</span></time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/C%E8%AF%AD%E8%A8%80/">C语言</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/%E9%A2%98%E7%9B%AE/">题目</a><span class="article-meta__link">-</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/%E7%AD%94%E6%A1%88/">答案</a></span></div><div class="content">本章内容为《C Primer Plus第六版》第十七章复习题和编程练习题的答案哈哈 从第五章5月16到现在结尾第十七章6月23 一年时间C语言基础终于算是学完了 后面应该会是网络编程和图形化编程
+ETX
+^C
+本文结束
+
+
+0000 0100
+4
+04
+EOT
+^D
+传输结束
+
+
+0000 0101
+5
+05
+ENQ
+^E
+请求
+
+
+0000 0110
+6
+06
+ACK
+^F
+确认回应
+
+
+0000 0111
+7
+07
+BEL
+^G
+响铃
+
+
+0000 1000
+8
+08
+BS
+^H
+退格
+
+
+0000 1001
+9
+09
+HT
+^I
+水平定位符号
+
+
+0000 1010
+10
+0A
+LF
+^J
+换行建
+
+
+0000 1011
+11
+0B
+VT
+^k
+垂直定位符号
+
+
+0000 1100
+12
+0C
+FF
+^L
+换页键
+
+
+0000 1101
+13
+0D
+CR
+^M
+CR(字符)
+
+
+0000 1110
+14
+0E
+SO
+^N
+取消变化 (Shift out)
+
+
+0000 1111
+ ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/c5b196d.html" title="Python实现C-Primer-Puls第十七章复习题目和编程练习题的答案">Python实现C-Primer-Puls第十七章复习题目和编程练习题的答案</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time class="post-meta-date-created" datetime="2020-06-23T02:44:00.000Z" title="发表于 2020-06-23 10:44:00">2020-06-23</time><span class="article-meta__separator">|</span><i class="fas fa-history"></i><span class="article-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2020-06-23T02:44:00.000Z" title="更新于 2020-06-23 10:44:00">2020-06-23</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/C-Primer-Plus/">C Primer Plus</a></span></div><div class="content">本章内容为用Python实现《C Primer Plus第六版》第十七章复习题和编程练习题的答案最后一章耽搁了4个月 四个yu月在学其他的技术 也就是python 所以国庆假期里索性就用python来实现这最后一章刚好也能巩固下python基础语法 和面向对象的类放弃C了 原因是我的下一步是图形化开发 看到大佬们都在说C图形怎么怎么的过时 看到qt原生C++不错 不过也被他的各种高级特性吓得劝退 我C++PrimerPlus都买好了最后就 发现python网上吹wu的不错 我就随大流入了python档 也的确感觉到了python的强大比较特别的 像 if (a &lt; 10 &gt; b) 这种语句python就支持 而c这么多年了还是lun那么小气(开个玩笑) 其次就是“切片大法”随心所欲的操控列表(数组)是真的爽啊 不然人家python怎么会有爬虫呢 要是用c写 还没过滤完结构手就没了然后还有最直观的动态变量大ci小和动态类型 省心到没话说   就这python还是个强类型语言面向过程毁一生，学C毁三代python大法好
 复习题第一题
 定义一种数据类型涉及哪些内容？
 
 
 第二题
-为什么程序清单17.2 只能沿一个方向遍历链表 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/be63c193.html" title="C-Primer-Puls第十六章复习题目和编程练习题的答案">C-Primer-Puls第十六章复习题目和编程练习题的答案</a><div class="article-meta-wrap"><time class="post-meta__date"><span class="post-meta__date-created" title="发表于 2020-05-27 17:00:00"><i class="fa fa-calendar" aria-hidden="true"></i>2020-05-27</span><span class="article-meta__separator">|</span><span class="post-meta__date-updated" title="更新于 2020-06-23 11:07:57"><i class="fa fa-history" aria-hidden="true"></i>2020-06-23</span></time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/C%E8%AF%AD%E8%A8%80/">C语言</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/%E9%A2%98%E7%9B%AE/">题目</a><span class="article-meta__link">-</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/%E7%AD%94%E6%A1%88/">答案</a></span></div><div class="content">本章内容为《C Primer Plus第六版》第十六章复习题和编程练习题的答案
+ ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/be63c193.html" title="C-Primer-Puls第十六章复习题目和编程练习题的答案">C-Primer-Puls第十六章复习题目和编程练习题的答案</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time class="post-meta-date-created" datetime="2020-05-27T09:00:00.000Z" title="发表于 2020-05-27 17:00:00">2020-05-27</time><span class="article-meta__separator">|</span><i class="fas fa-history"></i><span class="article-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2020-05-27T09:00:00.000Z" title="更新于 2020-05-27 17:00:00">2020-05-27</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/C-Primer-Plus/">C Primer Plus</a></span></div><div class="content">本章内容为《C Primer Plus第六版》第十六章复习题和编程练习题的答案
 复习题第一题
 下面的几组代码由一个或多个宏组成，其后是使用宏的源代码。在每种情况下代码的结果是什么？这些代码是否是有效代码？（假设其中的变量已声明）
-12345678910111213141516a.#define FP ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/fc18d53f.html" title="C-Primer-Puls第十五章复习题目和编程练习题的答案">C-Primer-Puls第十五章复习题目和编程练习题的答案</a><div class="article-meta-wrap"><time class="post-meta__date"><span class="post-meta__date-created" title="发表于 2020-04-08 11:42:00"><i class="fa fa-calendar" aria-hidden="true"></i>2020-04-08</span><span class="article-meta__separator">|</span><span class="post-meta__date-updated" title="更新于 2020-05-19 16:59:03"><i class="fa fa-history" aria-hidden="true"></i>2020-05-19</span></time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/C%E8%AF%AD%E8%A8%80/">C语言</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/%E9%A2%98%E7%9B%AE/">题目</a><span class="article-meta__link">-</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/%E7%AD%94%E6%A1%88/">答案</a></span></div><div class="content">本章内容为《C Primer Plus第六版》第十五章复习题和编程练习题的答案
+12345678910111213141516a.#define FPM 5280 /*每英里的英尺数*/dist = FPM * miles;b.#define FEET 4#define POD FEET + FEETplort = FEET * POD;c.#define SIX = 6;nex = SIX;d.#define NEW(X) X + 5y = NEW(y);berg = NEW(berg) * lob;est = NEW(berg) / NEW(y);nilp = lob * NEW(-berg);
+
+
+
+
+
+
+
+第二题
+修改复习题1中d部分的定义，使其更可靠。
+
+
+第三题
+定义一个宏函数，返回两值中的较小值。
+
+
+第四题
+定义EVEN_GT(X, Y)宏，如果X为偶数且大于Y，该宏返回1。
+
+
+第五题
+定义一个宏函数，打印两个表达式及其 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/fc18d53f.html" title="C-Primer-Puls第十五章复习题目和编程练习题的答案">C-Primer-Puls第十五章复习题目和编程练习题的答案</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time class="post-meta-date-created" datetime="2020-04-08T03:42:00.000Z" title="发表于 2020-04-08 11:42:00">2020-04-08</time><span class="article-meta__separator">|</span><i class="fas fa-history"></i><span class="article-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2020-04-08T03:42:00.000Z" title="更新于 2020-04-08 11:42:00">2020-04-08</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/C-Primer-Plus/">C Primer Plus</a></span></div><div class="content">本章内容为《C Primer Plus第六版》第十五章复习题和编程练习题的答案
 复习题第一题
 把下面的十进制转换为二进制：a.3b.13c.59d.119
 
@@ -137,22 +308,50 @@ E ...</div></div></div><div class="recent-post-item"><div class="recent-post-inf
 
 
 第二题
-将下面的二进制值转换为十进制、八进制和十六进制的形式：a.00010101b.01010101c.01001100d.10011 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/6bf0a12d.html" title="C-Primer-Puls第十四章复习题目和编程练习题的答案">C-Primer-Puls第十四章复习题目和编程练习题的答案</a><div class="article-meta-wrap"><time class="post-meta__date"><span class="post-meta__date-created" title="发表于 2020-04-08 11:02:00"><i class="fa fa-calendar" aria-hidden="true"></i>2020-04-08</span><span class="article-meta__separator">|</span><span class="post-meta__date-updated" title="更新于 2020-05-13 09:34:11"><i class="fa fa-history" aria-hidden="true"></i>2020-05-13</span></time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/C%E8%AF%AD%E8%A8%80/">C语言</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/%E9%A2%98%E7%9B%AE/">题目</a><span class="article-meta__link">-</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/%E7%AD%94%E6%A1%88/">答案</a></span></div><div class="content">本章内容为《C Primer Plus第六版》第十四章复习题和编程练习题的答案
+将下面的二进制值转换为十进制、八进制和十六进制的形式：a.00010101b.01010101c.01001100d.10011101
+
+
+第三题
+对下面的表达式求值，假设每个值都为8位：a.～3b.3 &amp; 6c.3 | 6d.1 | 6e.3 ^ 6f.7 &gt;&gt; 1g.7 &lt;&lt; 2
+
+
+第四题
+对下面的表达式求值，假设每个值都为8位：a.～0b.!0c.2 &amp; 4d.2 &amp;&amp; 4e.2 | 4f.2 || 4g.5 &lt;&lt; 3
+
+
+第五题
+因为ASCII码只使用最后7位，所以有时需要用掩码关闭其他位，其相应的二进制掩码是什么？分别用十进制、八进制和十六进制来表示这个掩码。
+
+
+第六题
+程序清单15.2中，可以把下面的代码： while (bits-- &gt; 0)
+ &#123;
+     mask |= bitval;
+     bitval & ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/6bf0a12d.html" title="C-Primer-Puls第十四章复习题目和编程练习题的答案">C-Primer-Puls第十四章复习题目和编程练习题的答案</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time class="post-meta-date-created" datetime="2020-04-08T03:02:00.000Z" title="发表于 2020-04-08 11:02:00">2020-04-08</time><span class="article-meta__separator">|</span><i class="fas fa-history"></i><span class="article-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2020-04-08T03:02:00.000Z" title="更新于 2020-04-08 11:02:00">2020-04-08</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/C-Primer-Plus/">C Primer Plus</a></span></div><div class="content">本章内容为《C Primer Plus第六版》第十四章复习题和编程练习题的答案
 复习题第一题
-下面的结构模板有什么问题：structure
-{
-    char itable;
-    int num[20];
-    char *togs
-}
+下面的结构模板有什么问题： structure
+ &#123;
+     char itable;
+     int num[20];
+     char *togs
+ &#125;
+
 
 
 
 
 第二题
-下面是程序的一部分，输出是什么？123 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/d7704980.html" title="C-Primer-Puls第十三章复习题目和编程练习题的答案">C-Primer-Puls第十三章复习题目和编程练习题的答案</a><div class="article-meta-wrap"><time class="post-meta__date"><span class="post-meta__date-created" title="发表于 2020-03-09 08:14:00"><i class="fa fa-calendar" aria-hidden="true"></i>2020-03-09</span><span class="article-meta__separator">|</span><span class="post-meta__date-updated" title="更新于 2020-05-01 20:52:43"><i class="fa fa-history" aria-hidden="true"></i>2020-05-01</span></time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/C%E8%AF%AD%E8%A8%80/">C语言</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/%E9%A2%98%E7%9B%AE/">题目</a><span class="article-meta__link">-</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/%E7%AD%94%E6%A1%88/">答案</a></span></div><div class="content">本章内容为《C Primer Plus第六版》第十三章复习题和编程练习题的答案
+下面是程序的一部分，输出是什么？123456789101112131415161718#include &lt;stdio.h&gt;struct house&#123;    float sqft;    int rooms;    int stories;    char address[40];&#125;;int main(void)&#123;    struct house fruzt = &#123;1560.0, 6, 1, &quot;22 Spiffo Road&quot;&#125;;    struct house *sign;    sign = &amp;fruzt;    printf(&quot;%d %d\n&quot;, fruzt.rooms, sign-& ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/d7704980.html" title="C-Primer-Puls第十三章复习题目和编程练习题的答案">C-Primer-Puls第十三章复习题目和编程练习题的答案</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time class="post-meta-date-created" datetime="2020-03-09T00:14:00.000Z" title="发表于 2020-03-09 08:14:00">2020-03-09</time><span class="article-meta__separator">|</span><i class="fas fa-history"></i><span class="article-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2020-03-09T00:14:00.000Z" title="更新于 2020-03-09 08:14:00">2020-03-09</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/C-Primer-Plus/">C Primer Plus</a></span></div><div class="content">本章内容为《C Primer Plus第六版》第十三章复习题和编程练习题的答案
 复习题第一题
-下面的程序有什么问题？12345678910int main(void)&#123;    int *fp;    int k;    fp = fopen("gelatin");    for (k =  ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/30d1212.html" title="C-Primer-Puls第十二章复习题目和编程练习题的答案">C-Primer-Puls第十二章复习题目和编程练习题的答案</a><div class="article-meta-wrap"><time class="post-meta__date"><span class="post-meta__date-created" title="发表于 2020-02-26 13:41:00"><i class="fa fa-calendar" aria-hidden="true"></i>2020-02-26</span><span class="article-meta__separator">|</span><span class="post-meta__date-updated" title="更新于 2020-05-01 20:52:43"><i class="fa fa-history" aria-hidden="true"></i>2020-05-01</span></time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/C%E8%AF%AD%E8%A8%80/">C语言</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/%E9%A2%98%E7%9B%AE/">题目</a><span class="article-meta__link">-</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/%E7%AD%94%E6%A1%88/">答案</a></span></div><div class="content">本章内容为《C Primer Plus第六版》第十二章复习题和编程练习题的答案
+下面的程序有什么问题？12345678910int main(void)&#123;    int *fp;    int k;    fp = fopen(&quot;gelatin&quot;);    for (k = 0; k &lt; 30; k++)        fputs(fp, &quot;Nanette eats gelatin.&quot;);    fclose(&quot;gelatin&quot;);    return 0;&#125;
+
+
+
+
+
+
+第二题
+下面的程序完成什么任务？（假设在命令行环境中运行）1234567891011121314151617#include &lt;stdio.h&gt;#include &lt;stdlib.h&gt;#include &lt;ctype.h&gt;int main(int argc, char *argv[])&#123;    int ch;    FILE *fp;    if (argc &lt; 2)   ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/30d1212.html" title="C-Primer-Puls第十二章复习题目和编程练习题的答案">C-Primer-Puls第十二章复习题目和编程练习题的答案</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time class="post-meta-date-created" datetime="2020-02-26T05:41:00.000Z" title="发表于 2020-02-26 13:41:00">2020-02-26</time><span class="article-meta__separator">|</span><i class="fas fa-history"></i><span class="article-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2020-02-26T05:41:00.000Z" title="更新于 2020-02-26 13:41:00">2020-02-26</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/C-Primer-Plus/">C Primer Plus</a></span></div><div class="content">本章内容为《C Primer Plus第六版》第十二章复习题和编程练习题的答案
 复习题第一题
 哪些类别的变量可以成为它所在函数的局部变量？
 
@@ -167,21 +366,110 @@ E ...</div></div></div><div class="recent-post-item"><div class="recent-post-inf
 
 
 第四题
-块 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/c56f0260.html" title="C-Primer-Puls第十一章复习题目和编程练习题的答案">C-Primer-Puls第十一章复习题目和编程练习题的答案</a><div class="article-meta-wrap"><time class="post-meta__date"><span class="post-meta__date-created" title="发表于 2020-01-28 07:24:00"><i class="fa fa-calendar" aria-hidden="true"></i>2020-01-28</span><span class="article-meta__separator">|</span><span class="post-meta__date-updated" title="更新于 2020-05-01 20:52:43"><i class="fa fa-history" aria-hidden="true"></i>2020-05-01</span></time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/C%E8%AF%AD%E8%A8%80/">C语言</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/%E9%A2%98%E7%9B%AE/">题目</a><span class="article-meta__link">-</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/%E7%AD%94%E6%A1%88/">答案</a></span></div><div class="content">本章内容为《C Primer Plus第六版》第十一章复习题和编程练习题的答案从第十一章开始所有的c语言编程练习题答案代码格式化格式都将为C/C++ for Visual Studio Code扩展提供的Visual Studio格式方式扩展仓库地址：https://github.com/micro ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/9e8b0694.html" title="自定义头文件库">自定义头文件库</a><div class="article-meta-wrap"><time class="post-meta__date"><span class="post-meta__date-created" title="发表于 2020-01-27 22:40:00"><i class="fa fa-calendar" aria-hidden="true"></i>2020-01-27</span><span class="article-meta__separator">|</span><span class="post-meta__date-updated" title="更新于 2020-05-01 20:52:43"><i class="fa fa-history" aria-hidden="true"></i>2020-05-01</span></time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/C%E8%AF%AD%E8%A8%80/">C语言</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/%E6%95%99%E7%A8%8B/">教程</a></span></div><div class="content">123456789#include &lt;stdio.h&gt;#include &lt;stdlib.h&gt;#include &lt;string.h&gt;#include &lt;Windows.h&gt;//本自定义头文件库包括以下函数void SDTC(long, long);    ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/d872b2ec.html" title="C-Primer-Puls第十章复习题目和编程练习题的答案">C-Primer-Puls第十章复习题目和编程练习题的答案</a><div class="article-meta-wrap"><time class="post-meta__date"><span class="post-meta__date-created" title="发表于 2019-10-03 20:30:00"><i class="fa fa-calendar" aria-hidden="true"></i>2019-10-03</span><span class="article-meta__separator">|</span><span class="post-meta__date-updated" title="更新于 2020-05-01 20:52:43"><i class="fa fa-history" aria-hidden="true"></i>2020-05-01</span></time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/C%E8%AF%AD%E8%A8%80/">C语言</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/%E9%A2%98%E7%9B%AE/">题目</a><span class="article-meta__link">-</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/%E7%AD%94%E6%A1%88/">答案</a></span></div><div class="content">本章内容为《C Primer Plus第六版》第十章复习题和编程练习题的答案
+块作用域变量具有什么链接属性？
+
+
+第五题
+extern关键字有什么用途？
+
+
+第六题
+考虑下面两行代码，就输出的结果而言有何异同： int * p1 = (int *)malloc(100 * sizeof(int));
+ int * p1 = (int *)calloc(100, sizeof(int));
+
+
+
+第七题
+下面的变量对哪些函数可见？程序是否有误？12345678910111213141516171819202122232425/* 文件 1 */int daisy;int main(void)&#123;    int lily;    ...;&#125;int petal()&#123;    extern int daisy, lily;    ...;&#125;/ ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/c56f0260.html" title="C-Primer-Puls第十一章复习题目和编程练习题的答案">C-Primer-Puls第十一章复习题目和编程练习题的答案</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time class="post-meta-date-created" datetime="2020-01-27T23:24:00.000Z" title="发表于 2020-01-28 07:24:00">2020-01-28</time><span class="article-meta__separator">|</span><i class="fas fa-history"></i><span class="article-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2020-01-27T23:24:00.000Z" title="更新于 2020-01-28 07:24:00">2020-01-28</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/C-Primer-Plus/">C Primer Plus</a></span></div><div class="content">本章内容为《C Primer Plus第六版》第十一章复习题和编程练习题的答案从第十一章开始所有的c语言编程练习题答案代码格式化格式都将为C/C++ for Visual Studio Code扩展提供的Visual Studio格式方式扩展仓库地址：https://github.com/microsoft/vscode-cpptools
 复习题第一题
-下面的程序将打印什么内容？12345678910#include &lt;stdio.h&gt;int main(void)&#123;    int ref[] = &#123;8, 4, 0, 2&#12 ...</div></div></div><nav id="pagination"><div class="pagination"><span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-fw fa-chevron-right" aria-hidden="true"></i></a></div></nav></div><div class="aside_content" id="aside_content"><div class="card-widget card-info"><div class="card-content"><div class="card-info-avatar is-center"><img class="avatar-img" src="https://s1.ax1x.com/2020/04/26/Jc0O7F.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">tran5iti0n</div><div class="author-info__description"></div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives"><div class="headline">文章</div><div class="length_num">18</div></a></div><div class="card-info-data-item is-center">      <a href="/tags"><div class="headline">标签</div><div class="length_num">3</div></a></div><div class="card-info-data-item is-center">     <a href="/categories"><div class="headline">分类</div><div class="length_num">1</div></a></div></div><div class="card-info-bookmark is-center"><a class="bookmark button--primary button--animated" id="bookmark-it" href="javascript:;" title="加入书签" target="_self"><i class="fa fa-bookmark" aria-hidden="true"></i><span>加入书签</span></a></div><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/hensir" target="_blank" title="Github"><i class="fa fa-github" aria-hidden="true"></i></a><a class="social-icon" href="v34666@outlook.com" target="_blank" title="Email"><i class="fa fa-envelope" aria-hidden="true"></i></a></div></div></div><div class="card-widget card-announcement"><div class="card-content"><div class="item-headline"><i class="fa fa-bullhorn card-announcement-animation" aria-hidden="true"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div></div><div class="card-widget card-categories"><div class="card-content"><div class="item-headline"><i class="fa fa-folder-open" aria-hidden="true"></i><span>分类</span></div><ul class="aside-category-list">
-            <li class="aside-category-list-item"><a class="aside-category-list-link" href="/categories/C%E8%AF%AD%E8%A8%80/"><span class="aside-category-list-name">C语言</span><span class="aside-category-list-count">18</span></a></li>
-                       
-            </ul></div></div><div class="card-widget card-tags"><div class="card-content"><div class="item-headline"><i class="fa fa-tags" aria-hidden="true"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/%E6%95%99%E7%A8%8B/" style="font-size: 16px; color: #999">教程</a> <a href="/tags/%E7%AD%94%E6%A1%88/" style="font-size: 20px; color: #99a1ac">答案</a> <a href="/tags/%E9%A2%98%E7%9B%AE/" style="font-size: 24px; color: #99a9bf">题目</a></div></div></div><div class="card-widget card-archives"><div class="card-content"><div class="item-headline"><i class="fa fa-archive" aria-hidden="true"></i><span>归档</span></div><ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/"><span class="archive-list-date">六月 2020</span><span class="archive-list-count">1</span></a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/"><span class="archive-list-date">五月 2020</span><span class="archive-list-count">1</span></a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/"><span class="archive-list-date">四月 2020</span><span class="archive-list-count">3</span></a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/"><span class="archive-list-date">三月 2020</span><span class="archive-list-count">1</span></a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/"><span class="archive-list-date">二月 2020</span><span class="archive-list-count">1</span></a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/"><span class="archive-list-date">一月 2020</span><span class="archive-list-count">2</span></a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/"><span class="archive-list-date">十月 2019</span><span class="archive-list-count">1</span></a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/"><span class="archive-list-date">九月 2019</span><span class="archive-list-count">1</span></a></li><li class="archive-list-item is-center"><a class="archive-list-link-more" href="/archives">查看更多</a></li></ul></div></div><div class="card-widget card-webinfo"><div class="card-content"><div class="item-headline"><i class="fa fa-line-chart" aria-hidden="true"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="webinfo-article-name">文章数目 :</div><div class="webinfo-article-count">18</div></div><div class="webinfo-item"><div class="webinfo-runtime-name">已运行时间 :</div><div class="webinfo-runtime-count" id="webinfo-runtime-count" start_date="5/16/2019 00:00:00">     </div></div><div class="webinfo-item"><div class="webinfo-site-wordcount-name">本站总字数 :</div><div class="webinfo-site-wordcount">62.9k</div></div><div class="webinfo-item">      <div class="webinfo-site-uv-name">本站访客数 :</div><div class="webinfo-site-uv-count" id="busuanzi_value_site_uv"></div></div><div class="webinfo-item"><div class="webinfo-site-name">本站总访问量 :</div><div class="webinfo-site-pv-count" id="busuanzi_value_site_pv"></div></div></div></div></div></div></main><footer id="footer" style="background-image: url(https://s1.ax1x.com/2020/04/26/JcdinS.jpg)" data-type="photo"><div id="footer-wrap"><div class="copyright">&copy;2019 - 2020 By tran5iti0n</div><div class="framework-info"><span>驱动 </span><a href="https://hexo.io" target="_blank" rel="noopener"><span>Hexo</span></a><span class="footer-separator">|</span><span>主题 </span><a href="https://github.com/jerryc127/hexo-theme-butterfly" target="_blank" rel="noopener"><span>Butterfly</span></a></div></div></footer></div><section class="rightside" id="rightside"><div id="rightside-config-hide"><i class="darkmode fa fa-moon-o" id="darkmode" title="夜间模式"></i></div><div id="rightside-config-show"><div id="rightside_config" title="设置"><i class="fa fa-cog" aria-hidden="true"></i></div><i class="fa fa-arrow-up" id="go-up" title="回到顶部" aria-hidden="true"></i></div></section><div class="search-dialog" id="local-search"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"><div id="local-hits"></div><div id="local-stats"><div class="local-search-stats__hr" id="hr"><span>由</span> <a href="https://github.com/wzpan/hexo-generator-search" target="_blank" rel="noopener" style="color:#49B1F5;">hexo-generator-search</a>
- <span>提供支持</span></div></div></div><span class="search-close-button"><i class="fa fa-times"></i></span></div><div class="search-mask"></div><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page@latest/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/lazysizes@latest/lazysizes.min.js" async=""></script><script src="/js/third-party/ClickShowText.js"></script><script src="/js/search/local-search.js"></script><script src="https://cdn.jsdelivr.net/npm/typed.js"></script><script>var subtitleEffect = true
-if (subtitleEffect) { 
-  var typed = new Typed("#subtitle", {
-    strings: 'Do you know that we are transitional.'.split(","),
-    startDelay: 300,
-    typeSpeed: 150,
-    loop: false,
-    backSpeed: 50
+下面字符串的声明有什么问题？12345int main(void)&#123;    char name[] = &#123;&#x27;F&#x27;, &#x27;e&#x27;, &#x27;s&#x27;,&#x27;s&#x27; &#125;;    ...&#125;
+
+
+
+
+第二题
+下面的程序会打印什么？12345678910111213#include &lt;stdio.h&gt;int main(void)&#123;    char note[] = &quot;See you at the snack bar.&quot;;    char *ptr;    ptr = note;    puts(ptr);  ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/d872b2ec.html" title="C-Primer-Puls第十章复习题目和编程练习题的答案">C-Primer-Puls第十章复习题目和编程练习题的答案</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time class="post-meta-date-created" datetime="2019-10-03T12:30:00.000Z" title="发表于 2019-10-03 20:30:00">2019-10-03</time><span class="article-meta__separator">|</span><i class="fas fa-history"></i><span class="article-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2019-10-03T12:30:00.000Z" title="更新于 2019-10-03 20:30:00">2019-10-03</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/C-Primer-Plus/">C Primer Plus</a></span></div><div class="content">本章内容为《C Primer Plus第六版》第十章复习题和编程练习题的答案
+复习题第一题
+下面的程序将打印什么内容？12345678910#include &lt;stdio.h&gt;int main(void)&#123;    int ref[] = &#123;8, 4, 0, 2&#125;;    int *ptr;    int index;    for (index = 0, ptr = ref; index &lt; 4; index++, ptr++)        printf(&quot;%d %d\n&quot;, ref[index], *ptr);    return 0;&#125;
+
+
+
+第二题
+在复习题1中，ref有多少个元素？
+
+
+
+
+第三题
+在复习题1中，ref的地址是什么？ref + 1是什么意思？++ref指向什么？
+
+
+第四题
+在下面的代码中，*ptr和*(ptr + 2)的值分别是什么？
+ a.
+ int *ptr;
+ int torf[2][2] = &#123;12, 14, 16&#125;;
+ ptr = torf[0];
+  ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/62ad57d.html" title="C-Primer-Puls第八章复习题目和编程练习题的答案">C-Primer-Puls第八章复习题目和编程练习题的答案</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time class="post-meta-date-created" datetime="2019-09-03T06:31:00.000Z" title="发表于 2019-09-03 14:31:00">2019-09-03</time><span class="article-meta__separator">|</span><i class="fas fa-history"></i><span class="article-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2019-09-03T06:31:00.000Z" title="更新于 2019-09-03 14:31:00">2019-09-03</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/C-Primer-Plus/">C Primer Plus</a></span></div><div class="content">本章内容为《C Primer Plus第六版》第八章复习题和编程练习题的答案
+复习题第一题
+putchar(getchar())是一个有效表达式，它实现什么功能?getchar(putchar())是否也是有效表达式？
+
+
+第二题
+下面的语句分别完成什么任务？ a.putchar(&#39;H&#39;);
+ b.putchar(&#39;\007&#39;);
+ c.putchar(&#39;\n&#39;);
+ d.putchar(&#39;\b&#39;);
+
+
+
+
+
+第三题
+假设有一个名为 count 的可执行程序，用于统计输入的字符数。设计一个使用 count 程序统计essay文件中字符数的命令行，并把统计结果保存在 essayct文件中。
+
+
+第四题
+给定复习题3中的程序和文件，下面哪一条是有效的命令？ a.essayct &lt; essay
+ b.count essay
+ c.essay &gt;count
+
+
+
+第五题
+EOF是什么？
+
+
+第六题
+对于给定的输出（ch是int类型，而且是缓冲输入），下面各程序段的输出分别是什么？ a.输入如下：
+ If you qu ...</div></div></div><nav id="pagination"><div class="pagination"><span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside_content" id="aside_content"><div class="card-widget card-info"><div class="card-content"><div class="card-info-avatar is-center"><img class="avatar-img" data-lazy-src="https://s1.ax1x.com/2020/04/26/Jc0O7F.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">tran5iti0n</div><div class="author-info__description"></div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length_num">18</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length_num">2</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length_num">2</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/hensir"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="mailto:v34666@outlook.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div></div><div class="sticky_layout"><div class="card-widget card-announcement"><div class="card-content"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">Python代码使用pylint进行格式化<br>目前仅关闭了C0103规范<br>C语言则为Visual Studio格式</div></div></div><div class="card-widget card-categories"><div class="card-content"><div class="item-headline"><i class="fas fa-folder-open"></i><span>分类</span></div><ul class="card-category-list" id="aside-cat-list">
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/C-Primer-Plus/"><span class="card-category-list-name">C Primer Plus</span><span class="card-category-list-count">17</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E6%89%8B%E5%86%8C/"><span class="card-category-list-name">手册</span><span class="card-category-list-count">1</span></a></li>
+            
+            </ul></div></div><div class="card-widget card-tags"><div class="card-content"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/C%E8%AF%AD%E8%A8%80/" style="font-size: 1.5em; color: #99a9bf">C语言</a> <a href="/tags/python/" style="font-size: 1.1em; color: #999">python</a></div></div></div><div class="card-widget card-webinfo"><div class="card-content"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">18</div></div><div class="webinfo-item"><div class="item-name">已运行时间 :</div><div class="item-count" id="runtimeshow" data-publishDate="2019-05-15T16:00:00.000Z"></div></div><div class="webinfo-item"><div class="item-name">本站总字数 :</div><div class="item-count">73.2k</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"></div></div><div class="webinfo-item"><div class="item-name">本站总访问量 :</div><div class="item-count" id="busuanzi_value_site_pv"></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2020-10-15T10:03:00.880Z"></div></div></div></div></div></div></div></main><footer id="footer" style="background-image: url(https://s1.ax1x.com/2020/04/26/JcdinS.jpg)"><div id="footer-wrap"><div class="copyright">&copy;2020 By tran5iti0n</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><section id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></section><div class="search-dialog" id="local-search"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"><div id="local-hits"></div><div id="local-stats"><div class="local-search-stats__hr" id="hr"><span>由</span> <a target="_blank" rel="noopener" href="https://github.com/wzpan/hexo-generator-search" style="color:#49B1F5;">hexo-generator-search</a>
+ <span>提供支持</span></div></div></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div><div><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module" defer></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script>function subtitleType () {
+  $.getScript('http://yijuzhan.com/api/word.php?m=js', function () {
+    var con = str[0]
+    if (true) {
+      var from = '出自 ' + str[1]
+      var sub = "".length == 0 ? new Array() : "".split(',')
+      var both = sub.unshift(con, from)
+      var typed = new Typed('#subtitle', {
+        strings: sub,
+        startDelay: 300,
+        typeSpeed: 150,
+        loop: false,
+        backSpeed: 50,
+      })
+    } else {
+      document.getElementById('subtitle').innerHTML = con
+    }
   })
+}
+
+if (true) {
+  if (typeof Typed === 'function') subtitleType()
+  else $.getScript('https://cdn.jsdelivr.net/npm/typed.js/lib/typed.min.js', subtitleType)
 } else {
-  document.getElementById("subtitle").innerHTML = 'Do you know that we are transitional.'
-}</script></body></html>
+  subtitleType()
+}
+</script><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><script id="click-show-text" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/click-show-text.min.js" async="async" mobile="true"></script></div></body></html>
