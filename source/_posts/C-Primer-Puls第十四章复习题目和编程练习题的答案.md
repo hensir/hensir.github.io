@@ -1,10 +1,11 @@
-﻿---
-
+---
 title: C-Primer-Puls第十四章复习题目和编程练习题的答案
+tags:
+  - C语言
+categories: C Primer Plus
+cover: 'https://s1.ax1x.com/2020/04/26/JcBGNQ.png'
+abbrlink: 6bf0a12d
 date: 2020-04-08 11:02:00
-tags: [答案,题目]
-categories: C语言
-cover: https://s1.ax1x.com/2020/04/26/JcBGNQ.png
 ---
 
 本章内容为《C Primer Plus第六版》第十四章复习题和编程练习题的答案
@@ -1093,7 +1094,7 @@ char *s_gets(char *st, int n)
 ### 第九题
 9. 巨人航空公司（编程练习 8）需要另一架飞机（容量相同），每天飞4 班（航班 102、311、444 和519）。把程序扩展为可以处理4个航班。用一个顶层菜单提供航班选择和退出。选择一个特定航班，就会出现和编程练习 8类似的菜单。但是该菜单要添加一个新选项：确认座位分配。而且，菜单中的退出是返回顶层菜单。每次显示都要指明当前正在处理的航班号。另外，座位分配显示要指明确认状态。
 ``` c
-#include <stdio.h>
+#include <stdio.h>      // 两个switch都可以用函数数组来代替
 #include <stdlib.h>
 #include <string.h>
 struct airplane

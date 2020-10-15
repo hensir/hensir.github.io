@@ -1,9 +1,11 @@
-﻿---
+---
 title: C-Primer-Puls第六章复习题目和编程练习题的答案
+tags:
+  - C语言
+categories: C Primer Plus
+cover: 'https://s1.ax1x.com/2020/04/26/JcBGNQ.png'
+abbrlink: 4f33e526
 date: 2019-05-18 18:44:00
-tags: [答案,题目]
-categories: C语言
-cover: https://s1.ax1x.com/2020/04/26/JcBGNQ.png
 ---
 
 
@@ -29,7 +31,7 @@ cover: https://s1.ax1x.com/2020/04/26/JcBGNQ.png
 
 
 ### 第二题
-1. 假设value是int类型，下面循环的输出是什么？
+2. 假设value是int类型，下面循环的输出是什么？
         for ( value = 36; value > 0; value /= 2)
         printf("%3d", value);
 如果value是double类型，会出现什么问题？

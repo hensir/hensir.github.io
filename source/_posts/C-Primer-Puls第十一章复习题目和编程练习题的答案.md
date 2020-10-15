@@ -1,10 +1,11 @@
-﻿---
-
+---
 title: C-Primer-Puls第十一章复习题目和编程练习题的答案
+tags:
+  - C语言
+categories: C Primer Plus
+cover: 'https://s1.ax1x.com/2020/04/26/JcBGNQ.png'
+abbrlink: c56f0260
 date: 2020-01-28 07:24:00
-tags: [答案,题目]
-categories: C语言
-cover: https://s1.ax1x.com/2020/04/26/JcBGNQ.png
 ---
 
 
