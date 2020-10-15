@@ -1,359 +1,597 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Blog</title><meta name="author" content="tran5iti0n"><meta name="copyright" content="tran5iti0n"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><meta property="og:type" content="website">
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta property="og:type" content="website">
 <meta property="og:title" content="Blog">
 <meta property="og:url" content="http://recursion.vip/page/2/index.html">
 <meta property="og:site_name" content="Blog">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://s1.ax1x.com/2020/04/26/Jc0O7F.png">
 <meta property="article:author" content="tran5iti0n">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://s1.ax1x.com/2020/04/26/Jc0O7F.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://recursion.vip/page/2/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css"><script>var GLOBAL_CONFIG = { 
-  root: '/',
-  hexoversion: '5.2.0',
-  algolia: undefined,
-  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
-  translate: undefined,
-  noticeOutdate: undefined,
-  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true},
-  copy: {
-    success: '复制成功',
-    error: '复制错误',
-    noSupport: '浏览器不支持'
-  },
-  relativeDate: {
-    homepage: true,
-    post: false
-  },
-  runtime: '天',
-  date_suffix: {
-    just: '刚刚',
-    min: '分钟前',
-    hour: '小时前',
-    day: '天前',
-    month: '个月前'
-  },
-  copyright: undefined,
-  ClickShowText: {"text":"break,case,char,extern,float,for,goto,short,signed,sizeof,stativ,while,_Alignas,_Alignof,_Atomic,const,continue,default,do,double,else,enum,if,inline,int,long,register,restrict,return,struct,switch,typedef,union,unsigned,void,volatile,_Bool,_Complex,_Generic,_Imaginary,_Noreturn,_Static_assert,_Thread_local","fontSize":"15px"},
-  lightbox: 'fancybox',
-  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#121212","position":"bottom-left"},
-  justifiedGallery: {
-    js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
-    css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
-  },
-  isPhotoFigcaption: false,
-  islazyload: true,
-  isanchor: false
-};
-
-var saveToLocal = {
-  set: function setWithExpiry(key, value, ttl) {
-    const now = new Date()
-    const expiryDay = ttl * 86400000
-    const item = {
-      value: value,
-      expiry: now.getTime() + expiryDay,
-    }
-    localStorage.setItem(key, JSON.stringify(item))
-  },
-
-  get: function getWithExpiry(key) {
-    const itemStr = localStorage.getItem(key)
-
-    if (!itemStr) {
-      return undefined
-    }
-    const item = JSON.parse(itemStr)
-    const now = new Date()
-
-    if (now.getTime() > item.expiry) {
-      localStorage.removeItem(key)
-      return undefined
-    }
-    return item.value
-  }
-}</script><script id="config_change">var GLOBAL_CONFIG_SITE = { 
-  isPost: false,
-  isHome: true,
-  isHighlightShrink: false,
-  isSidebar: false,
-  postUpdate: '2020-10-15 18:03:01'
-}</script><noscript><style type="text/css">
-  #nav {
-    opacity: 1
-  }
-  .justified-gallery img {
-    opacity: 1
-  }
-
-  #recent-posts time,
-  #post-meta time {
-    display: inline !important
-  }
-</style></noscript><script>(function () {
-  window.activateDarkMode = function () {
-    document.documentElement.setAttribute('data-theme', 'dark')
-    if (document.querySelector('meta[name="theme-color"]') !== null) {
-      document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
-    }
-  }
-  window.activateLightMode = function () {
-    document.documentElement.setAttribute('data-theme', 'light')
-    if (document.querySelector('meta[name="theme-color"]') !== null) {
-      document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
-    }
-  }
-
-  const autoChangeMode = 'false'
-  const t = saveToLocal.get('theme')
-  if (autoChangeMode === '1') {
-    const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
-    const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
-    const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
-    const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
-
-    if (t === undefined) {
-      if (isLightMode) activateLightMode()
-      else if (isDarkMode) activateDarkMode()
-      else if (isNotSpecified || hasNoSupport) {
-        const now = new Date()
-        const hour = now.getHours()
-        const isNight = hour <= 6 || hour >= 18
-        isNight ? activateDarkMode() : activateLightMode()
-      }
-      window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
-        if (saveToLocal.get('theme') === undefined) {
-          e.matches ? activateDarkMode() : activateLightMode()
-        }
-      })
-    } else if (t === 'light') activateLightMode()
-    else activateDarkMode()
-  } else if (autoChangeMode === '2') {
-    const now = new Date()
-    const hour = now.getHours()
-    const isNight = hour <= 6 || hour >= 18
-    if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
-    else if (t === 'light') activateLightMode()
-    else activateDarkMode()
-  } else {
-    if (t === 'dark') activateDarkMode()
-    else if (t === 'light') activateLightMode()
-  }
-})()</script><meta name="generator" content="Hexo 5.2.0"></head><body><div id="mobile-sidebar"><div id="menu_mask"></div><div id="mobile-sidebar-menus"><div class="mobile_author_icon"><img class="avatar-img" data-lazy-src="https://s1.ax1x.com/2020/04/26/Jc0O7F.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="mobile_post_data"><div class="mobile_data_item is-center"><div class="mobile_data_link"><a href="/archives/"><div class="headline">文章</div><div class="length_num">18</div></a></div></div><div class="mobile_data_item is-center">      <div class="mobile_data_link"><a href="/tags/"><div class="headline">标签</div><div class="length_num">2</div></a></div></div><div class="mobile_data_item is-center">     <div class="mobile_data_link"><a href="/categories/"><div class="headline">分类</div><div class="length_num">2</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div></div></div></div><div id="body-wrap"><div id="web_bg"></div><header class="full_page" id="page-header" style="background-image: url(https://s1.ax1x.com/2020/04/26/JcdinS.jpg)"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Blog</a></span><span id="menus"><div id="search_button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div></div><span class="close" id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></span></span></nav><div id="site-info"><h1 id="site-title">Blog</h1><div id="site-subtitle"><span id="subtitle"></span></div><div id="site_social_icons"><a class="social-icon" href="mailto:v34666@outlook.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout_page" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/f409e180.html" title="C-Primer-Puls第四章复习题目和编程练习题目">C-Primer-Puls第四章复习题目和编程练习题目</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time class="post-meta-date-created" datetime="2019-08-31T03:00:00.000Z" title="发表于 2019-08-31 11:00:00">2019-08-31</time><span class="article-meta__separator">|</span><i class="fas fa-history"></i><span class="article-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2019-08-31T03:00:00.000Z" title="更新于 2019-08-31 11:00:00">2019-08-31</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/C-Primer-Plus/">C Primer Plus</a></span></div><div class="content">本章内容为《C Primer Plus第六版》第四章复习题和编程练习题
-复习题第一题
-再次运行程序清单 4.1，但是在要求输入名时，请输入名和姓（根据英文书写习惯，名和姓中间有一个空格），看看会发生什么情况？为什么？程序清单4.1：1234567891011121314151617181920#include &lt;stdio.h&gt;#include &lt;string.h&gt;     // 提供strlen()函数的原型#define DENSITY 62.4    // 人体密度（单位：磅/立方英尺）int main()&#123;    float weight, volume;    int size, letters;    char name[40];      // name是一个可容纳40个字符的数组    printf(&quot;Hi! What&#x27;s your first name?\n&quot;);    scanf(&quot;%s&quot;, name);    printf(&quot;%s, what&#x27;s your we ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/612ff2cc.html" title="C-Primer-Puls第九章复习题目和编程练习题的答案">C-Primer-Puls第九章复习题目和编程练习题的答案</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time class="post-meta-date-created" datetime="2019-08-24T05:50:00.000Z" title="发表于 2019-08-24 13:50:00">2019-08-24</time><span class="article-meta__separator">|</span><i class="fas fa-history"></i><span class="article-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2019-08-24T05:50:00.000Z" title="更新于 2019-08-24 13:50:00">2019-08-24</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/C-Primer-Plus/">C Primer Plus</a></span></div><div class="content">本章内容为《C Primer Plus第六版》第九章复习题和编程练习题的答案
-复习题第一题
-实际参数和形式参数的区别是什么？
-
-
-第二题
-根据下面各函数的描述，分别编写它们的ANSI C函数头。注意，只需写出函数头，不用写函数体。 a.donut()接受一个int类型的参数，打印若干（参数指定数目）个0 b.gear()接受两个int类型的参数，返回int类型的值 c.guess()不接受参数，返回一个int类型的值 d.stuff_it()接受一个double类型的值和double类型变量的地址，把第1个值储存在指定位置
-
-
-
-
-第三题
-根据下面各函数的描述，分别编写它们的ANSI C函数头。注意，只需写出函数头，不用写函数体。 a.n_to_char()接受一个int类型的参数，返回一个char类型的值 b.digit()接受一个double类型的参数和一个int类型的参数，返回一个int类型的值 c.which()接受两个可储存double类型变量的地址，返回一个double类型的地址 d.random()不接受参数，返回一个int类型的值
-
-
-第三题
-设计一个函数，返回两整数之 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/ffd17e17.html" title="C-Primer-Puls第三章复习题目和编程练习题目">C-Primer-Puls第三章复习题目和编程练习题目</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time class="post-meta-date-created" datetime="2019-08-22T06:00:00.000Z" title="发表于 2019-08-22 14:00:00">2019-08-22</time><span class="article-meta__separator">|</span><i class="fas fa-history"></i><span class="article-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2019-08-22T06:00:00.000Z" title="更新于 2019-08-22 14:00:00">2019-08-22</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/C-Primer-Plus/">C Primer Plus</a></span></div><div class="content">本章内容为《C Primer Plus第六版》第三章复习题和编程练习题
-复习题第一题
-指出下面各种数据使用的合适数据类型（有些可使用多种数据类型）：a.East Simpleton的人口b.DVD影碟的价格c.本章出现次数最多的字母d.本章出现次数最多的字母次数
-
-
-
-
-第二题
-在什么情况下要用long类型的变量代替int类型的变量？
-
-
-第三题
-使用哪些可移植的数据类型可以获得32位有符号整数？选择的理由是什么？
-
-
-第四题
-指出下列常量的类型和含义（如果有的话）：a.’\b’b.1066c.99.44d.0XAAe.2.0e30
-
-
-第五题
-Dottie Cawm编写了一个程序，请找出程序中的错误。 include &lt;stdio.h&gt;
- main (
- float g; h;
- floatg = e21;
- tax = rate*g;
- )
-
-
-
-第六题
-写出下列常量在声明中使用的数据类型和在printf()中对应的转换说明：
-
-
-常量
-类型
-转换说明（%转换字符）
-
-
-
-12
-
-
-
-
-0X3
-
-
-
-
-‘c’
-
-
-
-
-2.34E07
-
-
-
-
-‘\040’
-
-
-
-
-7.0 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/d112c232.html" title="C-Primer-Puls第二章复习题目和编程练习题目">C-Primer-Puls第二章复习题目和编程练习题目</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time class="post-meta-date-created" datetime="2019-08-22T05:00:00.000Z" title="发表于 2019-08-22 13:00:00">2019-08-22</time><span class="article-meta__separator">|</span><i class="fas fa-history"></i><span class="article-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2019-08-22T05:00:00.000Z" title="更新于 2019-08-22 13:00:00">2019-08-22</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/C-Primer-Plus/">C Primer Plus</a></span></div><div class="content">本章内容为《C Primer Plus第六版》第二章复习题和编程练习题
-复习题第一题
-C语言的基本模块是什么？
-
-
-第二题
-什么是语法错误？写出一个英语例子和C语言例子。
-
-
-
-第三题
-什么是语义错误？写出一个英语例子和C语言例子。
-
-
-第四题
-Indiana Sloth编写了下面的程序，并征求你的意见。请帮助他评定。 include studio.h
- int main&#123;void&#125; /* 该程序打印一年有多少周 /*
- (
-     int s s := 56;
-     print(There are s weeks in a year.);
-     return 0;
-
-
-
-第五题
-假设下面的4个例子都是完整程序中的一部分，它们都输出什么结果？ a. printf(&quot;Baa Baa Black Sheep.&quot;);
- printf(&quot;Have you any wool?\n&quot;);
- b. printf(&quot;Begone!\nO creature of lard!\n&quot;);
- c.printf(&quot ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/fd0b3dd8.html" title="C-Primer-Puls第七章复习题目和编程练习题的答案">C-Primer-Puls第七章复习题目和编程练习题的答案</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time class="post-meta-date-created" datetime="2019-05-19T12:07:00.000Z" title="发表于 2019-05-19 20:07:00">2019-05-19</time><span class="article-meta__separator">|</span><i class="fas fa-history"></i><span class="article-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2019-05-19T12:07:00.000Z" title="更新于 2019-05-19 20:07:00">2019-05-19</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/C-Primer-Plus/">C Primer Plus</a></span></div><div class="content">本章内容为《C Primer Plus第六版》第七章复习题目和编程练习题的答案
-复习题第一题
-判断下列表达式是true还是false。a 100 &gt; 3 &amp;&amp; ‘a’&gt;’c’b 100 &gt; 3 || ‘a’&gt;’c’c !(100&gt;3)
-
-
-
-
-第二题
-根据下列描述的条件，分别构造一个表达式：a umber等于或大于90，但是小于100b h不是字符q或kc umber在1～9之间（包括1和9），但不是5d umber不在1～9之间
-
-
-第三题
-下面的程序关系表达式过于复杂，而且还有些错误，请简化并改正。1234567891011121314151617#include &lt;stdio.h&gt;int main(void)&#123;    int weight, height;    scanf(&quot;%d , weight, height);    if (weight &lt; 100 &amp;&amp; height &gt; 64)    if (height &gt;= 72)    printf(&quot;You ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/4f33e526.html" title="C-Primer-Puls第六章复习题目和编程练习题的答案">C-Primer-Puls第六章复习题目和编程练习题的答案</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time class="post-meta-date-created" datetime="2019-05-18T10:44:00.000Z" title="发表于 2019-05-18 18:44:00">2019-05-18</time><span class="article-meta__separator">|</span><i class="fas fa-history"></i><span class="article-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2019-05-18T10:44:00.000Z" title="更新于 2019-05-18 18:44:00">2019-05-18</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/C-Primer-Plus/">C Primer Plus</a></span></div><div class="content">本章内容为《C Primer Plus第六版》第六章复习题目和编程练习题的答案
-复习题第一题
-写出执行完下列各行后quack的值是多少。后5行中使用的是第1行quack的值。123456int quack = 2;quack += 5;quack *= 10;quack -= 6;quack /= 8;quack %= 3;
-
-
-
-
-
-第二题
-假设value是int类型，下面循环的输出是什么？ for ( value = 36; value &gt; 0; value /= 2)
- printf(&quot;%3d&quot;, value);
-如果value是double类型，会出现什么问题？
-
-
-第三题
-用代码表示以下测试条件：a.大于5b.scanf()读取一个double类型值且失败c.X的值等于
-
-
-第四题
-用代码表示以下测试条件：a.scanf()成功读取一个整数b.不等于c.x大于或等于20
-
-
-第五题
-下面的程序有点问题，请找出问题所在。1234567891011#include &lt;stdio.h&gt;int main(void)&#123;    int i, ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/d48f18a.html" title="C-Primer-Puls第五章复习题目和编程练习题的答案">C-Primer-Puls第五章复习题目和编程练习题的答案</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time class="post-meta-date-created" datetime="2019-05-16T07:25:51.000Z" title="发表于 2019-05-16 15:25:51">2019-05-16</time><span class="article-meta__separator">|</span><i class="fas fa-history"></i><span class="article-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2019-05-16T07:25:51.000Z" title="更新于 2019-05-16 15:25:51">2019-05-16</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/C-Primer-Plus/">C Primer Plus</a></span></div><div class="content">本章内容为《C Primer Plus第六版》第五章复习题目和编程练习题的答案
-复习题第一题
-假设所有变量的类型都是int，下列各项变量的值是多少：a.x = (2 + 3) * 6;b.x = (12 + 6)/23;c.y = x = (2 + 3)/4;d.y = 3 + 2(x = 7/2);
-
-
-
-
-第二题
-假设所有变量的类型都是int，下列各项变量的值是多少：a.x = (int)3.8 + 3.3;b.x = (2 + 3) * 10.5;c.x = 3 / 5 * 22.0;d.x = 22.0 * 3 / 5;
-
-
-第三题
-对下列各表达式求值：a.30.0 / 4.0 * 5.0;b.30.0 / (4.0 * 5.0);c.30 / 4 * 5;d.30 * 5 / 4;e.30 / 4.0 * 5;f.30 / 4 * 5.0;
-
-
-第四题
-请找出下面的程序中的错误。1234567891011int main(void)&#123;    int i = 1,    float n;    printf(&quot;Watch out! Here come a b ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/ffd17e17.html" title="C-Primer-Puls第一章复习题目和编程练习题目">C-Primer-Puls第一章复习题目和编程练习题目</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time class="post-meta-date-created" datetime="2018-12-11T11:29:03.000Z" title="发表于 2018-12-11 19:29:03">2018-12-11</time><span class="article-meta__separator">|</span><i class="fas fa-history"></i><span class="article-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2018-12-11T11:29:03.000Z" title="更新于 2018-12-11 19:29:03">2018-12-11</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/C-Primer-Plus/">C Primer Plus</a></span></div><div class="content">本章内容为《C Primer Plus第六版》第一章复习题和编程练习题
-复习题第一题
-对编程而言，可移植性意味着什么？
-
-
-
-
-第二题
-解释源代码文件、目标代码文件和可执行文件有什么区别？
-
-
-第三题
-编程的7个主要步骤是什么？
-
-
-第四题
-编译器的任务是什么？
-
-
-第五题
-链接器的任务是什么？
-
-
-编程练习第一题我们尚未要求你编写C代码，该练习侧重于编程过程的早期步骤。
-
-你刚被MacroMuscle有限公司聘用。该公司准备进入欧洲市场，需要一个把英寸单位转换为厘米单位（1 英寸=2.54 厘米）的程序。该程序要提示用户输入英寸值。你的任务是定义程序目标和设计程序（编程过程的第1 步和第2步）。
-
-
-</div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span></div></nav></div><div class="aside_content" id="aside_content"><div class="card-widget card-info"><div class="card-content"><div class="card-info-avatar is-center"><img class="avatar-img" data-lazy-src="https://s1.ax1x.com/2020/04/26/Jc0O7F.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">tran5iti0n</div><div class="author-info__description"></div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length_num">18</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length_num">2</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length_num">2</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/hensir"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="mailto:v34666@outlook.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div></div><div class="sticky_layout"><div class="card-widget card-announcement"><div class="card-content"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">Python代码使用pylint进行格式化<br>目前仅关闭了C0103规范<br>C语言则为Visual Studio格式</div></div></div><div class="card-widget card-categories"><div class="card-content"><div class="item-headline"><i class="fas fa-folder-open"></i><span>分类</span></div><ul class="card-category-list" id="aside-cat-list">
-            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/C-Primer-Plus/"><span class="card-category-list-name">C Primer Plus</span><span class="card-category-list-count">17</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E6%89%8B%E5%86%8C/"><span class="card-category-list-name">手册</span><span class="card-category-list-count">1</span></a></li>
-            
-            </ul></div></div><div class="card-widget card-tags"><div class="card-content"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/C%E8%AF%AD%E8%A8%80/" style="font-size: 1.5em; color: #99a9bf">C语言</a> <a href="/tags/python/" style="font-size: 1.1em; color: #999">python</a></div></div></div><div class="card-widget card-webinfo"><div class="card-content"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">18</div></div><div class="webinfo-item"><div class="item-name">已运行时间 :</div><div class="item-count" id="runtimeshow" data-publishDate="2019-05-15T16:00:00.000Z"></div></div><div class="webinfo-item"><div class="item-name">本站总字数 :</div><div class="item-count">73.2k</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"></div></div><div class="webinfo-item"><div class="item-name">本站总访问量 :</div><div class="item-count" id="busuanzi_value_site_pv"></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2020-10-15T10:03:00.880Z"></div></div></div></div></div></div></div></main><footer id="footer" style="background-image: url(https://s1.ax1x.com/2020/04/26/JcdinS.jpg)"><div id="footer-wrap"><div class="copyright">&copy;2020 By tran5iti0n</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><section id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></section><div class="search-dialog" id="local-search"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"><div id="local-hits"></div><div id="local-stats"><div class="local-search-stats__hr" id="hr"><span>由</span> <a target="_blank" rel="noopener" href="https://github.com/wzpan/hexo-generator-search" style="color:#49B1F5;">hexo-generator-search</a>
- <span>提供支持</span></div></div></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div><div><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module" defer></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script>function subtitleType () {
-  $.getScript('http://yijuzhan.com/api/word.php?m=js', function () {
-    var con = str[0]
-    if (true) {
-      var from = '出自 ' + str[1]
-      var sub = "".length == 0 ? new Array() : "".split(',')
-      var both = sub.unshift(con, from)
-      var typed = new Typed('#subtitle', {
-        strings: sub,
-        startDelay: 300,
-        typeSpeed: 150,
-        loop: false,
-        backSpeed: 50,
-      })
-    } else {
-      document.getElementById('subtitle').innerHTML = con
-    }
-  })
-}
-
-if (true) {
-  if (typeof Typed === 'function') subtitleType()
-  else $.getScript('https://cdn.jsdelivr.net/npm/typed.js/lib/typed.min.js', subtitleType)
-} else {
-  subtitleType()
-}
-</script><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><script id="click-show-text" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/click-show-text.min.js" async="async" mobile="true"></script></div></body></html>
+  
+    <link rel="alternate" href="/atom.xml" title="Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Blog</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://recursion.vip"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-C-Primer-Puls第四章复习题目和编程练习题目" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/posts/f409e180.html" class="article-date">
+  <time datetime="2019-08-31T03:00:00.000Z" itemprop="datePublished">2019-08-31</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/C-Primer-Plus/">C Primer Plus</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/posts/f409e180.html">C-Primer-Puls第四章复习题目和编程练习题目</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>本章内容为《C Primer Plus第六版》第四章复习题和编程练习题</p>
+<h2 id="复习题"><a href="#复习题" class="headerlink" title="复习题"></a>复习题</h2><h3 id="第一题"><a href="#第一题" class="headerlink" title="第一题"></a>第一题</h3><ol>
+<li>再次运行程序清单 4.1，但是在要求输入名时，请输入名和姓（根据英文书写习惯，名和姓中间有一个空格），看看会发生什么情况？为什么？<br>程序清单4.1：<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt;     // 提供strlen()函数的原型</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> DENSITY 62.4    <span class="comment">// 人体密度（单位：磅/立方英尺）</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">float</span> weight, volume;</span><br><span class="line">    <span class="keyword">int</span> size, letters;</span><br><span class="line">    <span class="keyword">char</span> name[<span class="number">40</span>];      <span class="comment">// name是一个可容纳40个字符的数组</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;Hi! What&#x27;s your first name?\n&quot;</span>);</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%s&quot;</span>, name);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%s, what&#x27;s your weight in pounds?\n&quot;</span>, name);</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%f&quot;</span>, &amp;weight);</span><br><span class="line">    size = <span class="keyword">sizeof</span> name;</span><br><span class="line">    letters = <span class="built_in">strlen</span>(name);</span><br><span class="line">    volume = weight / DENSITY;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;Well, %s, your volume is %2.2f cubic feet.\n&quot;</span>, name, volume);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;Also, your first name has %d letters,\n&quot;</span>, letters);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;and we have %d bytes to store it.\n&quot;</span>, size);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+        
+          <p class="article-more-link">
+            <a href="/posts/f409e180.html#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://recursion.vip/posts/f409e180.html" data-id="ckgaohbmv000mk8ksfy9f81ib" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C%E8%AF%AD%E8%A8%80/" rel="tag">C语言</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-C-Primer-Puls第九章复习题目和编程练习题的答案" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/posts/612ff2cc.html" class="article-date">
+  <time datetime="2019-08-24T05:50:00.000Z" itemprop="datePublished">2019-08-24</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/C-Primer-Plus/">C Primer Plus</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/posts/612ff2cc.html">C-Primer-Puls第九章复习题目和编程练习题的答案</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>本章内容为《C Primer Plus第六版》第九章复习题和编程练习题的答案</p>
+<h2 id="复习题"><a href="#复习题" class="headerlink" title="复习题"></a>复习题</h2><h3 id="第一题"><a href="#第一题" class="headerlink" title="第一题"></a>第一题</h3><ol>
+<li>实际参数和形式参数的区别是什么？</li>
+</ol>
+<hr>
+<h3 id="第二题"><a href="#第二题" class="headerlink" title="第二题"></a>第二题</h3><ol start="2">
+<li>根据下面各函数的描述，分别编写它们的ANSI C函数头。注意，只需写出函数头，不用写函数体。<br> a.donut()接受一个int类型的参数，打印若干（参数指定数目）个0<br> b.gear()接受两个int类型的参数，返回int类型的值<br> c.guess()不接受参数，返回一个int类型的值<br> d.stuff_it()接受一个double类型的值和double类型变量的地址，把第1个值储存在指定位置</li>
+</ol>
+        
+          <p class="article-more-link">
+            <a href="/posts/612ff2cc.html#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://recursion.vip/posts/612ff2cc.html" data-id="ckgaohbml0006k8kshnxxgjz8" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C%E8%AF%AD%E8%A8%80/" rel="tag">C语言</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-C-Primer-Puls第三章复习题目和编程练习题目" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/posts/ffd17e17.html" class="article-date">
+  <time datetime="2019-08-22T06:00:00.000Z" itemprop="datePublished">2019-08-22</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/C-Primer-Plus/">C Primer Plus</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/posts/ffd17e17.html">C-Primer-Puls第三章复习题目和编程练习题目</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>本章内容为《C Primer Plus第六版》第三章复习题和编程练习题</p>
+<h2 id="复习题"><a href="#复习题" class="headerlink" title="复习题"></a>复习题</h2><h3 id="第一题"><a href="#第一题" class="headerlink" title="第一题"></a>第一题</h3><ol>
+<li>指出下面各种数据使用的合适数据类型（有些可使用多种数据类型）：<br>a.East Simpleton的人口<br>b.DVD影碟的价格<br>c.本章出现次数最多的字母<br>d.本章出现次数最多的字母次数</li>
+</ol>
+        
+          <p class="article-more-link">
+            <a href="/posts/ffd17e17.html#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://recursion.vip/posts/ffd17e17.html" data-id="ckgaohbmi0003k8ks4jzw1m3a" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C%E8%AF%AD%E8%A8%80/" rel="tag">C语言</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-C-Primer-Puls第二章复习题目和编程练习题目" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/posts/d112c232.html" class="article-date">
+  <time datetime="2019-08-22T05:00:00.000Z" itemprop="datePublished">2019-08-22</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/C-Primer-Plus/">C Primer Plus</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/posts/d112c232.html">C-Primer-Puls第二章复习题目和编程练习题目</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>本章内容为《C Primer Plus第六版》第二章复习题和编程练习题</p>
+<h2 id="复习题"><a href="#复习题" class="headerlink" title="复习题"></a>复习题</h2><h3 id="第一题"><a href="#第一题" class="headerlink" title="第一题"></a>第一题</h3><ol>
+<li>C语言的基本模块是什么？</li>
+</ol>
+<hr>
+<h3 id="第二题"><a href="#第二题" class="headerlink" title="第二题"></a>第二题</h3><ol start="2">
+<li>什么是语法错误？写出一个英语例子和C语言例子。</li>
+</ol>
+        
+          <p class="article-more-link">
+            <a href="/posts/d112c232.html#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://recursion.vip/posts/d112c232.html" data-id="ckgaohbmm0007k8ksch63afew" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C%E8%AF%AD%E8%A8%80/" rel="tag">C语言</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-C-Primer-Puls第七章复习题目和编程练习题的答案" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/posts/fd0b3dd8.html" class="article-date">
+  <time datetime="2019-05-19T12:07:00.000Z" itemprop="datePublished">2019-05-19</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/C-Primer-Plus/">C Primer Plus</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/posts/fd0b3dd8.html">C-Primer-Puls第七章复习题目和编程练习题的答案</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>本章内容为《C Primer Plus第六版》第七章复习题目和编程练习题的答案</p>
+<h2 id="复习题"><a href="#复习题" class="headerlink" title="复习题"></a>复习题</h2><h3 id="第一题"><a href="#第一题" class="headerlink" title="第一题"></a>第一题</h3><ol>
+<li>判断下列表达式是true还是false。<br>a 100 &gt; 3 &amp;&amp; ‘a’&gt;’c’<br>b 100 &gt; 3 || ‘a’&gt;’c’<br>c !(100&gt;3)</li>
+</ol>
+        
+          <p class="article-more-link">
+            <a href="/posts/fd0b3dd8.html#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://recursion.vip/posts/fd0b3dd8.html" data-id="ckgaohbqv000zk8ks6ty5hyzo" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C%E8%AF%AD%E8%A8%80/" rel="tag">C语言</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-C-Primer-Puls第六章复习题目和编程练习题的答案" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/posts/4f33e526.html" class="article-date">
+  <time datetime="2019-05-18T10:44:00.000Z" itemprop="datePublished">2019-05-18</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/C-Primer-Plus/">C Primer Plus</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/posts/4f33e526.html">C-Primer-Puls第六章复习题目和编程练习题的答案</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>本章内容为《C Primer Plus第六版》第六章复习题目和编程练习题的答案</p>
+<h2 id="复习题"><a href="#复习题" class="headerlink" title="复习题"></a>复习题</h2><h3 id="第一题"><a href="#第一题" class="headerlink" title="第一题"></a>第一题</h3><ol>
+<li>写出执行完下列各行后quack的值是多少。后5行中使用的是第1行quack的值。<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> quack = <span class="number">2</span>;</span><br><span class="line">quack += <span class="number">5</span>;</span><br><span class="line">quack *= <span class="number">10</span>;</span><br><span class="line">quack -= <span class="number">6</span>;</span><br><span class="line">quack /= <span class="number">8</span>;</span><br><span class="line">quack %= <span class="number">3</span>;</span><br></pre></td></tr></table></figure>
+        
+          <p class="article-more-link">
+            <a href="/posts/4f33e526.html#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://recursion.vip/posts/4f33e526.html" data-id="ckgaohbr20012k8ks3ip9axjl" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C%E8%AF%AD%E8%A8%80/" rel="tag">C语言</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-C-Primer-Puls第五章复习题目和编程练习题的答案" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/posts/d48f18a.html" class="article-date">
+  <time datetime="2019-05-16T07:25:51.000Z" itemprop="datePublished">2019-05-16</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/C-Primer-Plus/">C Primer Plus</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/posts/d48f18a.html">C-Primer-Puls第五章复习题目和编程练习题的答案</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>本章内容为《C Primer Plus第六版》第五章复习题目和编程练习题的答案</p>
+<h2 id="复习题"><a href="#复习题" class="headerlink" title="复习题"></a>复习题</h2><h3 id="第一题"><a href="#第一题" class="headerlink" title="第一题"></a>第一题</h3><ol>
+<li>假设所有变量的类型都是int，下列各项变量的值是多少：<br>a.x = (2 + 3) * 6;<br>b.x = (12 + 6)/2<em>3;<br>c.y = x = (2 + 3)/4;<br>d.y = 3 + 2</em>(x = 7/2);</li>
+</ol>
+        
+          <p class="article-more-link">
+            <a href="/posts/d48f18a.html#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://recursion.vip/posts/d48f18a.html" data-id="ckgaohbmn0008k8ksfnty5oq1" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C%E8%AF%AD%E8%A8%80/" rel="tag">C语言</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-C-Primer-Puls第一章复习题目和编程练习题目" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/posts/ffd17e17.html" class="article-date">
+  <time datetime="2018-12-11T11:29:03.000Z" itemprop="datePublished">2018-12-11</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/C-Primer-Plus/">C Primer Plus</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/posts/ffd17e17.html">C-Primer-Puls第一章复习题目和编程练习题目</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>本章内容为《C Primer Plus第六版》第一章复习题和编程练习题</p>
+<h2 id="复习题"><a href="#复习题" class="headerlink" title="复习题"></a>复习题</h2><h3 id="第一题"><a href="#第一题" class="headerlink" title="第一题"></a>第一题</h3><ol>
+<li>对编程而言，可移植性意味着什么？
+        
+          <p class="article-more-link">
+            <a href="/posts/ffd17e17.html#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://recursion.vip/posts/ffd17e17.html" data-id="ckgaohbme0001k8kshnsw68gm" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C%E8%AF%AD%E8%A8%80/" rel="tag">C语言</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="/">&amp;laquo; 上一页</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+  </nav>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/C-Primer-Plus/">C Primer Plus</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%89%8B%E5%86%8C/">手册</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/C%E8%AF%AD%E8%A8%80/" rel="tag">C语言</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/" rel="tag">python</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/C%E8%AF%AD%E8%A8%80/" style="font-size: 20px;">C语言</a> <a href="/tags/python/" style="font-size: 10px;">python</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">六月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">五月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">四月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">三月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">二月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">一月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">十月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">九月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">八月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">五月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">十二月 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/posts/c5b196d.html">Python实现C-Primer-Puls第十七章复习题目和编程练习题的答案</a>
+          </li>
+        
+          <li>
+            <a href="/posts/be63c193.html">C-Primer-Puls第十六章复习题目和编程练习题的答案</a>
+          </li>
+        
+          <li>
+            <a href="/posts/fced4b64.html">参考册</a>
+          </li>
+        
+          <li>
+            <a href="/posts/fc18d53f.html">C-Primer-Puls第十五章复习题目和编程练习题的答案</a>
+          </li>
+        
+          <li>
+            <a href="/posts/6bf0a12d.html">C-Primer-Puls第十四章复习题目和编程练习题的答案</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 tran5iti0n<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
