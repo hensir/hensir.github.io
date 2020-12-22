@@ -1,7 +1,7 @@
 ---
 title: Python实现C-Primer-Puls第十七章复习题目和编程练习题的答案
 tags:
-  - python
+  - Python
 categories: C Primer Plus
 cover: 'https://s1.ax1x.com/2020/04/26/JcBGNQ.png'
 abbrlink: c5b196d
