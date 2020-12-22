@@ -1,0 +1,156 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>用PyQT实现的BadUSB脚本编写器之闲聊 | Blog</title><meta name="keywords" content="工具,手册,Python,PyQT"><meta name="author" content="tran5iti0n"><meta name="copyright" content="tran5iti0n"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><meta name="description" content="introduce# &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;文章废话比较多&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; (pyqt式提示线)项目地址：https:&#x2F;&#x2F;github.com&#x2F;hensir&#x2F;QtTest这个存储库里实际是有三个项目的badusb是主角的文件夹pyb7是 为脚本攻击磐云设备 型号PY—B7 混战第二题的工具 不过只画了一个界面qq 是一个发送邮件的工具 (手动滑稽) 当然大多数工具的存在都是为了复习 严格来说">
+<meta property="og:type" content="article">
+<meta property="og:title" content="用PyQT实现的BadUSB脚本编写器之闲聊">
+<meta property="og:url" content="http://recursion.vip/posts/3888dc4f.html">
+<meta property="og:site_name" content="Blog">
+<meta property="og:description" content="introduce# &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;文章废话比较多&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; (pyqt式提示线)项目地址：https:&#x2F;&#x2F;github.com&#x2F;hensir&#x2F;QtTest这个存储库里实际是有三个项目的badusb是主角的文件夹pyb7是 为脚本攻击磐云设备 型号PY—B7 混战第二题的工具 不过只画了一个界面qq 是一个发送邮件的工具 (手动滑稽) 当然大多数工具的存在都是为了复习 严格来说">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://s3.ax1x.com/2020/12/09/r96Haj.jpg">
+<meta property="article:published_time" content="2020-12-08T10:53:00.000Z">
+<meta property="article:modified_time" content="2020-12-08T10:53:00.000Z">
+<meta property="article:author" content="tran5iti0n">
+<meta property="article:tag" content="工具">
+<meta property="article:tag" content="手册">
+<meta property="article:tag" content="Python">
+<meta property="article:tag" content="PyQT">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s3.ax1x.com/2020/12/09/r96Haj.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://recursion.vip/posts/3888dc4f.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  hexoversion: '5.2.0',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  ClickShowText: {"text":"break,case,char,extern,float,for,goto,short,signed,sizeof,stativ,while,_Alignas,_Alignof,_Atomic,const,continue,default,do,double,else,enum,if,inline,int,long,register,restrict,return,struct,switch,typedef,union,unsigned,void,volatile,_Bool,_Complex,_Generic,_Imaginary,_Noreturn,_Static_assert,_Thread_local","fontSize":"15px"},
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#121212","position":"bottom-left"},
+  justifiedGallery: {
+    js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+    css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isanchor: false
+};
+
+var saveToLocal = {
+  set: function setWithExpiry(key, value, ttl) {
+    const now = new Date()
+    const expiryDay = ttl * 86400000
+    const item = {
+      value: value,
+      expiry: now.getTime() + expiryDay,
+    }
+    localStorage.setItem(key, JSON.stringify(item))
+  },
+
+  get: function getWithExpiry(key) {
+    const itemStr = localStorage.getItem(key)
+
+    if (!itemStr) {
+      return undefined
+    }
+    const item = JSON.parse(itemStr)
+    const now = new Date()
+
+    if (now.getTime() > item.expiry) {
+      localStorage.removeItem(key)
+      return undefined
+    }
+    return item.value
+  }
+}</script><script id="config_change">var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isSidebar: true,
+  postUpdate: '2020-12-08 18:53:00'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(function () {
+  window.activateDarkMode = function () {
+    document.documentElement.setAttribute('data-theme', 'dark')
+    if (document.querySelector('meta[name="theme-color"]') !== null) {
+      document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+    }
+  }
+  window.activateLightMode = function () {
+    document.documentElement.setAttribute('data-theme', 'light')
+    if (document.querySelector('meta[name="theme-color"]') !== null) {
+      document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+    }
+  }
+
+  const autoChangeMode = 'false'
+  const t = saveToLocal.get('theme')
+  if (autoChangeMode === '1') {
+    const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+    const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+    const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+    const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+    if (t === undefined) {
+      if (isLightMode) activateLightMode()
+      else if (isDarkMode) activateDarkMode()
+      else if (isNotSpecified || hasNoSupport) {
+        const now = new Date()
+        const hour = now.getHours()
+        const isNight = hour <= 6 || hour >= 18
+        isNight ? activateDarkMode() : activateLightMode()
+      }
+      window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
+        if (saveToLocal.get('theme') === undefined) {
+          e.matches ? activateDarkMode() : activateLightMode()
+        }
+      })
+    } else if (t === 'light') activateLightMode()
+    else activateDarkMode()
+  } else if (autoChangeMode === '2') {
+    const now = new Date()
+    const hour = now.getHours()
+    const isNight = hour <= 6 || hour >= 18
+    if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
+    else if (t === 'light') activateLightMode()
+    else activateDarkMode()
+  } else {
+    if (t === 'dark') activateDarkMode()
+    else if (t === 'light') activateLightMode()
+  }
+})()</script><meta name="generator" content="Hexo 5.2.0"></head><body><div id="mobile-sidebar"><div id="menu_mask"></div><div id="mobile-sidebar-menus"><div class="mobile_author_icon"><img class="avatar-img" data-lazy-src="https://s1.ax1x.com/2020/04/26/Jc0O7F.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="mobile_post_data"><div class="mobile_data_item is-center"><div class="mobile_data_link"><a href="/archives/"><div class="headline">文章</div><div class="length_num">19</div></a></div></div><div class="mobile_data_item is-center">      <div class="mobile_data_link"><a href="/tags/"><div class="headline">标签</div><div class="length_num">5</div></a></div></div><div class="mobile_data_item is-center">     <div class="mobile_data_link"><a href="/categories/"><div class="headline">分类</div><div class="length_num">3</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div></div></div></div><div id="body-wrap"><div id="web_bg"></div><div id="sidebar"><i class="fas fa-arrow-right on" id="toggle-sidebar"></i><div class="sidebar-toc"><div class="sidebar-toc__title">目录</div><div class="sidebar-toc__progress"><span class="progress-notice">你已经读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar">     </div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#introduce"><span class="toc-number">1.</span> <span class="toc-text">introduce</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%BB%E7%95%8C%E9%9D%A2"><span class="toc-number">2.</span> <span class="toc-text">主界面</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#groupBox"><span class="toc-number">2.1.</span> <span class="toc-text">groupBox</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#groupBox-2"><span class="toc-number">2.2.</span> <span class="toc-text">groupBox_2</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#groupBox-3"><span class="toc-number">2.3.</span> <span class="toc-text">groupBox_3</span></a></li></ol></li></ol></div></div></div><header class="post-bg" id="page-header" style="background-image: url(https://s3.ax1x.com/2020/12/09/r96Haj.jpg)"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Blog</a></span><span id="menus"><div id="search_button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div></div><span class="close" id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></span></span></nav><div id="post-info"><div id="post-title"><div class="posttitle">用PyQT实现的BadUSB脚本编写器之闲聊</div></div><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2020-12-08T10:53:00.000Z" title="发表于 2020-12-08 18:53:00">2020-12-08</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2020-12-08T10:53:00.000Z" title="更新于 2020-12-08 18:53:00">2020-12-08</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/python/">python</a></span></div><div class="meta-secondline"> <span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">1.4k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>4分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout_post" id="content-inner"><article id="post"><div class="post-content" id="article-container"><h1 id="introduce"><a href="#introduce" class="headerlink" title="introduce"></a>introduce</h1><p># =========文章废话比较多============= (pyqt式提示线)<br>项目地址：<a target="_blank" rel="noopener" href="https://github.com/hensir/QtTest">https://github.com/hensir/QtTest</a><br>这个存储库里实际是有三个项目的<br>badusb是主角的文件夹<br>pyb7是 为脚本攻击磐云设备 型号PY—B7 混战第二题的工具 不过只画了一个界面<br>qq 是一个发送邮件的工具 (手动滑稽)</p>
+<p>当然大多数工具的存在都是为了复习 严格来说我是从8月29就开始学习PyQT了<br>但其实9月上旬我都还在参加我们学校主办的那个网络安全比赛<br>不过距今学到了232页 我个人是挺满意的 </p>
+<h1 id="主界面"><a href="#主界面" class="headerlink" title="主界面"></a>主界面</h1><p><a target="_blank" rel="noopener" href="https://imgchr.com/i/r9yCXF"><img src= "/img/loading.gif" data-lazy-src="https://s3.ax1x.com/2020/12/09/r9yCXF.jpg" alt="r9yCXF.jpg"></a><br>一眼望去最明显的 咱先不说<br>从对象观察器最外边看 有两个 有一个状态栏 另一个工具栏<br>前者目前做了这个 按钮点击或按下的状态提示<br>后者的多是操作这个 TextEdit文本编辑框 复制 剪切 放大啥的 都是它内建的槽函数<br>可能值得一嘴的是 那个字体action 是调用了一个标准的字体选择对话框</p>
+<h2 id="groupBox"><a href="#groupBox" class="headerlink" title="groupBox"></a>groupBox</h2><p>好，首(False)先登场的是 我们的DuckySpark 转DigiSpark按钮<br>这个按钮就是和它的名字一样 用来把 算了 别再人类本质了<br>代码实现我用的现成的 没错我就是代码的搬运工 Ctrl V的信仰者（滑稽）<br>大佬的项目地址：<a target="_blank" rel="noopener" href="https://github.com/toxydose/Duckyspark">https://github.com/toxydose/Duckyspark</a><br>大佬的脚本用法是这样的<br>python3 Duckyspark_translator.py [payload.txt] [output_file]<br>或者<br>python3 Duckyspark_translator.py [payload.txt]<br>这样的<br>我啪的拍了一下脑门 很快嗷 欸，原来，大佬的脚本是从终端接收参数执行的<br>之后我来了一套接化发 把大佬的脚本 改成了一个函数<br>接收一个str 返回一个str<br>然后又来了一个按钮 可能是个英国带力士 叫预览代码<br>嘿嘿 这个我还没实现 功能就是 用python运行TextEdit编辑框中所编写的脚本<br>初步思路是 就是上面那个DTD函数一样 就做一个replace呗<br>替换为那个叫pywin32库能执行的语句</p>
+<h2 id="groupBox-2"><a href="#groupBox-2" class="headerlink" title="groupBox_2"></a>groupBox_2</h2><p>组名叫INPUT All In One 她里面东西不少 花里胡哨的 反正我挺舒服的<br>bulingbuling两个瘟都死风格的 大 按钮  也不短对吧<br>左边那个最后再讲 右边那个也是 在做了在做了<br><a target="_blank" rel="noopener" href="https://imgchr.com/i/r9yplT"><img src= "/img/loading.gif" data-lazy-src="https://s3.ax1x.com/2020/12/09/r9yplT.jpg" alt="r9yplT.jpg"></a><br>接下来是 按键识别输入 这一套功能是这个项目逻辑最多的了<br>讲一下实现的动作 功能有 这个lineedit可以直接接收不可打印字符的显示<br>也就是 我按个 Ctrl+Alt+A 上面就直接显示了 当然底层的还不行<br>就是那个 win(meta)+E win+R 。。。。。这些 都会直接显示瘟都死的功能<br>然后我的lineedit就接不到快捷键了<br>                后来<br>我以我小学三年级英语基础发现了designer里居然有那个<br>叫KeySequenceEdit的组件 我开始方了 按键 序列 编辑器<br>！我傻了 我写了那么久的lineedit就被你一个小小小小小小小小小小小小小小小小小小小小小组件<br>给替掉了吗 我hyh 从这跳下去也不会用这个KSE 欸 Is so yummy<br>我尝试了几把 嗯？ 说鸡不说@F(H#BJF()J@JKSDL)PL:K””<br>文明你J&lt;$#L&amp;K%*H)&amp;OGjh’asjd<br>感觉还 中 吧 也都那样了 都比我的LE(LineEdit)多了 一个功能1.5秒后停止接收按键 并显示结果<br>说这话不是贬低它的 而是它天美的也不能接收 瘟都死的全局快捷键 得。  拜拜还是<br>然后是 右边这个当前文本“单击”的comboBox 当这个cB中的项目被激活后会进入相应槽函数<br>点一下 玩一年  单击按钮就是那个stroke，press和release 换项目后 会清空LE<br>stroke没啥 press只能输入一个按键 而这个release 就更厉害了<br>它是直接预定好的一个 “0” 就是头文件指定的松开方式嘛<br>打印字符串 没得说    接着是 Sleep步长是100<br>好了 该说说我们的KeyDialog了  这个对话框花了我不少时间 也学到了好多东西<br><a target="_blank" rel="noopener" href="https://imgchr.com/i/r9y96U"><img src= "/img/loading.gif" data-lazy-src="https://s3.ax1x.com/2020/12/09/r9y96U.jpg" alt="r9y96U.jpg"></a><br>里面有 3个组合框 24个按钮和三个单选按钮<br>首先是  按钮太多 所以用了findchildren 循环遍历的连接了信号<br>很快啊 3个cB也是这样做的 至于传送的是什么数值 嘿嘿<br>是按钮的名字 我没写常量表 反正按钮名字也方便 同时也学到了sender()<br><a target="_blank" rel="noopener" href="https://imgchr.com/i/r9yim4"><img src= "/img/loading.gif" data-lazy-src="https://s3.ax1x.com/2020/12/09/r9yim4.jpg" alt="r9yim4.jpg"></a><br>然后是其它按键 到底如何实现这个其它按键 我想了以下两种方法<br>一。删除整个KeyDialog的组件 然后循环遍历生成按钮<br>二。在原来的KeyDilog上向右扩展按钮<br>其次再次点击 其他按键 会把界面返回到原来的样子<br>啊这 第一种方法好像不太适合我们的 其次<br>主要这个 二 我已经画好了 不想删<br>还原界面原来的样子 用的是 隐藏右边的布局<br>还有这个对整个窗体进行adjustsize</p>
+<h2 id="groupBox-3"><a href="#groupBox-3" class="headerlink" title="groupBox_3"></a>groupBox_3</h2><p>好家伙 组名 Ctrl+V 这么大一闪亮按键组合 组成了我多少代码<br>四个按钮 上面都有tooltip 就是那个你懂的<br>项目地址：<a target="_blank" rel="noopener" href="https://github.com/CedArctic/DigiSpark-Scripts">https://github.com/CedArctic/DigiSpark-Scripts</a></p>
+<p>说句实话 各位可能没看到这个define功能的实现<br>没错 我还真没写 哈哈哈哈哈哈-</p>
+</div><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">tran5iti0n</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://recursion.vip/posts/3888dc4f.html">http://recursion.vip/posts/3888dc4f.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://recursion.vip" target="_blank">Blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%B7%A5%E5%85%B7/">工具</a><a class="post-meta__tags" href="/tags/%E6%89%8B%E5%86%8C/">手册</a><a class="post-meta__tags" href="/tags/Python/">Python</a><a class="post-meta__tags" href="/tags/PyQT/">PyQT</a></div><div class="post_share"><div class="social-share" data-image="https://s3.ax1x.com/2020/12/09/r96Haj.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/posts/c5b196d.html"><img class="next-cover" data-lazy-src="https://s1.ax1x.com/2020/04/26/JcBGNQ.png" onerror="onerror=null;src='/img/404.jpg'"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">Python实现C-Primer-Puls第十七章复习题目和编程练习题的答案</div></div></a></div></nav></article></main><footer id="footer" style="background-image: url(https://s3.ax1x.com/2020/12/09/r96Haj.jpg)"><div id="footer-wrap"><div class="copyright">&copy;2020 By tran5iti0n</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><section id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></section><div class="search-dialog" id="local-search"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"><div id="local-hits"></div><div id="local-stats"><div class="local-search-stats__hr" id="hr"><span>由</span> <a target="_blank" rel="noopener" href="https://github.com/wzpan/hexo-generator-search" style="color:#49B1F5;">hexo-generator-search</a>
+ <span>提供支持</span></div></div></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div><div><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module" defer></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><script id="click-show-text" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/click-show-text.min.js" async="async" mobile="true"></script></div></body></html>
