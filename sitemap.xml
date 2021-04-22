@@ -2,9 +2,9 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://recursion.vip/posts/3888dc4f.html</loc>
+    <loc>http://recursion.vip/posts/a2b2d8d2.html</loc>
     
-    <lastmod>2020-12-08</lastmod>
+    <lastmod>2021-04-22</lastmod>
     
   </url>
   
@@ -19,13 +19,6 @@
     <loc>http://recursion.vip/posts/be63c193.html</loc>
     
     <lastmod>2020-05-27</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://recursion.vip/posts/fced4b64.html</loc>
-    
-    <lastmod>2020-04-25</lastmod>
     
   </url>
   
@@ -151,7 +144,7 @@
 
   <url>
     <loc>http://recursion.vip/</loc>
-    <lastmod>2020-12-22</lastmod>
+    <lastmod>2021-04-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -159,35 +152,21 @@
   
   <url>
     <loc>http://recursion.vip/tags/C%E8%AF%AD%E8%A8%80/</loc>
-    <lastmod>2020-12-22</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://recursion.vip/tags/%E5%B7%A5%E5%85%B7/</loc>
-    <lastmod>2020-12-22</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://recursion.vip/tags/%E6%89%8B%E5%86%8C/</loc>
-    <lastmod>2020-12-22</lastmod>
+    <lastmod>2021-04-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://recursion.vip/tags/Python/</loc>
-    <lastmod>2020-12-22</lastmod>
+    <lastmod>2021-04-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>http://recursion.vip/tags/PyQT/</loc>
-    <lastmod>2020-12-22</lastmod>
+    <loc>http://recursion.vip/tags/PyQt5/</loc>
+    <lastmod>2021-04-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
@@ -196,21 +175,14 @@
   
   <url>
     <loc>http://recursion.vip/categories/C-Primer-Plus/</loc>
-    <lastmod>2020-12-22</lastmod>
+    <lastmod>2021-04-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>http://recursion.vip/categories/python/</loc>
-    <lastmod>2020-12-22</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://recursion.vip/categories/%E6%89%8B%E5%86%8C/</loc>
-    <lastmod>2020-12-22</lastmod>
+    <loc>http://recursion.vip/categories/Python/</loc>
+    <lastmod>2021-04-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>

@@ -1,0 +1,219 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>基于PyQt5的BadUSB代码生成器 | Blog</title><meta name="keywords" content="Python,PyQt5"><meta name="author" content="tran5iti0n"><meta name="copyright" content="tran5iti0n"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><meta name="description" content="软件界面介绍主要是由两个widget(组件)组成的,基于mainwindow的支持MDI的仿文本文档窗口 和 基于widget的功能区组件 支持MDI的文本文档这个文件规划的很完美 可以做一个独立的文件 可以继承使用 也就是ctrl+c和ctrl+v   (↓)  这是主界面 本来是自己画UI的 完了 发现不好看 后来看到这个文本文档挺符合基本要求的 然后附加了一个MDI子窗口的功能 当然啊 现在">
+<meta property="og:type" content="article">
+<meta property="og:title" content="基于PyQt5的BadUSB代码生成器">
+<meta property="og:url" content="http://recursion.vip/posts/a2b2d8d2.html">
+<meta property="og:site_name" content="Blog">
+<meta property="og:description" content="软件界面介绍主要是由两个widget(组件)组成的,基于mainwindow的支持MDI的仿文本文档窗口 和 基于widget的功能区组件 支持MDI的文本文档这个文件规划的很完美 可以做一个独立的文件 可以继承使用 也就是ctrl+c和ctrl+v   (↓)  这是主界面 本来是自己画UI的 完了 发现不好看 后来看到这个文本文档挺符合基本要求的 然后附加了一个MDI子窗口的功能 当然啊 现在">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://z3.ax1x.com/2020/12/09/r96Haj.jpg">
+<meta property="article:published_time" content="2021-04-22T04:07:00.000Z">
+<meta property="article:modified_time" content="2021-04-22T04:07:00.000Z">
+<meta property="article:author" content="tran5iti0n">
+<meta property="article:tag" content="Python">
+<meta property="article:tag" content="PyQt5">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://z3.ax1x.com/2020/12/09/r96Haj.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://recursion.vip/posts/a2b2d8d2.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  hexoversion: '5.2.0',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  ClickShowText: {"text":"break,case,char,extern,float,for,goto,short,signed,sizeof,stativ,while,_Alignas,_Alignof,_Atomic,const,continue,default,do,double,else,enum,if,inline,int,long,register,restrict,return,struct,switch,typedef,union,unsigned,void,volatile,_Bool,_Complex,_Generic,_Imaginary,_Noreturn,_Static_assert,_Thread_local","fontSize":"15px"},
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#121212","position":"bottom-left"},
+  justifiedGallery: {
+    js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+    css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isanchor: false
+};
+
+var saveToLocal = {
+  set: function setWithExpiry(key, value, ttl) {
+    const now = new Date()
+    const expiryDay = ttl * 86400000
+    const item = {
+      value: value,
+      expiry: now.getTime() + expiryDay,
+    }
+    localStorage.setItem(key, JSON.stringify(item))
+  },
+
+  get: function getWithExpiry(key) {
+    const itemStr = localStorage.getItem(key)
+
+    if (!itemStr) {
+      return undefined
+    }
+    const item = JSON.parse(itemStr)
+    const now = new Date()
+
+    if (now.getTime() > item.expiry) {
+      localStorage.removeItem(key)
+      return undefined
+    }
+    return item.value
+  }
+}</script><script id="config_change">var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isSidebar: true,
+  postUpdate: '2021-04-22 12:07:00'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(function () {
+  window.activateDarkMode = function () {
+    document.documentElement.setAttribute('data-theme', 'dark')
+    if (document.querySelector('meta[name="theme-color"]') !== null) {
+      document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+    }
+  }
+  window.activateLightMode = function () {
+    document.documentElement.setAttribute('data-theme', 'light')
+    if (document.querySelector('meta[name="theme-color"]') !== null) {
+      document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+    }
+  }
+
+  const autoChangeMode = 'false'
+  const t = saveToLocal.get('theme')
+  if (autoChangeMode === '1') {
+    const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+    const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+    const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+    const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+    if (t === undefined) {
+      if (isLightMode) activateLightMode()
+      else if (isDarkMode) activateDarkMode()
+      else if (isNotSpecified || hasNoSupport) {
+        const now = new Date()
+        const hour = now.getHours()
+        const isNight = hour <= 6 || hour >= 18
+        isNight ? activateDarkMode() : activateLightMode()
+      }
+      window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
+        if (saveToLocal.get('theme') === undefined) {
+          e.matches ? activateDarkMode() : activateLightMode()
+        }
+      })
+    } else if (t === 'light') activateLightMode()
+    else activateDarkMode()
+  } else if (autoChangeMode === '2') {
+    const now = new Date()
+    const hour = now.getHours()
+    const isNight = hour <= 6 || hour >= 18
+    if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
+    else if (t === 'light') activateLightMode()
+    else activateDarkMode()
+  } else {
+    if (t === 'dark') activateDarkMode()
+    else if (t === 'light') activateLightMode()
+  }
+})()</script><meta name="generator" content="Hexo 5.2.0"></head><body><div id="mobile-sidebar"><div id="menu_mask"></div><div id="mobile-sidebar-menus"><div class="mobile_author_icon"><img class="avatar-img" data-lazy-src="https://s1.ax1x.com/2020/04/26/Jc0O7F.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="mobile_post_data"><div class="mobile_data_item is-center"><div class="mobile_data_link"><a href="/archives/"><div class="headline">文章</div><div class="length_num">18</div></a></div></div><div class="mobile_data_item is-center">      <div class="mobile_data_link"><a href="/tags/"><div class="headline">标签</div><div class="length_num">3</div></a></div></div><div class="mobile_data_item is-center">     <div class="mobile_data_link"><a href="/categories/"><div class="headline">分类</div><div class="length_num">2</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div></div></div></div><div id="body-wrap"><div id="web_bg"></div><div id="sidebar"><i class="fas fa-arrow-right on" id="toggle-sidebar"></i><div class="sidebar-toc"><div class="sidebar-toc__title">目录</div><div class="sidebar-toc__progress"><span class="progress-notice">你已经读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar">     </div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BD%AF%E4%BB%B6%E7%95%8C%E9%9D%A2%E4%BB%8B%E7%BB%8D"><span class="toc-number">1.</span> <span class="toc-text">软件界面介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%94%AF%E6%8C%81MDI%E7%9A%84%E6%96%87%E6%9C%AC%E6%96%87%E6%A1%A3"><span class="toc-number">1.1.</span> <span class="toc-text">支持MDI的文本文档</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%99%84%E5%8A%A0%E7%9A%84%E5%8A%9F%E8%83%BD%E5%8C%BA%E7%BB%84%E4%BB%B6"><span class="toc-number">1.2.</span> <span class="toc-text">附加的功能区组件</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95%E5%8F%8ADigi%E8%A7%84%E8%8C%83"><span class="toc-number">2.</span> <span class="toc-text">使用方法及Digi规范</span></a></li></ol></div></div></div><header class="post-bg" id="page-header" style="background-image: url(https://z3.ax1x.com/2020/12/09/r96Haj.jpg)"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Blog</a></span><span id="menus"><div id="search_button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div></div><span class="close" id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></span></span></nav><div id="post-info"><div id="post-title"><div class="posttitle">基于PyQt5的BadUSB代码生成器</div></div><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2021-04-22T04:07:00.000Z" title="发表于 2021-04-22 12:07:00">2021-04-22</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2021-04-22T04:07:00.000Z" title="更新于 2021-04-22 12:07:00">2021-04-22</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Python/">Python</a></span></div><div class="meta-secondline"> <span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">1.2k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>4分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout_post" id="content-inner"><article id="post"><div class="post-content" id="article-container"><h2 id="软件界面介绍"><a href="#软件界面介绍" class="headerlink" title="软件界面介绍"></a>软件界面介绍</h2><p>主要是由两个widget(组件)组成的,基于mainwindow的支持MDI的仿文本文档窗口 和 基于widget的功能区组件</p>
+<h3 id="支持MDI的文本文档"><a href="#支持MDI的文本文档" class="headerlink" title="支持MDI的文本文档"></a>支持MDI的文本文档</h3><p>这个文件规划的很完美 可以做一个独立的文件 可以继承使用 也就是ctrl+c和ctrl+v   (↓)</p>
+<p><a target="_blank" rel="noopener" href="https://imgtu.com/i/cLNMnS"><img src= "/img/loading.gif" data-lazy-src="https://z3.ax1x.com/2021/04/22/cLNMnS.jpg" alt="cLNMnS.jpg"></a></p>
+<p>这是主界面 本来是自己画UI的 完了 发现不好看 后来看到这个文本文档挺符合基本要求的 然后附加了一个MDI子窗口的功能</p>
+<p>当然啊 现在还没有把所有功能给做出来  还有这个里面的子窗口也是一个widget 直接实例的一个对象 手写的一个TextEditUI</p>
+<p>最值得一提的是 在切换子窗口的代码部分 我做了一个挺有意思 但很能会影响速度的操作   (↓)</p>
+<p><a target="_blank" rel="noopener" href="https://imgtu.com/i/cLNl7Q"><img src= "/img/loading.gif" data-lazy-src="https://z3.ax1x.com/2021/04/22/cLNl7Q.jpg" alt="cLNl7Q.jpg"></a></p>
+<p>我觉得 还有一点可以优化的是 上面的信号断开 应该可以断掉全部的信号 不是从act层面 而是从子窗口的视角来断开信号</p>
+<h3 id="附加的功能区组件"><a href="#附加的功能区组件" class="headerlink" title="附加的功能区组件"></a>附加的功能区组件</h3><p><a target="_blank" rel="noopener" href="https://imgtu.com/i/cLNuX8"><img src= "/img/loading.gif" data-lazy-src="https://z3.ax1x.com/2021/04/22/cLNuX8.jpg" alt="cLNuX8.jpg"></a></p>
+<p>这是主界面   按键识别框是一个QKeySequenceEdit组件 我本来也是手写了一个的(没发现QtDesigner居然自带了一个) 不过逻辑代码太多太多 在重构软件之后就用了这个方便一点的</p>
+<p>打印字符串 和 sleep 都是两个简单的LineEdit</p>
+<p>Ducky转换使用的GitHub大佬的  我给改成了一个函数 原项目地址: <a target="_blank" rel="noopener" href="https://github.com/toxydose/Duckyspark">https://github.com/toxydose/Duckyspark</a></p>
+<p>右边的两个箭头 可以调出层叠界面 是用来直接开启一个badusb代码示例的 (↓)</p>
+<p><a target="_blank" rel="noopener" href="https://imgtu.com/i/cLNQ0g"><img src= "/img/loading.gif" data-lazy-src="https://z3.ax1x.com/2021/04/22/cLNQ0g.jpg" alt="cLNQ0g.jpg"></a></p>
+<p>还有这个点击选择输入也有一个独立窗口的 (↓)</p>
+<p><a target="_blank" rel="noopener" href="https://imgtu.com/i/cLNn6f"><img src= "/img/loading.gif" data-lazy-src="https://z3.ax1x.com/2021/04/22/cLNn6f.jpg" alt="cLNn6f.jpg"></a></p>
+<p>这是初始的样子 点击其他按键后会显示所有的按键 (↓)</p>
+<p><a target="_blank" rel="noopener" href="https://imgtu.com/i/cLN3kj"><img src= "/img/loading.gif" data-lazy-src="https://z3.ax1x.com/2021/04/22/cLN3kj.jpg" alt="cLN3kj.jpg"></a></p>
+<p>所有的 按键按钮 都连接了一个指定信号 可以把按钮名字给打印到当前界面上方的LineEdit上 用的是find children方法 循环查找所有小孩 然后排除 “添加”，“清空”，”其它按键“这三个不需要映射的按钮</p>
+<h2 id="使用方法及Digi规范"><a href="#使用方法及Digi规范" class="headerlink" title="使用方法及Digi规范"></a>使用方法及Digi规范</h2><p>软件界面还是挺简单直观的 想说一下咱们Digi开发板和Ducky的不同之处</p>
+<p>我在软件开启时默认加载了一个Digi的头文件 想以此说明使用方法 后期也会做个检测 只有前三次开启时才会加载头文件 以后就放在层叠界面中</p>
+<p>想看的时候再手动打开 头文件原项目地址: <a target="_blank" rel="noopener" href="https://github.com/BesoBerlin/DigiKeyboard_DE/blob/master/DigiKeyboard.h">https://github.com/BesoBerlin/DigiKeyboard_DE/blob/master/DigiKeyboard.h</a></p>
+<p>主要想介绍两个函数的使用 准确来时是四个   分别是</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;sendKeyStroke: sends a key press AND release</span><br><span class="line">void sendKeyStroke(byte keyStroke) &#123;</span><br></pre></td></tr></table></figure>
+
+<p>这里的 keystroke 参数指的是 这样的数值  (↓)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">#define KEY_A       4</span><br><span class="line">#define KEY_B       5</span><br><span class="line">#define KEY_F11     68</span><br><span class="line">#define KEY_F12     69</span><br><span class="line">#define KEY_TAB	    43</span><br><span class="line">#define KEY_SPACE   44</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;sendKeyStroke: sends a key press AND release with modifiers</span><br><span class="line">void sendKeyStroke(byte keyStroke, byte modifiers) &#123;</span><br></pre></td></tr></table></figure>
+
+<p>这里的 modifiers 就和 keystroke不一样了 它是这样的  (↓)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">#define MOD_CONTROL_LEFT    (1&lt;&lt;0)</span><br><span class="line">#define MOD_SHIFT_LEFT      (1&lt;&lt;1)</span><br><span class="line">#define MOD_ALT_LEFT        (1&lt;&lt;2)</span><br><span class="line">#define MOD_GUI_LEFT        (1&lt;&lt;3)</span><br><span class="line">#define MOD_CONTROL_RIGHT   (1&lt;&lt;4)</span><br><span class="line">#define MOD_SHIFT_RIGHT     (1&lt;&lt;5)</span><br><span class="line">#define MOD_ALT_RIGHT       (1&lt;&lt;6)</span><br><span class="line">#define MOD_GUI_RIGHT       (1&lt;&lt;7)</span><br></pre></td></tr></table></figure>
+
+<p>这是全部的修饰按键了 也就是上面按键组合只能是</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">​sendKeyStroke(KEY_A,MOD_CONTROL_LEFT）</span><br><span class="line">​sendKeyStroke(KEY_F11,MOD_ALT_LEFT）</span><br></pre></td></tr></table></figure>
+
+<p>这种 而不能像下面这样 用两个普通的keystroke</p>
+<pre><code>sendKeyStroke(KEY_E,KEY_ENTER)</code></pre>
+<hr>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;sendKeyPress: sends a key press only - no release</span><br><span class="line">&#x2F;&#x2F;to release the key, send again with keyPress&#x3D;0</span><br><span class="line">void sendKeyPress(byte keyPress) &#123;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;sendKeyPress: sends a key press only, with modifiers - no release</span><br><span class="line">&#x2F;&#x2F;to release the key, send again with keyPress&#x3D;0</span><br><span class="line">void sendKeyPress(byte keyPress, byte modifiers) &#123;</span><br></pre></td></tr></table></figure>
+
+<p>参数的操作上面已经说过了 主要说下这个按下不松开 松开需要带着keypress参数为0 再发送一遍 是个什么操作</p>
+<p>有两点 1.按下什么时候松开 2.能不能和其他按键组合按下 做成组合按键 举两个例子应该就能搞清楚了</p>
+<pre><code>// 这是一直按下不松开
+sendKeyPress(KEY_A)
+
+// 按下并立即松开
+sendKeyPress(KEY_A,MOD_CONTROL_LEFT)
+sendKeyPress(0)
+
+// 按下2秒后再松开
+sendKeyPress(KEY_A)
+delay(2000)
+sendKeyPress(0)
+
+// 也可以不发送0参数 直接输入下一个按键函数就行了
+// 但不确定这样会不会有其他问题
+sendKeyPress(KEY_A)
+delay(2000)
+sendKeyPress(KEY_E,MOD_GUI_LEFT)</code></pre>
+<p>接下来举两个组合按键的例子</p>
+<pre><code>sendKeyPress(KEY_E)
+sendKeyPress(MOD_GUI_LEFT)
+sendKeyPress(0)
+// 这样就解决了 sendKeyStroke只能一个普通按键一个修饰按键的短板了
+// 还有下面这个例子
+sendKeyPress(KEY_1)
+sendKeyPress(MOD_SHIFT_LEFT)
+sendKeyPress(0)
+// 按下上档键和主键盘数字按键 这样就可以不用print函数就能输出符号了</code></pre>
+</div><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">tran5iti0n</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://recursion.vip/posts/a2b2d8d2.html">http://recursion.vip/posts/a2b2d8d2.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://recursion.vip" target="_blank">Blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Python/">Python</a><a class="post-meta__tags" href="/tags/PyQt5/">PyQt5</a></div><div class="post_share"><div class="social-share" data-image="https://z3.ax1x.com/2020/12/09/r96Haj.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/posts/c5b196d.html"><img class="next-cover" data-lazy-src="https://s1.ax1x.com/2020/04/26/JcBGNQ.png" onerror="onerror=null;src='/img/404.jpg'"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">Python实现C-Primer-Puls第十七章复习题目和编程练习题的答案</div></div></a></div></nav></article></main><footer id="footer" style="background-image: url(https://z3.ax1x.com/2020/12/09/r96Haj.jpg)"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2021 By tran5iti0n</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><section id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></section><div class="search-dialog" id="local-search"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"><div id="local-hits"></div><div id="local-stats"><div class="local-search-stats__hr" id="hr"><span>由</span> <a target="_blank" rel="noopener" href="https://github.com/wzpan/hexo-generator-search" style="color:#49B1F5;">hexo-generator-search</a>
+ <span>提供支持</span></div></div></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div><div><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module" defer></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><script id="click-show-text" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/click-show-text.min.js" async="async" mobile="true"></script></div></body></html>
