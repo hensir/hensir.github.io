@@ -61,6 +61,7 @@ Ducky转换使用的GitHub大佬的  我给改成了一个函数 原项目地址
 
 主要想介绍两个函数的使用 准确来时是四个   分别是
 
+### sendKeyStroke
 ```
 //sendKeyStroke: sends a key press AND release
 void sendKeyStroke(byte keyStroke) {
@@ -112,7 +113,7 @@ void sendKeyStroke(byte keyStroke, byte modifiers) {
 ----
 
 
-
+### sendKeyPress
 ```
 //sendKeyPress: sends a key press only - no release
 //to release the key, send again with keyPress=0
